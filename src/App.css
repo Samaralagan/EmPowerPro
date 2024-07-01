@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+  
+}
+body{
+  background-color: #fcfcfc;
+  overflow-x: hidden;
+}
+
+/* Colors and styling */
+:root{
+  --Main-color:#000F44;
+  --Sub-color:#FFFFFF;
+  --available:#F37C98;
+  --approved:#9BF37C;
+  --rejected:#F39F7C;
+  --pending:#FFAC0A;
+  --approved-btn:#02C416;
+  --Light:#D9D9D9;
+  --Flex-heading:#FFBB00;
+  --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+}
+
+
+
+
+
+.gold-star {
+  color: gold;
+}
+.gradient-blue-btn{
+  padding: 8px 50px;
+  border-radius: 14px;
+  background:linear-gradient(to right, #86D3EC 0%, #55B7D6 39%, #1E98BE 100%);
+  border: none;
+  color: var(--Light);
+}
+.social-media-icon{
+  background-color:#D9D9D9 ;
+  color: var(--Sub-color);
+  margin: 3px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* Add this CSS to your stylesheet or a CSS module */
+
+/* Container for the slider */
+/* .container {
+  overflow: hidden; 
+  position: relative;
+  width: 100%; 
+} */
+
+/* Row to hold the cards */
+/* .row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center; 
+} */
+
+/* about-Card styles */
+/* .card {
+  flex-shrink: 0; 
+  width: 18rem; 
+  margin: 0 10px; 
+}
+
+button {
+  z-index: 1;
+  background-color: white;
+  border: none;
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.position-absolute {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+
+/* visiting page title fade  */
+.title-fade {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+.title-fade.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Service page------------------------------------ */
+
+/* The parent container should be relative to position the overlay correctly */
+.overlay-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* The overlay content should be positioned absolutely within the parent */
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; 
+  opacity: 0.8; 
+}
+
+
+.overlay-container .container-fluid {
+  position: relative;
+  z-index: 1; 
+}
+
+
+
