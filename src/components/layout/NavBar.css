@@ -1,0 +1,38 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+  /* under line the navbar */
+.nav-link-custom {
+    position: relative;
+    display: inline-block;
+    color: #D7D7D8;
+    text-decoration: none; 
+    padding-bottom: 5px; 
+  }
+  
+  .nav-link-custom::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #D7D7D8; 
+    transition: width 0.5s ease, right 0.5s ease;
+  }
+  
+  .nav-link-custom:hover::after {
+    width: 100%;
+    right: 0;
+  }
