@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.css'
 import { FaBell } from "react-icons/fa";
-import img from '../../assets/images/profile.jpeg'
+import img from '../../assets/images/profile-pro.jpg'
 
 
 const Header = () => {
@@ -10,10 +10,11 @@ const Header = () => {
         <div className='header-content'>
             <h2>Hi , Raguram</h2>
             <div className='header-profile'>
-              <img src={img} alt="" />  
-              <FaBell />
+              <img src={img} alt="" className='profile-pic' />  
+              <FaBell className='notify-icon'/>
             </div>
-        </div>  
+        </div> 
+       
     </div>
   )
 }
