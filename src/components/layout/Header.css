@@ -11,25 +11,35 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
 
+  .header{
+    display: flex;
+    width: 100%;
+    height: 6vh;
+    border-radius: 10px;
+    position: relative;
+  }
+
   .header-body{
     display: flex;
     width: 100%;
     height: 6vh;
     border-radius: 10px;
+    /*  position: fixed;  */
     /* box-shadow: 
     -10px 0px 10px rgba(0, 0, 0, 0.2),  
     0px -10px 10px rgba(0, 0, 0, 0.2), 
     0px 10px 10px rgba(0, 0, 0, 0.2),   
     10px 0px 10px rgba(0, 0, 0, 0.2);    */
   }
+
   .header-content{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 11px;
   }
    .header-profile{
-    margin-left: 55vw;
+    position:absolute ;
+    right: 20px;
     font-size: 23px;
   }
   .header-content div img{

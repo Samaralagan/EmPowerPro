@@ -1,3 +1,4 @@
+/* Colors and styling */
 :root{
     --Main-color:#000F44;
     --Sub-color:#FFFFFF;
@@ -11,9 +12,9 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
 
-  .newcoursecard-body{
-    height: 32vh;
-    width: 15vw;
+  .mycoursecard-body{
+    display: flex;
+    width: 100%;
     border-radius: 25px;
     padding: 0.5vw;
     box-shadow: 
@@ -21,43 +22,34 @@
     0px -4px 4px rgba(0, 0, 0, 0.2), 
     0px 4px 4px rgba(0, 0, 0, 0.2),   
     4px 0px 4px rgba(0, 0, 0, 0.2); 
-    cursor: pointer; 
+    cursor: pointer;
+    margin-top: 4vh;
+    height: 28vh
   }
-  .newcoursecard-body:hover{
+  .mycoursecard-body:hover{
     box-shadow: 
     -10px 0px 10px rgba(0, 0, 0, 0.2),  
     0px -10px 10px rgba(0, 0, 0, 0.2), 
     0px 10px 10px rgba(0, 0, 0, 0.2),   
     10px 0px 10px rgba(0, 0, 0, 0.2);  
-    opacity: 0.8;
+    /* opacity: 0.8; */
   }
-  .newcoursecard-img{
-    width: 14vw;
+  .mycoursecard-img img{
+     height:26vh ;
   }
-  .newcoursecard-title{
-    font-size: 2.1vh;
-    margin: 0;
-    margin-top: 0.9vh;
-    padding-left: 1vh;
-
+  .mycoursecard-content{
+    width: 90%;
+    padding: 2vh;
   }
-  .newcoursecard-level{
-    font-size: 1.7vh;
+  .mycoursecard-header{
     display: flex;
-    margin: 0;
-    margin-top: 0.2vh;
     justify-content: space-between;
-    padding-left: 1vh;
-    padding-right: 1vh;
-    color: #6A6A6A;
   }
-  .newcoursecard-level p{
-    margin: 0;
+  .mycoursecard-header p{
+    font-size: 1.8vh;
+    color: #ACA7A7;
   }
-  .newcoursecard-enrolled{
-    font-size: 1.9vh;
-    margin: 0;
-    padding-left: 1vh;
-    margin-top: 1vh;
-    color: #4A4848;
+  .mycoursecard-level{
+    color: red;
+
   }

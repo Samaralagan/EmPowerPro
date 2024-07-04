@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage.jsx';
 import SideBar from './components/common/SideBar.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TrainingPage from './pages/TrainingPage.jsx';
+import ComplaintsPage from './pages/ComplaintsPage.jsx';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
               <Route path="/Project" element={<SideBar />} />
               <Route path="/Leave" element={<SideBar />} />
               <Route path="/Pay Roll" element={<SideBar />} />
-              <Route path="/Complaints" element={<SideBar />} />
+              <Route path="/Complaints" element={<ComplaintsPage/>} />
               <Route path="/Training" element={<TrainingPage />} />
            </Routes>
          </div>

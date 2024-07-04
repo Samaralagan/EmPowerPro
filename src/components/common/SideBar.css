@@ -16,6 +16,7 @@
     background-color: var(--Main-color);
     color: var(--Sub-color);
     overflow: hidden;
+    position: fixed;
 }
 .side-bar-logo{
     display: flex;
