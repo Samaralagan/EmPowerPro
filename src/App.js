@@ -26,6 +26,7 @@ function App() {
               <Route path="/Pay Roll" element={<SideBar />} />
               <Route path="/Complaints" element={<ComplaintsPage/>} />
               <Route path="/Training" element={<TrainingPage />} />
+              
            </Routes>
          </div>
        </Router>
