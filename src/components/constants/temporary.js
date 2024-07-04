@@ -7,6 +7,9 @@ import NewCourseImg1 from '../../assets/images/newcourse 1.png'
 import NewCourseImg2 from '../../assets/images/newcourse 2.png'
 import NewCourseImg3 from '../../assets/images/newcourse 3.png'
 import NewCourseImg4 from '../../assets/images/newcourse 4.png'
+import MyCourseImg1 from '../../assets/images/mycourse 1.png'
+import MyCourseImg2 from '../../assets/images/mycourse 2.png'
+
 
 export const EVENT_ACTIVITY_CARD=[
    { name:'Blockchain-Powered Voting <br/> System',img:Event_ActivityImg1 ,text:'Revolutionizing the electoral process with a secure, transparent, and tamper-proof voting system using blockchain technology.Our solution ensures voter anonymity, real-time results, and enhanced trust in the integrity of elections.'},
@@ -33,9 +36,15 @@ export const EVENT_VACANCY_CARD = [
    {type:'Creative & Art',name:'Intern Front-End  Developer  <br/>-Fully Remote',time:'Full Time',salary:'$ 45  - $ 55',updated_time:'5d  ago'}
 ];
 
-export const NewCourseCard=[
+export const NewCourseCardData=[
    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-   {img:NewCourseImg1,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'}
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'}
+]
+
+export const MyCourseCardData=[
+   {img:MyCourseImg1,title:'Software Design and Architecture',started:'Started : Jan 24',level:'Beginner Level',star:4.8 ,Progress:75},
+   {img:MyCourseImg2,title:'Agile Software Development',started:'Started : Jan 24',level:'Advanced Level',star:4.8 ,Progress:40}
+
 ]
