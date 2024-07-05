@@ -14,8 +14,8 @@ const Header = () => {
               <img src={img} alt="" className='profile-pic' />  
               <FaBell className='notify-icon'/>
             </div>
-        </div> 
-       
+        </div>
+      </div> 
     </div>
   )
 }
