@@ -1,0 +1,55 @@
+/* Colors and styling */
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+  .mycoursecard-body{
+    display: flex;
+    width: 100%;
+    border-radius: 25px;
+    padding: 0.5vw;
+    box-shadow: 
+    -4px 0px 4px rgba(0, 0, 0, 0.2),  
+    0px -4px 4px rgba(0, 0, 0, 0.2), 
+    0px 4px 4px rgba(0, 0, 0, 0.2),   
+    4px 0px 4px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    margin-top: 4vh;
+    height: 28vh
+  }
+  .mycoursecard-body:hover{
+    box-shadow: 
+    -10px 0px 10px rgba(0, 0, 0, 0.2),  
+    0px -10px 10px rgba(0, 0, 0, 0.2), 
+    0px 10px 10px rgba(0, 0, 0, 0.2),   
+    10px 0px 10px rgba(0, 0, 0, 0.2);  
+    /* opacity: 0.8; */
+  }
+  .mycoursecard-img img{
+     height:26vh ;
+  }
+  .mycoursecard-content{
+    width: 90%;
+    padding: 2vh;
+  }
+  .mycoursecard-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .mycoursecard-header p{
+    font-size: 1.8vh;
+    color: #ACA7A7;
+  }
+  .mycoursecard-level{
+    color: red;
+
+  }
