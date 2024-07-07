@@ -1,0 +1,119 @@
+/* Colors and styling */
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --pending1:#FF9A9A;
+    --pendingtext:#7D0000;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --approvedtext:#037A0F;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+  .complaintmorecard-body{
+    
+    display: flex;
+    width: 95%;
+    border-radius: 25px;
+    padding: 0.5vw;
+    box-shadow: 
+    -4px 0px 4px rgba(0, 0, 0, 0.2),  
+    0px -4px 4px rgba(0, 0, 0, 0.2), 
+    0px 4px 4px rgba(0, 0, 0, 0.2),   
+    4px 0px 4px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    
+  }
+  .complaintmorecard-body:hover{
+    box-shadow: 
+    -10px 0px 10px rgba(0, 0, 0, 0.2),  
+    0px -10px 10px rgba(0, 0, 0, 0.2), 
+    0px 10px 10px rgba(0, 0, 0, 0.2),   
+    10px 0px 10px rgba(0, 0, 0, 0.2);  
+    /* opacity: 0.8; */
+  }
+  
+  .complaintmorecard-content{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    /* padding: 2vh; */
+  }
+  .complaintmorecard-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  
+  .complaintmorecard-header-gray{
+    font-size: 1.8vh;
+    color: #ACA7A7;
+    
+    margin-bottom: 0%;
+  }
+  .complaintmorecard-header-text{
+    margin-left: 2rem;
+    font-size: 1.8vh;
+    color: black;
+    font-weight: bold;
+  }
+  .complaintmorecard-header-heading{
+    margin-left: 2rem;
+    color: black;
+    font-weight: bold;
+    width: 100%;
+    
+  }
+  
+
+  .pending{
+    background-color: var(--pending1);
+    border-radius: 20px;
+    width: 20vh;
+    padding: 5px;
+    text-align: center;
+    color: var(--pendingtext);
+    
+  }
+  .approved{
+    background-color: var(--approved);
+    border-radius: 20px;
+    width: 20vh;
+    padding: 5px;
+    text-align: center;
+    color: var(--a);
+  }
+  .left-flexbox-complaintmore{
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+
+  }
+
+  .right-flexbox-complaintmore{
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+    width: 100%;
+    color: #ACA7A7;
+
+  }
+  .backarrow{
+    margin-left: 1.5rem;
+    width: 3rem;
+    height: 2rem;
+    transition: transform 2s ease;
+  }
+  .backarrow :hover{
+    transform: scale(1.1);
+    color: #007bff;
+  }
