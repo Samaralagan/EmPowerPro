@@ -1,0 +1,89 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+.service-body{
+    height: 100vh;
+    color: var(--Main-color);
+}
+.service-title{
+    font-weight: 600;
+    font-family: BreeSerif;
+    color: var(--Main-color);
+}
+.service-text{
+    font-size: 22px;
+    color:#C5C6C7 ;
+}
+
+.service-container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.service-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 20px;
+    padding: 12px;
+    margin: 70px 20px;
+    width: 250px;
+    cursor: pointer;
+}
+.service-box:hover{
+   background-color: var(--Main-color);
+   color: var(--Light);
+}
+.service-box:hover .service-box-icon-outline{
+    background-color: #2CB3FF;
+ }
+ .service-box:hover .service-box-icon{
+    background-color: var(--Main-color);
+    color: var(--Light);
+ }
+ .service-box:hover .service-box-title{
+    color: var(--Light);
+ }
+.service-box-icon-outline{
+    position: absolute;
+    height: 108px;
+    width: 108px;
+    background-color: var(--Main-color);
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    top:20px;
+}
+.service-box-icon{
+background-color: white;
+ font-size: 60px;
+ height: 100px;
+ width: 100px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 50px;
+
+}
+.service-box-title{
+  color: var(--Main-color);
+  font-weight: 600;
+  font-size: 17px;
+  margin-top: 60px;
+}
+.service-box-text{
+    margin-top: 5px;
+   color: #C2C2C2;
+   font-size: 15px;
+}
