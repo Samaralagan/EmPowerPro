@@ -129,6 +129,13 @@ button:disabled {
   position: relative;
   z-index: 1; 
 }
-
+.border-inbox{
+  border: 2px solid black;
+}
+.toggle-button{
+  display: flex;
+  flex-direction: column;
+  margin-left: 21vw;
+}
 
 
