@@ -10,6 +10,7 @@ import SideBar from './components/common/SideBar.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TrainingPage from './pages/TrainingPage.jsx';
 import ComplaintsPage from './pages/ComplaintsPage.jsx';
+import AttendancePage from './pages/AttendancePage.jsx';
 
 function App() {
   const role = 'Employee';
@@ -22,7 +23,7 @@ function App() {
               <Route path="/Login" element={<LoginPage/>} />
 
               <Route path="/Dash Board/Employee" element={<SideBar />} />
-              <Route path="/Attendance/Employee" element={<SideBar />} />
+              <Route path="/Attendance/Employee" element={<AttendancePage />} />
               <Route path="/Project/Employee" element={<SideBar />} />
               <Route path="/Leave/Employee" element={<SideBar />} />
               <Route path="/Pay Roll/Employee" element={<SideBar />} />

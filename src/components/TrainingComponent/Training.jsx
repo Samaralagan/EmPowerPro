@@ -1,10 +1,11 @@
 import React from 'react'
 import './Training.css'
 import Header from '../layout/Header'
-import { NewCourseCardData } from '../constants/temporary'
+import { NewCourseCardData, OnTimeTrainingCardData } from '../constants/temporary'
 import NewCourseCard from '../common/NewCourseCard'
 import { MyCourseCardData } from '../constants/temporary'
 import MyCourseCard from '../common/MyCourseCard'
+import OnTimeTrainingCard from '../common/OnTimeTrainingCard'
 
 const Training = () => {
   return (
@@ -34,6 +35,19 @@ const Training = () => {
               ))}
            </div>
         </div>
+
+       <div>
+          <h5 className='ontimetraining-title'>ON TIME TRAININGS</h5>
+          <div  className='ontimetraining-content'>
+             <div className='ontimetraining-content-left'>
+                {OnTimeTrainingCardData.map((card,index)=>(
+                   <OnTimeTrainingCard title={card.title} date={card.date} time={card.time} link={card.link} key={index}/>
+                ))}
+             </div>
+             <div className='ontimetraining-content-right'>2</div>
+          </div>
+       </div>
+        
     </div>
   )
 }

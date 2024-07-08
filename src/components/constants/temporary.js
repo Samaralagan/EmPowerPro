@@ -2,7 +2,7 @@
 import Event_ActivityImg1 from '../../assets/images/activity_img1.png'
 import Event_ActivityImg2 from '../../assets/images/activity_img2.png'
 import Event_ActivityImg3 from '../../assets/images/activity_img3.png'
-import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield } from "react-icons/fa";
+import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield,FaCalendar,FaClock,FaLink } from "react-icons/fa";
 import NewCourseImg1 from '../../assets/images/newcourse 1.png'
 import NewCourseImg2 from '../../assets/images/newcourse 2.png'
 import NewCourseImg3 from '../../assets/images/newcourse 3.png'
@@ -46,5 +46,10 @@ export const NewCourseCardData=[
 export const MyCourseCardData=[
    {img:MyCourseImg1,title:'Software Design and Architecture',started:'Started : Jan 24',level:'Beginner Level',star:4.8 ,Progress:75},
    {img:MyCourseImg2,title:'Agile Software Development',started:'Started : Jan 24',level:'Advanced Level',star:4.8 ,Progress:40}
+]
 
+export const OnTimeTrainingCardData=[
+   {title:'Mastering React and Redux',date:'Date :  28 March 2024',time:'Time :  9.00 AM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'},
+   {title:'Kubernetes for Developers',date:'Date :  28 March 2024',time:'Time :  11.00 AM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'},
+   {title:'Advanced JavaScript Techniques',date:'Date :  29 March 2024',time:'Time :  2:00 PM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'}
 ]

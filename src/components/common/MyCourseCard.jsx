@@ -2,6 +2,7 @@ import React from 'react'
 import './MyCourseCard.css'
 import ProgressBar from './ProgressBar'
 import { FaStar } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa";
 
 const MyCourseCard = ({img,title,started,level,star,Progress}) => {
   return (
@@ -14,16 +15,20 @@ const MyCourseCard = ({img,title,started,level,star,Progress}) => {
                 <h5>{title}</h5>
                 <p>{started}</p>
             </div>
-            <p className='mycoursecard-header'>{level}</p>
-            <p className='mycoursecard-header'>{star}<FaStar className='ms-1  mb-1' style={{color:'#FFE143'}}/></p>
-            <div>
-                <div className='mycoursecard-header'>
+            <p className='mycoursecard-level'>{level}</p>
+            <p className='mycoursecard-star'>{star}<FaStar className='ms-1  mb-1' style={{color:'#FFE143'}}/></p>
+            <div className='mycoursecard-process'>
+                <div className='mycoursecard-progress'>
                    <ProgressBar
-                        bgcolor="#44D2FF"
+                        color="#44D2FF"
                         progress={Progress}
-                        height={30}
+                        height={16}
+                        bgcolor='#000F44'
                    />
                 </div>
+                <div className='mycoursecard-btn'>
+                      <span>Go To Course <FaArrowRight className='ms-1'/></span>
+                </div> 
             </div>
         </div>
     </div>
