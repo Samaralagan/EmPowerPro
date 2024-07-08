@@ -1,14 +1,19 @@
-import React from 'react'
-import './MyCourseCard.css'
-import ProgressBar from './ProgressBar'
+import React from "react";
+import "./MyCourseCard.css";
+import ProgressBar from "./ProgressBar";
 import { FaStar } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
 
-const MyCourseCard = ({img,title,started,level,star,Progress}) => {
+const MyCourseCard = ({ img, title, started, level, star, Progress }) => {
   return (
-    <div className='mycoursecard-body'>
-        <div className='mycoursecard-img'>
-            <img src={img} alt=""  />
+    <div className="mycoursecard-body">
+      <div className="mycoursecard-img">
+        <img src={img} alt="" />
+      </div>
+      <div className="mycoursecard-content">
+        <div className="mycoursecard-header">
+          <h5>{title}</h5>
+          <p>{started}</p>
         </div>
         <div className='mycoursecard-content'>
             <div className='mycoursecard-header'>
@@ -21,7 +26,7 @@ const MyCourseCard = ({img,title,started,level,star,Progress}) => {
                 <div className='mycoursecard-progress'>
                    <ProgressBar
                         color="#44D2FF"
-                        progress={Progress}
+                        progress={Progress} 
                         height={16}
                         bgcolor='#000F44'
                    />
@@ -31,8 +36,9 @@ const MyCourseCard = ({img,title,started,level,star,Progress}) => {
                 </div> 
             </div>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyCourseCard
+export default MyCourseCard;
