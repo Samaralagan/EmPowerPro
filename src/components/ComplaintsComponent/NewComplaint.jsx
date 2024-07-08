@@ -2,13 +2,16 @@ import React from "react";
 import Header from "../layout/Header";
 import "./newcomplaint.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
-function NewComplaint() {
+function NewComplaint({ setActiveComponent }) {
+  const handleBackClick = () => {
+    setActiveComponent("Complaints");
+  };
   return (
     <div>
       <div className="newcomplaint-body">
         <Header />
         <hr />
-        <IoMdArrowRoundBack className="backarrow" />
+        <IoMdArrowRoundBack className="backarrow" onClick={handleBackClick} />
         <div className="form-body">
           <form action="" style={{ width: "100%" }}>
             <br />

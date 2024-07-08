@@ -10,6 +10,7 @@ import SideBar from './components/common/SideBar.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TrainingPage from './pages/TrainingPage.jsx';
 import ComplaintsPage from './pages/ComplaintsPage.jsx';
+import ComplaintsPage_Tl from './pages/ComplaintsPage_Tl.jsx';
 import AttendancePage from './pages/AttendancePage.jsx';
 
 function App() {
