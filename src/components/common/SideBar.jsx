@@ -21,6 +21,7 @@ const SideBar = () => {
      role = pathname.split('/')[2];
     return mainPath;
   };
+  
 
   const activePageName = getActivePageName();
  

@@ -10,6 +10,9 @@ import SideBar from './components/common/SideBar.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TrainingPage from './pages/TrainingPage.jsx';
 import ComplaintsPage from './pages/ComplaintsPage.jsx';
+import AttendancePage from './pages/AttendancePage.jsx';
+import ProjectPage from './pages/ProjectPage.jsx';
+import DashboardPage from './pages/DashboardPage.jsx';
 
 function App() {
   const role = 'Employee';
@@ -21,18 +24,18 @@ function App() {
               <Route path="/" element={<HomePage/>} />
               <Route path="/Login" element={<LoginPage/>} />
 
-              <Route path="/Dash Board/Employee" element={<SideBar />} />
-              <Route path="/Attendance/Employee" element={<SideBar />} />
-              <Route path="/Project/Employee" element={<SideBar />} />
+              <Route path="/Dash Board/Employee" element={<DashboardPage />} />
+              <Route path="/Attendance/Employee" element={<AttendancePage />} />
+              <Route path="/Project/Employee" element={<ProjectPage />} />
               <Route path="/Leave/Employee" element={<SideBar />} />
               <Route path="/Pay Roll/Employee" element={<SideBar />} />
               <Route path="/Complaints/Employee" element={<ComplaintsPage/>} />
               <Route path="/Training/Employee" element={<TrainingPage />} />   
-              <Route path="/Beneficiary/Employee" element={<SideBar />} />
+              <Route path="/Beneficiary/Employee" element={<Vacancy_Apply_Form/>} />
 
               <Route path="/Dash Board/TeamLeader" element={<SideBar />} />
               <Route path="/Attendance/TeamLeader" element={<SideBar />} />
-              <Route path="/Project/TeamLeader" element={<SideBar />} />
+              <Route path="/Project/TeamLeader" element={<ProjectPage />} />
               <Route path="/Leave/TeamLeader" element={<SideBar />} />
               <Route path="/Pay Roll/TeamLeader" element={<SideBar />} />
               <Route path="/Complaints/TeamLeader" element={<ComplaintsPage/>} />
@@ -51,7 +54,7 @@ function App() {
 
               <Route path="/Dash Board/HR" element={<SideBar />} />
               <Route path="/Attendance/HR" element={<SideBar />} />
-              <Route path="/Project/HR" element={<SideBar />} />
+              <Route path="/Project/HR" element={<ProjectPage />} />
               <Route path="/Leave/HR" element={<SideBar />} />
               <Route path="/Complaints/HR" element={<ComplaintsPage />} />
               <Route path="/Pay Roll/HR" element={<SideBar />} />
@@ -70,7 +73,7 @@ function App() {
               
               <Route path="/Dash Board/Executive" element={<SideBar />} />
               <Route path="/Attendance/Executive" element={<SideBar />} />
-              <Route path="/Project/Executive" element={<SideBar />} />
+              <Route path="/Project/Executive" element={<ProjectPage />} />
               <Route path="/Leave/Executive" element={<SideBar />} />
               <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
               <Route path="/Pay Roll/Executive" element={<SideBar />} />

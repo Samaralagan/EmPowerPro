@@ -63,3 +63,22 @@ export const OnTimeTrainingCardData=[
    {title:'Kubernetes for Developers',date:'Date :  28 March 2024',time:'Time :  11.00 AM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'},
    {title:'Advanced JavaScript Techniques',date:'Date :  29 March 2024',time:'Time :  2:00 PM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'}
 ]
+
+export const ProjectToDo = [
+   {title:'Complete the frontend development ',date:'Due Date  : 21st March 2024',green:true,orange:true,blue:true},
+   {title:'Four CRUD operations ',date:'Due Date  : 21st March 2024',orange:true,blue:true},
+   {title:'Action Plan  ',date:'Due Date  : 21st March 2024',blue:true}
+]
+
+export const ProjectInProgress =[
+   {title:'UI Designing ',date:'Due Date  : 21st March 2024',green:true,orange:true,blue:true,total:5,finish:3},
+   {title:'Design the ER Diagram',date:'Due Date  : 21st March 2024',orange:true,total:5,finish:4},
+   {title:'State transition diagrams ',date:'Due Date  : 21st March 2024',orange:true,blue:true,total:7,finish:2},
+   {title:'User Interface Flow diagrams ',date:'Due Date  : 21st March 2024',green:true,orange:true,total:7,finish:2}
+]
+
+export const ProjectDone=[
+   {title:'Requirements Analysis ',date:'Completed : 15th February 2024',green:true,orange:true,blue:true},
+   {title:'Project Presentation ',date:'Completed : 15th February 2024',orange:true,green:true},
+   {title:'Proposal Submission ',date:'Completed : 15th February 2024',blue:true,orange:true}
+]
