@@ -9,9 +9,12 @@ import LineChart from './LineChart'
 
 function Attendance() {
     return (
-        <div className='attendance-body'>
-            <Header />
-            <hr className='header-hr' />
+        <div>
+         <Header />
+
+         <div className='attendance-body'>
+           
+          
 
             <div className='rectangles-container'>
                 <div className='rectangle_diff'>
@@ -172,6 +175,7 @@ function Attendance() {
 
 
 
+        </div>
         </div>
     )
 }

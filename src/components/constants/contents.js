@@ -18,6 +18,9 @@ import about_img2 from '../../assets/images/image 2.png'
 import about_img3 from '../../assets/images/image 3.png'
 import about_img4 from '../../assets/images/image 4.png'
 
+
+
+
 export const EVENT ={
     title:'OUR  INNOVATIONS',
     text:'We continuously explore new technologies and methodologies to deliver cutting-edge solutions that drive progress and create value for our clients.'
@@ -65,15 +68,16 @@ export const ABOUT = {
 }
 
 export const EmployeeSidebar = [
-    {name:'Dash Board',icon:GrAppsRounded },
-    {name:'Attendance',icon:FaCalendarCheck },
-    {name:'Project',icon:FaProjectDiagram },
-    {name:'Leave',icon:FaHandSpock },
-    {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
-    {name:'Complaints',icon:MdReportProblem  },
-    {name:'Training',icon:BsPersonVideo3 },
-    {name:'Beneficiary',icon:FaHandHoldingHeart }
-]
+    { name: 'Dash Board', icon: GrAppsRounded },
+    { name: 'Attendance', icon: FaCalendarCheck, subLinks: ['Attendance', 'Leaves'] },
+    { name: 'Project', icon: FaProjectDiagram },
+    { name: 'Leave', icon: FaHandSpock },
+    { name: 'Pay Roll', icon: RiMoneyDollarBoxFill },
+    { name: 'Complaints', icon: MdReportProblem },
+    { name: 'Training', icon: BsPersonVideo3 },
+    { name: 'Beneficiary', icon: FaHandHoldingHeart }
+];
+
 
 export const TeamLeaderSidebar = [
     {name:'Dash Board',icon:<GrAppsRounded />},

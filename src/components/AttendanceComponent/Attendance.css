@@ -17,12 +17,12 @@
     display: flex;
     flex-direction: column;
     margin-left: 15rem;
-    margin-top: -38rem;
+    margin-top: 10rem;
     padding: 1rem;
+   
   }
 
-  
-  
+
   .rectangles-container {
     display: flex;
     justify-content: space-between;

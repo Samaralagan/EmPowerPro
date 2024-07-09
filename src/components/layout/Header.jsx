@@ -13,6 +13,10 @@ const Header = () => {
               <img src={img} alt="" className='profile-pic' />  
               <FaBell className='notify-icon'/>
             </div>
+
+            <hr className='header-hr'></hr>
+
+           
         </div> 
        
     </div>
