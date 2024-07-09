@@ -12,6 +12,8 @@ import TrainingPage from './pages/TrainingPage.jsx';
 import ComplaintsPage from './pages/ComplaintsPage.jsx';
 import ComplaintsPage_Tl from './pages/ComplaintsPage_Tl.jsx';
 import AttendancePage from './pages/AttendancePage.jsx';
+import Complaintsmore from './components/ComplaintsComponent/Complaintsmore.jsx';
+import NewComplaint from './components/ComplaintsComponent/NewComplaint.jsx';
 
 function App() {
   return (
@@ -26,9 +28,11 @@ function App() {
               <Route path="/Project" element={<SideBar />} />
               <Route path="/Leave" element={<SideBar />} />
               <Route path="/Pay Roll" element={<SideBar />} />
-              <Route path="/Complaints" element={<ComplaintsPage/>} />
+              <Route path="/Complaints" element={<ComplaintsPage_Tl/>} />
+              <Route path="/NewComplaint" element={<NewComplaint/>} />
+              <Route path="/Complaintsmore" element={<Complaintsmore/>} />
               <Route path="/Training" element={<TrainingPage />} />
-              
+              <Route path="/Beneficiary" element={<SideBar />} />
            </Routes>
          </div>
        </Router>

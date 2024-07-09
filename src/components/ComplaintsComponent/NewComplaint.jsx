@@ -2,16 +2,17 @@ import React from "react";
 import Header from "../layout/Header";
 import "./newcomplaint.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
-function NewComplaint({ setActiveComponent }) {
-  const handleBackClick = () => {
-    setActiveComponent("Complaints");
-  };
+import { Link } from "react-router-dom";
+
+function NewComplaint() {
   return (
     <div>
       <div className="newcomplaint-body">
         <Header />
         <hr />
-        <IoMdArrowRoundBack className="backarrow" onClick={handleBackClick} />
+        <Link to="/Complaints">
+          <IoMdArrowRoundBack className="backarrow" />
+        </Link>
         <div className="form-body">
           <form action="" style={{ width: "100%" }}>
             <br />

@@ -1,10 +1,8 @@
 import React from "react";
 import "./ComplaintsCard.css";
+import { Link } from "react-router-dom";
 
 const ComplaintsCard = ({ status, about, date }) => {
-  const handleViewDetails = () => {
-    setActiveComponent("Complaintsmore");
-  };
   return (
     <div className="complaintcard-body">
       <div className="complaintcard-content">
@@ -25,7 +23,9 @@ const ComplaintsCard = ({ status, about, date }) => {
             <h5>{date}</h5>
             <br />
             <br />
-            <p onClick={handleViewDetails}>View Details &gt;&gt;&gt; </p>
+            <Link to="/Complaintsmore" style={{ textDecoration: "none" }}>
+              <p>View Details &gt;&gt;&gt; </p>
+            </Link>
           </div>
         </div>
 
