@@ -1,0 +1,98 @@
+/* Colors and styling */
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+  .leave-body{
+    padding: 20px;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15rem;
+    margin-top: -38rem;
+    padding: 1rem;
+  }
+
+  
+  
+  .rectangles-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: -40px;
+  }
+  
+  .rectangle {
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 1rem; 
+    position: relative;
+    padding-left: 40px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  
+
+   
+  }
+
+  .rectangle:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+
+  }
+
+  .rectangle-2 {
+    background-color: var(--available)
+  }
+  
+  .rectangle-3 {
+    background-color:var(--approved-btn)
+  }
+  
+  .rectangle-4 {
+    background-color: var(--rejected)
+  }
+
+  .small-square {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.3); /* 30% transparency */
+    position: absolute;
+    left: 20px; 
+    border-radius: 5px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon {
+    color: rgba(255, 255, 255, 0.7); 
+    font-size: 20px; 
+  }
+  
+  
+  .main-box-content{
+    font-size: 20px;
+    margin-left: 30px;
+  }
+
+  .sub-box-content{
+    font-size: 10px;
+    margin-left: 35px;
+  }
