@@ -1,7 +1,7 @@
 import React from "react";
 import "./ComplaintsCard.css";
 
-const ComplaintsCard = ({ status, about, date }) => {
+const ComplaintsCard = ({status,about,date}) => {
   return (
     <div className="complaintcard-body">
       <div className="complaintcard-content">

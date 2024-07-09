@@ -132,5 +132,10 @@ button:disabled {
 .border-inbox{
   border: 2px solid black;
 }
+.toggle-button{
+  display: flex;
+  flex-direction: column;
+  margin-left: 21vw;
+}
 
 

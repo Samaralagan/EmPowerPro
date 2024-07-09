@@ -5,7 +5,10 @@ import "./complaintsmore.css";
 import { ComplaintsDataMore } from "../constants/temporary";
 import ComplaintMoreCard from "./ComplaintMoreCard";
 
-function Complaintsmore() {
+function Complaintsmore({ setActiveComponent }) {
+  const handleBackClick = () => {
+    setActiveComponent("Complaints");
+  };
   return (
     <div className="complaintsmore-body">
       <Header />

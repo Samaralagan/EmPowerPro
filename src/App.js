@@ -10,9 +10,11 @@ import SideBar from './components/common/SideBar.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TrainingPage from './pages/TrainingPage.jsx';
 import ComplaintsPage from './pages/ComplaintsPage.jsx';
+import ComplaintsPage_Tl from './pages/ComplaintsPage_Tl.jsx';
 import AttendancePage from './pages/AttendancePage.jsx';
 import ProjectPage from './pages/ProjectPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
+import LeavePage from './pages/LeavePage.jsx';
 
 function App() {
   const role = 'Employee';

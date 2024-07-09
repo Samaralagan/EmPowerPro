@@ -7,13 +7,20 @@ import { ComplaintsData } from "../constants/temporary";
 import { Card } from "react-bootstrap";
 import ComplaintsCard from "../common/ComplaintsCard";
 
-const Complaints = () => {
+const Complaints = ({ setActiveComponent }) => {
+  const handleCreateNewComplaint = () => {
+    setActiveComponent("NewComplaint");
+  };
   return (
     <div className="complaints-body">
       <Header />
       <hr />
       <div className="contactus-form-button">
-        <button className="gradient-blue-btn " style={{ color: "white" }}>
+        <button
+          className="gradient-blue-btn "
+          style={{ color: "white" }}
+          onClick={handleCreateNewComplaint}
+        >
           <FaPlusCircle className="me-2" />
           Create New Complaint
         </button>
