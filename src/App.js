@@ -29,7 +29,7 @@ function App() {
               <Route path="/Dash Board/Employee" element={<DashboardPage />} />
               <Route path="/Attendance/Employee" element={<AttendancePage />} />
               <Route path="/Project/Employee" element={<ProjectPage />} />
-              <Route path="/Leave/Employee" element={<SideBar />} />
+              <Route path="/Leave/Employee" element={<LeavePage />} />
               <Route path="/Pay Roll/Employee" element={<SideBar />} />
               <Route path="/Complaints/Employee" element={<ComplaintsPage/>} />
               <Route path="/Training/Employee" element={<TrainingPage />} />   
