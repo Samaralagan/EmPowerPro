@@ -21,18 +21,23 @@
   }
   
  /* upper div content */
+ .leave-rectangles-containers{
+  display: flex;
+  justify-content: space-between;
+ }
  .leave-rectangles-container {
     display: flex;
     /* justify-content: space-between; */
     gap: 1.5rem;
     flex-wrap: wrap;
     margin-top: -40px;
+    justify-content: space-between;
   }
 
   .rectangle-u {
     width: 200px;
     height: 80px;
-    border-radius: 10px;
+    border-radius: 10px; 
     display: flex;
     align-items: center;
     justify-content: center;

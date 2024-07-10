@@ -1,6 +1,7 @@
 import React from "react";
 import Leave from "../components/LeaveComponent/Leave";
 import SideBar from "../components/common/SideBar";
+import ApplyLeave from "../components/LeaveComponent/ApplyLeave";
 
 
 function LeavePage() {
@@ -9,6 +10,7 @@ function LeavePage() {
       <SideBar />
       
       <Leave />
+      {/* <ApplyLeave/> */}
     </div>
   );
 }
