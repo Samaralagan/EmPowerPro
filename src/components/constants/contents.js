@@ -18,6 +18,9 @@ import { FaCircleQuestion } from "react-icons/fa6";
 import { HiUserGroup } from "react-icons/hi2";
 import { GrUserManager } from "react-icons/gr";
 import { FaUserGroup } from "react-icons/fa6";
+import { FaClock } from "react-icons/fa";
+import { FaTasks } from "react-icons/fa";
+import { MdGroups } from "react-icons/md";
 import about_img1 from '../../assets/images/image 1.png'
 import about_img2 from '../../assets/images/image 2.png'
 import about_img3 from '../../assets/images/image 3.png'
@@ -135,5 +138,11 @@ export const ExecutiveSidebar = [
     {name:'Complaints',icon:MdReportProblem  },
     {name:'Beneficiary',icon:FaHandHoldingHeart },
     {name:'Team members',icon:HiMiniUserGroup }
+]
+
+export const EmployeeDashboard = [
+    {   timeIcon:FaClock,timecolor:'#F37C98',timebody:'#FCD8E1',timeContent:'Today’s  In  Time',time:'8.16  AM',
+        taskIcon:FaTasks,taskcolor:'#037A0F',taskbody:'#E1FCD8',taskContent:'Tasks in Progress',task:'11',
+        teamIcon:MdGroups,teamcolor:'#FFBB00',teambody:'#FFF6DF',teamContent:'Team Members',team:'25'}
 ]
               

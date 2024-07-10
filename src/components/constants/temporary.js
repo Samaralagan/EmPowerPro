@@ -2,13 +2,15 @@
 import Event_ActivityImg1 from '../../assets/images/activity_img1.png'
 import Event_ActivityImg2 from '../../assets/images/activity_img2.png'
 import Event_ActivityImg3 from '../../assets/images/activity_img3.png'
-import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield,FaCalendar,FaClock,FaLink } from "react-icons/fa";
+import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield,FaCalendar,FaClock,FaLink, FaBirthdayCake, FaGlassCheers } from "react-icons/fa";
 import NewCourseImg1 from '../../assets/images/newcourse 1.png'
 import NewCourseImg2 from '../../assets/images/newcourse 2.png'
 import NewCourseImg3 from '../../assets/images/newcourse 3.png'
 import NewCourseImg4 from '../../assets/images/newcourse 4.png'
 import MyCourseImg1 from '../../assets/images/mycourse 1.png'
 import MyCourseImg2 from '../../assets/images/mycourse 2.png'
+import celebrationImg1 from '../../assets/images/celebration (1).png'
+import celebrationImg2 from '../../assets/images/celebration (2).png'
 
 
 export const EVENT_ACTIVITY_CARD=[
@@ -81,4 +83,15 @@ export const ProjectDone=[
    {title:'Requirements Analysis ',date:'Completed : 15th February 2024',green:true,orange:true,blue:true},
    {title:'Project Presentation ',date:'Completed : 15th February 2024',orange:true,green:true},
    {title:'Proposal Submission ',date:'Completed : 15th February 2024',blue:true,orange:true}
+]
+
+export const DashboardCelebration=[
+   {img:celebrationImg1,name:'Fiara Lowle',event:'Birthday',icon:FaBirthdayCake },
+   {img:celebrationImg2,name:'Jolly Jester',event:'5th Anniversary',icon:FaGlassCheers },
+]
+
+export const DashboardMarkTime = [
+   {date:'July 07',name:'Project Proposal',time:'10.00 AM'},
+   {date:'July 11',name:'Scrum Meeting',time:'5.30 PM'},
+   {date:'July 27',name:'Report Submission',time:'11.00 AM'},
 ]
