@@ -239,7 +239,7 @@
 }
 
 .additional-rectangle-2 {
-    width: 720px;
+    width: 75%;
     height: 250px;
     border-radius: 10px;
     background-color: var(--Sub-color);
@@ -261,7 +261,7 @@
 }
 
 .additional-rectangle-3{
-    width: 940px;
+    width: 100%;
     height: auto;
     border-radius: 10px;
     background-color: var(--Sub-color);
