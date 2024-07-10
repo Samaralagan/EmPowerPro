@@ -1,0 +1,121 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+
+  .beneficiary-body{
+    padding: 20px;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15rem;
+    padding: 1rem;
+    margin-top:0;
+   
+  }
+
+
+  .company-events-category{
+    margin-top: 70px;
+  }
+
+  .event-topic{
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight:bold;
+    color: var(--Main-color);
+  }
+
+  .event-cards{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+  .event-card{
+    width: 270px;
+    height: 230px;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 2px  rgba(107, 107, 107, 0.1);
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    font-size: 17px;
+    color: var(--Main-color);
+    margin-top: 20px;
+   
+  }
+
+  .img-part {
+    width: 100%;
+    height: 65%;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 5px;
+  }
+  
+  .img-part img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .text-part {
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+    /* margin-left: 7px; */
+   
+   
+  }
+
+ .text-row{
+    display: flex;
+    /* gap: 45px;
+  */
+    font-size: 11px;
+    
+ }
+
+ .event-date{
+    color: #b3b3b3;
+ }
+
+ .event-time{
+    font-size: 10px;
+    color: #b3b3b3;
+    margin-top: 4px;
+
+ }
+
+ .event-location{
+    font-size: 10px;
+    color: #D9D9D9;
+    margin-top: 10px;
+
+
+ }
+
+ .event-icon{
+    padding-right: 5px;
+    font-size:14px;
+ }
+
+ .claim-topic{
+    margin-top: 30px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight:bold;
+    color: var(--Main-color);
+ }

@@ -18,20 +18,25 @@
     display: flex;
     flex-direction: column;
     margin-left: 15rem;
-    margin-top: -38rem;
+    margin-top: 0;
     padding: 1rem;
   }
 
   
-  
-  .rectangles-container {
+  .rectangles_container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: -40px;
+    margin-top: 70px;
+  }
+
+  .main_rectangles{
+    width: 53vw;
+    display: flex;
+    justify-content: space-between;
   }
   
-  .rectangle {
+  .rectangles {
     width: 200px;
     height: 80px;
     border-radius: 10px;
@@ -51,25 +56,25 @@
    
   }
 
-  .rectangle:hover {
+  .rectangles:hover {
     transform: scale(1.02);
     transition: transform 0.3s ease;
 
   }
 
-  .rectangle-2 {
+  .rectangle_2 {
     background-color: var(--available)
   }
   
-  .rectangle-3 {
+  .rectangle_3 {
     background-color:var(--approved-btn)
   }
   
-  .rectangle-4 {
+  .rectangle_4 {
     background-color: var(--rejected)
   }
 
-  .small-square {
+  .small_square {
     width: 40px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.3); /* 30% transparency */
@@ -81,18 +86,301 @@
     justify-content: center;
   }
 
-  .icon {
+  .icons {
     color: rgba(255, 255, 255, 0.7); 
     font-size: 20px; 
   }
   
   
-  .main-box-content{
+  .main_box_content{
     font-size: 20px;
-    margin-left: 30px;
+    margin-left: 50px;
   }
 
-  .sub-box-content{
+  .sub_box_content{
     font-size: 10px;
-    margin-left: 35px;
+    margin-left: 20px;
   }
+
+  .apply-leave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#66bee1;
+    color: white;
+    padding: 1px 30px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    height: 50px;
+    gap: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.apply-leave:hover {
+    background-color: var(--Main-color); 
+}
+
+
+.add-icon {
+  font-size: 22px; 
+  color: white;
+}
+
+
+.additional-rectangle-3{
+  width: 940px;
+  height: auto;
+  border-radius: 10px;
+  background-color: var(--Sub-color);
+  box-shadow: 1px 4px 4px 4px  rgba(107, 107, 107, 0.1);
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px;
+  font-size: 17px;
+  color: var(--Main-color);
+  margin-top: 20px;
+  padding-left: 25px;
+ 
+}
+
+.attendance-records-text {
+  margin-bottom: 20px;
+}
+
+.dropdown-row {
+  display: flex;
+  gap: 13px;
+}
+
+.custom-dropdown {
+  padding: 10px;
+  padding-right: 100px;
+  padding-left: 15px;
+  font-size: 11px;
+  border: 2px solid #D9D9D9;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: #D9D9D9;
+}
+
+.search-button{
+  padding: 2px;
+  font-size: 11px;
+  border-radius: 40px;
+  color: var(--Sub-color);
+  background-color: var(--Main-color);
+  margin-left: 300px;
+  outline: none;
+  padding-left: 60px;
+  padding-right: 60px;
+  border: 1px solid var(--Main-color);
+  font-weight: 500;
+  align-items: center;
+  justify-items: center;
+  border-radius: 20px;
+  margin-left: 340px;
+}
+
+
+.custom-table-container {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px; 
+  font-size: 11px;
+  border-radius: 20px;
+}
+
+.custom-table th {
+  background-color: #000F44;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  margin-left: 5px;
+  
+}
+
+.custom-table td {
+  background-color: white;
+  color: #000F44;
+  padding: 10px;
+  border-radius: 5px;
+ 
+}
+
+
+.custom-table tr {
+  background-color: white;
+}
+
+
+
+
+.ontime  , .late , .absent {
+  border: 2px solid #213fa9;
+  border-radius: 50px;
+  color: #FFAC0A; 
+  padding: 10px;
+  background-color: var(--Sub-color);
+  width: 100px;
+  align-items: center;
+  justify-items: center;
+  font-weight: bold;
+}
+
+.ontime{
+  border: 2px solid var(--approved-btn);
+  color: var(--approved-btn); 
+}
+
+.late{
+  border: 2px solid var(--pending);
+  color: var(--pending); 
+}
+
+.absent{
+  border: 2px solid var(--rejected);
+  color: var(--rejected); 
+}
+
+
+
+/* Apply leave form */
+
+.apply-leave-body{
+  margin-top: 80px;
+  padding: 20px;
+  width: 79vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 16rem;
+  padding: 1rem;
+
+}
+
+
+.arrow-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--Main-color); 
+  font-weight: bold;
+}
+
+.form-box {
+
+  width: 940px;
+  height: auto;
+  border-radius: 10px;
+  background-color: var(--Sub-color);
+  box-shadow: 1px 4px 4px 4px  rgba(107, 107, 107, 0.1);
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px;
+  font-size: 17px;
+  color: var(--Main-color);
+  margin-top: 20px;
+  padding-left: 25px;
+}
+
+.form-details{
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size:13px ;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+.one-detail{
+  margin-bottom: 15px;
+  flex-direction: column;
+}
+
+.leave-dropdown {
+  padding: 10px;
+  padding-right: 100px;
+  padding-left: 15px;
+  font-size: 11px;
+  border: 2px solid #D9D9D9;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: #D9D9D9;
+  margin-top: 8px;
+
+}
+
+
+.date-details{
+  display: flex;
+  justify-content: space-between;
+}
+
+.leave-input{
+  padding: 10px;
+  padding-right: 100px;
+  padding-left: 15px;
+  font-size: 11px;
+  border: 2px solid #D9D9D9;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: #D9D9D9;
+  margin-top: 8px;
+  appearance: none; 
+
+}
+
+.leave-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  position: relative;
+  left: 90px;
+  filter: grayscale(100%);
+ 
+}
+
+
+.leave-input-textarea{
+  padding: 10px;
+  padding-right: 100px;
+  padding-left: 15px;
+  font-size: 11px;
+  border: 2px solid #D9D9D9;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: #D9D9D9;
+  margin-top: 8px;
+  appearance: none; 
+  width: 855px;
+  height: 100px;
+
+}
+
+.apply-button {
+  background-color: #007BFF; 
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 740px;
+ 
+}
+
+.apply-button:hover {
+  background-color: #0056b3; 
+}

@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TrainingPage from './pages/TrainingPage.jsx';
 import AttendancePage from './pages/AttendancePage.jsx';
 import LeavePage from './pages/LeavePage.jsx'
+import ApplyLeaveForm from './components/LeaveComponent/ApplyLeaveForm.jsx'
+import BeneficiaryPage from './pages/BeneficiaryPage.jsx'
 
 function App() {
   return (
@@ -27,6 +29,12 @@ function App() {
               <Route path="/Pay Roll" element={<SideBar />} />
               <Route path="/Complaints" element={<SideBar />} />
               <Route path="/Training" element={<TrainingPage />} />
+              <Route path="/Beneficiary" element={<BeneficiaryPage />} />
+
+              <Route path="/Apply-leave" element={<ApplyLeaveForm/>} />
+
+
+              
            </Routes>
          </div>
        </Router>

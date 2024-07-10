@@ -146,7 +146,7 @@
   align-items: center;
   margin: 5px;
   padding-left: 1.5rem;
-  border-radius: 20px;
+  border-radius: 40px;
   transition: background-color 0.3s ease, color 0.3s ease;
   position: relative; 
 }
@@ -167,7 +167,15 @@
   font-size: 14px;
   margin: 0;
 }
+.side-bar-link.active {
+  background-color: white; /* Highlight color for the active link */
+  color:var(--Main-color); /* Text color for the active link */
+  font-weight: 600;
+}
 
+.side-bar-link.active .side-bar-link-icon {
+  color: var(--Main-color); /* Icon color for the active link */
+}
 
 .attendance-options {
   position: absolute;
@@ -180,6 +188,8 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: none;
   z-index: 10;
+  align-items: center;
+  justify-content: center;
  
 }
 .side-bar-link.active .attendance-options {
@@ -191,7 +201,8 @@
   font-size: 13px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  border-radius: 5px;
+  border-radius: 20px;
+  margin: 1rem;
 }
 
 .side-bar-sub-link:hover {

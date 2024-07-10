@@ -14,7 +14,8 @@ const Header = () => {
               <FaBell className='notify-icon'/>
             </div>
 
-            <hr className='header-hr'></hr>
+            <hr className='header-hr' />
+
 
            
         </div> 
