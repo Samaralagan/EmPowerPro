@@ -12,6 +12,7 @@ import TrainingPage from './pages/TrainingPage.jsx';
 import ComplaintsPage from './pages/ComplaintsPage.jsx';
 import ComplaintsPage_Tl from './pages/ComplaintsPage_Tl.jsx';
 import AttendancePage from './pages/AttendancePage.jsx';
+import LeavePage from './pages/LeavePage.jsx';
 import Complaintsmore from './components/ComplaintsComponent/Complaintsmore.jsx';
 import NewComplaint from './components/ComplaintsComponent/NewComplaint.jsx';
 
@@ -26,7 +27,7 @@ function App() {
               <Route path="/Dash Board" element={<SideBar />} />
               <Route path="/Attendance" element={<AttendancePage />} />
               <Route path="/Project" element={<SideBar />} />
-              <Route path="/Leave" element={<SideBar />} />
+              <Route path="/Leave" element={<LeavePage />} />
               <Route path="/Pay Roll" element={<SideBar />} />
               <Route path="/Complaints" element={<ComplaintsPage_Tl/>} />
               <Route path="/NewComplaint" element={<NewComplaint/>} />
