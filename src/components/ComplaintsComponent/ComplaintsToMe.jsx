@@ -1,28 +1,13 @@
 import React from "react";
-import "./Complaints.css";
-import Header from "../layout/Header";
-import { FaPlusCircle } from "react-icons/fa";
+import "./complaintstome.css";
 import { FaSearch } from "react-icons/fa";
 import { ComplaintsData } from "../constants/temporary";
 import { Card } from "react-bootstrap";
 import ComplaintsCard from "../common/ComplaintsCard";
-import { Link } from "react-router-dom";
-
-const Complaints = () => {
+function ComplaintsToMe() {
   return (
-    <div className="complaintsinner-body">
-      {/* <Header />
-      <hr /> */}
-      <div className="contactus-form-button" style={{ width: "97%" }}>
-        <Link to="/NewComplaint">
-          <button className="gradient-blue-btn " style={{ color: "white" }}>
-            <FaPlusCircle className="me-2" />
-            Create New Complaint
-          </button>
-        </Link>
-      </div>
-      <br />
-      <div style={{ display: "flex" }}>
+    <div className="complaintstome-body">
+      <div style={{ display: "flex", marginTop: "1.5rem" }}>
         <select
           className="form-select"
           aria-label="Default select example"
@@ -70,18 +55,16 @@ const Complaints = () => {
           </button>
         </div>
       </div>
-      <div>
-        {ComplaintsData.map((Card, index) => (
-          <ComplaintsCard
-            key={index}
-            status={Card.status}
-            about={Card.about}
-            date={Card.date}
-          />
-        ))}
-      </div>
+      {ComplaintsData.map((Card, index) => (
+        <ComplaintsCard
+          key={index}
+          status={Card.status}
+          about={Card.about}
+          date={Card.date}
+        />
+      ))}
     </div>
   );
-};
+}
 
-export default Complaints;
+export default ComplaintsToMe;

@@ -22,10 +22,10 @@
     border-radius: 25px;
     padding: 0.5vw;
     box-shadow: 
-    -4px 0px 4px rgba(0, 0, 0, 0.2),  
-    0px -4px 4px rgba(0, 0, 0, 0.2), 
-    0px 4px 4px rgba(0, 0, 0, 0.2),   
-    4px 0px 4px rgba(0, 0, 0, 0.2); 
+    9px 6px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 4px rgba(0, 0, 0, 0.2), 
+    0px 4px 4px rgba(0, 0, 0, 0.2), 
+    4px 0px 4px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     margin-top: 4vh;
     margin-left: 4vh;
@@ -33,10 +33,11 @@
   }
   .complaintcard-body:hover{
     box-shadow: 
-    -10px 0px 10px rgba(0, 0, 0, 0.2),  
-    0px -10px 10px rgba(0, 0, 0, 0.2), 
-    0px 10px 10px rgba(0, 0, 0, 0.2),   
-    10px 0px 10px rgba(0, 0, 0, 0.2);  
+    9px 6px 0px rgba(134, 183, 254, 0.2),  
+    0px 0px 4px rgba(134, 183, 254, 0.2), 
+    0px 4px 4px rgba(134, 183, 254, 0.2),   
+    4px 0px 4px rgba(134, 183, 254, 0.2); 
+    /* opacity: 0.8; */
     /* opacity: 0.8; */
   }
   

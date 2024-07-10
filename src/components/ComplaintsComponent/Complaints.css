@@ -17,9 +17,16 @@
   width: 79vw;
   display: flex;
   flex-direction: column;
-  margin-left: 21vw;
+  margin-left: 17vw;
 }
 
+.complaintsinner-body{
+  padding: 20px;
+  width: 79vw;
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 17vw; */
+}
 /* ----------------------------------------------------- */
 .new-course-content{
   display: flex;

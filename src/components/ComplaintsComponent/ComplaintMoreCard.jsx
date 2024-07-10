@@ -1,11 +1,14 @@
 import React from "react";
 import "./complaintmorecard.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const ComplaintMoreCard = ({ status, about, date, to, description, reply }) => {
   return (
     <div>
-      <IoMdArrowRoundBack className="backarrow" />
+      <Link to="/Complaints">
+        <IoMdArrowRoundBack className="backarrow" />
+      </Link>
       <div className="complaintmorecard-body">
         <div className="complaintmorecard-content">
           <div className="complaintmorecard-header">
