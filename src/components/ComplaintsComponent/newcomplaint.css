@@ -41,8 +41,8 @@
         0px -10px 10px rgba(134, 183, 254, 0.2), 
         0px 10px 10px rgba(134, 183, 254, 0.2),   
         10px 0px 10px rgba(134, 183, 254, 0.2); 
-    /* opacity: 0.8; */
-  }
+    /* opacity: 0.8;
+  
   .left-flexbox-newcomplaint{
     display: flex;
     flex-direction: column;

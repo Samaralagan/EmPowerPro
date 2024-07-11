@@ -9,8 +9,8 @@ function LeavePage() {
     <div>
       <SideBar />
       
-      <Leave />
-      {/* <ApplyLeave/> */}
+      {/* <Leave /> */}
+      <ApplyLeave/>
     </div>
   );
 }
