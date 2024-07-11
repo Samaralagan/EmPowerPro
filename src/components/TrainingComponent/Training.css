@@ -14,10 +14,10 @@
 
   .training-body{
     padding: 20px;
-    width: 79vw;
+    width: 84vw;
     display: flex;
     flex-direction: column;
-    margin-left: 21vw;
+    margin-left: 16vw;
   }
 
   /* ----------------------------------------------------- */
@@ -26,21 +26,43 @@
     position: relative;
     margin-bottom: 1vh;
   }
-  .new-course-content p{
+  .new-course-filterbar{
+    display: flex;
+    height: 6vh;
+    align-items: center;
+    margin-left: 2vw;
+    margin-top: 2vh;
+  }
+  .new-course-filter{
+    background-color: var(--Main-color);
+    height: 5vh;
+    width: 10vh;
+    color: var(--Sub-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px 0  0 9px;
+  }
+  .new-course-content button{
    position: absolute;
    bottom: 0;
    right: 2vw;
    font-size: 1.75vh;
-   color: #ACA7A7;
   }
-  .new-course-content h5{
-    font-size: 3vh;
-    margin-top: 1vh;
-    margin-left: 2vw;
+  .new-course-content input{
+    /* font-size: 3vh; */
+    border-radius:0 9px 9px 0;
+    border-color: var(--Main-color);
+    outline: none;
+    height: 5vh;
+    width: 40vh;
+    padding-left: 3vh;
   }
-  .training-new-courses{
-    display: flex; 
-    justify-content: space-around;
+  .training-new-course{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-left: 4vh;
   }
 
 
