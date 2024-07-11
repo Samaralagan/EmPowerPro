@@ -34,9 +34,9 @@ function ApplyLeave() {
 
       <div className="apply-leave-form-body">
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
-          <br />
+       
           <p className='Apply-leave-form-title'> Apply A Leave</p>
-          <br />  
+         
           <div className="divform">
             <label htmlFor="leaveType" className="apply-leave-form-label">
               Leave Type
@@ -107,13 +107,13 @@ function ApplyLeave() {
               style={{ height: "8rem", width:"55rem", borderColor:"#000f44"}}
             ></textarea>
           </div>
-          <br />
+
 
           <div className="contactus-form-button">
             <button
               type="submit"
               className="gradient-blue-btn"
-              style={{ color: "white", marginRight: "12rem" }}
+              style={{ color: "white", marginRight: "1rem" }}
             >
               APPLY
             </button>
