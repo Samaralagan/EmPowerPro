@@ -38,7 +38,7 @@ body{
   border-radius: 14px;
   background:linear-gradient(to right, #86D3EC 0%, #55B7D6 39%, #1E98BE 100%);
   border: none;
-  color: var(--Light);
+  color: white
 }
 .social-media-icon{
   background-color:#D9D9D9 ;

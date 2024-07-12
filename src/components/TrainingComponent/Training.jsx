@@ -1,26 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Training.css'
 import Header from '../layout/Header'
-import { NewCourseCardData, OnTimeTrainingCardData } from '../constants/temporary'
+import { NewCourseCardData} from '../constants/temporary'
 import NewCourseCard from '../common/NewCourseCard'
-import { MyCourseCardData } from '../constants/temporary'
-import MyCourseCard from '../common/MyCourseCard'
-import OnTimeTrainingCard from '../common/OnTimeTrainingCard'
+import Paginator from '../common/Paginator'
+import { FaPlus } from 'react-icons/fa'
 
 const Training = () => {
+    const[Cards,setCards]=useState([])
+    const[currentPage,setCurrentPage]=useState(1)
+    const[CardsPerPage]=useState(16)
+    const[filteredCards,setFilteredCards]=useState(NewCourseCardData)
+
+  
+    const handlePaginationClick = (pageNumber) =>{
+      setCurrentPage(pageNumber)
+     }
+    const calculateTotalPages = (filteredCards,CardsPerPage,Cards)=>{
+      const totalCards = filteredCards.length >0 ? filteredCards.length : Cards.length
+      return Math.ceil(totalCards/CardsPerPage)
+     }
+  
+  const indexOfLastCard = currentPage * CardsPerPage
+  const indexOfFirstCard = indexOfLastCard - CardsPerPage
+  const currentCards = filteredCards.slice(indexOfFirstCard,indexOfLastCard)
+
+  
   return (
     <div className="training-body">
       <Header />
       <hr />
       <div>
         <div className="new-course-content">
-          <h5>NEW COURSES</h5>
-          <p>View All {">>>"}</p>
+          <div className='new-course-filterbar'>
+             <div className='new-course-filter'>Filter</div>
+             <input type="text" placeholder='Search.......' />
+          </div>
+          <button className='gradient-blue-btn' ><FaPlus className='me-2 ' /> Add</button>
         </div>
 
-        <div className="training-new-courses">
-          {NewCourseCardData.map((card, index) => (
-            <div>
+        <div className="training-new-course">
+          {currentCards.map((card, index) => (
+            <div >
               <NewCourseCard
                 img={card.img}
                 title={card.title}
@@ -31,29 +52,17 @@ const Training = () => {
               />
             </div>
           ))}
+        
         </div>
-      </div>
-
         <div>
-           <h5 className='mycourse-title'>MY COURSES</h5>
-           <div className='mycourse-card'>
-              {MyCourseCardData.map((card,index)=>(
-                 <MyCourseCard img={card.img} title={card.title} started={card.started} level={card.level} star={card.star} Progress={card.Progress}  key={index} />
-              ))}
-           </div>
-        </div>
+             <Paginator  currentPage={currentPage}
+                          totalPages={calculateTotalPages(filteredCards,CardsPerPage,Cards)}
+                          onPageChange={handlePaginationClick}/>
 
-       <div>
-          <h5 className='ontimetraining-title'>ON TIME TRAININGS</h5>
-          <div  className='ontimetraining-content'>
-             <div className='ontimetraining-content-left'>
-                {OnTimeTrainingCardData.map((card,index)=>(
-                   <OnTimeTrainingCard title={card.title} date={card.date} time={card.time} link={card.link} key={index}/>
-                ))}
-             </div>
-             <div className='ontimetraining-content-right'>2</div>
           </div>
-       </div>
+      </div>
+       
+        
         
     </div>
   );
