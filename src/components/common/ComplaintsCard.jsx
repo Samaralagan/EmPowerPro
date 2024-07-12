@@ -1,8 +1,19 @@
 import React from "react";
 import "./ComplaintsCard.css";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const ComplaintsCard = ({ status, about, date }) => {
+const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
+  const location = useLocation();
+  const getRoleName = () => {
+    const pathname = decodeURIComponent(location.pathname);
+    const role = pathname.split("/")[2];
+    return role;
+  };
+  const role = getRoleName();
+  const handlemorecomplaint = () => {
+    setActiveComponent("Complaintsmore");
+  };
   return (
     <div className="complaintcard-body">
       <div className="complaintcard-content">
@@ -23,9 +34,8 @@ const ComplaintsCard = ({ status, about, date }) => {
             <h5>{date}</h5>
             <br />
             <br />
-            <Link to="/Complaintsmore" style={{ textDecoration: "none" }}>
-              <p>View Details &gt;&gt;&gt; </p>
-            </Link>
+
+            <p onClick={handlemorecomplaint}>View Details &gt;&gt;&gt; </p>
           </div>
         </div>
 

@@ -2,13 +2,15 @@
 import Event_ActivityImg1 from '../../assets/images/activity_img1.png'
 import Event_ActivityImg2 from '../../assets/images/activity_img2.png'
 import Event_ActivityImg3 from '../../assets/images/activity_img3.png'
-import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield } from "react-icons/fa";
+import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield,FaCalendar,FaClock,FaLink, FaBirthdayCake, FaGlassCheers } from "react-icons/fa";
 import NewCourseImg1 from '../../assets/images/newcourse 1.png'
 import NewCourseImg2 from '../../assets/images/newcourse 2.png'
 import NewCourseImg3 from '../../assets/images/newcourse 3.png'
 import NewCourseImg4 from '../../assets/images/newcourse 4.png'
 import MyCourseImg1 from '../../assets/images/mycourse 1.png'
 import MyCourseImg2 from '../../assets/images/mycourse 2.png'
+import celebrationImg1 from '../../assets/images/celebration (1).png'
+import celebrationImg2 from '../../assets/images/celebration (2).png'
 
 
 export const EVENT_ACTIVITY_CARD=[
@@ -58,3 +60,46 @@ export const ComplaintsDataMore=[
    {status:'pending', about:'Regarding the heavy work load',date:'23/03/2024',to:'Human Resource Manager',description:'I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.',reply:'We have carefully reevaluated your assignment [or test] and taken into consideration your points regarding the grading criteria.'},
    
 ]
+
+export const ComplaintsReplyCard=[
+   {name:'Samar',about:'Regarding the heavy work load',date:'23/03/2024',description:'I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.'},
+   {name:'Umai',about:'Regarding the heavy work load',date:'23/03/2024',description:'I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.'}
+
+]
+
+export const OnTimeTrainingCardData=[
+   {title:'Mastering React and Redux',date:'Date :  28 March 2024',time:'Time :  9.00 AM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'},
+   {title:'Kubernetes for Developers',date:'Date :  28 March 2024',time:'Time :  11.00 AM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'},
+   {title:'Advanced JavaScript Techniques',date:'Date :  29 March 2024',time:'Time :  2:00 PM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'}
+]
+
+export const ProjectToDo = [
+   {title:'Complete the frontend development ',date:'Due Date  : 21st March 2024',green:true,orange:true,blue:true},
+   {title:'Four CRUD operations ',date:'Due Date  : 21st March 2024',orange:true,blue:true},
+   {title:'Action Plan  ',date:'Due Date  : 21st March 2024',blue:true}
+]
+
+export const ProjectInProgress =[
+   {title:'UI Designing ',date:'Due Date  : 21st March 2024',green:true,orange:true,blue:true,total:5,finish:3},
+   {title:'Design the ER Diagram',date:'Due Date  : 21st March 2024',orange:true,total:5,finish:4},
+   {title:'State transition diagrams ',date:'Due Date  : 21st March 2024',orange:true,blue:true,total:7,finish:2},
+   {title:'User Interface Flow diagrams ',date:'Due Date  : 21st March 2024',green:true,orange:true,total:7,finish:2}
+]
+
+export const ProjectDone=[
+   {title:'Requirements Analysis ',date:'Completed : 15th February 2024',green:true,orange:true,blue:true},
+   {title:'Project Presentation ',date:'Completed : 15th February 2024',orange:true,green:true},
+   {title:'Proposal Submission ',date:'Completed : 15th February 2024',blue:true,orange:true}
+]
+
+export const DashboardCelebration=[
+   {img:celebrationImg1,name:'Fiara Lowle',event:'Birthday',icon:FaBirthdayCake },
+   {img:celebrationImg2,name:'Jolly Jester',event:'5th Anniversary',icon:FaGlassCheers },
+]
+
+export const DashboardMarkTime = [
+   {date:'July 07',name:'Project Proposal',time:'10.00 AM'},
+   {date:'July 11',name:'Scrum Meeting',time:'5.30 PM'},
+   {date:'July 27',name:'Report Submission',time:'11.00 AM'},
+]
+

@@ -6,20 +6,87 @@ import { FaSearch } from "react-icons/fa";
 import { ComplaintsData } from "../constants/temporary";
 import { Card } from "react-bootstrap";
 import ComplaintsCard from "../common/ComplaintsCard";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import ComplaintsToMe from "./ComplaintsToMe";
+import ComplaintsPage from "../../pages/ComplaintsPage";
 
-const Complaints = () => {
+const Complaints = ({ setActiveComponent }) => {
+  const location = useLocation();
+  const getRoleName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+    const role = pathname.split("/")[2];
+    return role;
+  };
+  const role = getRoleName();
+  const handleCreateNewComplaint = () => {
+    setActiveComponent("NewComplaint");
+  };
   return (
-    <div className="complaintsinner-body">
-      {/* <Header />
-      <hr /> */}
+    <div className="complaints-body">
+      <Header />
+      <hr />
+      {role === "TeamLeader" && (
+        <div>
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button
+                class="nav-link active"
+                id="nav-home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-home"
+                type="button"
+                role="tab"
+                aria-controls="nav-home"
+                aria-selected="true"
+              >
+                My Complaints
+              </button>
+              <button
+                class="nav-link"
+                id="nav-profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-profile"
+                type="button"
+                role="tab"
+                aria-controls="nav-profile"
+                aria-selected="false"
+              >
+                Complaints to me
+              </button>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="nav-home"
+              role="tabpanel"
+              aria-labelledby="nav-home-tab"
+              tabindex="0"
+            >
+              {/* <Complaints /> */}
+              {/* <ComplaintsPage /> */}
+            </div>
+            <div
+              class="tab-pane fade"
+              id="nav-profile"
+              role="tabpanel"
+              aria-labelledby="nav-profile-tab"
+              tabindex="0"
+            >
+              <ComplaintsToMe />
+            </div>
+          </div>
+        </div>
+      )}
       <div className="contactus-form-button" style={{ width: "97%" }}>
-        <Link to="/NewComplaint">
-          <button className="gradient-blue-btn " style={{ color: "white" }}>
-            <FaPlusCircle className="me-2" />
-            Create New Complaint
-          </button>
-        </Link>
+        <button
+          className="gradient-blue-btn "
+          style={{ color: "white" }}
+          onClick={handleCreateNewComplaint}
+        >
+          <FaPlusCircle className="me-2" />
+          Create New Complaint
+        </button>
       </div>
       <br />
       <div style={{ display: "flex" }}>
@@ -77,6 +144,7 @@ const Complaints = () => {
             status={Card.status}
             about={Card.about}
             date={Card.date}
+            setActiveComponent={setActiveComponent}
           />
         ))}
       </div>

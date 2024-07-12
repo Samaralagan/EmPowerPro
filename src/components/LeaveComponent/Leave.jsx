@@ -14,51 +14,56 @@ function Leave() {
       <hr />
       <br />
       <br />
-      <div className="leave-rectangles-container">
-        <div className="rectangle-u rectangle-2">
-          <div className="leave-small-square">
-            <FaHourglassStart className="leave-icon" />
+
+      <div >
+        <div className="leave-rectangles-container">
+          <div className="d-flex ">
+
+          <div className="rectangle-u rectangle-2 me-2">
+            <div className="leave-small-square">
+              <FaHourglassStart className="leave-icon" />
+            </div>
+
+            <div className="leave-box-content">
+              <div className="leave-main-box-content"> 08 : 00 </div>
+              <div className="leave-sub-box-content-1"> Working Hours </div>
+            </div>
           </div>
 
-          <div className="leave-box-content">
-            <div className="leave-main-box-content"> 08 : 00 </div>
-            <div className="leave-sub-box-content-1"> Working Hours </div>
+          <div className="rectangle-u rectangle-3 me-2">
+            <div className="leave-small-square">
+              <FaHourglassHalf className="leave-icon" />
+            </div>
+            <div className="leave-box-content">
+              <div className="leave-main-box-content"> 03 : 30 </div>
+              <div className="leave-sub-box-content-2"> Worked Hours </div>
+            </div>
           </div>
-        </div>
 
-        <div className="rectangle-u rectangle-3">
-          <div className="leave-small-square">
-            <FaHourglassHalf className="leave-icon" />
+          <div className="rectangle-u rectangle-4 me-2">
+            <div className="leave-small-square">
+              <FaClock className="leave-icon" />
+            </div>
+            <div className="leave-box-content">
+              <div className="leave-main-box-content"> 02 : 00 </div>
+              <div className="leave-sub-box-content"> Over Time </div>
+            </div>
           </div>
-          <div className="leave-box-content">
-            <div className="leave-main-box-content"> 03 : 30 </div>
-            <div className="leave-sub-box-content-2"> Worked Hours </div>
+          
           </div>
-        </div>
-
-        <div className="rectangle-u rectangle-4">
-          <div className="leave-small-square">
-            <FaClock className="leave-icon" />
-          </div>
-          <div className="leave-box-content">
-            <div className="leave-main-box-content"> 02 : 00 </div>
-            <div className="leave-sub-box-content"> Over Time </div>
-          </div>
-        </div>
-
-        <button
-          className="gradient-blue-btn "
-          style={{
-            color: "white",
-            width: "167px",
-            height: "45px",
-            padding: "10px",
-            margin: "3vh 0 0 21vw",
-          }}
-        >
-          <FaPlusCircle className="me-2" />
-          Apply Leave
-        </button>
+          <button
+            className="gradient-blue-btn "
+            style={{
+              color: "white",
+              width: "167px",
+              height: "45px",
+              padding: "10px",
+            }}
+          >
+            <FaPlusCircle className="me-2" />
+            Apply Leave
+          </button>
+      </div>
 
         <div className="leave-additional-rectangle-3">
           <div className="leave-records-text">Leaves</div>

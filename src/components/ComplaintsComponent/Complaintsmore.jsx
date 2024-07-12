@@ -5,7 +5,7 @@ import "./complaintsmore.css";
 import { ComplaintsDataMore } from "../constants/temporary";
 import ComplaintMoreCard from "./ComplaintMoreCard";
 
-function Complaintsmore() {
+function Complaintsmore({ setActiveComponent }) {
   return (
     <div className="complaintsmore-body">
       <Header />

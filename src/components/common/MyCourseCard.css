@@ -39,17 +39,35 @@
   }
   .mycoursecard-content{
     width: 90%;
-    padding: 2vh;
+    padding: 3vh;
   }
   .mycoursecard-header{
     display: flex;
     justify-content: space-between;
+    margin-left: 1vh;
   }
   .mycoursecard-header p{
     font-size: 1.8vh;
     color: #ACA7A7;
   }
   .mycoursecard-level{
-    color: red;
-
+    font-size: 1.8vh;
+    margin-left: 1vh;
+  }
+  .mycoursecard-star{
+     font-size: 1.8vh;
+     margin-left: 1vh;
+  }
+  .mycoursecard-process{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mycoursecard-progress{
+    width: 60%;
+  }
+  .mycoursecard-btn{
+    padding: 10px 20px;
+    background-color: var(--Main-color);
+    color: var(--Sub-color);
   }

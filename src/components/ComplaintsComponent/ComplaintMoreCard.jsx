@@ -3,12 +3,22 @@ import "./complaintmorecard.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const ComplaintMoreCard = ({ status, about, date, to, description, reply }) => {
+const ComplaintMoreCard = ({
+  status,
+  about,
+  date,
+  to,
+  description,
+  reply,
+  setActiveComponent,
+}) => {
+  const handlemorecomplaint = () => {
+    setActiveComponent("complaint");
+  };
   return (
     <div>
-      <Link to="/Complaints">
-        <IoMdArrowRoundBack className="backarrow" />
-      </Link>
+      <IoMdArrowRoundBack className="backarrow" onClick={handlemorecomplaint} />
+
       <div className="complaintmorecard-body">
         <div className="complaintmorecard-content">
           <div className="complaintmorecard-header">
