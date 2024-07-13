@@ -13,6 +13,13 @@ import AttendancePage from './pages/AttendancePage.jsx';
 import LeavePage from './pages/LeavePage.jsx'
 import ApplyLeaveForm from './components/LeaveComponent/ApplyLeaveForm.jsx'
 import BeneficiaryPage from './pages/BeneficiaryPage.jsx'
+import AppliedClaim from './components/BeneficiaryComponent/AppliedClaimForm.jsx'
+import CancelledClaim from './components/BeneficiaryComponent/CanceledClaimForm.jsx'
+
+
+import ApplyForm_1 from './components/BeneficiaryComponent/ApplyClaim_1.jsx'
+import ApplyForm_2 from './components/BeneficiaryComponent/ApplyClaim_2.jsx'
+import ApplyForm_3 from './components/BeneficiaryComponent/ApplyClaim_3.jsx'
 
 function App() {
   return (
@@ -32,7 +39,21 @@ function App() {
               <Route path="/Beneficiary" element={<BeneficiaryPage />} />
 
               <Route path="/Apply-leave" element={<ApplyLeaveForm/>} />
+              <Route path="/Applied-claim" element={<AppliedClaim/>} />
+              <Route path="/Canceled-claim" element={<CancelledClaim/>} />
 
+              <Route path="/ApplyClaim-1" element={<ApplyForm_1/>} />
+              <Route path="/ApplyClaim-2" element={<ApplyForm_2/>} />
+              <Route path="/ApplyClaim-3" element={<ApplyForm_3/>} />
+              
+
+
+
+
+
+
+           
+             
 
               
            </Routes>

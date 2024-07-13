@@ -45,6 +45,7 @@
   margin: 0;
   color: var(--Main-color);
   margin-left: 1rem;
+  font-weight: bold;
 }
  .header-profile{
   margin-left: 54vw;
