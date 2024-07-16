@@ -4,26 +4,54 @@ import Header from '../layout/Header';
 import './Beneficiary.css';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
-import { TiTick } from "react-icons/ti";
-// import Switch from '@mui/material/Switch';
-import { Switch } from '@material-ui/core';
+import { TiTick } from 'react-icons/ti';
+import { Switch, makeStyles } from '@material-ui/core';
 
+const useStyles = makeStyles({
+  switchBase: {
+    color: '#B9B5B5', // Default color
+    '&$checked': {
+      color: '#000F44', // Color when checked
+    },
+    '&$checked + $track': {
+      backgroundColor: '#000F44', // Track color when checked
+    },
+  },
+  checked: {},
+  track: {},
+});
 
 function ApplyClaim_1() {
+  const classes = useStyles();
   const navigate = useNavigate();
-  const steps = ["Claim Info", "Upload Documents", "Banking Info"];
+  const steps = ['Claim Info', 'Upload Documents', 'Banking Info'];
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
 
   const handleClaimClick = () => {
     navigate('/Beneficiary');
-  }
+  };
 
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
+
+  const handleNext = () => {
+    
+        navigate('/ApplyClaim-2');
+      
+    
+  };
+
+  const handleBack = () => {
+    
+    navigate('/Beneficiary');
+  
+
+};
+
 
   return (
     <div>
@@ -39,7 +67,7 @@ function ApplyClaim_1() {
           {steps.map((step, i) => (
             <div
               key={i}
-              className={`step-item ${currentStep === i + 1 && "active"} ${(i + 1 < currentStep || complete) && "complete"} `}
+              className={`step-item ${currentStep === i + 1 && 'active'} ${(i + 1 < currentStep || complete) && 'complete'} `}
             >
               <div className="step">
                 {i + 1 < currentStep || complete ? <TiTick size={24} /> : i + 1}
@@ -49,72 +77,61 @@ function ApplyClaim_1() {
           ))}
         </div>
 
-        {!complete && (
-          <button
-            className="btn"
-            onClick={() => {
-              currentStep === steps.length
-                ? setComplete(true)
-                : setCurrentStep((prev) => prev + 1);
-            }}
-          >
-            {currentStep === steps.length ? "Finish" : "Next"}
-          </button>
-        )}
-
         <div className="form-box">
           <div className="one-row-detail">
             <div className="form-detail">
-
               <label htmlFor="start-date" className="form-detail-topic">Start Date</label>
               <br />
               <input type="date" id="start-date" className="form-input" />
             </div>
 
             <div className="form-detail">
-
-              <label htmlFor="start-date" className="form-detail-topic">Whose this form for</label>
+              <label htmlFor="form-for" className="form-detail-topic">Whose this form for</label>
               <br />
-              <select className="claim-form-dropdown" defaultValue="">
+              <select id="form-for" className="claim-form-dropdown" defaultValue="">
                 <option value="" disabled></option>
-                <option value="option1">Casual Leave</option>
-                <option value="option2">Medical Leave</option>
-                <option value="option3">Maternity Leave</option>
+                <option value="option1">To Myself</option>
+                <option value="option2">To My husband</option>
+                <option value="option3">To My Parent</option>
               </select>
             </div>
-
           </div>
 
           <div className="form-detail">
-
-            <label htmlFor="start-date" className="form-detail-topic">Reason</label>
+            <label htmlFor="reason" className="form-detail-topic">Reason</label>
             <br />
-            <textarea type="date" id="start-date" className="claim-input-textarea"/>
+            <textarea id="reason" className="claim-input-textarea" />
           </div>
 
           <div className="form-detail">
+            <label htmlFor="amount" className="form-detail-topic">Amount</label>
+            <br />
+            <input id="amount" className="form-input" />
+          </div>
 
-              <label htmlFor="start-date" className="form-detail-topic">Amount</label>
-              <br />
-              <input className="form-input" />
-            </div>
+          <div className="choose-toggle-row">
+            <div className="choose-text">Is your claim related to a previous health issue?</div>
+            <Switch
+              checked={checked}
+              onChange={handleChange}
+              classes={{
+                switchBase: classes.switchBase,
+                checked: classes.checked,
+                track: classes.track,
+              }}
+            />
+          </div>
 
-
-           <div className="choose-toggle-row">
-               <div className="choose-text">Is your claim related to a previous health issue ?</div>
-               <Switch checked={checked} onChange={handleChange} />
-            </div>
-         
-
-
-
-
-
-
+          <div className="form-button-row">
+            <button className="back-button" onClick={handleBack}>Back</button>
+            <button className="next-button" onClick={handleNext}>
+              {currentStep === steps.length ? 'Finish' : 'Next'}
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default ApplyClaim_1;
