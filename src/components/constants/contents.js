@@ -71,7 +71,7 @@ export const EmployeeSidebar = [
     { name: 'Dash Board', icon: GrAppsRounded },
     { name: 'Attendance', icon: FaCalendarCheck, subLinks: ['Attendance', 'Leaves'] },
     { name: 'Project', icon: FaProjectDiagram },
-    { name: 'Leave', icon: FaHandSpock },
+    // { name: 'Leave', icon: FaHandSpock },
     { name: 'Pay Roll', icon: RiMoneyDollarBoxFill },
     { name: 'Complaints', icon: MdReportProblem },
     { name: 'Training', icon: BsPersonVideo3 },

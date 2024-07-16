@@ -141,7 +141,7 @@ function Attendance() {
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <button className="search-button">Search</button>
+                        <button className="attendance-search-button">Search</button>
 
                     </div>
 

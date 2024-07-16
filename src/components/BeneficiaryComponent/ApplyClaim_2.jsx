@@ -31,6 +31,10 @@ function ApplyClaim_2() {
       <Header />
 
       <div className="applied-claim-body">
+        <div className="applied-claim-body-2">
+
+      
+
         <div className="form-arrow" onClick={handleClaimClick}>
           <FaArrowLeft className="arrow_icon" />
         </div>
@@ -68,6 +72,7 @@ function ApplyClaim_2() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

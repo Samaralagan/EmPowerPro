@@ -123,7 +123,7 @@ function Leave() {
 
 
 
-                        <button className="search-button">Search</button>
+                        <button className="leave-search-button">Search</button>
 
                     </div>
 
