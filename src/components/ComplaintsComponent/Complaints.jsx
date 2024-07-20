@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "./Complaints.css";
 import Header from "../layout/Header";
 import { FaPlusCircle } from "react-icons/fa";
@@ -9,8 +9,10 @@ import ComplaintsCard from "../common/ComplaintsCard";
 import { useLocation } from "react-router-dom";
 import ComplaintsToMe from "./ComplaintsToMe";
 import ComplaintsPage from "../../pages/ComplaintsPage";
+import axios from "axios";
 
 const Complaints = ({ setActiveComponent }) => {
+  const [complaints, setComplaints] = useState([]);
   const location = useLocation();
   const getRoleName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
@@ -18,6 +20,21 @@ const Complaints = ({ setActiveComponent }) => {
     return role;
   };
   const role = getRoleName();
+
+  // useEffect(() => {
+  //   const fetchComplaints = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:8080/complaints");
+  //       setComplaints(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching complaints data:", error);
+  //     }
+  //   };
+
+  //   fetchComplaints();
+  // }, []);
+
+
   const handleCreateNewComplaint = () => {
     setActiveComponent("NewComplaint");
   };
