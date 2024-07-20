@@ -1,0 +1,52 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+  
+  .reply-complaints-body{
+    padding: 20px;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 17vw;
+  }
+  .reply-form-body{
+    
+    display: flex;
+    width: 95%;
+    border-radius: 25px;
+    padding: 1.5vw;
+    box-shadow: 
+    -4px 0px 4px rgba(0, 0, 0, 0.2),  
+    0px -4px 4px rgba(0, 0, 0, 0.2), 
+    0px 4px 4px rgba(0, 0, 0, 0.2),   
+    4px 0px 4px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    
+  }
+  .reply-complaintcard-body{
+    
+    display: flex;
+    width: 95%;
+    border-radius: 25px;
+    padding: 0.5vw;
+    box-shadow: 
+    9px 6px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 4px rgba(0, 0, 0, 0.2), 
+    0px 4px 4px rgba(0, 0, 0, 0.2), 
+    4px 0px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    
+  }

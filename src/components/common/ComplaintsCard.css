@@ -1,0 +1,97 @@
+/* Colors and styling */
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --pending1:#FF9A9A;
+    --pendingtext:#7D0000;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --approvedtext:#037A0F;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+  .complaintcard-body{
+    
+    display: flex;
+    width: 95%;
+    border-radius: 25px;
+    padding: 0.5vw;
+    box-shadow: 
+    9px 6px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 4px rgba(0, 0, 0, 0.2), 
+    0px 4px 4px rgba(0, 0, 0, 0.2), 
+    4px 0px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    
+  }
+  .complaintcard-body:hover{
+    box-shadow: 
+    9px 6px 0px rgba(134, 183, 254, 0.2),  
+    0px 0px 4px rgba(134, 183, 254, 0.2), 
+    0px 4px 4px rgba(134, 183, 254, 0.2),   
+    4px 0px 4px rgba(134, 183, 254, 0.2); 
+    /* opacity: 0.8; */
+    /* opacity: 0.8; */
+  }
+  
+  .complaintcard-content{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    padding: 2vh;
+  }
+  .complaintcard-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+  }
+  .complaintcard-header-gray{
+    font-size: 1.8vh;
+    color: #ACA7A7;
+    
+    margin-bottom: 0%;
+  }
+  .complaintcard-header-about{
+    font-size: 1.8vh;
+    color: black;
+    font-weight: bold;
+  }
+
+  .pending{
+    background-color: var(--pending1);
+    border-radius: 20px;
+    width: 20vh;
+    padding: 5px;
+    text-align: center;
+    color: var(--pendingtext);
+    
+  }
+  .approved{
+    background-color: var(--approved);
+    border-radius: 20px;
+    width: 20vh;
+    padding: 5px;
+    text-align: center;
+    color: var(--a);
+  }
+  .left-flexbox-complaint{
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+
+  }
+
+  .right-flexbox-complaint{
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+
+  }

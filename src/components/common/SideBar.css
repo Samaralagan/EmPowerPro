@@ -11,7 +11,7 @@
   --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
 }
 .side-bar{
-  width: 15rem;
+  width: 16vw;
   height: 100vh;
   background-color: var(--Main-color);
   color: var(--Sub-color);

@@ -11,15 +11,15 @@
     --Flex-heading:#FFBB00;
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
-
-  .training-body{
+  
+  .complaintstome-body{
     padding: 20px;
     width: 79vw;
     display: flex;
     flex-direction: column;
-    margin-left: 21vw;
+    /* margin-left: 17vw; */
   }
-
+  
   /* ----------------------------------------------------- */
   .new-course-content{
     display: flex;
@@ -39,13 +39,13 @@
     margin-left: 2vw;
   }
   .training-new-courses{
-    display: flex; 
+    display: flex;
     justify-content: space-around;
   }
-
-
+  
+  
   /* ------------------------------------------------------------- */
-
+  
   .mycourse-title{
     font-size: 3vh;
     margin-top: 5vh;
@@ -56,23 +56,13 @@
     margin-left: 2vw;
     margin-right: 2vw;
   }
-
-  /* --------------------------------------------- */
-
-  .ontimetraining-title{
-    font-size: 3vh;
-    margin-top: 5vh;
-    margin-left: 2vw;
-    margin-bottom: 2vh; 
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    font-size: 16px;
+    color: gray;
   }
-
-  .ontimetraining-content{
-    display: flex;
-    margin-left: 2vw;
-  }
-  .ontimetraining-content-left{
-    width: 60%;
-  }
-  .ontimetraining-content-right{
-    width: 40%;
+  
+  .border-inbox {
+    padding-left: 30px;
   }
