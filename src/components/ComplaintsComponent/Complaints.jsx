@@ -21,18 +21,18 @@ const Complaints = ({ setActiveComponent }) => {
   };
   const role = getRoleName();
 
-  useEffect(() => {
-    const fetchComplaints = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/complaints");
-        setComplaints(response.data);
-      } catch (error) {
-        console.error("Error fetching complaints data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchComplaints = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:8080/complaints");
+  //       setComplaints(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching complaints data:", error);
+  //     }
+  //   };
 
-    fetchComplaints();
-  }, []);
+  //   fetchComplaints();
+  // }, []);
 
 
   const handleCreateNewComplaint = () => {
@@ -155,7 +155,7 @@ const Complaints = ({ setActiveComponent }) => {
         </div>
       </div>
       <div>
-        {complaints.map((Card, index) => (
+        {ComplaintsData.map((Card, index) => (
           <ComplaintsCard
             key={index}
             status={Card.status}

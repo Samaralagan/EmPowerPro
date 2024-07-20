@@ -12,18 +12,18 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
   };
   const role = getRoleName();
 
-  const formatDate = (isoDateString) => {
-    const date = new Date(isoDateString);
-    return date.toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true,
-    });
-  };
+  // const formatDate = (isoDateString) => {
+  //   const date = new Date(isoDateString);
+  //   return date.toLocaleString('en-US', {
+  //     year: 'numeric',
+  //     month: 'long',
+  //     day: 'numeric',
+  //     hour: '2-digit',
+  //     minute: '2-digit',
+  //     second: '2-digit',
+  //     hour12: true,
+  //   });
+  // };
 
   const handlemorecomplaint = () => {
     setActiveComponent("Complaintsmore");
@@ -45,7 +45,7 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
         </div>
         <div className="complaintcard-header">
           <div className="right-flexbox-complaint">
-            <h5>{formatDate(date)}</h5>
+            <h5>date</h5>
             <br />
             <br />
 
