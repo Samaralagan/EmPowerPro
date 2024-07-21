@@ -5,26 +5,28 @@ import Header from '../layout/Header'
 import event_1 from '../../assets/images/event-1.jpg'
 import event_2 from '../../assets/images/event-2.jpg'
 import event_3 from '../../assets/images/event-3.jpg'
-import { FaLocationPin } from 'react-icons/fa6'
+
 import { FaPlusCircle } from 'react-icons/fa'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+import { FaLocationPin } from 'react-icons/fa6'
 
 
 function Beneficiary() {
   const navigate = useNavigate();
 
   const handleAppliedClaim = () => {
-      navigate('/Applied-claim');
+    navigate('/Applied-claim');
   }
 
   const handleCanceledClaim = () => {
     navigate('/Canceled-claim');
-}
+  }
 
-const handleApplyClaim = () => {
-  navigate('/ApplyClaim-1');
-}
+  const handleApplyClaim = () => {
+    navigate('/ApplyClaim-1');
+  }
 
 
   return (
@@ -52,6 +54,16 @@ const handleApplyClaim = () => {
 
                 <div className="event-location"><FaLocationPin className='event-icon' />At Shagri-La, Colombo</div>
 
+                <div className="voting">
+
+                  <div className="interested">
+                    <FaThumbsUp className='like-icon' /> Interested
+                  </div>
+                  <div className="not-interested">
+                    <FaThumbsDown className='dislike-icon' /> Not Interested
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -70,6 +82,16 @@ const handleApplyClaim = () => {
 
                 <div className="event-location"><FaLocationPin className='event-icon' />At Conference Room</div>
 
+                <div className="voting">
+
+                  <div className="interested">
+                    <FaThumbsUp className='like-icon' /> Interested
+                  </div>
+                  <div className="not-interested">
+                    <FaThumbsDown className='dislike-icon' /> Not Interested
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -85,8 +107,22 @@ const handleApplyClaim = () => {
                 </div>
 
                 <div className="event-time">7.30pm - 11.30pm</div>
-
                 <div className="event-location"><FaLocationPin className='event-icon' />At One-Gall Face Hotel ,Colombo</div>
+
+
+
+                <div className="voting">
+
+                  <div className="interested">
+                    <FaThumbsUp className='like-icon' /> Interested
+                  </div>
+                  <div className="not-interested">
+                    <FaThumbsDown className='dislike-icon' /> Not Interested
+                  </div>
+                </div>
+
+
+
 
               </div>
             </div>
@@ -102,7 +138,7 @@ const handleApplyClaim = () => {
           <div className="claim-head">
             <div className="claim-topic">Medical Claims</div>
 
-            <div className='apply-claim'  onClick={handleApplyClaim}>
+            <div className='apply-claim' onClick={handleApplyClaim}>
               <div className='add-icon-circle'>
                 <FaPlusCircle className='add-icon' />
               </div>
@@ -134,8 +170,8 @@ const handleApplyClaim = () => {
             <div className="medical-claim">
 
               <div className="claim-status-heading">
-                  <div className="status pending">Pending</div>
-                  <div className="claimed-date">23-03-2024</div>
+                <div className="status pending">Pending</div>
+                <div className="claimed-date">23-03-2024</div>
 
               </div>
               <div className="reason-topic">Reason</div>
@@ -145,9 +181,9 @@ const handleApplyClaim = () => {
                 <div className="view-details" onClick={handleCanceledClaim}>View Details ...</div>
 
               </div>
-             
 
-           
+
+
 
 
             </div>
@@ -155,8 +191,8 @@ const handleApplyClaim = () => {
             <div className="medical-claim">
 
               <div className="claim-status-heading">
-                  <div className="status approved">Approved</div>
-                  <div className="claimed-date">12-04-2024</div>
+                <div className="status approved">Approved</div>
+                <div className="claimed-date">12-04-2024</div>
 
               </div>
 

@@ -65,10 +65,12 @@ function Attendance() {
                         </div>
                         <div className='box-content'>
                             <div className='main-box-content'> 02 : 00  </div>
-                            <div className='sub-box-content'> Over Time  </div>
+                            <div className='sub-box-content-1'>  OverTime Hours</div>
                         </div>
-
                     </div>
+
+
+                  
 
                 </div>
 
