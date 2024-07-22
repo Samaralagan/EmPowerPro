@@ -42,7 +42,27 @@ export const NewCourseCardData=[
    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'}
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
 ]
 
 export const MyCourseCardData=[
