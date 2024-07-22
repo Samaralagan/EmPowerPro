@@ -813,15 +813,70 @@
 
 
 .event-image {
-  width: 12%; /* Adjust the size as needed */
-  height: 12%; /* Adjust the size as needed */
+  width: 12%; 
+  height: 12%; 
   border-radius: 50%;
-  margin-right: 10px; /* Adjust the spacing as needed */
+  margin-right: 10px; 
 }
 
+.party-image{
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%;
+  margin-right: 10px; 
+
+}
 .event-topic-reason{
   margin-top: 4%;
 }
 
 
 
+.reply-container{
+  width: 98%;
+  height: auto;
+  border-radius: 10px;
+  background-color: var(--Sub-color);
+  border: solid 2px var(--Main-color);
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 2%;
+  font-size: 17px;
+  color: var(--Main-color);
+  margin-top: 2%;
+  padding-left: 2.5%;
+  margin-left: 1%;
+ 
+}
+
+.reply-buttons{
+  align-items: center;
+  justify-content: center;
+
+  display: flex;
+  gap: 10%;
+}
+.approve-button, .reject-button {
+  padding: 5px 30px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px; 
+}
+
+.approve-button {
+  background-color: var(--Main-color);
+  color: white;
+}
+
+.reject-button {
+  background-color: red;
+  color: white;
+}
+
+.reply-comment{
+  font-size: 14px;
+  color: #b3b3b3;
+  margin-top: 3%;
+}

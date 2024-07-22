@@ -27,6 +27,7 @@ import ApplyEvent from './components/BeneficiaryComponent/ApplyEvent.jsx'
 
 import Executive_BeneficiaryPage from './components/BeneficiaryComponent/Executive_Beneficiary.jsx'
 import RequestedEventPage from './components/BeneficiaryComponent/RequestedEvent.jsx'
+import PendingEventPage from './components/BeneficiaryComponent/PendingEvent.jsx'
 
 
 
@@ -64,8 +65,9 @@ function App() {
 
               <Route path="/EXEC_Beneficiary" element={<Executive_BeneficiaryPage />} />
               <Route path="/RequestedEvent" element={<RequestedEventPage/>} />
+              <Route path="/PendingEvent" element={<PendingEventPage/>} />
 
-
+            
 
               
 

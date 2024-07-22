@@ -33,6 +33,11 @@ function Executive_Beneficiary() {
         navigate('/RequestedEvent');
     }
 
+    const handlePendingEventCard = () => {
+        navigate('/PendingEvent');
+    }
+
+
 
     return (
         <div>
@@ -109,7 +114,7 @@ function Executive_Beneficiary() {
                             </div>
                         </div>
 
-                        <div className="event-card"  onClick={handleEventCard}>
+                        <div className="event-card"  onClick={handlePendingEventCard}>
                             <div className="img-part">
                                 <img alt="event-img" src={event_3} />
                             </div>
