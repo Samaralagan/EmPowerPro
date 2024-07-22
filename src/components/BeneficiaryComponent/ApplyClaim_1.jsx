@@ -29,7 +29,7 @@ function ApplyClaim_1() {
   const [complete, setComplete] = useState(false);
 
   const handleClaimClick = () => {
-    navigate('/Beneficiary');
+    navigate('/Beneficiary/Employee');
   };
 
   const [checked, setChecked] = useState(false);
@@ -47,7 +47,7 @@ function ApplyClaim_1() {
 
   const handleBack = () => {
     
-    navigate('/Beneficiary');
+    navigate('/Beneficiary/Employee');
   
 
 };
@@ -56,9 +56,12 @@ function ApplyClaim_1() {
   return (
     <div>
       <SideBar />
+
       <Header />
+      
 
       <div className="applied-claim-body">
+       
 
         <div className="applied-claim-body-2">
 

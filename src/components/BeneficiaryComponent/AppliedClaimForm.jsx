@@ -10,7 +10,7 @@ function AppliedClaimForm() {
     const navigate = useNavigate();
 
     const handleClaimClick = () => {
-        navigate('/Beneficiary');
+        navigate('/Beneficiary/Employee');
     }
 
     return (

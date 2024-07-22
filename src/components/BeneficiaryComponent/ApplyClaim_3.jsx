@@ -17,11 +17,11 @@ function ApplyClaim_3() {
   const [complete, setComplete] = useState(false);
 
   const handleClaimClick = () => {
-    navigate('/Beneficiary');
+    navigate('/Beneficiary/Employee');
   };
 
   const handleNext = () => {
-     navigate('/Beneficiary');
+     navigate('/Beneficiary/Employee');
   };
 
   const handleBack = () => {

@@ -11,7 +11,7 @@ function CanceledClaimForm() {
     const navigate = useNavigate();
 
     const handleClaimClick = () => {
-        navigate('/Beneficiary');
+        navigate('/Beneficiary/Employee');
     }
     return (
         <div>

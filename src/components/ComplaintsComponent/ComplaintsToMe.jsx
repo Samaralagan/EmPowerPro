@@ -4,10 +4,13 @@ import { FaSearch } from "react-icons/fa";
 import { ComplaintsData } from "../constants/temporary";
 import { Card } from "react-bootstrap";
 import ComplaintsCard from "../common/ComplaintsCard";
+
+
 function ComplaintsToMe() {
   return (
     <div className="complaintstome-body">
-      <div style={{ display: "flex", marginTop: "1.5rem" }}>
+
+      {/* <div style={{ display: "flex", marginTop: "1.5rem" }}>
         <select
           className="form-select"
           aria-label="Default select example"
@@ -54,7 +57,26 @@ function ComplaintsToMe() {
             Search
           </button>
         </div>
+      </div> */}
+
+      <div className="filter-row-complaint-tome">
+
+        <select className="filter-dropdown-complaint-tome" defaultValue="">
+          <option value="" disabled>Filter By</option>
+          <option value="option1">Pending</option>
+          <option value="option2">Approved</option>
+
+        </select>
+
+        <div className="search-bar-complaint-tome">
+          <FaSearch className="search-icon-complaint-tome" />
+          <input type="text" placeholder="Search..." className="search-input-complaint-tome" />
+          <button className="search-button-complaint-tome">Search</button>
+        </div>
+
+
       </div>
+
       {ComplaintsData.map((Card, index) => (
         <ComplaintsCard
           key={index}

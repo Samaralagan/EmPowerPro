@@ -8,6 +8,8 @@ import { FaPlusCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
 
+
+
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
@@ -21,9 +23,9 @@ function Leave() {
 
     return (
         <div>
-            <Header />
-
+           <Header/>
             <div className='leave-body'>
+           
                 <div className="rectangles_container">
 
                     <div className="main_rectangles">
@@ -82,21 +84,22 @@ function Leave() {
 
                     <div className="dropdown-row">
 
-                        {/* <select className="custom-dropdown" defaultValue="">
-                            <option value="" disabled>Last 6 months</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
+                        
 
-                        <select className="custom-dropdown" defaultValue="">
-                            <option value="" disabled>Status</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select> */}
+                     <select className="attendance-custom-dropdown" defaultValue="">
+                        <option value="" disabled>Start date</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <select className="attendance-custom-dropdown" defaultValue="">
+                        <option value="" disabled>End date</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
 
-                        <Dropdown>
+                        {/* <Dropdown>
                             <Dropdown.Toggle variant="success" id="dropdown-basic" className='custom-dropdown'>
                                Last 6 months
                             </Dropdown.Toggle>
@@ -118,7 +121,7 @@ function Leave() {
                                 <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                 <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                             </Dropdown.Menu>
-                        </Dropdown>
+                        </Dropdown> */}
 
 
 

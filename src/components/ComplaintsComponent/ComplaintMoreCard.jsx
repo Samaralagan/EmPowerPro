@@ -20,11 +20,12 @@ const ComplaintMoreCard = ({
   return (
     <div>
       <IoMdArrowRoundBack className="backarrow" onClick={handlemorecomplaint} />
+      
       <div className="complaintmorecard-body">
         <div className="complaintmorecard-content">
           <div className="complaintmorecard-header">
             <br />
-            <h5 className={status === "pending" ? "pending" : "approved"}>
+            <h5 className={status === "Pending" ? "pending" : "approved"}>
               {status}
             </h5>
             <br />
@@ -36,13 +37,13 @@ const ComplaintMoreCard = ({
                 Complaint raised on {date}
               </p>
             </div>
-            <p className="complaintmorecard-header-gray">to : </p>
+            <p className="complaintmorecard-header-gray">To : </p>
             <p className="complaintmorecard-header-text">{to}</p>
             <br />
-            <p className="complaintmorecard-header-gray">description : </p>
+            <p className="complaintmorecard-header-gray">Description : </p>
             <p className="complaintmorecard-header-text">{description}</p>
             <br />
-            <p className="complaintmorecard-header-gray">reply : </p>
+            <p className="complaintmorecard-header-gray">Reply : </p>
             <p className="complaintmorecard-header-text">{reply}</p>
           </div>
           <div></div>

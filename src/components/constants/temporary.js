@@ -77,12 +77,12 @@ export const MyCourseCardData=[
 ]
 
 export const ComplaintsData=[
-   {status:'pending', about:'Regarding the heavy work load',date:'23/03/2024'},
-   {status:'approved', about:'Regarding Evaluvation marks',date:'23/03/2024'}
+   {status:'Pending', about:'Regarding the heavy work load',date:'23/03/2024'},
+   {status:'Approved', about:'Regarding Evaluvation marks',date:'23/03/2024'}
 ]
 
 export const ComplaintsDataMore=[
-   {status:'pending', about:'Regarding the heavy work load',date:'23/03/2024',to:'Human Resource Manager',description:'I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.',reply:'We have carefully reevaluated your assignment [or test] and taken into consideration your points regarding the grading criteria.'},
+   {status:'Pending', about:'Regarding the heavy work load',date:'23/03/2024',to:'Human Resource Manager',description:'I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.',reply:'We have carefully reevaluated your assignment [or test] and taken into consideration your points regarding the grading criteria.'},
    
    
 ]

@@ -16,6 +16,9 @@
   background-color: var(--Main-color);
   color: var(--Sub-color);
   overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
  
 }
 

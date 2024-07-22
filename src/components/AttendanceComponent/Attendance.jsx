@@ -9,10 +9,11 @@ import LineChart from './LineChart'
 
 function Attendance() {
     return (
+        <div>
+        <Header />
         <div className='attendance-body'>
-            <Header />
-            <hr className='header-hr' />
-
+           
+           
             <div className='rectangles-container'>
                 <div className='rectangle_diff'>
                     <div className="sun-time">
@@ -51,7 +52,7 @@ function Attendance() {
                     </div>
                     <div className='box-content'>
                         <div className='main-box-content'> 03 : 30  </div>
-                        <div className='sub-box-content-2'> Worked Hours </div>
+                        <div className='sub-box-content-1'> Worked Hours </div>
                     </div>
                 </div>
 
@@ -61,7 +62,7 @@ function Attendance() {
                     </div>
                     <div className='box-content'>
                         <div className='main-box-content'> 02 : 00  </div>
-                        <div className='sub-box-content'> Over Time  </div>
+                        <div className='sub-box-content-1'> OverTime Hours  </div>
                     </div>
 
                 </div>
@@ -99,20 +100,20 @@ function Attendance() {
 
                 <div className="dropdown-row">
 
-                    <select className="custom-dropdown" defaultValue="">
+                    <select className="attendance-custom-dropdown" defaultValue="">
                         <option value="" disabled>Start date</option>
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
                         <option value="option3">Option 3</option>
                     </select>
-                    <select className="custom-dropdown" defaultValue="">
+                    <select className="attendance-custom-dropdown" defaultValue="">
                         <option value="" disabled>End date</option>
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
                         <option value="option3">Option 3</option>
                     </select>
 
-                    <button className="search-button">Search</button>
+                    <button className="attendance-search-button">Search</button>
 
                 </div>
 
@@ -171,7 +172,7 @@ function Attendance() {
             </div>
 
 
-
+            </div>
         </div>
     )
 }

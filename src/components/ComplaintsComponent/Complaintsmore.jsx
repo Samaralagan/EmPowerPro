@@ -6,9 +6,13 @@ import ComplaintMoreCard from "./ComplaintMoreCard";
 
 function Complaintsmore({ setActiveComponent }) {
   return (
-    <div className="complaintsmore-body">
+
+    <div>
       <Header />
-      <hr />
+ 
+    <div className="complaintsmore-body">
+      
+    
       {ComplaintsDataMore.map((Card, index) => (
         <ComplaintMoreCard
           key={index}
@@ -21,6 +25,7 @@ function Complaintsmore({ setActiveComponent }) {
           setActiveComponent={setActiveComponent} // Pass the function here
         />
       ))}
+    </div>
     </div>
   );
 }

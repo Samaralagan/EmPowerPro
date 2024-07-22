@@ -13,11 +13,13 @@
   }
   
   .complaintstome-body{
-    padding: 20px;
-    width: 79vw;
-    display: flex;
-    flex-direction: column;
-    /* margin-left: 17vw; */
+
+  width: 79vw;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  margin-top: 5%;
+  margin-left: -1%;
   }
   
   /* ----------------------------------------------------- */
@@ -66,3 +68,61 @@
   .border-inbox {
     padding-left: 30px;
   }
+
+  
+.filter-row-complaint-tome {
+  display: flex;
+  gap: 380px;
+  margin-left: 1%;
+  margin-top: 2%;
+}
+
+.filter-dropdown-complaint-tome {
+  padding: 5px;
+  padding-right: 170px;
+  padding-left: 15px;
+  font-size: 11px;
+  border: 2px solid var(--Main-color);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: var(--Main-color);
+  font-weight: 500;
+}
+
+.search-bar-complaint-tome {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--Main-color);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 40%;
+}
+
+.search-icon-complaint-tome {
+  padding: 0 10px;
+  color: var(--Main-color);
+}
+
+.search-input-complaint-tome{
+  border: none;
+  outline: none;
+  padding: 1%;
+  flex-grow: 1;
+  font-size: 11px;
+}
+
+.search-button-complaint-tome {
+  background-color: var(--Main-color);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.search-button-complaint-tome:hover {
+  background-color: var(--Main-color);
+}

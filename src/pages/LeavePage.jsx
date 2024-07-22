@@ -1,7 +1,8 @@
+
 import React from "react";
 import Leave from "../components/LeaveComponent/Leave";
 import SideBar from "../components/common/SideBar";
-import ApplyLeave from "../components/LeaveComponent/ApplyLeave";
+import ApplyLeave from "../components/LeaveComponent/ApplyLeaveForm";
 
 function LeavePage() {
   return (
@@ -15,3 +16,4 @@ function LeavePage() {
 }
 
 export default LeavePage;
+

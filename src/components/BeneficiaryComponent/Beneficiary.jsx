@@ -31,9 +31,10 @@ function Beneficiary() {
 
   return (
     <div>
-      <Header />
+       <Header />
 
       <div className="beneficiary-body">
+     
 
         <div className="company-events-category">
           <div className="event-topic">Company Events</div>

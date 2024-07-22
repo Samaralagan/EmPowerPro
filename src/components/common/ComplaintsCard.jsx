@@ -19,11 +19,12 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
       <div className="complaintcard-content">
         <div className="complaintcard-header">
           <div className="left-flexbox-complaint">
-            <h5 className={status === "pending" ? "pending_c" : "approved_c"}>
+            <h5 className={status === "Pending" ? "pending_c" : "approved_c"}>
               {status}
             </h5>
             <br />
             <p className="complaintcard-header-gray">Complaint</p>
+
             <p className="complaintcard-header-about">
               <b>{about}</b>
             </p>
@@ -31,7 +32,7 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
         </div>
         <div className="complaintcard-header">
           <div className="right-flexbox-complaint">
-            <h5>{date}</h5>
+            <h5 className="complaint-date">{date}</h5>
             <br />
             <br />
 

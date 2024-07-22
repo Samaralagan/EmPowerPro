@@ -17,28 +17,25 @@
 
   .complaintcard-body{
     
-    display: flex;
-    width: 95%;
-    border-radius: 25px;
-    padding: 0.5vw;
-    box-shadow: 
-    9px 6px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 4px rgba(0, 0, 0, 0.2), 
-    0px 4px 4px rgba(0, 0, 0, 0.2), 
-    4px 0px 4px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    margin-top: 4vh;
-    margin-left: 4vh;
+  width: 99%;
+  height: auto;
+  border-radius: 10px;
+  background-color: var(--Sub-color);
+  box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  font-size: 17px;
+  color: var(--Main-color);
+  padding: 1%;
+  padding-top: 1%;
+  margin-top: 2%;
+  margin-left: 1%;
     
   }
   .complaintcard-body:hover{
-    box-shadow: 
-    9px 6px 0px rgba(134, 183, 254, 0.2),  
-    0px 0px 4px rgba(134, 183, 254, 0.2), 
-    0px 4px 4px rgba(134, 183, 254, 0.2),   
-    4px 0px 4px rgba(134, 183, 254, 0.2); 
-    /* opacity: 0.8; */
-    /* opacity: 0.8; */
+    transform: scale(1.01);
+    transition: transform 0.2s ease;
   }
   
   .complaintcard-content{
@@ -54,44 +51,76 @@
     width: 50%;
   }
   .complaintcard-header-gray{
-    font-size: 1.8vh;
+    font-size: 13px;
     color: #ACA7A7;
     
     margin-bottom: 0%;
   }
   .complaintcard-header-about{
-    font-size: 1.8vh;
+    font-size: 13px;
     color: black;
     font-weight: bold;
   }
 
   .pending_c{
-    background-color: var(--pending1);
-    border-radius: 20px;
-    width: 20vh;
-    padding: 5px;
-    text-align: center;
-    color: var(--pendingtext);
+   
+    width: 15%;
+    border-radius: 40px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 1%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4%;
+    padding-right: 4%;
+
+    background-color: #f67e7e;
+    color: #bf0000;
     
   }
   .approved_c{
-    background-color: var(--approved);
-    border-radius: 20px;
-    width: 20vh;
-    padding: 5px;
-    text-align: center;
-    color: var(--a);
+   
+
+
+    width: 15%;
+    border-radius: 40px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 1%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4%;
+    padding-right: 4%;
+
+    background-color: #9BF37C;
+    color: #02C416;
   }
   .left-flexbox-complaint{
     display: flex;
     flex-direction: column;
     align-items:start;
+    font-size: 10px;
+    color: var(--Main-color);
 
   }
-
+.complaint-date{
+   
+    font-size: 11px;
+    color: #ACA7A7;
+    margin-top: 3%;
+ 
+}
   .right-flexbox-complaint{
     display: flex;
     flex-direction: column;
     align-items:end;
+    font-size: 11px;
+    color: #ACA7A7;
 
   }

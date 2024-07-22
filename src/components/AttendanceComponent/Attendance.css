@@ -13,13 +13,13 @@
 
   
   .attendance-body{
-    padding: 6%;
-    width: 80%;
+    padding: 2%;
+    width: 79vw;
     display: flex;
     flex-direction: column;
-    margin-left: 20%;
-    margin-top: -38rem;
+    margin-left: 15rem;
     padding: 1rem;
+    margin-top: 0;
   }
 
 
@@ -256,8 +256,8 @@
 }
 
 .additional-rectangle-2 {
-    width: 720px;
-    height: 250px;
+    width: 75%;
+    height: 245px;
     border-radius: 10px;
     background-color: var(--Sub-color);
     box-shadow: 2px 2px 4px 2px rgba(107, 107, 107, 0.1);
@@ -267,7 +267,7 @@
     color: #333;
     font-size: 16px;
     font-weight: bold;
-    margin-top: -70px;
+    margin-top: -7%;
     overflow: hidden;
     padding: 1%;
 }
@@ -302,10 +302,10 @@
     gap: 60%;
 }
 
-.custom-dropdown {
-    padding: 5px;
-    padding-right: 90%;
-    padding-left: 15%;
+.attendance-custom-dropdown {
+    padding: 1%;
+    padding-right: 10%;
+    /* padding-left: 5%; */
     font-size: 11px;
     border: 2px solid #D9D9D9;
     border-radius: 10px;
@@ -315,21 +315,23 @@
     background-color: var(--Sub-color);
 }
 
-.search-button{
-    padding: 2px;
+.attendance-search-button{
+    
     font-size: 11px;
     border-radius: 40px;
     color: var(--Sub-color);
     background-color: var(--Main-color);
-    margin-left: 300px;
+    margin-left: 43%;
     outline: none;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 5%;
+    padding-right: 5%;
     border: 1px solid var(--Main-color);
     font-weight: 500;
     align-items: center;
     justify-items: center;
     border-radius: 20px;
+    /* padding-top: 2%;
+    padding-bottom: 2%; */
 }
 
 
@@ -374,12 +376,13 @@
     border: 2px solid #213fa9;
     border-radius: 50px;
     color: #FFAC0A; 
-    padding: 10px;
+    padding: 5px;
     background-color: var(--Sub-color);
     width: 30%;
     align-items: center;
     justify-items: center;
     font-weight: bold;
+    font-size: 11px;
 }
 
 .ontime{

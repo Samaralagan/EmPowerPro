@@ -8,6 +8,7 @@ import Vacancy_Apply_Form from './components/common/VacancyApplyForm.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import SideBar from './components/common/SideBar.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import TrainingPage from './pages/TrainingPage.jsx';
 import ComplaintsPage from './pages/ComplaintsPage.jsx';
 import ComplaintsPage_Tl from './pages/ComplaintsPage_Tl.jsx';
@@ -24,6 +25,15 @@ import EmployeePage from './pages/EmployeePage.jsx';
 import Employee from './components/employee/Employee.jsx';
 import Profile from './components/employee/Profile.jsx';
 import GenerateReport from './components/employee/GenerateReport.jsx';
+
+import BeneficiaryPage from './pages/BeneficiaryPage.jsx'
+
+import ApplyLeaveForm from './components/LeaveComponent/ApplyLeaveForm.jsx';
+import ApplyClaim_1 from './components/BeneficiaryComponent/ApplyClaim_1.jsx';
+import ApplyClaim_2 from './components/BeneficiaryComponent/ApplyClaim_2.jsx';
+import ApplyClaim_3 from './components/BeneficiaryComponent/ApplyClaim_3.jsx';
+import AppliedClaimForm from './components/BeneficiaryComponent/AppliedClaimForm.jsx';
+import CanceledClaimForm from './components/BeneficiaryComponent/CanceledClaimForm.jsx';
 
 function App() {
   const role = 'Employee';
@@ -43,7 +53,10 @@ function App() {
               <Route path="/Complaints/Employee" element={<ComplaintsPage/>} />
               <Route path="/Complaints/Employee/NewComplaint" element={<NewComplaint/>} />
               <Route path="/Training/Employee" element={<TrainingPage />} />   
-              <Route path="/Beneficiary/Employee" element={<Vacancy_Apply_Form/>} />
+              <Route path="/Beneficiary/Employee" element={<BeneficiaryPage/>} />
+
+             
+
               
               <Route path="/Dash Board/TeamLeader" element={<SideBar />} />
               <Route path="/Attendance/TeamLeader" element={<SideBar />} />
@@ -95,6 +108,15 @@ function App() {
               <Route path="/Pay Roll/Executive" element={<SideBar />} />
               <Route path="/Beneficiary/Executive" element={<SideBar />} />
               <Route path="/Team members/Executive" element={<SideBar />} />
+
+              <Route path="/Apply-leave" element={<ApplyLeaveForm/>} />
+              <Route path="/ApplyClaim-1" element={<ApplyClaim_1/>} />
+              <Route path="/ApplyClaim-2" element={<ApplyClaim_2/>} />
+              <Route path="/ApplyClaim-3" element={<ApplyClaim_3/>} />
+              <Route path="/Applied-claim" element={<AppliedClaimForm />} />
+              <Route path="/Canceled-claim" element={<CanceledClaimForm/>} />
+
+
 
            </Routes>
          </div>

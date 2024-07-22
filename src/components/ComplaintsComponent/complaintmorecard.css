@@ -17,27 +17,26 @@
 
   .complaintmorecard-body{
     
-    display: flex;
-    width: 95%;
-    border-radius: 25px;
-    padding: 0.5vw;
-    box-shadow: 
-    -4px 0px 4px rgba(0, 0, 0, 0.2),  
-    0px -4px 4px rgba(0, 0, 0, 0.2), 
-    0px 4px 4px rgba(0, 0, 0, 0.2),   
-    4px 0px 4px rgba(0, 0, 0, 0.2); 
-    cursor: pointer;
-    margin-top: 4vh;
-    margin-left: 4vh;
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  background-color: var(--Sub-color);
+  box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  font-size: 17px;
+  color: var(--Main-color);
+  margin-bottom: 2%;
+  padding: 2%;
+  padding-top: 1%;
+  margin-left: 3%;
+  margin-top: 2%;
     
   }
   .complaintmorecard-body:hover{
-    box-shadow: 
-    -10px 0px 10px rgba(0, 0, 0, 0.2),  
-    0px -10px 10px rgba(0, 0, 0, 0.2), 
-    0px 10px 10px rgba(0, 0, 0, 0.2),   
-    10px 0px 10px rgba(0, 0, 0, 0.2);  
-    /* opacity: 0.8; */
+    transform: scale(1.01);
+    transition: transform 0.2s ease;
   }
   
   .complaintmorecard-content{
@@ -51,18 +50,22 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    font-size: 14px;
   }
 
+  .complaintmorecard-header-heading{
+    font-size: 16px;
+   
+  }
   
   .complaintmorecard-header-gray{
-    font-size: 1.8vh;
+    font-size: 12px;
     color: #ACA7A7;
-    
     margin-bottom: 0%;
   }
   .complaintmorecard-header-text{
     margin-left: 2rem;
-    font-size: 1.8vh;
+    font-size: 12px;
     color: black;
     font-weight: bold;
   }
@@ -76,21 +79,43 @@
   
 
   .pending{
-    background-color: var(--pending1);
-    border-radius: 20px;
-    width: 20vh;
-    padding: 5px;
-    text-align: center;
-    color: var(--pendingtext);
+
+
+    width: 15%;
+  border-radius: 40px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-left: 1%;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4%;
+  padding-right: 4%;
+
+  background-color: #f67e7e;
+  color: #bf0000;
     
   }
   .approved{
-    background-color: var(--approved);
-    border-radius: 20px;
-    width: 20vh;
-    padding: 5px;
-    text-align: center;
-    color: var(--a);
+    width: 15%;
+    border-radius: 40px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 1%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4%;
+    padding-right: 4%;
+
+    background-color: #9BF37C;
+  color: #02C416;
+  
+   
   }
   .left-flexbox-complaintmore{
     display: flex;
@@ -105,13 +130,13 @@
     align-items:end;
     width: 100%;
     color: #ACA7A7;
+    font-size: 11px;
 
   }
   .backarrow{
-    margin-left: 1.5rem;
-    width: 3rem;
-    height: 2rem;
-    transition: transform 2s ease;
+    margin-left: 1%;
+    font-size: 10px;
+    
   }
   .backarrow :hover{
     transform: scale(1.1);

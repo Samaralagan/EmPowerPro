@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './SideBar.css';
 import { EmployeeSidebar,TeamLeaderSidebar,AdminSidebar, HRSidebar, FinanceAndSupportSidebar, ExecutiveSidebar} from '../constants/contents';
 import logo from '../../assets/images/logo.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation} from 'react-router-dom';
 
 const SideBar = () => {
   const navigate = useNavigate();
+  const location = useLocation(); 
   const [showSubLinks, setShowSubLinks] = useState(false);
 
   const handlePage = (PageName) => {
