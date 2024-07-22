@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './SideBar.css';
 import { EmployeeSidebar } from '../constants/contents';
+import { HRSidebar } from '../constants/contents';
+import { ExecutiveSidebar } from '../constants/contents';
+
 import logo from '../../assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +25,7 @@ const SideBar = () => {
         <img src={logo} alt="" />
       </div>
       <div className='side-bar-links'>
-        {EmployeeSidebar.map((sidebar, index) => (
+        {ExecutiveSidebar.map((sidebar, index) => (
           <div
             key={index}
             className={`side-bar-link ${sidebar.name === 'Attendance' && showSubLinks ? 'active' : ''}`}

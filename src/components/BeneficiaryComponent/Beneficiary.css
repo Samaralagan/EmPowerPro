@@ -157,6 +157,7 @@
   font-size: 14px;
   font-weight: bold;
   color: var(--Main-color);
+  margin-top: 2%;
 }
 
 .apply-claim {
@@ -175,6 +176,7 @@
   height: 40px;
   gap: 15px;
   font-weight: bold;
+  margin-top: 1%;
 }
 
 .apply-claim:hover {
@@ -274,6 +276,31 @@
   justify-content: space-between;
 }
 
+.eventstatus {
+  width: 45%;
+  border-radius: 40px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-left: 3%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4%;
+  padding-left: 13%;
+}
+
+.eventstatus.pending {
+  background-color: #f67e7e;
+  color: #bf0000;
+}
+
+.eventstatus.approved{
+  background-color: #9BF37C;
+  color: #02C416;
+
+}
 .status{
   width: 15%;
   border-radius: 40px;
@@ -551,7 +578,58 @@
  
 }
 
+.form-input-date{
+  padding: 10px;
+  font-size: 11px;
+  border: 2px solid #D9D9D9;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: #D9D9D9;
+  margin-top: 8px;
+  appearance: none; 
+  padding-right: 210px;
+  appearance: none; 
+}
 
+.form-input-date::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  position: relative;
+  left: 200px;
+  filter: grayscale(100%);
+ 
+}
+
+
+.form-input-time{
+  padding: 10px;
+  font-size: 11px;
+  border: 2px solid #D9D9D9;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: #D9D9D9;
+  margin-top: 8px;
+  appearance: none; 
+  padding-right: 240px;
+  appearance: none; 
+}
+
+.form-input-time::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  position: relative;
+  left: 230px;
+  filter: grayscale(100%);
+ 
+}
+
+.event-form-heading{
+  margin-bottom: 4%;
+  margin-top: 2%;
+  font-size: 20px;
+  align-items: center;
+
+}
 .one-row-detail{
   display: flex;
   justify-content: space-between;
@@ -635,6 +713,22 @@
 
 }
 
+.newevent-button{
+  background-color: #007BFF; 
+  color: white;
+  border: none;
+  padding: 10px 80px;
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+
+  margin-top: 20px;
+ 
+  margin-left: 75%;
+}
+
+
 
 /* Apply form 2 */
 
@@ -686,14 +780,48 @@
 }
 
 
+.party-oneline{
+  display: flex;
+  justify-content: space-between;
+
+}
+.party-detail{
+  display: flex;
+  gap: 3%;
+  margin-left: 1%;
+  margin-top: 2%;
+  width: 25%;
+}
+.party-subtopics{
+  font-size: 13px;
+  color: #b3b3b3;
+ 
+}
+
+.party-content{
+  font-size: 13px;
+  color: var(--Main-color);
+ 
+}
+
+.event-reason-row{
+  margin-top: 2%;
+  display: flex;
+  gap: 2%;
+  margin-bottom: 2%;
+}
 
 
+.event-image {
+  width: 12%; /* Adjust the size as needed */
+  height: 12%; /* Adjust the size as needed */
+  border-radius: 50%;
+  margin-right: 10px; /* Adjust the spacing as needed */
+}
 
-
-
-
-
-
+.event-topic-reason{
+  margin-top: 4%;
+}
 
 
 

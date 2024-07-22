@@ -21,6 +21,15 @@ import ApplyForm_1 from './components/BeneficiaryComponent/ApplyClaim_1.jsx'
 import ApplyForm_2 from './components/BeneficiaryComponent/ApplyClaim_2.jsx'
 import ApplyForm_3 from './components/BeneficiaryComponent/ApplyClaim_3.jsx'
 
+import HR_BeneficiaryPage from './components/BeneficiaryComponent/HR_Beneficiary.jsx'
+import ApplyEvent from './components/BeneficiaryComponent/ApplyEvent.jsx'
+
+
+import Executive_BeneficiaryPage from './components/BeneficiaryComponent/Executive_Beneficiary.jsx'
+import RequestedEventPage from './components/BeneficiaryComponent/RequestedEvent.jsx'
+
+
+
 function App() {
   return (
     <Router>
@@ -36,7 +45,9 @@ function App() {
               <Route path="/Pay Roll" element={<SideBar />} />
               <Route path="/Complaints" element={<SideBar />} />
               <Route path="/Training" element={<TrainingPage />} />
-              <Route path="/Beneficiary" element={<BeneficiaryPage />} />
+              {/* <Route path="/Beneficiary" element={<BeneficiaryPage />} /> */}
+
+
 
               <Route path="/Apply-leave" element={<ApplyLeaveForm/>} />
               <Route path="/Applied-claim" element={<AppliedClaim/>} />
@@ -47,7 +58,16 @@ function App() {
               <Route path="/ApplyClaim-3" element={<ApplyForm_3/>} />
               
 
+              {/* HR Beneficiary page */}
+              <Route path="/Beneficiary" element={<HR_BeneficiaryPage />} />
+              <Route path="/ApplyEvent" element={<ApplyEvent/>} />
 
+              <Route path="/EXEC_Beneficiary" element={<Executive_BeneficiaryPage />} />
+              <Route path="/RequestedEvent" element={<RequestedEventPage/>} />
+
+
+
+              
 
 
 

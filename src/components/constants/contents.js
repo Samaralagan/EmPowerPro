@@ -13,6 +13,8 @@ import { BsPersonVideo3 } from "react-icons/bs";
 import { RiMoneyDollarBoxFill } from "react-icons/ri";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { HiMiniUserGroup } from "react-icons/hi2";
+import { FaUsers } from "react-icons/fa6";
+import { FaUserTie } from "react-icons/fa6";
 import about_img1 from '../../assets/images/image 1.png'
 import about_img2 from '../../assets/images/image 2.png'
 import about_img3 from '../../assets/images/image 3.png'
@@ -78,6 +80,27 @@ export const EmployeeSidebar = [
     { name: 'Beneficiary', icon: FaHandHoldingHeart }
 ];
 
+export const HRSidebar = [
+    { name: 'Dash Board', icon: GrAppsRounded },
+    { name: 'Attendance', icon: FaCalendarCheck, subLinks: ['Attendance', 'Leaves'] },
+    { name: 'Project', icon: FaProjectDiagram },
+    { name: 'Pay Roll', icon: RiMoneyDollarBoxFill },
+    { name: 'Complaints', icon: MdReportProblem },
+    { name: 'Training', icon: BsPersonVideo3 },
+    { name: 'Employees',icon: BsPersonVideo3 },
+    { name: 'Jobs', icon: BsPersonVideo3},
+    { name: 'Beneficiary', icon: FaHandHoldingHeart }
+];
+
+export const ExecutiveSidebar = [
+    { name: 'Dash Board', icon: GrAppsRounded },
+    { name: 'Attendance', icon: FaCalendarCheck, subLinks: ['Attendance', 'Leaves'] },
+    { name: 'Project', icon: FaProjectDiagram },
+    { name: 'Pay Roll', icon: RiMoneyDollarBoxFill },
+    { name: 'Complaints', icon: MdReportProblem },
+    { name: 'Team Members',icon: BsPersonVideo3 },
+    { name: 'Beneficiary', icon: FaHandHoldingHeart }
+];
 
 export const TeamLeaderSidebar = [
     {name:'Dash Board',icon:<GrAppsRounded />},
