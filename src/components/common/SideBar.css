@@ -10,14 +10,13 @@
   --Flex-heading:#FFBB00;
   --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
 }
-
 .side-bar {
-  width: 19vw;
+  width: 15rem;
   height: 100vh;
   background-color: var(--Main-color);
   color: var(--Sub-color);
   overflow: hidden;
-  position: fixed;
+ 
 }
 
 .side-bar-logo {

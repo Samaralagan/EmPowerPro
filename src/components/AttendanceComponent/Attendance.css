@@ -18,9 +18,8 @@
     display: flex;
     flex-direction: column;
     margin-left: 20%;
-    padding: 1%;
-    margin-top:0;
-   
+    margin-top: -38rem;
+    padding: 1rem;
   }
 
 
@@ -33,7 +32,7 @@
   }
   
   .rectangle {
-    width: 24%;
+    width: 230px;
     height: 100px;
     border-radius: 10px;
     display: flex;
@@ -257,8 +256,8 @@
 }
 
 .additional-rectangle-2 {
-    width: 75%;
-    height: 245px;
+    width: 720px;
+    height: 250px;
     border-radius: 10px;
     background-color: var(--Sub-color);
     box-shadow: 2px 2px 4px 2px rgba(107, 107, 107, 0.1);
@@ -279,7 +278,7 @@
 }
 
 .additional-rectangle-3{
-    width: 95%;
+    width: 940px;
     height: auto;
     border-radius: 10px;
     background-color: var(--Sub-color);
@@ -316,22 +315,16 @@
     background-color: var(--Sub-color);
 }
 
-.custom-dropdown:hover{
-  background-color: var(--Main-color);
-  border-color: var(--Sub-color);
-}
-
-
-.attendance-search-button{
+.search-button{
     padding: 2px;
     font-size: 11px;
     border-radius: 40px;
     color: var(--Sub-color);
     background-color: var(--Main-color);
-    margin-left: 40%;
+    margin-left: 300px;
     outline: none;
-    padding-left: 6%;
-    padding-right: 6%;
+    padding-left: 60px;
+    padding-right: 60px;
     border: 1px solid var(--Main-color);
     font-weight: 500;
     align-items: center;

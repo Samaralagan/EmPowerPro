@@ -1,0 +1,40 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+.img_prof{
+    width: 150px;
+    height: 150px;
+    border: 4px solid white;
+    border-radius: 82px;
+}
+.div1{
+    /* width: 33%; */
+    color: var(--Sub-color);
+    padding: 20px 5px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    line-height: 4vh;
+  }
+  .div2{
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    align-items: baseline;
+  }
+  .div3{
+    padding: 10px;
+  }
+  .tablediv1{
+    box-shadow: 0px 0px 4px 4px rgba(225, 225, 225, 0.6);
+    padding: 20px;
+    border-radius: 20px;
+  }

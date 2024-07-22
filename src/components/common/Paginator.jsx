@@ -11,8 +11,8 @@ const Paginator = ({currentPage,totalPages,onPageChange}) => {
             <li key={pageNumber}
                 className={`page-item ${currentPage === pageNumber?"active" : ""}`}
             >
-                <button className="page-link " style={{margin:'3px' ,height:'10px' ,width:'40px',borderRadius:'10px',padding:'0px'}} onClick={()=>onPageChange(pageNumber)}>
-                    {}
+                <button className="page-link pt-2 pb-2 ps-3 pe-3" onClick={()=>onPageChange(pageNumber)}>
+                    {pageNumber}
                 </button>
             </li>
            ))}

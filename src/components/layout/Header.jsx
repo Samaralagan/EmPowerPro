@@ -1,8 +1,7 @@
-import React from 'react'
-import './Header.css'
+import React from "react";
+import "./Header.css";
 import { FaBell } from "react-icons/fa";
-import img from '../../assets/images/profile-pro.jpg'
-
+import img from "../../assets/images/profile.jpeg";
 
 const Header = () => {
   return (
@@ -21,7 +20,10 @@ const Header = () => {
         </div> 
        
     </div>
-  )
-}
 
-export default Header
+    // </div> 
+  );
+};
+
+export default Header;
+

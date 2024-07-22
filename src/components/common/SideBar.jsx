@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import './SideBar.css';
-import { EmployeeSidebar } from '../constants/contents';
-import { HRSidebar } from '../constants/contents';
-import { ExecutiveSidebar } from '../constants/contents';
-
+import { EmployeeSidebar,TeamLeaderSidebar,AdminSidebar, HRSidebar, FinanceAndSupportSidebar, ExecutiveSidebar} from '../constants/contents';
 import logo from '../../assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,9 +12,31 @@ const SideBar = () => {
     navigate(`/${PageName}`);
   };
 
-  const toggleSubLinks = () => {
-    setShowSubLinks(!showSubLinks);
+  var role = ''
+  var sidebars = []
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+    const mainPath = pathname.split('/')[1]; // Get the first part of the path
+     role = pathname.split('/')[2];
+    return mainPath;
   };
+  
+
+  const activePageName = getActivePageName();
+ 
+  if(role === 'Employee'){
+    sidebars= EmployeeSidebar
+  }else if (role === 'TeamLeader') {
+     sidebars= TeamLeaderSidebar
+  }else if (role === 'Admin') {
+    sidebars= AdminSidebar
+  }else if (role === 'HR') {
+    sidebars= HRSidebar
+  }else if (role === 'FinanceAndSupport') {
+    sidebars= FinanceAndSupportSidebar
+  }else if (role === 'Executive') {
+    sidebars= ExecutiveSidebar
+  }
 
   return (
     <div className='side-bar'>
@@ -25,17 +44,11 @@ const SideBar = () => {
         <img src={logo} alt="" />
       </div>
       <div className='side-bar-links'>
-        {ExecutiveSidebar.map((sidebar, index) => (
+        {sidebars.map((sidebar, index) => (
           <div
             key={index}
-            className={`side-bar-link ${sidebar.name === 'Attendance' && showSubLinks ? 'active' : ''}`}
-            onClick={() => {
-              if (sidebar.name === 'Attendance') {
-                toggleSubLinks(); // Toggle sublinks visibility
-              } else {
-                handlePage(sidebar.name); // Navigate to other pages directly
-              }
-            }}
+            className={`side-bar-link ${activePageName === sidebar.name ? 'active' : ''}`}
+            onClick={() => handlePage(`${sidebar.name}/${role}`)}
           >
             {<sidebar.icon className='side-bar-link-icon' />}
             <p className='side-bar-link-text'>{sidebar.name}</p>

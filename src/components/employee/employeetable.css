@@ -1,0 +1,147 @@
+/* Colors and styling */
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --pending1:#FF9A9A;
+    --pendingtext:#7D0000;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --approvedtext:#037A0F;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+  .employeetable-body{
+    
+    display: flex;
+    width: 95%;
+    border-radius: 25px;
+    padding: 0.5vw;
+    box-shadow: 
+    9px 6px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 4px rgba(0, 0, 0, 0.2), 
+    0px 4px 4px rgba(0, 0, 0, 0.2), 
+    4px 0px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    
+  }
+  .employeetable-body:hover{
+    box-shadow: 
+    9px 6px 0px rgba(134, 183, 254, 0.2),  
+    0px 0px 4px rgba(134, 183, 254, 0.2), 
+    0px 4px 4px rgba(134, 183, 254, 0.2),   
+    4px 0px 4px rgba(134, 183, 254, 0.2); 
+    /* opacity: 0.8; */
+    /* opacity: 0.8; */
+  }
+  
+  .employeetable-content{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    padding: 2vh;
+  }
+  .employeetable-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+  }
+  .employeetable-header-gray{
+    font-size: 1.8vh;
+    color: #ACA7A7;
+    
+    margin-bottom: 0%;
+  }
+  .employeetable-header-about{
+    font-size: 1.8vh;
+    color: black;
+    font-weight: bold;
+  }
+
+  .active_e{
+    background-color: var(--Main-color);
+    border-radius: 20px;
+    width: 20vh;
+    padding: 5px;
+    text-align: center;
+    color: var(--Light);
+    
+  }
+  .offline_e{
+    border: 2px solid #000F44;
+    border-radius: 20px;
+    width: 20vh;
+    padding: 5px;
+    text-align: center;
+    
+  }
+  .offline_ee{
+    border: 2px solid #000F44 ;
+    border-radius: 20px;
+    /* width: 20vh; */
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+    
+  }
+
+  .button1 {
+    background-color: #0cb0f8;
+    
+    border-radius: 10px;
+    padding: 5px 0px;
+    text-align: center;
+    color: var(--Sub-color);
+    transition: all 0.3s ease; /* Smooth transition for the hover effect */
+  }
+  
+  .button1:hover {
+    background-color: #069ada;
+    color: #FFFFFF; /* Change text color on hover */
+    border: 2px solid #069ada; /* Match border color with background on hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */
+    transform: scale(1.05); /* Slightly increase the size of the button */
+  }
+  
+  
+
+  .left-flexbox-complaint{
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+
+  }
+
+  .right-flexbox-complaint{
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+
+  }
+  .img1{
+    width: 52px;
+    height: 52px;
+  }
+
+  .employee-row {
+    padding: 2vw;
+  }
+  
+  .employee-cell {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+  }
+  
+  .employee-image {
+    margin-right: 10px; /* Add some space between the image and the name */
+  }
+  
+  td {
+    vertical-align: middle; /* Vertically center text content in td */
+  }
