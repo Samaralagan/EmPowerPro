@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../layout/Header";
 import "./complaintsmore.css";
-
 import { ComplaintsDataMore } from "../constants/temporary";
 import ComplaintMoreCard from "./ComplaintMoreCard";
 
@@ -19,6 +18,7 @@ function Complaintsmore({ setActiveComponent }) {
           to={Card.to}
           description={Card.description}
           reply={Card.reply}
+          setActiveComponent={setActiveComponent} // Pass the function here
         />
       ))}
     </div>

@@ -19,7 +19,7 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
       <div className="complaintcard-content">
         <div className="complaintcard-header">
           <div className="left-flexbox-complaint">
-            <h5 className={status === "pending" ? "pending" : "approved"}>
+            <h5 className={status === "pending" ? "pending_c" : "approved_c"}>
               {status}
             </h5>
             <br />

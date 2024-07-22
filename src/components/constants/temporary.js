@@ -11,6 +11,11 @@ import MyCourseImg1 from '../../assets/images/mycourse 1.png'
 import MyCourseImg2 from '../../assets/images/mycourse 2.png'
 import celebrationImg1 from '../../assets/images/celebration (1).png'
 import celebrationImg2 from '../../assets/images/celebration (2).png'
+import profile1 from '../../assets/images/profile1.png'
+import profile2 from '../../assets/images/profile2.png'
+import profile3 from '../../assets/images/profile3.png'
+import profile4 from '../../assets/images/profile4.png'
+import profile5 from '../../assets/images/profile5.png'
 
 
 export const EVENT_ACTIVITY_CARD=[
@@ -79,6 +84,7 @@ export const ComplaintsData=[
 export const ComplaintsDataMore=[
    {status:'pending', about:'Regarding the heavy work load',date:'23/03/2024',to:'Human Resource Manager',description:'I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.',reply:'We have carefully reevaluated your assignment [or test] and taken into consideration your points regarding the grading criteria.'},
    
+   
 ]
 
 export const ComplaintsReplyCard=[
@@ -123,3 +129,25 @@ export const DashboardMarkTime = [
    {date:'July 27',name:'Report Submission',time:'11.00 AM'},
 ]
 
+export const InquriesData = [
+   {number1:'01',email:'annalovlace14@gmail.com',subject:'Regarding job vacancies',date:'23 - 03 - 2024',status:'Pending'},
+   {number1:'02',email:'canwilliams2001@gmail.com',subject:'Regarding given services',date:'28 - 03 - 2024',status:'Responded'},
+   {number1:'03',email:'katecanly1234@gmail.com',subject:'Regarding job vacancies',date:'28 - 03 - 2024',status:'Pending'}
+
+]
+
+export const InquriesReplyData = [
+   {number:'01',email:'annalovlace14@gmail.com',subject:'Regarding job vacancies',description:'I have been experiencing significantly heavy loading times, which is impacting user experience and overall site performance.'}
+]
+
+export const EmployeeTableData = [
+   {image:profile1,name :"Olivia Rajan",status:"Active",email:"olivia1990@gmail.com",team:"Design"},
+   {image:profile2,name :"Diana Lovece",status:"Offline",email:"dianalovece@gmail.com",team:"Software engineering"},
+   {image:profile3,name :"Can Samuel",status:"Active",email:"cansamuel2@gmail.com",team:"Design"},
+   {image:profile4,name :"Angelo Mathews",status:"Active",email:"mathews1902@gmail.com",team:"Frontend developement"},
+   {image:profile5,name :"Belly James",status:"Offline",email:"bellyjames234@gmail.com",team:"Backend Development"}
+
+]
+export const ProfileData = [
+   {image:profile1,name :"Olivia Rajan",email:"olivia1990@gmail.com",team:"Design",dob:"18.06.2000",age:"24",linkedin:"www.linkedin.com/can-samuel",summary:"Highly skilled UI/UX designer with [X] years of experience in creating user-friendly and aesthetically pleasing digital interfaces.With a keen eye for detail and a passion for understanding user behavior,  excels in transforming complex ideas into intuitive and engaging user experiences.",skill1:"Proficient in design tools such as Adobe XD, Sketch, Figma, and InVision.",skill2:"Strong understanding of user-centered design principles and best practices.",address:"23/A, Flower Lane, Colombo 07",phone:"0770156485"}
+]

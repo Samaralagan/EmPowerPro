@@ -18,6 +18,12 @@ import Complaintsmore from './components/ComplaintsComponent/Complaintsmore.jsx'
 import NewComplaint from './components/ComplaintsComponent/NewComplaint.jsx';
 import LeavePage from './pages/LeavePage.jsx';
 import ReplyComplaint from './components/ComplaintsComponent/ReplyComplaint.jsx';
+import InquriesPage from './pages/InquriesPage.jsx';
+import CreateUserPage from './pages/CreateUserPage.jsx';
+import EmployeePage from './pages/EmployeePage.jsx';
+import Employee from './components/employee/Employee.jsx';
+import Profile from './components/employee/Profile.jsx';
+import GenerateReport from './components/employee/GenerateReport.jsx';
 
 function App() {
   const role = 'Employee';
@@ -49,15 +55,17 @@ function App() {
               <Route path="/ComplaintsPage_Tl_reply/TeamLeader" element={<ReplyComplaint />} />
               <Route path='/Training/TeamLeader' element={<TrainingPage />} />
               <Route path="/Beneficiary/TeamLeader" element={<SideBar />} />
-              <Route path="/Team members/TeamLeader" element={<SideBar />} />
+              <Route path="/Team members/TeamLeader" element={<EmployeePage/>} />
+              <Route path="/Team members/TeamLeader/GenerateReport" element={<GenerateReport/>} />
+              <Route path="/Team members/TeamLeader/Profile" element={<Profile/>} />
 
               <Route path="/Dash Board/Admin" element={<SideBar />} />
               <Route path="/Attendance/Admin" element={<SideBar />} />
               <Route path="/Leave/Admin" element={<SideBar />} />
               <Route path="/Pay Roll/Admin" element={<SideBar />} />
               <Route path="/Complaints/Admin" element={<ComplaintsPage/>} />
-              <Route path='/Create User/Admin' element={<SideBar />} />
-              <Route path="/Inquires/Admin" element={<SideBar />} />
+              <Route path='/Create User/Admin' element={<CreateUserPage />} />
+              <Route path="/Inquires/Admin" element={<InquriesPage />} />
               <Route path="/Beneficiary/Admin" element={<SideBar />} />
 
               <Route path="/Dash Board/HR" element={<SideBar />} />
