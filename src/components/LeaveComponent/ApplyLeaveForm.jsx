@@ -13,7 +13,7 @@ function ApplyLeaveForm() {
     const navigate = useNavigate();
 
     const handleLeaveClick = () => {
-        navigate('/Leave');
+        navigate('/Leave/Employee');
     }
 
     return (

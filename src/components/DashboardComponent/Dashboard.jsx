@@ -11,15 +11,19 @@ import DashboardCalendar from './DashboardCalendar';
 
 const Dashboard = () => {
   return (
-    <div className='dashboard-body'>
+    <div> 
         <Header/>
-        <hr className='mb-4' />
+       
+    <div className='dashboard-body'>
+       
+       
         <div className='dashboard-content'>
             {EmployeeDashboard.map((data,index)=>(
               <div className='dashboard-content-left'>
                 <div className='dashboard-content-top-boxs'>
 
                     <div className='dashboard-content-top-box'>
+
                         <div className='dashboard-content-top-box-icons'>
                             <div className='dashboard-content-top-box-icon' style={{backgroundColor:data.timebody}}>
                                {<data.timeIcon  style={{color:data.timecolor}}/>}
@@ -75,15 +79,18 @@ const Dashboard = () => {
                              <span>5% less than the last month</span>
                         </div>
                     </div>
-                    <div className='dashboard-content-middle-box'>
-                        <div className='dashboard-Trophy'>
+                    <div className='dashboard-content-middle-box-report'>
+                        {/* <div className='dashboard-Trophy'>
                             <FaTrophy  />
                         </div>
                         <div className='dashboard-content-middle-box-content'>
                             <h5>Evaluation Marks</h5>
                             <h2>9/10</h2>
                             <p>You did a great job, keep it up</p>
-                        </div>
+                        </div> */}
+                        <div className="middle-box-title-1">Last Performance Evaluation</div>
+                        <div className="middle-box-title-2">Exceptionally Succeed</div>
+                        <button className='middle-box-button'>View Last Report</button>
                     </div>
                 </div>
                 <div className='dashboard-content-bottom-box'>
@@ -94,7 +101,7 @@ const Dashboard = () => {
 
             <div className='dashboard-content-right'>
                 <div className='dashboard-content-right-top'>
-                    <p>Celebrations Today !</p>
+                    <p className='celebrate-topic'>Celebrations Today !</p>
                     <div className='dashboard-content-right-celebrations'>
                         {DashboardCelebration.map((data,index)=>(
                             <div className='dashboard-content-right-celebration'>
@@ -129,6 +136,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+    </div>
     </div>
   )
 }

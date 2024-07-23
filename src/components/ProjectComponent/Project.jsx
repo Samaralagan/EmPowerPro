@@ -16,9 +16,9 @@ const Project = () => {
       };
       const role = getRoleName();
   return (
-    <div className='project-body'>
+    <div>
         <Header/>
-        <hr />
+    <div className='project-body'>
         <div className='project-boxs'>
 
             <div className='project-box'>
@@ -110,6 +110,7 @@ const Project = () => {
             </div>
 
         </div>
+    </div>
     </div>
   )
 }

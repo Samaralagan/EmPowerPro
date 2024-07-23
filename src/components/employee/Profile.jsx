@@ -5,8 +5,10 @@ import ProfileCard from "./ProfileCard";
 import { ProfileData } from "../constants/temporary";
 function Profile({ setActiveComponent }) {
   return (
-    <div className="profile-body">
+    <div>
       <Header />
+    <div className="profile-body">
+      
       <hr />
       {/* <br /> */}
       {ProfileData.map((Card, index) => (
@@ -27,6 +29,7 @@ function Profile({ setActiveComponent }) {
           setActiveComponent={setActiveComponent}
         />
       ))}
+    </div>
     </div>
   );
 }

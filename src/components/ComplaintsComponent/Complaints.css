@@ -175,24 +175,22 @@
   border-bottom: 2px solid #ddd;
   gap: 5%;
 }
-
 .nav-link {
   flex: 1;
   text-align: center;
   padding: 10px 15px;
   font-size: 14px;
   font-weight: bold;
-  
   border-radius: 5px 5px 0 0;
-  background: var(--Sub-color);
-  color: var(--Main-color);
+  background: var(--Main-color);
+  color: var(--Sub-color);
   transition: background 0.3s, color 0.3s;
   cursor: pointer;
- 
 }
 
 .nav-link:hover {
   background: var(--Sub-color);
+  color: var(--Main-color);
 }
 
 .nav-link.active {
@@ -201,13 +199,3 @@
   border-bottom: 2px solid #007bff;
 }
 
-.nav-link:not(.active):hover {
-  color: var(--Main-color);
-}
-
-/* .tab-content {
-  padding: 20px;
-  border: 2px solid var(--Main-color);
-  border-radius: 0 0 5px 5px;
-  background: #fff;
-} */

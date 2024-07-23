@@ -21,7 +21,7 @@ const Complaints = ({ setActiveComponent }) => {
     <div>
       <Header />
       <div className="complaints-body">
-      
+   
         <nav>
           <div className="nav nav-tabs" id="nav-tab" role="tablist">
             <button

@@ -23,35 +23,24 @@ export default function BarAnimation() {
     setSeriesNb(newValue);
   };
 
-  // Example data normalized to percentages
+  // Example data normalized to percentages without labels
   const seriesData = [
     {
-      label: 'series 1',
-      data: [80, 50, 76, 79, 47, 73, 100].slice(0, itemNb).map((value) => value),
+      data: [80, 50, 76, 79, 47, 73, 100].slice(0, itemNb),
     },
     {
-      label: 'series 2',
-      data: [62, 54, 96, 63, 86, 69, 94].slice(0, itemNb).map((value) => value),
+      data: [62, 54, 96, 63, 86, 69, 94].slice(0, itemNb),
     },
-  ].map((s) => ({ ...s }));
+  ];
 
   return (
     <Box sx={{ width: '100%', height: '100%' }}>
       <BarChart
-        height={270}
-        width={800}
+        height={260}
+        width={650}
         xAxis={[{ scaleType: 'band', data: weekDays.slice(0, itemNb) }]}
         series={seriesData.slice(0, seriesNb)}
         skipAnimation={skipAnimation}
-        // yAxis={{
-        //   type: 'linear',
-        //   min: 0,
-        //   max: 100,
-        //   ticks: {
-        //     stepSize: 20, // Set the step size to 20
-        //     callback: (value) => value, // Optionally, you can format the tick labels here
-        //   },
-        // }}
       />
     </Box>
   );

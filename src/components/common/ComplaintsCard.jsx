@@ -2,6 +2,7 @@ import React from "react";
 import "./ComplaintsCard.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
 const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
   const location = useLocation();
@@ -11,9 +12,12 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
     return role;
   };
   const role = getRoleName();
+
+ 
   const handlemorecomplaint = () => {
     setActiveComponent("Complaintsmore");
   };
+
   return (
     <div className="complaintcard-body">
       <div className="complaintcard-content">

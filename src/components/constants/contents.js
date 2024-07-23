@@ -145,7 +145,7 @@ export const ExecutiveSidebar = [
 
 export const EmployeeDashboard = [
     {   timeIcon:FaClock,timecolor:'#F37C98',timebody:'#FCD8E1',timeContent:'Today’s  In  Time',time:'8.16  AM',
-        taskIcon:FaTasks,taskcolor:'#037A0F',taskbody:'#E1FCD8',taskContent:'Tasks in Progress',task:'11',
+        taskIcon:FaTasks,taskcolor:'#037A0F',taskbody:'#E1FCD8',taskContent:'Total Projects',task:'11',
         teamIcon:MdGroups,teamcolor:'#FFBB00',teambody:'#FFF6DF',teamContent:'Team Members',team:'25'}
 ]
               

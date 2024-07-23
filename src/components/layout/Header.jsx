@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 import { FaBell } from "react-icons/fa";
-import img from "../../assets/images/profile.jpeg";
+import img from "../../assets/images/profile-pro.jpg";
 
 const Header = () => {
   return (
