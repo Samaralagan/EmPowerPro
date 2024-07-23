@@ -15,7 +15,7 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
 
-  .complaintcard-body{
+  .reply-complaintcard-body{
     
     display: flex;
     width: 95%;
@@ -31,7 +31,7 @@
     margin-left: 4vh;
     
   }
-  .complaintcard-body:hover{
+  .reply-complaintcard-body:hover{
     box-shadow: 
     9px 6px 0px rgba(134, 183, 254, 0.2),  
     0px 0px 4px rgba(134, 183, 254, 0.2), 
@@ -41,31 +41,31 @@
     /* opacity: 0.8; */
   }
   
-  .complaintcard-content{
+  .reply-complaintcard-content{
     display: flex;
     flex-direction: row;
     width: 90%;
     padding: 2vh;
   }
-  .complaintcard-header{
+  .reply-complaintcard-header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 50%;
   }
-  .complaintcard-header-gray{
+  .reply-complaintcard-header-gray{
     font-size: 1.8vh;
     color: #ACA7A7;
     
     margin-bottom: 0%;
   }
-  .complaintcard-header-about{
+  .reply-complaintcard-header-about{
     font-size: 1.8vh;
     color: black;
     font-weight: bold;
   }
 
-  .pending_c{
+  .reply-pending{
     background-color: var(--pending1);
     border-radius: 20px;
     width: 20vh;
@@ -74,7 +74,7 @@
     color: var(--pendingtext);
     
   }
-  .approved_c{
+  .reply-approved{
     background-color: var(--approved);
     border-radius: 20px;
     width: 20vh;
@@ -82,14 +82,14 @@
     text-align: center;
     color: var(--a);
   }
-  .left-flexbox-complaint{
+  .reply-left-flexbox-complaint{
     display: flex;
     flex-direction: column;
     align-items:start;
 
   }
 
-  .right-flexbox-complaint{
+  .reply-right-flexbox-complaint{
     display: flex;
     flex-direction: column;
     align-items:end;

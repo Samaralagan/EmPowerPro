@@ -76,7 +76,7 @@ function OthersLeave() {
 
         <div className="leave-tracker">
           <div className="today-leave-tracker">
-            <div className="div-2-today-leave">Today Leave</div>
+            <div className="today-leave-title">Today Leave</div>
             <div className="leave-card">
               <img
                 src="https://randomuser.me/api/portraits/men/5.jpg"
@@ -194,10 +194,10 @@ function OthersLeave() {
               </div>
             </div>
           </div>
-          <div className="div">
-            <div className="div-2">Leave History</div>
-            <div className="div-3">
-              <div className="div-4">
+          <div className="leave-history-part">
+            <div className="today-leave-title">Leave History</div>
+            <div className="leave-history-part-3">
+              <div className="leave-history-part-4">
                 <Checkmark size="35px" />
                 <div>
                   <FaCalendarAlt
@@ -210,31 +210,31 @@ function OthersLeave() {
                   />
                 </div>
               </div>
-              <div className="div-4">
-                <div className="div-6">Ben Peter</div>
-                <div className="div-7">From</div>
-                <div className="div-8">28/05/2024</div>
+              <div className="leave-history-part-4">
+                <div className="leave-div-6">Ben Peter</div>
+                <div className="leave-div-7">From</div>
+                <div className="leave-div-8">28/05/2024</div>
               </div>
-              <div className="div-4">
-                <div className="div-10">Casual Leave</div>
-                <div className="div-11">To</div>
-                <div className="div-12">31/05/2024</div>
+              <div className="leave-history-part-4">
+                <div className="leave-div-10">Casual Leave</div>
+                <div className="leave-div-11">To</div>
+                <div className="leave-div-12">31/05/2024</div>
               </div>
-              <div className="div-4">
-                <div className="div-14">
-                  <div className="div-15" style={{ cursor: "pointer" }}>
+              <div className="leave-history-part-4">
+                <div className="leave-div-14">
+                  <div className="leave-div-15" style={{ cursor: "pointer" }}>
                     View Details »
                   </div>
                 </div>
-                <div className="div-16">
-                  <div className="div-17">Status</div>
-                  <div className="div-18">Approved</div>
+                <div className="leave-div-16">
+                  <div className="leave-div-17">Status</div>
+                  <div className="leave-div-18">Approved</div>
                 </div>
               </div>
             </div>
 
-            <div className="div-3">
-              <div className="div-4">
+            <div className="leave-history-part-3">
+              <div className="leave-history-part-4">
                 <FaTimesCircle
                   size="34px"
                   color="red"
@@ -254,25 +254,25 @@ function OthersLeave() {
                   />
                 </div>
               </div>
-              <div className="div-4">
-                <div className="div-6">Cate Micheal</div>
-                <div className="div-7">From</div>
-                <div className="div-8">28/05/2024</div>
+              <div className="leave-history-part-4">
+                <div className="leave-div-6">Cate Micheal</div>
+                <div className="leave-div-7">From</div>
+                <div className="leave-div-8">28/05/2024</div>
               </div>
-              <div className="div-4">
-                <div className="div-10">Medical Leave</div>
-                <div className="div-11">To</div>
-                <div className="div-12">31/05/2024</div>
+              <div className="leave-history-part-4">
+                <div className="leave-div-10">Medical Leave</div>
+                <div className="leave-div-11">To</div>
+                <div className="leave-div-12">31/05/2024</div>
               </div>
-              <div className="div-4">
-                <div className="div-14">
-                  <div className="div-15" style={{ cursor: "pointer" }}>
+              <div className="leave-history-part-4">
+                <div className="leave-div-14">
+                  <div className="leave-div-15" style={{ cursor: "pointer" }}>
                     View Details »
                   </div>
                 </div>
-                <div className="div-16">
-                  <div className="div-17">Status</div>
-                  <div className="div-36">Rejected</div>
+                <div className="leave-div-16">
+                  <div className="leave-div-17">Status</div>
+                  <div className="leave-div-36">Rejected</div>
                 </div>
               </div>
             </div>

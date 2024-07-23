@@ -39,7 +39,18 @@ const ComplaintsPage_Tl = () => {
             </button>
           </div>
         </nav>
-        <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-content"
+          id="nav-tabContent"
+          // style={{
+          //   boxShadow: `
+          //     -4px 0px 4px rgba(0, 0, 0, 0.2),
+          //     0px -4px 4px rgba(0, 0, 0, 0.2),
+          //     0px 4px 4px rgba(0, 0, 0, 0.2),
+          //     4px 0px 4px rgba(0, 0, 0, 0.2)
+          //   `,
+          // }}
+        >
           <div
             class="tab-pane fade show active"
             id="nav-home"

@@ -14,7 +14,16 @@ import ComplaintsPage_Tl from './pages/ComplaintsPage_Tl.jsx';
 import AttendancePage from './pages/AttendancePage.jsx';
 import ProjectPage from './pages/ProjectPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
+import Complaintsmore from './components/ComplaintsComponent/Complaintsmore.jsx';
+import NewComplaint from './components/ComplaintsComponent/NewComplaint.jsx';
 import LeavePage from './pages/LeavePage.jsx';
+import ReplyComplaint from './components/ComplaintsComponent/ReplyComplaint.jsx';
+import InquriesPage from './pages/InquriesPage.jsx';
+import CreateUserPage from './pages/CreateUserPage.jsx';
+import EmployeePage from './pages/EmployeePage.jsx';
+import Employee from './components/employee/Employee.jsx';
+import Profile from './components/employee/Profile.jsx';
+import GenerateReport from './components/employee/GenerateReport.jsx';
 
 function App() {
   const role = 'Employee';
@@ -32,26 +41,31 @@ function App() {
               <Route path="/Leave/Employee" element={<LeavePage />} />
               <Route path="/Pay Roll/Employee" element={<SideBar />} />
               <Route path="/Complaints/Employee" element={<ComplaintsPage/>} />
-              <Route path="/Block/Employee" element={<TrainingPage />} />   
+              <Route path="/Complaints/Employee/NewComplaint" element={<NewComplaint/>} />
+              <Route path="/Training/Employee" element={<TrainingPage />} />   
               <Route path="/Beneficiary/Employee" element={<Vacancy_Apply_Form/>} />
-
+              
               <Route path="/Dash Board/TeamLeader" element={<SideBar />} />
               <Route path="/Attendance/TeamLeader" element={<SideBar />} />
               <Route path="/Project/TeamLeader" element={<ProjectPage />} />
               <Route path="/Leave/TeamLeader" element={<SideBar />} />
               <Route path="/Pay Roll/TeamLeader" element={<SideBar />} />
               <Route path="/Complaints/TeamLeader" element={<ComplaintsPage/>} />
+              <Route path="/ComplaintsPage_Tl_new/TeamLeader" element={<NewComplaint/>} />
+              <Route path="/ComplaintsPage_Tl_reply/TeamLeader" element={<ReplyComplaint />} />
               <Route path='/Training/TeamLeader' element={<TrainingPage />} />
               <Route path="/Beneficiary/TeamLeader" element={<SideBar />} />
-              <Route path="/Team members/TeamLeader" element={<SideBar />} />
+              <Route path="/Team members/TeamLeader" element={<EmployeePage/>} />
+              <Route path="/Team members/TeamLeader/GenerateReport" element={<GenerateReport/>} />
+              <Route path="/Team members/TeamLeader/Profile" element={<Profile/>} />
 
               <Route path="/Dash Board/Admin" element={<SideBar />} />
               <Route path="/Attendance/Admin" element={<SideBar />} />
               <Route path="/Leave/Admin" element={<SideBar />} />
               <Route path="/Pay Roll/Admin" element={<SideBar />} />
               <Route path="/Complaints/Admin" element={<ComplaintsPage/>} />
-              <Route path='/Create User/Admin' element={<SideBar />} />
-              <Route path="/Inquires/Admin" element={<SideBar />} />
+              <Route path='/Create User/Admin' element={<CreateUserPage />} />
+              <Route path="/Inquires/Admin" element={<InquriesPage />} />
               <Route path="/Beneficiary/Admin" element={<SideBar />} />
 
               <Route path="/Dash Board/HR" element={<SideBar />} />

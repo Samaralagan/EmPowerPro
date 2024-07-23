@@ -1,14 +1,25 @@
 import React from "react";
 import "./complaintmorecard.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { Link } from "react-router-dom";
 
-const ComplaintMoreCard = ({ status, about, date, to, description, reply }) => {
+const ComplaintMoreCard = ({
+  status,
+  about,
+  date,
+  to,
+  description,
+  reply,
+  setActiveComponent,
+}) => {
+  const handlemorecomplaint = () => {
+    if (setActiveComponent) {
+      setActiveComponent("Complaints"); // Ensure "Complaints" matches the value in ComplaintsPage.jsx
+    }
+  };
+
   return (
     <div>
-      <Link to="/Complaints">
-        <IoMdArrowRoundBack className="backarrow" />
-      </Link>
+      <IoMdArrowRoundBack className="backarrow" onClick={handlemorecomplaint} />
       <div className="complaintmorecard-body">
         <div className="complaintmorecard-content">
           <div className="complaintmorecard-header">
@@ -34,7 +45,6 @@ const ComplaintMoreCard = ({ status, about, date, to, description, reply }) => {
             <p className="complaintmorecard-header-gray">reply : </p>
             <p className="complaintmorecard-header-text">{reply}</p>
           </div>
-
           <div></div>
         </div>
       </div>
