@@ -8,9 +8,7 @@ function Profile({ setActiveComponent }) {
     <div>
       <Header />
     <div className="profile-body">
-      
-      <hr />
-      {/* <br /> */}
+
       {ProfileData.map((Card, index) => (
         <ProfileCard
           key={index}

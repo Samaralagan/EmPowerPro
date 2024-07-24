@@ -7,58 +7,31 @@ import EmployeeTable from "./EmployeeTable";
 import { EmployeeTableData } from "../constants/temporary";
 
 const Employee = ({ setActiveComponent }) => {
+
   const handlenewreport = () => {
     setActiveComponent("GenerateReport");
   };
   return (
+    <div>
+         <Header />
+   
     <div className="employee-body">
-      <Header />
-      <hr />
-      <div style={{ display: "flex" }}>
-        <button
-          className="gradient-blue-btn "
-          style={{
-            color: "white",
+   
+      <div className="team-firstrow">
+        <div className='apply-claim-team' onClick={handlenewreport} >
 
-            height: "45px",
-            padding: "10px",
-          }}
-          onClick={handlenewreport}
-        >
-          <FaPlusCircle className="me-2" />
-          Generate Report
-        </button>
-        <div
-          style={{
-            display: "flex",
-            marginLeft: "39.5rem",
-            alignItems: "center",
-            position: "relative",
-          }}
-        >
-          <FaSearch className="search-icon" />
-          <input
-            className="border-inbox"
-            type="text"
-            placeholder="Search..."
-            style={{
-              paddingLeft: "29px",
-              paddingRight: "8px",
-              paddingBottom: "8px",
-              paddingTop: "8px",
-              fontSize: "16px",
-            }}
-          />
-          <button
-            style={{
-              padding: "9.8px",
-              fontSize: "16px",
-              background: "var(--Main-color)",
-              color: "white",
-            }}
-          >
-            Search
-          </button>
+              <div className='add-icon-circle-team'>
+                <FaPlusCircle className='add-icon-team' />
+              </div>
+              <div className='new-button-content-team'  >
+                <div className='new-content-team'>Generate Team Report</div>
+              </div>
+        </div>
+        
+        <div className="search-bar-team">
+              <FaSearch className="search-icon-team" />
+              <input type="text" placeholder="Search..." className="search-input-team" />
+              <button className="search-button-team">Search</button>
         </div>
       </div>
       <br />
@@ -66,7 +39,7 @@ const Employee = ({ setActiveComponent }) => {
       <div className="tablediv">
         <table className="table table-hover">
           <thead>
-            <tr>
+            <tr className="heading-row">
               <th scope="col">Team Member</th>
               <th scope="col">Status</th>
               <th scope="col">Email</th>
@@ -74,6 +47,7 @@ const Employee = ({ setActiveComponent }) => {
               <th scope="col"></th>
             </tr>
           </thead>
+
           <tbody>
             {EmployeeTableData.map((Card, index) => (
               <EmployeeTable
@@ -89,6 +63,7 @@ const Employee = ({ setActiveComponent }) => {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 };

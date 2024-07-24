@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./employeetable.css";
+
 import { GoDotFill } from "react-icons/go";
 import { MdDoubleArrow } from "react-icons/md";
 import { FaArrowAltCircleRight } from "react-icons/fa";
@@ -20,12 +21,14 @@ const EmployeeTable = ({
     return role;
   };
   const role = getRoleName();
+  
   const handleviewprofile = () => {
     setActiveComponent("Profile");
   };
   const [hover, setHover] = useState(false);
 
   return (
+
     <tr className="employee-row">
       <td scope="row">
         <div className="employee-cell">

@@ -8,6 +8,8 @@ import { FaPencilAlt } from "react-icons/fa";
 import { FaCube } from "react-icons/fa6";
 import { FaBookOpen } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
+
+import LineChart from './LineChart'
 const ProfileCard = ({
   image,
   name,
@@ -33,51 +35,60 @@ const ProfileCard = ({
       <IoMdArrowRoundBack
         className="backarrow"
         onClick={handleProfile}
-        style={{ marginLeft: "0%", marginBottom: "1%" }}
+        style={{ marginLeft: "0%", marginBottom: "1%"}}
       />
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div
           style={{
-            width: "55%",
+            width: "60%",
             background:
               "linear-gradient(to bottom, rgba(134, 211, 236, 1) 0%, rgba(85, 183, 214, 1) 39%, rgba(30, 152, 190, 1) 100%)",
             display: "flex",
             flexDirection: "row",
-            borderRadius: "20px",
+            borderRadius: "10px",
           }}
         >
+
           <div className="div1" style={{ paddingTop: "40px" }}>
             <img src={image} alt="" className="img_prof" />
           </div>
+
           <div className="div1">
             <div>
-              <h2>{name}</h2>
+              <h2 className="employee-name">{name}</h2>
             </div>
-            <div>
+            <div className="employee-teamname">
               {team}
               <FaStar />
               <FaStar />
               <FaStar />
             </div>
             <br />
-            <div>{address}</div>
-            <div>
-              {dob}({age}yrs)
-            </div>
-          </div>
-          <div className="div1" style={{ justifyContent: "center" }}>
-            <div className="div2">
-              <FaPhone />
-              {phone}
-            </div>
-            <div className="div2">
+            <div className="employee-details">{address}</div>
+           
+           
+            <div  className="employee-details">
               <MdEmail />
               {email}
             </div>
-            <div className="div2">
+            <div  className="employee-details">
               <FaLinkedinIn />
               {linkedin}
             </div>
+
+
+          </div>
+
+          <div className="div-part">
+            <div  className="employee-details">
+              <FaPhone />
+              {phone}
+            </div>
+
+            <div  className="employee-details">
+              {dob}({age}yrs)
+            </div>
+           
           </div>
         </div>
         <div
@@ -86,11 +97,11 @@ const ProfileCard = ({
             background:
               "linear-gradient(to bottom, rgba(134, 211, 236, 1) 0%, rgba(85, 183, 214, 1) 39%, rgba(30, 152, 190, 1) 100%)",
             marginLeft: "5%",
-            borderRadius: "20px",
+            borderRadius: "10px",
             padding: "10px",
           }}
         >
-          Here graph will come
+          <LineChart/>
         </div>
       </div>
       <div>
@@ -102,16 +113,16 @@ const ProfileCard = ({
             {" "}
             <div className="tablediv1">
               <FaPencilAlt style={{ color: "#2FC6E7" }} />
-              <b style={{ color: "#2FC6E7" }}>Summary</b>
+              <b style={{ color: "#2FC6E7" }} className="ability">Summary</b>
               <br />
-              {summary}
+              <div  className="description">{summary}</div>
             </div>
             <br />
             <div className="tablediv1">
               <FaCube style={{ color: "#2FC6E7" }} />
-              <b style={{ color: "#2FC6E7" }}>Skills</b>
+              <b style={{ color: "#2FC6E7" }} className="ability">Skills</b>
               <br />
-              <ul style={{}}>
+              <ul  className="description">
                 <li>{skill1}</li>
                 <li>{skill2}</li>
               </ul>
@@ -122,13 +133,13 @@ const ProfileCard = ({
             style={{ width: "49% ", marginLeft: "2%" }}
           >
             <FaBookOpen style={{ color: "#2FC6E7" }} />
-            <b style={{ color: "#2FC6E7" }}>Experiences</b>
+            <b style={{ color: "#2FC6E7" }}  className="ability">Experiences</b>
             <br />
-            <h5>
+            <h5 className="experience-title">
               UI/UX Designer at Creative Solutions Ltd. ( 2020 – Present )
             </h5>
             <br />
-            <ul>
+            <ul  className="description">
               <li>
                 Redesign Project Lead: Led the comprehensive redesign of the
                 company's flagship product, resulting in a 25% increase in user
@@ -141,11 +152,11 @@ const ProfileCard = ({
               </li>
             </ul>
             <br />
-            <h5>
+            <h5  className="experience-title">
               Junior UI/UX Designer at Pixel Perfect Designs ( 2018 - 2020 )
             </h5>
             <br />
-            <ul>
+            <ul className="description">
               <li>
                 Website Redesign: Assisted in the redesign of the company’s
                 corporate website, focusing on improving navigation and user
