@@ -1,14 +1,14 @@
 import React from 'react'
 import SideBar from '../components/common/SideBar'
-import Training from '../components/TrainingComponent/Training'
+import Training from '../components/BlogComponent/Blog'
 
-const TrainingPage = () => {
+const BlogPage = () => {
   return (
     <div className='d-flex'>
-        <SideBar/>
+        {/* <SideBar/> */}
         <Training/>
     </div>
   )
 }
 
-export default TrainingPage
+export default BlogPage

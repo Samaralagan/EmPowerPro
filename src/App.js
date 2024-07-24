@@ -8,31 +8,35 @@ import Vacancy_Apply_Form from './components/common/VacancyApplyForm.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import SideBar from './components/common/SideBar.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TrainingPage from './pages/TrainingPage.jsx';
+import BlogPage from './pages/BlogPage.jsx';
 import ComplaintsPage from './pages/ComplaintsPage.jsx';
 import ComplaintsPage_Tl from './pages/ComplaintsPage_Tl.jsx';
 import AttendancePage from './pages/AttendancePage.jsx';
 import ProjectPage from './pages/ProjectPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import LeavePage from './pages/LeavePage.jsx';
+import Layout from './components/layout/Layout.jsx';
 
 function App() {
   const role = 'Employee';
   return (
-    <Router>
-      <div className="App">
+    <div className="App">
+    <Router >
          <Routes>
        {/* <Vacancy_Apply_Form/> */}    
               <Route path="/" element={<HomePage/>} />
               <Route path="/Login" element={<LoginPage/>} />
 
+              <Route path='/' element={<Layout/>}>
+
+              
               <Route path="/Dash Board/Employee" element={<DashboardPage />} />
               <Route path="/Attendance/Employee" element={<AttendancePage />} />
               <Route path="/Project/Employee" element={<ProjectPage />} />
               <Route path="/Leave/Employee" element={<LeavePage />} />
               <Route path="/Pay Roll/Employee" element={<SideBar />} />
               <Route path="/Complaints/Employee" element={<ComplaintsPage/>} />
-              <Route path="/Block/Employee" element={<TrainingPage />} />   
+              <Route path="/Blog/Employee" element={<BlogPage />} />   
               <Route path="/Beneficiary/Employee" element={<Vacancy_Apply_Form/>} />
 
               <Route path="/Dash Board/TeamLeader" element={<SideBar />} />
@@ -41,7 +45,7 @@ function App() {
               <Route path="/Leave/TeamLeader" element={<SideBar />} />
               <Route path="/Pay Roll/TeamLeader" element={<SideBar />} />
               <Route path="/Complaints/TeamLeader" element={<ComplaintsPage/>} />
-              <Route path='/Training/TeamLeader' element={<TrainingPage />} />
+              <Route path='/Blog/TeamLeader' element={<BlogPage />} />
               <Route path="/Beneficiary/TeamLeader" element={<SideBar />} />
               <Route path="/Team members/TeamLeader" element={<SideBar />} />
 
@@ -60,7 +64,7 @@ function App() {
               <Route path="/Leave/HR" element={<SideBar />} />
               <Route path="/Complaints/HR" element={<ComplaintsPage />} />
               <Route path="/Pay Roll/HR" element={<SideBar />} />
-              <Route path="/Training/HR" element={<TrainingPage />} />
+              <Route path="/Blog/HR" element={<BlogPage />} />
               <Route path="/Employees/HR" element={<SideBar />} />
               <Route path="/Jobs/HR" element={<SideBar />} />
               <Route path="/Beneficiary/HR" element={<SideBar />} />
@@ -81,10 +85,11 @@ function App() {
               <Route path="/Pay Roll/Executive" element={<SideBar />} />
               <Route path="/Beneficiary/Executive" element={<SideBar />} />
               <Route path="/Team members/Executive" element={<SideBar />} />
-
+                
+              </Route>
            </Routes>
-         </div>
        </Router>
+       </div>
   );
 }
 

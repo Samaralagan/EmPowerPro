@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
-import './Training.css'
+import './Blog.css'
 import Header from '../layout/Header'
 import { NewCourseCardData} from '../constants/temporary'
 import NewCourseCard from '../common/NewCourseCard'
 import Paginator from '../common/Paginator'
 import { FaPlus } from 'react-icons/fa'
+import AddBlogPopup from './AddBlogPopup'
 
-const Training = () => {
+const Blog = () => {
     const[Cards,setCards]=useState([])
     const[currentPage,setCurrentPage]=useState(1)
     const[CardsPerPage]=useState(16)
     const[filteredCards,setFilteredCards]=useState(NewCourseCardData)
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
   
     const handlePaginationClick = (pageNumber) =>{
@@ -25,18 +27,26 @@ const Training = () => {
   const indexOfFirstCard = indexOfLastCard - CardsPerPage
   const currentCards = filteredCards.slice(indexOfFirstCard,indexOfLastCard)
 
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   
   return (
     <div className="training-body">
-      <Header />
-      <hr />
+      {/* <Header />
+      <hr /> */}
       <div>
         <div className="new-course-content">
           <div className='new-course-filterbar'>
              <div className='new-course-filter'>Filter</div>
              <input type="text" placeholder='Search.......' />
           </div>
-          <button className='gradient-blue-btn' ><FaPlus className='me-2 ' /> Add</button>
+          <button className='gradient-blue-btn' onClick={openModal}><FaPlus className='me-2 '  /> Add</button>
+          <AddBlogPopup modalIsOpen={modalIsOpen} closeModal={closeModal}/>
         </div>
 
         <div className="training-new-course">
@@ -68,4 +78,4 @@ const Training = () => {
   );
 };
 
-export default Training;
+export default Blog;

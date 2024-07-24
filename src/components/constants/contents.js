@@ -79,7 +79,7 @@ export const EmployeeSidebar = [
     {name:'Leave',icon:FaHandSpock },
     {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
     {name:'Complaints',icon:MdReportProblem  },
-    {name:'Block',icon:BsPersonVideo3 },
+    {name:'Blog',icon:BsPersonVideo3 },
     {name:'Beneficiary',icon:FaHandHoldingHeart }
 ]
 
@@ -90,7 +90,7 @@ export const TeamLeaderSidebar = [
     {name:'Leave',icon:FaHandSpock },
     {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
     {name:'Complaints',icon:MdReportProblem  },
-    {name:'Block',icon:BsPersonVideo3 },
+    {name:'Blog',icon:BsPersonVideo3 },
     {name:'Beneficiary',icon:FaHandHoldingHeart },
     {name:'Team members',icon:HiMiniUserGroup }
 ]
@@ -113,7 +113,7 @@ export const HRSidebar = [
     {name:'Leave',icon:FaHandSpock },
     {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
     {name:'Complaints',icon:MdReportProblem  },
-    {name:'Block',icon:BsPersonVideo3 },
+    {name:'Blog',icon:BsPersonVideo3 },
     {name:'Employees',icon:HiUserGroup  },
     {name:'Jobs',icon:GrUserManager   },
     {name:'Beneficiary',icon:FaHandHoldingHeart }

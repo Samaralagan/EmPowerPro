@@ -23,8 +23,11 @@ const Header = () => {
             <img src={img} alt="" />
             <FaBell />
           </div>
+          <hr />
         </div>
+       
       </div>
+    
     </div>
 
     // </div> 
