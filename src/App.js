@@ -72,14 +72,14 @@ function App() {
               <Route path="/Team members/TeamLeader/GenerateReport" element={<GenerateReport/>} />
               <Route path="/Team members/TeamLeader/Profile" element={<Profile/>} />
 
-              <Route path="/Dash Board/Admin" element={<SideBar />} />
-              <Route path="/Attendance/Admin" element={<SideBar />} />
-              <Route path="/Leave/Admin" element={<SideBar />} />
+              <Route path="/Dash Board/Admin" element={<DashboardPage/>} />
+              <Route path="/Attendance/Admin" element={<AttendancePage/>} />
+              <Route path="/Leave/Admin" element={<LeavePage/>} />
               <Route path="/Pay Roll/Admin" element={<SideBar />} />
               <Route path="/Complaints/Admin" element={<ComplaintsPage/>} />
               <Route path='/Create User/Admin' element={<CreateUserPage />} />
               <Route path="/Inquires/Admin" element={<InquriesPage />} />
-              <Route path="/Beneficiary/Admin" element={<SideBar />} />
+              <Route path="/Beneficiary/Admin" element={<BeneficiaryPage />} />
 
               <Route path="/Dash Board/HR" element={<SideBar />} />
               <Route path="/Attendance/HR" element={<SideBar />} />

@@ -17,7 +17,9 @@
     width: 79vw;
     display: flex;
     flex-direction: column;
-    margin-left: 17vw;
+    margin-left: 15rem;
+    margin-top: 5%;
+    padding: 1rem;
   }
   
   .inquriesinner-body{
@@ -73,3 +75,64 @@
   .border-inbox {
     padding-left: 30px;
   }
+
+
+  
+.filter-row-inquiry {
+  display: flex;
+  gap: 380px;
+  margin-left: 1%;
+  margin-top: 2%;
+}
+
+.filter-dropdown-inquiry {
+  padding: 10px;
+  padding-right: 170px;
+  padding-left: 15px;
+  font-size: 11px;
+  border: 2px solid var(--Main-color);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  color: var(--Main-color);
+  font-weight: 500;
+}
+
+.search-bar-inquiry {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--Main-color);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 40%;
+}
+
+.search-icon-inquiry {
+  /* padding: 0 10px; */
+  color: var(--Main-color);
+  margin-left: 2%;
+}
+
+.search-input-inquiry {
+  border: none;
+  outline: none;
+  padding: 1%;
+  flex-grow: 1;
+  font-size: 11px;
+}
+
+.search-button-inquiry {
+  background-color: var(--Main-color);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  padding: 4%;
+}
+
+.search-button-inquiry:hover {
+  background-color: var(--Main-color);
+}

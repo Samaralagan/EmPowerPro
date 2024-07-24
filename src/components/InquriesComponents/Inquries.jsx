@@ -8,10 +8,13 @@ import { InquriesData } from "../constants/temporary";
 function Inquries({ setActiveComponent }) {
   // Accept setActiveComponent as a prop
   return (
-    <div className="inquries-body">
+    <div>
       <Header />
-      <hr />
-      <div style={{ display: "flex" }}>
+
+      <div className="inquries-body">
+
+
+        {/* <div style={{ display: "flex" }}>
         <select
           className="form-select"
           aria-label="Default select example"
@@ -57,20 +60,39 @@ function Inquries({ setActiveComponent }) {
             Search
           </button>
         </div>
-      </div>
+      </div> */}
 
-      <div>
-        {InquriesData.map((card, index) => (
-          <Inquries_card
-            key={index}
-            number1={card.number1}
-            email={card.email}
-            status={card.status}
-            subject={card.subject}
-            date={card.date}
-            setActiveComponent={setActiveComponent} // Pass the function as a prop
-          />
-        ))}
+        <div className="filter-row-inquiry">
+
+          <select className="filter-dropdown-inquiry" defaultValue="">
+            <option value="" disabled>Filter By</option>
+            <option value="option1">Pending</option>
+            <option value="option2">Responded</option>
+           
+          </select>
+
+          <div className="search-bar-inquiry">
+            <FaSearch className="search-icon-inquiry" />
+            <input type="text" placeholder="Search..." className="search-input-inquiry" />
+            <button className="search-button-inquiry">Search</button>
+          </div>
+
+
+        </div>
+
+        <div>
+          {InquriesData.map((card, index) => (
+            <Inquries_card
+              key={index}
+              number1={card.number1}
+              email={card.email}
+              status={card.status}
+              subject={card.subject}
+              date={card.date}
+              setActiveComponent={setActiveComponent} // Pass the function as a prop
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

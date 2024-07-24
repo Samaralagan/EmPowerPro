@@ -19,7 +19,9 @@ const InquriesReplyCard = ({
     <div>
       <IoMdArrowRoundBack className="backarrow" onClick={handlereplyinquries} />
       <div className="inquriesreplycard-body">
+
         <div className="inquriesreplycard-content">
+
           <div className="detailbox">
             <div className="d-flex " style={{ alignItems: "center" }}>
               <div className="p-2">
@@ -29,7 +31,7 @@ const InquriesReplyCard = ({
                 <b>{email}</b>
               </div>
             </div>
-            <div className="p-2" style={{ color: "#6D6F75" }}>
+            <div className="description-inquiry" style={{ color: "#6D6F75" }}>
               {description}
             </div>
           </div>

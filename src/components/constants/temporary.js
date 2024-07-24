@@ -131,7 +131,7 @@ export const DashboardMarkTime = [
 
 export const InquriesData = [
    {number1:'01',email:'annalovlace14@gmail.com',subject:'Regarding job vacancies',date:'23 - 03 - 2024',status:'Pending'},
-   {number1:'02',email:'canwilliams2001@gmail.com',subject:'Regarding given services',date:'28 - 03 - 2024',status:'Responded'},
+   {number1:'02',email:'canwilliams21@gmail.com',subject:'Regarding given services',date:'28 - 03 - 2024',status:'Responded'},
    {number1:'03',email:'katecanly1234@gmail.com',subject:'Regarding job vacancies',date:'28 - 03 - 2024',status:'Pending'}
 
 ]
