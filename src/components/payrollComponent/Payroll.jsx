@@ -17,13 +17,13 @@ function Payroll() {
         <div className="leave-rectangles-container">
         <div className="d-flex ">
         <div className= "rectangle-u me-2 rectangle-2" >
-        <HeaderCard icon = {<SlCalender className="leave-icon"/>}  value = "MARCH" title = "Month"/>
+        <HeaderCard icon = {<SlCalender className="payroll-icon"/>}  value = "MARCH" title = "Month"/>
         </div>
         <div className= "rectangle-u me-2 rectangle-3" >
-        <HeaderCard icon = {<GiCash className="leave-icon"/>}  value = "80,000" title = "Total Salary" />
+        <HeaderCard icon = {<GiCash className="payroll-icon"/>}  value = "80,000" title = "Total Salary" />
         </div>
         <div className= "rectangle-u me-2 rectangle-4" >
-        <HeaderCard icon = {<GiExpense className="leave-icon"/>}  value = "15,000" title = "Deduction" />
+        <HeaderCard icon = {<GiExpense className="payroll-icon"/>}  value = "15,000" title = "Deduction" />
         </div>
         <div className= "rectangle-u me-2 rectangle-4" style={{marginLeft : "33rem"}}>
         <HeaderCard style = {{marginLeft : "10rem"}} icon = {<GiExpense className="leave-icon"  />}  value = "45,000" title = "MonthlySalary"/> 
