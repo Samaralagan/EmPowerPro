@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SideBar.css';
 import { EmployeeSidebar,TeamLeaderSidebar,AdminSidebar, HRSidebar, FinanceAndSupportSidebar, ExecutiveSidebar} from '../constants/contents';
 import logo from '../../assets/images/logo.png';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate , useLocation} from 'react-router-dom';
 
 const SideBar = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  
+  const location = useLocation(); 
+  const [showSubLinks, setShowSubLinks] = useState(false);
 
   const handlePage = (PageName) => {
     navigate(`/${PageName}`);
@@ -53,6 +53,12 @@ const SideBar = () => {
           >
             {<sidebar.icon className='side-bar-link-icon' />}
             <p className='side-bar-link-text'>{sidebar.name}</p>
+            {sidebar.name === 'Attendance' && showSubLinks && (
+              <div className='attendance-options'>
+                <div className='side-bar-sub-link' onClick={() => handlePage('Attendance')}>Attendance</div>
+                <div className='side-bar-sub-link' onClick={() => handlePage('Leave')}>Leaves</div>
+              </div>
+            )}
           </div>
         ))}
       </div>

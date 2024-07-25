@@ -9,10 +9,10 @@ function LeavePage() {
   return (
     <div>
       <SideBar />
-      
+
       {/* <Leave /> */}
       {/* <ApplyLeave/> */}
-      <OthersLeave/>
+      <OthersLeave />
       {/* <LeaveHistory/> */}
     </div>
   );

@@ -10,67 +10,102 @@
   --Flex-heading:#FFBB00;
   --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
 }
-.side-bar{
-  width: 16vw;
+.side-bar {
+  width: 15rem;
   height: 100vh;
   background-color: var(--Main-color);
   color: var(--Sub-color);
   overflow: hidden;
   position: fixed;
+  top: 0;
+  left: 0;
  
 }
-.side-bar-logo{
+
+.side-bar-logo {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  /* margin-right: 5rem; */
 }
-.side-bar-logo img{
+
+.side-bar-logo img {
   height: 4rem;
 }
-.side-bar-links{
+
+.side-bar-links {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
   width: 100%;
- 
 }
-.side-bar-link{
+
+.side-bar-link {
   display: flex;
   align-items: center;
-  margin: 1px 10px ;
+  margin: 1px 10px;
   height: 3rem;
   padding-left: 2rem;
   margin-right: 0rem;
-  border-radius:  40px 0px 0px 40px;
- 
-  
- 
+  border-radius: 40px 0px 0px 40px;
+  position: relative; /* Add this to ensure sub-links are positioned relative to this */
 }
-.side-bar-link:hover{
+
+.side-bar-link:hover {
   background-color: var(--Sub-color);
   color: var(--Main-color);
   cursor: pointer;
   background-color: rgb(223, 223, 223);
   font-weight: 600;
   transition: 0.3s ease;
- 
 }
 
-.side-bar-link-icon{
- font-size: 25px;
- margin-right: 1rem;
+.side-bar-link-icon {
+  font-size: 25px;
+  margin-right: 1rem;
 }
-.side-bar-link-text{
-font-size: 13px;
-margin: 0;
+
+.side-bar-link-text {
+  font-size: 13px;
+  margin: 0;
 }
+
 .side-bar-link.active {
   background-color: white; /* Highlight color for the active link */
-  color:var(--Main-color); /* Text color for the active link */
+  color: var(--Main-color); /* Text color for the active link */
   font-weight: 600;
 }
 
 .side-bar-link.active .side-bar-link-icon {
   color: var(--Main-color); /* Icon color for the active link */
+}
+
+.attendance-options {
+  position: absolute;
+  top: calc(100% + 5px);;
+  right: 2rem;
+  width: 80%;
+  background-color: var(--Sub-color);
+  color: var(--Main-color);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 10;
+}
+
+.side-bar-link.active .attendance-options {
+  display: block;
+}
+
+.side-bar-sub-link {
+  padding: 0.5rem 1rem;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 20px;
+  margin: 1rem;
+}
+
+.side-bar-sub-link:hover {
+  background-color: var(--Main-color);
+  color: var(--Sub-color);
 }

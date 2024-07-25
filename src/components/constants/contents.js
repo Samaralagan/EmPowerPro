@@ -13,6 +13,14 @@ import { BsPersonVideo3 } from "react-icons/bs";
 import { RiMoneyDollarBoxFill } from "react-icons/ri";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { HiMiniUserGroup } from "react-icons/hi2";
+// import { BsPersonFillAdd } from "react-icons/bs";
+// import { FaCircleQuestion } from "react-icons/fa6";
+// import { HiUserGroup } from "react-icons/hi2";
+// import { GrUserManager } from "react-icons/gr";
+// import { FaUserGroup } from "react-icons/fa6";
+// import { FaClock } from "react-icons/fa";
+// import { FaTasks } from "react-icons/fa";
+// import { MdGroups } from "react-icons/md";
 import { BsPersonFillAdd } from "react-icons/bs";
 import { FaCircleQuestion } from "react-icons/fa6";
 import { HiUserGroup } from "react-icons/hi2";
@@ -25,6 +33,9 @@ import about_img1 from '../../assets/images/image 1.png'
 import about_img2 from '../../assets/images/image 2.png'
 import about_img3 from '../../assets/images/image 3.png'
 import about_img4 from '../../assets/images/image 4.png'
+
+
+
 
 export const EVENT ={
     title:'OUR  INNOVATIONS',
@@ -80,6 +91,7 @@ export const EmployeeSidebar = [
     {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
     {name:'Complaints',icon:MdReportProblem  },
     {name:'Block',icon:BsPersonVideo3 },
+    {name:'Block',icon:BsPersonVideo3 },
     {name:'Beneficiary',icon:FaHandHoldingHeart }
 ]
 
@@ -94,6 +106,51 @@ export const TeamLeaderSidebar = [
     {name:'Beneficiary',icon:FaHandHoldingHeart },
     {name:'Team members',icon:HiMiniUserGroup }
 ]
+
+
+
+// export const HRSidebar = [
+//     {name:'Dash Board',icon:GrAppsRounded },
+//     {name:'Attendance',icon:FaCalendarCheck },
+//     {name:'Project',icon:FaProjectDiagram },
+//     {name:'Leave',icon:FaHandSpock },
+//     {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
+//     {name:'Complaints',icon:MdReportProblem  },
+//     {name:'Block',icon:BsPersonVideo3 },
+//     {name:'Employees',icon:HiUserGroup  },
+//     {name:'Jobs',icon:GrUserManager   },
+//     {name:'Beneficiary',icon:FaHandHoldingHeart }
+// ]
+
+export const FinanceAndSupportSidebar = [
+    {name:'Dash Board',icon:GrAppsRounded },
+    {name:'Attendance',icon:FaCalendarCheck },
+    {name:'Leave',icon:FaHandSpock },
+    {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
+    {name:'Complaints',icon:MdReportProblem  },
+    {name:'Suppliers',icon:FaUserGroup },
+    {name:'Beneficiary',icon:FaHandHoldingHeart }
+]
+
+// export const ExecutiveSidebar = [
+//     {name:'Dash Board',icon:GrAppsRounded },
+//     {name:'Attendance',icon:FaCalendarCheck },
+//     {name:'Project',icon:FaProjectDiagram },
+//     {name:'Leave',icon:FaHandSpock },
+//     {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
+//     {name:'Complaints',icon:MdReportProblem  },
+//     {name:'Beneficiary',icon:FaHandHoldingHeart },
+//     {name:'Team members',icon:HiMiniUserGroup }
+//     {name:'Dash Board',icon:GrAppsRounded },
+//     {name:'Attendance',icon:FaCalendarCheck },
+//     {name:'Project',icon:FaProjectDiagram },
+//     {name:'Leave',icon:FaHandSpock },
+//     {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
+//     {name:'Complaints',icon:MdReportProblem  },
+//     {name:'Block',icon:BsPersonVideo3 },
+//     {name:'Beneficiary',icon:FaHandHoldingHeart },
+//     {name:'Team members',icon:HiMiniUserGroup }
+// ]
 
 export const AdminSidebar = [
     {name:'Dash Board',icon:GrAppsRounded },
@@ -119,15 +176,15 @@ export const HRSidebar = [
     {name:'Beneficiary',icon:FaHandHoldingHeart }
 ]
 
-export const FinanceAndSupportSidebar = [
-    {name:'Dash Board',icon:GrAppsRounded },
-    {name:'Attendance',icon:FaCalendarCheck },
-    {name:'Leave',icon:FaHandSpock },
-    {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
-    {name:'Complaints',icon:MdReportProblem  },
-    {name:'Suppliers',icon:FaUserGroup },
-    {name:'Beneficiary',icon:FaHandHoldingHeart }
-]
+// export const FinanceAndSupportSidebar = [
+//     {name:'Dash Board',icon:GrAppsRounded },
+//     {name:'Attendance',icon:FaCalendarCheck },
+//     {name:'Leave',icon:FaHandSpock },
+//     {name:'Pay Roll',icon:RiMoneyDollarBoxFill },
+//     {name:'Complaints',icon:MdReportProblem  },
+//     {name:'Suppliers',icon:FaUserGroup },
+//     {name:'Beneficiary',icon:FaHandHoldingHeart }
+// ]
 
 export const ExecutiveSidebar = [
     {name:'Dash Board',icon:GrAppsRounded },

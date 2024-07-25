@@ -3,6 +3,7 @@ import Event_ActivityImg1 from '../../assets/images/activity_img1.png'
 import Event_ActivityImg2 from '../../assets/images/activity_img2.png'
 import Event_ActivityImg3 from '../../assets/images/activity_img3.png'
 import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield,FaCalendar,FaClock,FaLink, FaBirthdayCake, FaGlassCheers } from "react-icons/fa";
+// import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield,FaCalendar,FaClock,FaLink, FaBirthdayCake, FaGlassCheers } from "react-icons/fa";
 import NewCourseImg1 from '../../assets/images/newcourse 1.png'
 import NewCourseImg2 from '../../assets/images/newcourse 2.png'
 import NewCourseImg3 from '../../assets/images/newcourse 3.png'
@@ -16,6 +17,16 @@ import profile2 from '../../assets/images/profile2.png'
 import profile3 from '../../assets/images/profile3.png'
 import profile4 from '../../assets/images/profile4.png'
 import profile5 from '../../assets/images/profile5.png'
+
+// import MyCourseImg1 from '../../assets/images/mycourse 1.png'
+// import MyCourseImg2 from '../../assets/images/mycourse 2.png'
+// import celebrationImg1 from '../../assets/images/celebration (1).png'
+// import celebrationImg2 from '../../assets/images/celebration (2).png'
+// import profile1 from '../../assets/images/profile1.png'
+// import profile2 from '../../assets/images/profile2.png'
+// import profile3 from '../../assets/images/profile3.png'
+// import profile4 from '../../assets/images/profile4.png'
+// import profile5 from '../../assets/images/profile5.png'
 
 
 export const EVENT_ACTIVITY_CARD=[
@@ -63,12 +74,33 @@ export const NewCourseCardData=[
    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-   {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-   {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-]
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},]
+// export const NewCourseCardData=[
+//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+// ]
 
 export const MyCourseCardData=[
    {img:MyCourseImg1,title:'Software Design and Architecture',started:'Started : Jan 24',level:'Beginner Level',star:4.8 ,Progress:75},

@@ -19,27 +19,18 @@
     
     display: flex;
     width: 95%;
-    border-radius: 25px;
+    border-radius: 5px;
     padding: 0.5vw;
-    box-shadow: 
-    9px 6px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 4px rgba(0, 0, 0, 0.2), 
-    0px 4px 4px rgba(0, 0, 0, 0.2), 
-    4px 0px 4px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     margin-top: 4vh;
     margin-left: 4vh;
+    border-radius:5px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+    padding: 3%;
     
   }
-  .employeetable-body:hover{
-    box-shadow: 
-    9px 6px 0px rgba(134, 183, 254, 0.2),  
-    0px 0px 4px rgba(134, 183, 254, 0.2), 
-    0px 4px 4px rgba(134, 183, 254, 0.2),   
-    4px 0px 4px rgba(134, 183, 254, 0.2); 
-    /* opacity: 0.8; */
-    /* opacity: 0.8; */
-  }
+ 
   
   .employeetable-content{
     display: flex;
@@ -56,8 +47,7 @@
   .employeetable-header-gray{
     font-size: 1.8vh;
     color: #ACA7A7;
-    
-    margin-bottom: 0%;
+    margin-bottom: 2%;
   }
   .employeetable-header-about{
     font-size: 1.8vh;
@@ -125,12 +115,16 @@
 
   }
   .img1{
-    width: 52px;
-    height: 52px;
+    width: 45px;
+    height: 45px;
+    margin-right: 2%;
   }
 
+
   .employee-row {
-    padding: 2vw;
+    padding: 4%;
+    font-size: 12px;
+
   }
   
   .employee-cell {
@@ -139,7 +133,7 @@
   }
   
   .employee-image {
-    margin-right: 10px; /* Add some space between the image and the name */
+    margin-right: 2%;
   }
   
   td {

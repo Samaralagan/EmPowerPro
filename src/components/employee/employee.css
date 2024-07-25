@@ -13,20 +13,97 @@
   }
   
   .employee-body{
-    padding: 20px;
-    width: 79vw;
-    display: flex;
-    flex-direction: column;
-    margin-left: 17vw;
+  padding: 2%;
+  width: 79vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15rem;
+  padding: 1rem;
+  margin-top: 6%;
   }
   
-  .employeeinner-body{
+.employeeinner-body{
     padding: 20px;
     width: 79vw;
     display: flex;
     flex-direction: column;
     /* margin-left: 17vw; */
   }
+
+  .team-firstrow{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.apply-claim-team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #66bee1;
+  color: white;
+  padding: 0px 30px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  gap: 15px;
+  font-weight: bold;
+  margin-top: 1%;
+  width: 35%;
+}
+
+.apply-claim-team:hover {
+  background-color: var(--Main-color); 
+}
+
+.add-icon-team {
+  font-size: 22px;
+  color: white;
+}
+
+
+.search-bar-team {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--Main-color);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 40%;
+}
+
+.search-icon-team  {
+  /* padding: 0 10px; */
+  color: var(--Main-color);
+  margin-left: 2%;
+}
+
+.search-input-team  {
+  border: none;
+  outline: none;
+  padding: 3%;
+  flex-grow: 1;
+  font-size: 11px;
+}
+
+.search-button-team  {
+  background-color: var(--Main-color);
+  color: white;
+  border: none;
+  padding: 4%;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.search-button-team :hover {
+  background-color: var(--Main-color);
+}
+
+
   /* ----------------------------------------------------- */
   .new-course-content{
     display: flex;
@@ -73,8 +150,28 @@
   .border-inbox {
     padding-left: 30px;
   }
+
+  /* .employee-body table{
+    border-radius:5px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+    padding: 3%;
+
+  } */
+
   .tablediv{
-    box-shadow: 0px 0px 4px 4px rgba(225, 225, 225, 0.6);
-    padding: 5px;
-    border-radius: 20px;
+    border-radius:5px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+    padding: 3%;
+  }
+
+  .heading-row{
+    margin: 2%;
+    margin-bottom: 4%;
+  }
+  .tablediv th{
+    font-size: 13px;
+    font-weight: bold;
+   
   }

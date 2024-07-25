@@ -5,28 +5,28 @@ import ProfileCard from "./ProfileCard";
 import { ProfileData } from "../constants/temporary";
 function Profile({ setActiveComponent }) {
   return (
-    <div className="profile-body">
+    <div>
       <Header />
-      <hr />
-      {/* <br /> */}
-      {ProfileData.map((Card, index) => (
-        <ProfileCard
-          key={index}
-          image={Card.image}
-          email={Card.email}
-          team={Card.team}
-          dob={Card.dob}
-          age={Card.age}
-          linkedin={Card.linkedin}
-          summary={Card.summary}
-          skill1={Card.skill1}
-          skill2={Card.skill2}
-          name={Card.name}
-          address={Card.address}
-          phone={Card.phone}
-          setActiveComponent={setActiveComponent}
-        />
-      ))}
+      <div className="profile-body">
+        {ProfileData.map((Card, index) => (
+          <ProfileCard
+            key={index}
+            image={Card.image}
+            email={Card.email}
+            team={Card.team}
+            dob={Card.dob}
+            age={Card.age}
+            linkedin={Card.linkedin}
+            summary={Card.summary}
+            skill1={Card.skill1}
+            skill2={Card.skill2}
+            name={Card.name}
+            address={Card.address}
+            phone={Card.phone}
+            setActiveComponent={setActiveComponent}
+          />
+        ))}
+      </div>
     </div>
   );
 }

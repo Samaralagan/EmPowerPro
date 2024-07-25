@@ -4,6 +4,7 @@ import NavBar from '../layout/NavBar'
 import main_img from '../../assets/images/home-main.png'
 import img1 from '../../assets/images/moving_img1.png'
 import img2 from '../../assets/images/fixed_img.png'
+
 import {  Container, Navbar } from 'react-bootstrap'
 import { FaAnglesRight  } from "react-icons/fa6";
 import { IoHome } from "react-icons/io5";
