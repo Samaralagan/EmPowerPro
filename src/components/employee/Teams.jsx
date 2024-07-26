@@ -15,13 +15,22 @@ const Teams = ({ setActiveComponent }) => {
 
     const navigate = useNavigate();
 
-    const handleReportBack = () => {
-        navigate('/Employees/HR');
+    // const handleReportBack = () => {
+    //     setActiveComponent("GenerateReport");
+        
+    // };
+
+    // const handlenewreport = () => {
+    //     setActiveComponent("GenerateReport");
+    // };
+
+    const handleNewTeam = () => {
+        // setActiveComponent("CreateNewTeam ");
+        navigate('/CreateNewTeam ');
+
+
     };
 
-    const handlenewreport = () => {
-        setActiveComponent("GenerateReport");
-    };
     return (
         <div>
             <SideBar />
@@ -31,7 +40,7 @@ const Teams = ({ setActiveComponent }) => {
 
                 <div className="team-firstrow">
 
-                    <div className="form-arrow-team" onClick={handleReportBack}>
+                    <div className="form-arrow-team" >
                         <FaArrowLeft className="arrow_icon-team" />
                     </div>
 
@@ -70,13 +79,13 @@ const Teams = ({ setActiveComponent }) => {
                     </table>
                 </div>
 
-                <div className='apply-claim-teamcreate' >
+                <div className='apply-claim-teamcreate' onClick={handleNewTeam}>
 
                     <div className='add-icon-circle-teamcreate'>
                         <FaPlusCircle className='add-icon-teamcreate' />
                     </div>
-                    <div className='new-button-content-teamcreate'  >
-                        <div className='new-content-teamcreate'>Create New Team</div>
+                    <div className='new-button-content-teamcreate' >
+                        <div className='new-content-teamcreate'   >Create New Team</div>
                     </div>
                 </div>
             </div>

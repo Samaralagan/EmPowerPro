@@ -93,6 +93,22 @@ export const ComplaintsReplyCard=[
 
 ]
 
+
+
+export const BeneficiaryData=[
+   {status:'Pending', about:'Hospitalization',date:'23/03/2024'},
+   {status:'Approved', about:'Medical Consultation',date:'23/03/2024'},
+   {status:'Approved', about:'Medical Consultation',date:'23/03/2024'}
+]
+
+export const BeneficiaryDataMore =[
+   {status:'Pending', about:'Medical Consultation',date:'23/03/2024',reason:'In June 2024, I was hospitalized due to pneumonia. I was admitted to City General Hospital on June 1, 2024, and received comprehensive treatment including antibiotics, IV fluids, and oxygen therapy. After a 10-day stay, I was discharged on June 10, 2024.',uploads:'Medical bills_receipts.PDF',amount :'Rs.500,000.90' },
+   
+   
+]
+
+
+
 export const OnTimeTrainingCardData=[
    {title:'Mastering React and Redux',date:'Date :  28 March 2024',time:'Time :  9.00 AM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'},
    {title:'Kubernetes for Developers',date:'Date :  28 March 2024',time:'Time :  11.00 AM onwards',link:'Link : https://learn.zoom.us/j/68040566102?pwd'},

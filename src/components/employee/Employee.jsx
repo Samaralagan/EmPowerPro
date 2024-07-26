@@ -11,6 +11,7 @@ const Employee = ({ setActiveComponent }) => {
   const handlenewreport = () => {
     setActiveComponent("GenerateReport");
   };
+  
   return (
     <div>
          <Header />
@@ -18,6 +19,7 @@ const Employee = ({ setActiveComponent }) => {
     <div className="employee-body">
    
       <div className="team-firstrow">
+
         <div className='apply-claim-team' onClick={handlenewreport} >
 
               <div className='add-icon-circle-team'>

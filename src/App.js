@@ -27,10 +27,15 @@ import Profile from './components/employee/Profile.jsx';
 import Team_Profile from './components/employee/Team_Profile.jsx';
 import GenerateReport from './components/employee/GenerateReport.jsx';
 
+import BeneficiaryMore from './components/BeneficiaryComponent/BeneficiaryMore.jsx'
 
 import BeneficiaryPage from './pages/BeneficiaryPage.jsx'
 import HR_BeneficiaryPage from './components/BeneficiaryComponent/HR_Beneficiary.jsx'
+// import HR_EmployeePage from'./pages/HR_EmployeePage.jsx'
+
+
 import HR_EmployeePage from'./components/employee/HR_Employee.jsx'
+import EX_EmployeePage from './components/employee/EX_Employees.jsx'
 
 import ApplyLeaveForm from './components/LeaveComponent/ApplyLeaveForm.jsx';
 import ApplyClaim_1 from './components/BeneficiaryComponent/ApplyClaim_1.jsx';
@@ -38,6 +43,10 @@ import ApplyClaim_2 from './components/BeneficiaryComponent/ApplyClaim_2.jsx';
 import ApplyClaim_3 from './components/BeneficiaryComponent/ApplyClaim_3.jsx';
 import AppliedClaimForm from './components/BeneficiaryComponent/AppliedClaimForm.jsx';
 import CanceledClaimForm from './components/BeneficiaryComponent/CanceledClaimForm.jsx';
+
+import CreateNewTeam from './components/employee/CreateTeam.jsx'
+
+import NewApproval from './components/employee/NewApproval.jsx'
 
 import Teams from './components/employee/Teams.jsx'
 
@@ -117,7 +126,7 @@ function App() {
               <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
               <Route path="/Pay Roll/Executive" element={<SideBar />} />
               <Route path="/Beneficiary/Executive" element={<SideBar />} />
-              <Route path="/Team members/Executive" element={<SideBar />} />
+              <Route path="/Team members/Executive" element={<EX_EmployeePage/>} />
 
               <Route path="/Apply-leave" element={<ApplyLeaveForm/>} />
               <Route path="/ApplyClaim-1" element={<ApplyClaim_1/>} />
@@ -128,6 +137,10 @@ function App() {
 
               <Route path="/Generate-Report" element={<GenerateReport/>} />
               <Route path="/Teams" element={<Teams/>} />
+
+              <Route path="/CreateNewTeam" element={<CreateNewTeam/>} />
+
+              <Route path="/NewApproval" element={<NewApproval/>} />
 
 
 

@@ -261,3 +261,104 @@
     font-weight: bold;
    
   }
+
+
+  /* EX-TEAM MEMBERS */
+
+  .employee-section-topic{
+    font-size: 20px;
+    color: var(--Main-color);
+    font-weight: bold;
+  }
+
+  .new-approval-search-bar-team{
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--Main-color);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 40%;
+    margin-left: 60%;
+  }
+
+  .new-approvals-box{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px  rgba(107, 107, 107, 0.1);
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1%;
+    font-size: 15px;
+    color: var(--Main-color);
+    margin-top: 20px;
+   
+  }
+
+  
+.new-approval-custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px; 
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+.new-approval-custom-table th {
+
+  color: rgb(200, 200, 200);
+  /* padding: 2%; */
+  text-align: left;
+  padding-left: 1%;
+  
+}
+
+.new-approval-custom-table td {
+  background-color: white;
+  color: #000F44;
+  padding: 10px;
+  border-radius: 5px;
+ 
+}
+
+
+
+.new-approval-custom-table tr {
+  background-color: white;
+}
+
+
+.new-approval-ontime{
+  border: 2px solid #fb0000;
+  border-radius: 50px;
+  color: #fb0000; 
+  padding: 5px;
+  background-color: var(--Sub-color);
+  width: 60%;
+  align-items: center;
+  justify-items: center;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.employee-section{
+  margin-top: 4%;
+}
+
+.approval-rule{
+  width: 555%;
+  border: 2px solid rgb(200, 200, 200);
+
+}
+
+.new-approval-resume{
+  background-color: #0cb0f8;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  color: var(--Sub-color);
+  transition: all 0.3s ease; 
+  font-size: 14px;
+}

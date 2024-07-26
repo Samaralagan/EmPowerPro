@@ -24,14 +24,20 @@ ChartJS.register(
 );
 
 
-function GenerateReport() {
+function GenerateReport({ setActiveComponent }) {
 
 
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
-  const handleReportBack = () => {
-    navigate('/Team members/TeamLeader');
+//   const handleReportBack = () => {
+//     navigate('/Team members/TeamLeader');
+//   };
+
+  const  handleReportBack = () => {
+    setActiveComponent("Employee");
   };
+
+  
 
 
   const lineData = {
@@ -124,7 +130,7 @@ const navigate = useNavigate();
       <Header />
       <div className="generate-report-body">
 
-      <div className="form-arrow-team" onClick={ handleReportBack}>
+      <div className="form-arrow-team" onClick={handleReportBack}>
           <FaArrowLeft className="arrow_icon-team"  />
         </div>
 

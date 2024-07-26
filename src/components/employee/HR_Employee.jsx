@@ -14,15 +14,18 @@ const HR_Employee = ({ setActiveComponent }) => {
     // const handlenewreport = () => {
     //     setActiveComponent("GenerateReport");
     // };
+
     const navigate = useNavigate();
 
     const handleGenerateReport = () => {
-      navigate('/Generate-Report');
+      navigate('/GenerateReport');
     }
 
     const handleTeams = () => {
         navigate('/Teams');
       }
+
+     
     return (
         <div>
             <SideBar />

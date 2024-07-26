@@ -12,8 +12,12 @@ import { useNavigate } from 'react-router-dom'
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 import { FaLocationPin } from 'react-icons/fa6'
 
+import { BeneficiaryData } from "../constants/temporary";
+import BeneficiaryCard from "../common/BeneficiaryCard";
 
-function Beneficiary() {
+
+function Beneficiary({setActiveComponent }) {
+  
   const navigate = useNavigate();
 
   const handleAppliedClaim = () => {
@@ -168,6 +172,18 @@ function Beneficiary() {
           </div>
 
           <div className="medical-claims">
+              {BeneficiaryData.map((Card, index) => (
+                <BeneficiaryCard
+                  key={index}
+                  status={Card.status}
+                  about={Card.about}
+                  date={Card.date}
+                  setActiveComponent={setActiveComponent}
+                />
+              ))}
+            </div>
+
+          {/* <div className="medical-claims">
             <div className="medical-claim">
 
               <div className="claim-status-heading">
@@ -205,7 +221,7 @@ function Beneficiary() {
               </div>
 
             </div>
-          </div>
+          </div> */}
 
         </div>
 
