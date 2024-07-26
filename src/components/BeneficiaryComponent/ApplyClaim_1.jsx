@@ -50,7 +50,7 @@ function ApplyClaim_1() {
     <div>
       <SideBar />
 
-      <Header />
+      {/* <Header /> */}
 
       <div className="applied-claim-body">
         <div className="applied-claim-body-2">

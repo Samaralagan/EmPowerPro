@@ -21,7 +21,7 @@ const Project = () => {
   const role = getRoleName();
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className="project-body">
         <div className="project-boxs">
           <div className="project-box">

@@ -10,7 +10,7 @@ import LineChart from "./LineChart";
 function Attendance() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className="attendance-body">
         <div className="rectangles-container">
           <div className="rectangle_diff">

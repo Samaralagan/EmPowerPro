@@ -7,8 +7,8 @@ import ComplaintMoreCard from "./ComplaintMoreCard";
 function Complaintsmore({ setActiveComponent }) {
   return (
     <div className="complaintsmore-body">
-      <Header />
-      <hr />
+      {/* <Header />
+      <hr /> */}
       {ComplaintsDataMore.map((Card, index) => (
         <ComplaintMoreCard
           key={index}

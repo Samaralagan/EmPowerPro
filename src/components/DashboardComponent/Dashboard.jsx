@@ -15,8 +15,8 @@ import DashboardCalendar from "./DashboardCalendar";
 const Dashboard = () => {
   return (
     <div className="dashboard-body">
-      <Header />
-      <hr className="mb-4" />
+      {/* <Header />
+      <hr className="mb-4" /> */}
       <div className="dashboard-content">
         {EmployeeDashboard.map((data, index) => (
           <div className="dashboard-content-left">

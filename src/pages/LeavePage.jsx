@@ -11,9 +11,9 @@ function LeavePage() {
       <SideBar />
 
       {/* <Leave /> */}
-      {/* <ApplyLeave/> */}
-      <OthersLeave />
-      {/* <LeaveHistory/> */}
+      {/* <ApplyLeave /> */}
+      {/* <OthersLeave /> */}
+      <LeaveHistory />
     </div>
   );
 }

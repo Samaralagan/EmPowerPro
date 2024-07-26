@@ -10,8 +10,8 @@ import ReplyComplaintCard from "./ReplyComplaintCard";
 function ReplyComplaint() {
   return (
     <div className="reply-complaints-body">
-      <Header />
-      <hr />
+      {/* <Header />
+      <hr /> */}
       <IoMdArrowRoundBack className="backarrow" />
       <div className="reply-form-body">
         <div className="reply-complaintcard-body">

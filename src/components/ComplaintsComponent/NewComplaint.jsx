@@ -12,8 +12,8 @@ function NewComplaint({ setActiveComponent }) {
   return (
     <div>
       <div className="newcomplaint-body">
-        <Header />
-        <hr />
+        {/* <Header />
+        <hr /> */}
         {/* <Link to={"/Complaints/"}> */}
         <IoMdArrowRoundBack
           onClick={handleCreateNewComplaint}

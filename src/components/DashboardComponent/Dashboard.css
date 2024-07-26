@@ -19,12 +19,14 @@
     display: flex;
     flex-direction: column;
     margin-left: 15rem;
-    margin-top: 7%;
+    margin-top: 3%;
     padding: 1rem;
     font-family: 'BreeSerif-Regular',;
   }
   .dashboard-content{
     display: flex;
+    flex-direction: row;
+    width: 100%;
   }
   .dashboard-content-left{
     display: flex;
@@ -217,7 +219,7 @@
   }
 /* --------------------------------------------calender---------------------------------------------------------------- */
   .dashboard-content-right{
-    width: 28%;
+    width: 30%;
     height:auto;
     background-image: linear-gradient(to bottom, #86D3EC, #55B7D6, #1E98BE);
     margin-left: 1%;

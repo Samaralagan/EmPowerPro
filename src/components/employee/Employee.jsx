@@ -12,7 +12,7 @@ const Employee = ({ setActiveComponent }) => {
   };
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
 
       <div className="employee-body">
         <div className="team-firstrow">

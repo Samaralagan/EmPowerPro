@@ -6,7 +6,7 @@ import { ProfileData } from "../constants/temporary";
 function Profile({ setActiveComponent }) {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className="profile-body">
         {ProfileData.map((Card, index) => (
           <ProfileCard

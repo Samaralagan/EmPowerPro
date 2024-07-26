@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.dashboard-content {
+  flex: 1;
+  background: #fff;
+  padding: 1rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  /* flex-direction: column; */
+  overflow: hidden;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+
+.outlet {
+  flex: 1;
+  overflow-y: auto;
+}

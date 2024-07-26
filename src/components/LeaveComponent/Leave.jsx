@@ -8,9 +8,9 @@ import { FaRegCalendarTimes } from "react-icons/fa";
 
 function Leave() {
   return (
-    <div className="leave-body">
-      <Header />
-      <hr />
+    <div className="contentbodyall">
+      {/* <Header />
+      <hr /> */}
       <br />
       <br />
 

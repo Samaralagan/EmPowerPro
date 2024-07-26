@@ -98,7 +98,7 @@ function GenerateReport() {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className="generate-report-body">
         <div className="form-arrow-team" onClick={handleReportBack}>
           <FaArrowLeft className="arrow_icon-team" />

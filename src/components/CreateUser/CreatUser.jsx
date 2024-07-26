@@ -4,7 +4,7 @@ import Header from "../layout/Header";
 function CreatUser() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
 
       <div className="createuser-body">
         <form action="">
