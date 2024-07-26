@@ -37,6 +37,7 @@ import ApplyClaim_3 from "./components/BeneficiaryComponent/ApplyClaim_3.jsx";
 import AppliedClaimForm from "./components/BeneficiaryComponent/AppliedClaimForm.jsx";
 import CanceledClaimForm from "./components/BeneficiaryComponent/CanceledClaimForm.jsx";
 import Layout from "./components/layout/Layout.jsx";
+import JobPage from "./pages/JobPage.jsx";
 
 function App() {
   const role = "Employee";
@@ -107,7 +108,7 @@ function App() {
             <Route path="/Pay Roll/HR" element={<SideBar />} />
             <Route path="/Blog/HR" element={<BlogPage />} />
             <Route path="/Employees/HR" element={<SideBar />} />
-            <Route path="/Jobs/HR" element={<SideBar />} />
+            <Route path="/Jobs/HR" element={<JobPage />} />
             <Route path="/Beneficiary/HR" element={<SideBar />} />
 
             <Route path="/Dash Board/FinanceAndSupport" element={<SideBar />} />
