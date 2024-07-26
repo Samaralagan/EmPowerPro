@@ -90,6 +90,35 @@ const navigate = useNavigate();
     },
   };
 
+
+  const barData_2= {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    datasets: [
+      {
+        label: 'Average',
+        data: [50, 60, 70, 80, 90, 100],
+        backgroundColor: 'rgba(65, 158, 90, 0.8)',
+        borderColor: 'rgba(65, 158, 90, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Actual',
+        data: [45, 55, 65, 75, 85, 95],
+        backgroundColor: 'rgba(105, 27, 98, 0.7)',
+        borderColor: 'rgba(105, 27, 98, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const barOptions_2 = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
   return (
     <div>
       <Header />
@@ -153,8 +182,8 @@ const navigate = useNavigate();
           </div>
 
           <div className="individual-report-box">
-          
-          <DashboardBarChart/>
+             <Bar data={barData_2} options={barOptions_2} />
+         
           </div>
       
         </div>

@@ -14,10 +14,10 @@
   
   .employee-body{
   padding: 2%;
-  width: 79vw;
+  width: 82vw;
   display: flex;
   flex-direction: column;
-  margin-left: 15rem;
+  margin-left: 17rem;
   padding: 1rem;
   margin-top: 6%;
   }
@@ -39,14 +39,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #66bee1;
+  background-color: #66bee1 ;
   color: white;
   padding: 0px 30px;
   border: none;
-  border-radius: 40px;
+  border-radius: 20px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
   transition: background-color 0.3s ease;
   height: 40px;
   gap: 15px;
@@ -59,7 +59,93 @@
   background-color: var(--Main-color); 
 }
 
+
 .add-icon-team {
+  font-size: 22px;
+  color: white;
+}
+
+
+.apply-claim-team-names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Main-color);
+  color: white;
+  padding: 0px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  gap: 15px;
+  font-weight: bold;
+  margin-top: 1%;
+  width: 20%;
+}
+
+.apply-claim-team-names:hover {
+  background-color: var(--Main-color); 
+}
+
+
+
+
+
+.apply-claim-teamreport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #66bee1;
+  color: white;
+  padding: 0px 30px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  gap: 15px;
+  font-weight: bold;
+  margin-top: 1%;
+  width: 30%;
+  margin-left: 70%;
+}
+
+.apply-claim-teamreport:hover {
+  background-color: var(--Main-color); 
+}
+
+
+.apply-claim-teamcreate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #66bee1;
+  color: white;
+  padding: 0px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  gap: 15px;
+  font-weight: bold;
+  margin-top: 2%;
+  width: 30%;
+  margin-left: 70%;
+}
+
+.apply-claim-teamcreate:hover {
+  background-color: var(--Main-color); 
+}
+
+.add-icon-teamreport {
   font-size: 22px;
   color: white;
 }

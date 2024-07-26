@@ -24,9 +24,13 @@ import CreateUserPage from './pages/CreateUserPage.jsx';
 import EmployeePage from './pages/EmployeePage.jsx';
 import Employee from './components/employee/Employee.jsx';
 import Profile from './components/employee/Profile.jsx';
+import Team_Profile from './components/employee/Team_Profile.jsx';
 import GenerateReport from './components/employee/GenerateReport.jsx';
 
+
 import BeneficiaryPage from './pages/BeneficiaryPage.jsx'
+import HR_BeneficiaryPage from './components/BeneficiaryComponent/HR_Beneficiary.jsx'
+import HR_EmployeePage from'./components/employee/HR_Employee.jsx'
 
 import ApplyLeaveForm from './components/LeaveComponent/ApplyLeaveForm.jsx';
 import ApplyClaim_1 from './components/BeneficiaryComponent/ApplyClaim_1.jsx';
@@ -34,6 +38,10 @@ import ApplyClaim_2 from './components/BeneficiaryComponent/ApplyClaim_2.jsx';
 import ApplyClaim_3 from './components/BeneficiaryComponent/ApplyClaim_3.jsx';
 import AppliedClaimForm from './components/BeneficiaryComponent/AppliedClaimForm.jsx';
 import CanceledClaimForm from './components/BeneficiaryComponent/CanceledClaimForm.jsx';
+
+import Teams from './components/employee/Teams.jsx'
+
+
 
 function App() {
   const role = 'Employee';
@@ -72,6 +80,7 @@ function App() {
               <Route path="/Team members/TeamLeader/GenerateReport" element={<GenerateReport/>} />
               <Route path="/Team members/TeamLeader/Profile" element={<Profile/>} />
 
+
               <Route path="/Dash Board/Admin" element={<DashboardPage/>} />
               <Route path="/Attendance/Admin" element={<AttendancePage/>} />
               <Route path="/Leave/Admin" element={<LeavePage/>} />
@@ -81,16 +90,17 @@ function App() {
               <Route path="/Inquires/Admin" element={<InquriesPage />} />
               <Route path="/Beneficiary/Admin" element={<BeneficiaryPage />} />
 
-              <Route path="/Dash Board/HR" element={<SideBar />} />
-              <Route path="/Attendance/HR" element={<SideBar />} />
+              <Route path="/Dash Board/HR" element={<DashboardPage/>} />
+              <Route path="/Attendance/HR" element={<AttendancePage/>} />
               <Route path="/Project/HR" element={<ProjectPage />} />
               <Route path="/Leave/HR" element={<SideBar />} />
               <Route path="/Complaints/HR" element={<ComplaintsPage />} />
               <Route path="/Pay Roll/HR" element={<SideBar />} />
               <Route path="/Training/HR" element={<TrainingPage />} />
-              <Route path="/Employees/HR" element={<SideBar />} />
+              <Route path="/Employees/HR" element={<HR_EmployeePage/>} />
               <Route path="/Jobs/HR" element={<SideBar />} />
-              <Route path="/Beneficiary/HR" element={<SideBar />} />
+              <Route path="/Beneficiary/HR" element={<HR_BeneficiaryPage />} />
+              <Route path="/Employees/HR/Team_Profile" element={<Team_Profile/>} />
 
               <Route path="/Dash Board/FinanceAndSupport" element={<SideBar />} />
               <Route path="/Attendance/FinanceAndSupport" element={<SideBar />} />
@@ -115,6 +125,9 @@ function App() {
               <Route path="/ApplyClaim-3" element={<ApplyClaim_3/>} />
               <Route path="/Applied-claim" element={<AppliedClaimForm />} />
               <Route path="/Canceled-claim" element={<CanceledClaimForm/>} />
+
+              <Route path="/Generate-Report" element={<GenerateReport/>} />
+              <Route path="/Teams" element={<Teams/>} />
 
 
 

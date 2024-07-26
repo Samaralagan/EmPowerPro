@@ -148,6 +148,17 @@ export const EmployeeTableData = [
    {image:profile5,name :"Belly James",status:"Offline",email:"bellyjames234@gmail.com",team:"Backend Development"}
 
 ]
+
+export const TeamTableData = [
+   {name :"Code Crusaders",status:"Completed",teamlead:"Olivia Rajan",project:"Robust network security solution"},
+   {name :"Tech Titans",status:"On Progress",teamlead:"Diana Lovece",project:"AI system for predictive analytics"},
+   {name :"Digital Dynamos",status:"Completed",teamlead:"Can Samuel",project:"Scalable cloud infrastructure"},
+   {name :"Data Mavericks",status:"Completed",teamlead:"Angelo Mathews",project:"Real-time business intelligence"},
+   {name :"Cyber Guardians",status:"On Progress",teamlead:"Belly James",project:"Cybersecurity framework"},
+   {name :"Quantum Quants",status:"On Progress",teamlead:"Can Samuel",project:"Quantum computing solution"}
+
+
+]
 export const ProfileData = [
    {image:profile1,name :"Olivia Rajan",email:"olivia1990@gmail.com",team:"Design",dob:"18.06.2000",age:"24",linkedin:"www.linkedin.com/can-samuel",summary:"Highly skilled UI/UX designer with [X] years of experience in creating user-friendly and aesthetically pleasing digital interfaces.With a keen eye for detail and a passion for understanding user behavior,  excels in transforming complex ideas into intuitive and engaging user experiences.",skill1:"Proficient in design tools such as Adobe XD, Sketch, Figma, and InVision.",skill2:"Strong understanding of user-centered design principles and best practices.",address:"23/A, Flower Lane, Colombo 07",phone:"0770156485"}
 ]

@@ -13,7 +13,7 @@
 
   .project-body{
     padding: 20px;
-    width: 79vw;
+    width: 83vw;
     display: flex;
     flex-direction: column;
     margin-left: 15rem;
@@ -51,7 +51,7 @@
     color: var(--Main-color);
   }
   .project-box-title{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
   }
   .project-box-top-icon{
@@ -80,7 +80,7 @@
     justify-content: space-between;
   }
   .project-card-content p{
-    font-size: 1.6vh;
+    font-size: 14px;
     color: var(--Sub-color); 
     margin: 0;
     margin-top: 2vh;
@@ -93,13 +93,13 @@
   }
   .project-card-date{
     color: var(--Light);
-    font-size: 1.3vh;
+    font-size: 12px;
     margin: 0;
   }
   .project-card-circle{
     border: solid white 2px;
-    height: 7vh;
-    width: 7vh;
+    height: 8vh;
+    width: 8vh;
     border-radius: 40px;
     margin-right: 3vh;
     display: flex;
@@ -110,11 +110,11 @@
   .project-card-circle p{
     margin: 0;
     font-weight: 600;
-    font-size: 1.8vh;
+    font-size: 11px;
   }
   .project-card-circle div{
     margin: 0;
-    font-size: 0.6vh;
+    font-size: 5px;
     color: var(--Light);
    
   }
@@ -128,6 +128,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
   }

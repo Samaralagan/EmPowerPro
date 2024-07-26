@@ -51,13 +51,13 @@
     width: 50%;
   }
   .complaintcard-header-gray{
-    font-size: 13px;
+    font-size: 14px;
     color: #ACA7A7;
     
     margin-bottom: 0%;
   }
   .complaintcard-header-about{
-    font-size: 13px;
+    font-size: 14px;
     color: black;
     font-weight: bold;
   }
@@ -68,7 +68,7 @@
     border-radius: 40px;
     padding: 5px 10px;
     cursor: pointer;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: bold;
     transition: background-color 0.3s ease;
     margin-left: 1%;
@@ -89,7 +89,7 @@
     border-radius: 40px;
     padding: 5px 10px;
     cursor: pointer;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: bold;
     transition: background-color 0.3s ease;
     margin-left: 1%;
@@ -111,7 +111,7 @@
   }
 .complaint-date{
    
-    font-size: 11px;
+    font-size: 14px;
     color: #ACA7A7;
     margin-top: 3%;
  
@@ -120,7 +120,7 @@
     display: flex;
     flex-direction: column;
     align-items:end;
-    font-size: 11px;
+    font-size: 14px;
     color: #ACA7A7;
 
   }
