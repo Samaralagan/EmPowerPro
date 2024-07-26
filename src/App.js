@@ -63,7 +63,7 @@ function App() {
               element={<NewComplaint />}
             />
             {/* <Route path="/Training/Employee" element={<TrainingPage />} />    */}
-            <Route path="/Beneficiary/Employee" element={<BeneficiaryPage />} />
+            {/* <Route path="/Beneficiary/Employee" element={<BeneficiaryPage />} /> */}
 
             <Route path="/Dash Board/TeamLeader" element={<SideBar />} />
             <Route path="/Attendance/TeamLeader" element={<SideBar />} />
