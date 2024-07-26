@@ -28,6 +28,7 @@ import Employee from "./components/employee/Employee.jsx";
 import Profile from "./components/employee/Profile.jsx";
 import GenerateReport from "./components/employee/GenerateReport.jsx";
 import BeneficiaryPage from "./pages/BeneficiaryPage.jsx";
+import PayrollPage from "./pages/PayrollPage.jsx";
 
 import ApplyLeaveForm from "./components/LeaveComponent/ApplyLeaveForm.jsx";
 import ApplyClaim_1 from "./components/BeneficiaryComponent/ApplyClaim_1.jsx";
@@ -53,7 +54,7 @@ function App() {
             <Route path="/Attendance/Employee" element={<AttendancePage />} />
             <Route path="/Project/Employee" element={<ProjectPage />} />
             <Route path="/Leave/Employee" element={<LeavePage />} />
-            <Route path="/Pay Roll/Employee" element={<SideBar />} />
+            <Route path="/Pay Roll/Employee" element={<PayrollPage />} />
             <Route path="/Complaints/Employee" element={<ComplaintsPage />} />
             <Route path="/Blog/Employee" element={<BlogPage />} />
             <Route
