@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Job from "../components/JobsComponent/Job";
-function JobPage() {
+import NewVacancy from "../components/JobsComponent/NewVacancy";
+
+const JobPage = () => {
+  const [activeComponent, setActiveComponent] = useState("Job");
+
   return (
     <div>
-      <Job />
+      {activeComponent === "Job" && (
+        <Job setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "NewVacancy" && (
+        <NewVacancy setActiveComponent={setActiveComponent} />
+      )}
     </div>
   );
-}
+};
 
 export default JobPage;

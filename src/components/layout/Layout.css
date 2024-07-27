@@ -1,7 +1,4 @@
-body {
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
+
 
 .dashboard {
   display: flex;
@@ -31,4 +28,5 @@ body {
 .outlet {
   flex: 1;
   overflow-y: auto;
+  scrollbar-width: none;
 }
