@@ -1,0 +1,85 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+  .viewblog-popup-body{
+    position: relative;
+    overflow: hidden;
+  }
+  .viewblog-topbar{
+   height: 10vh;
+    width: 100%;
+  }
+
+
+
+  .viewblog-addfavourite{
+    position: absolute;
+    top: 3.5vh;
+    right: 9vh;
+    background-color: var(--Main-color);
+    color: var(--Sub-color);
+    padding: 1vh 2vh;
+    border-radius: 10px;
+  }
+  .viewblog-addfavourite-clicked{
+    position: absolute;
+    top: 3.5vh;
+    right: 9vh;
+    background-color:var(--Sub-color);
+    color: var(--Main-color);
+    padding: 1vh 2vh;
+    border-radius: 10px;
+    border: solid 1px;
+  }
+  .viewblog-comment{
+    position: absolute;
+    top: 3.5vh;
+    right: 35vh;
+    background-color: var(--Main-color);
+    color: var(--Sub-color);
+    padding: 1vh 2vh;
+    border-radius: 10px;
+  }
+
+
+  .viewblog-content{
+    height: 70vh;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+  .viewblog-finish{
+    background-color: var(--Main-color);
+    color: var(--Sub-color);
+    padding: 1vh 3vh;
+    border-radius: 10px;
+    float: right;
+    margin-right: 3vh;
+    border: solid 1px;
+  }
+  .viewblog-cancel{
+    background-color:var(--Sub-color);
+    color: var(--Main-color);
+    padding: 1vh 2vh;
+    border-radius: 10px;
+    border: solid 1px;
+    float: right;
+    margin-right: 1vh;
+  }
+
+  .viewblog-bottombar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 2vh;
+    padding-right: 3vh;
+    background-color: var(--Sub-color);
+  }

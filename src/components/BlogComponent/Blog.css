@@ -12,12 +12,13 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
 
-  .training-body{
+  .contentbodyall{
     padding: 20px;
-    width: 84vw;
+    width: 85vw;
     display: flex;
     flex-direction: column;
-    margin-left: 16vw;margin-top: 3.3rem;
+    margin-left: 15vw;margin-top: 3.3rem;
+    scrollbar-width: none;
   }
 
   /* ----------------------------------------------------- */
@@ -25,6 +26,7 @@
     display: flex;
     position: relative;
     margin-bottom: 1vh;
+    scrollbar-width: none;
   }
   .new-course-filterbar{
     display: flex;
@@ -46,8 +48,9 @@
   .new-course-content button{
    position: absolute;
    bottom: 0;
-   right: 2vw;
+   right: 3vw;
    font-size: 1.75vh;
+
   }
   .new-course-content input{
     /* font-size: 3vh; */
@@ -63,6 +66,8 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
     margin-left: 4vh;
+    scrollbar-width: none;
+
   }
 
 
