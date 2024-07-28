@@ -19,6 +19,7 @@ const customStyles = {
     borderRadius: "10px",
     boxShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
     zIndex: 1200,
+    overflowY: "scroll",
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.15)", // Dark background
@@ -28,7 +29,7 @@ const customStyles = {
 };
 
 const AddBlogPopup = ({ modalIsOpen, closeModal }) => {
-  const quillRef = useRef(null);
+  const quillRef = useRef();
 
   useEffect(() => {
     if (modalIsOpen && quillRef.current) {
@@ -39,7 +40,7 @@ const AddBlogPopup = ({ modalIsOpen, closeModal }) => {
         });
       }
     }
-  }, [modalIsOpen]);
+  }, [modalIsOpen, quillRef]);
 
   return (
     <div className="addblog-popup-body">

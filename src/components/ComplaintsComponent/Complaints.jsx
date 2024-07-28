@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../layout/Header";
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
 import { ComplaintsData } from "../constants/temporary";
 import ComplaintsCard from "../common/ComplaintsCard";
