@@ -8,15 +8,16 @@ const ComplaintsPage = () => {
   return (
     <div className="d-flex">
       <SideBar />
-      {activeComponent === "Complaints" && (
+      {/* {activeComponent === "Complaints" && (
         <Complaints setActiveComponent={setActiveComponent} />
-      )}
-      {activeComponent === "Complaintsmore" && (
+      )} */}
+      {/* {activeComponent === "Complaintsmore" && (
         <Complaintsmore setActiveComponent={setActiveComponent} />
-      )}
-      {activeComponent === "NewComplaint" && (
+      )} */}
+      {/* {activeComponent === "NewComplaint" && (
         <NewComplaint setActiveComponent={setActiveComponent} />
-      )}
+      )} */}
+      <Complaintsmore/>
     </div>
   );
 };

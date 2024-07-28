@@ -5,7 +5,13 @@ import { FaPlusCircle } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaRegCalendarTimes } from "react-icons/fa";
+import { MdPendingActions } from "react-icons/md";
 import LeaveChart from "./LeaveChart";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import InputAdornment from "@mui/material/InputAdornment";
+import SearchIcon from '@mui/icons-material/Search';
 
 function Leave() {
   return (
@@ -27,7 +33,7 @@ function Leave() {
                 <div className="leave-main-box-content"> 25</div>
                 <div className="leave-sub-box-content-1">
                   {" "}
-                  Available Leaves{" "}
+                  Requested Leaves{" "}
                 </div>
               </div>
             </div>
@@ -44,26 +50,15 @@ function Leave() {
 
             <div className="rectangle-u rectangle-4 me-2">
               <div className="leave-small-square">
-                <FaRegCalendarTimes className="leave-icon" />
+                <MdPendingActions className="leave-icon" />
               </div>
               <div className="leave-box-content">
                 <div className="leave-main-box-content"> 5 </div>
-                <div className="leave-sub-box-content"> Rejected Leaves </div>
+                <div className="leave-sub-box-content"> Pending Leaves </div>
               </div>
             </div>
           </div>
-          <button
-            className="gradient-blue-btn "
-            style={{
-              color: "white",
-              width: "167px",
-              height: "45px",
-              padding: "10px",
-            }}
-          >
-            <FaPlusCircle className="me-2" />
-            Apply Leave
-          </button>
+        
         </div>
 
         <div className="leave-additional-rectangle-3">
@@ -136,7 +131,7 @@ function Leave() {
                     <button className="leave-rejected">Rejected</button>
                   </td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <td>01</td>
                   <td>Casual</td>
                   <td>20 JUNE 2024</td>
@@ -145,20 +140,38 @@ function Leave() {
                   <td>
                     <button className="leave-approved"> Approved</button>
                   </td>
-                </tr>
-                <td>01</td>
+                </tr> */}
+                {/* <td>01</td>
                 <td>Casual</td>
                 <td>20 JUNE 2024</td>
                 <td>22 JUNE 2024</td>
                 <td>Friend's Wedding Function</td>
                 <td>
                   <button className="leave-rejected">Rejected</button>
-                </td>
+                </td> */}
               </tbody>
             </table>
           </div>
+
         </div>
-        
+        <div 
+  className="leave-chart-box" 
+  style={{
+    width: '100%',
+    marginTop:'4vh',
+    boxShadow: `
+    0px 0px 0px 6px rgba(107, 107, 107, 0.1)  `,
+    margin: 'auto',
+    borderRadius: '2px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }}>
+ 
+ <LeaveChart />
+ 
+</div>
+
       </div>
     </div>
   );

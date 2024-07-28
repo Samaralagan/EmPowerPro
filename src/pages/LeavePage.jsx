@@ -1,19 +1,25 @@
 import React from "react";
-import Leave from "../components/LeaveComponent/Leave";
 import SideBar from "../components/common/SideBar";
+import LeaveExecutive from "../components/LeaveComponent/LeaveExecutive";
+import Leave from "../components/LeaveComponent/Leave";
 import ApplyLeave from "../components/LeaveComponent/ApplyLeave";
 import OthersLeave from "../components/LeaveComponent/OthersLeave";
 import LeaveHistory from "../components/LeaveComponent/LeaveHistory";
+import LeavePending from "../components/LeaveComponent/LeavePending";
+
 
 function LeavePage() {
   return (
     <div>
       <SideBar />
       
-      {/* <Leave /> */}
+      {/* <Leave/> */}
+      {/* <LeaveExecutive /> */}
       {/* <ApplyLeave/> */}
-      <OthersLeave/>
+      {/* <OthersLeave/> */}
       {/* <LeaveHistory/> */}
+      <LeavePending/>
+
     </div>
   );
 }
