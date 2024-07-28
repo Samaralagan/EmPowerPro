@@ -3,6 +3,7 @@ import SideBar from "../components/common/SideBar";
 import Complaints from "../components/ComplaintsComponent/Complaints";
 import Complaintsmore from "../components/ComplaintsComponent/Complaintsmore";
 import NewComplaint from "../components/ComplaintsComponent/NewComplaint";
+
 const ComplaintsPage = () => {
   const [activeComponent, setActiveComponent] = useState("Complaints");
   return (

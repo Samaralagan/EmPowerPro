@@ -26,9 +26,14 @@ import CreateUserPage from "./pages/CreateUserPage.jsx";
 import EmployeePage from "./pages/EmployeePage.jsx";
 import Employee from "./components/employee/Employee.jsx";
 import Profile from "./components/employee/Profile.jsx";
+import Team_Profile from "./components/employee/Team_Profile.jsx";
 import GenerateReport from "./components/employee/GenerateReport.jsx";
+import BeneficiaryMore from "./components/BeneficiaryComponent/BeneficiaryMore.jsx";
 import BeneficiaryPage from "./pages/BeneficiaryPage.jsx";
+import HR_BeneficiaryPage from "./components/BeneficiaryComponent/HR_Beneficiary.jsx";
 import PayrollPage from "./pages/PayrollPage.jsx";
+import HR_EmployeePage from "./components/employee/HR_Employee.jsx";
+import EX_EmployeePage from "./components/employee/EX_Employees.jsx";
 
 import ApplyLeaveForm from "./components/LeaveComponent/ApplyLeaveForm.jsx";
 import ApplyClaim_1 from "./components/BeneficiaryComponent/ApplyClaim_1.jsx";
@@ -38,6 +43,13 @@ import AppliedClaimForm from "./components/BeneficiaryComponent/AppliedClaimForm
 import CanceledClaimForm from "./components/BeneficiaryComponent/CanceledClaimForm.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
+
+import CreateNewTeam from "./components/employee/CreateTeam.jsx";
+
+import NewApproval from "./components/employee/NewApproval.jsx";
+
+import Teams from "./components/employee/Teams.jsx";
+import IncomeExpensePage from "./pages/IncomeExpensePage.jsx";
 
 function App() {
   const role = "Employee";
@@ -65,11 +77,11 @@ function App() {
             {/* <Route path="/Training/Employee" element={<TrainingPage />} />    */}
             <Route path="/Beneficiary/Employee" element={<BeneficiaryPage />} />
 
-            <Route path="/Dash Board/TeamLeader" element={<SideBar />} />
-            <Route path="/Attendance/TeamLeader" element={<SideBar />} />
+            <Route path="/Dash Board/TeamLeader" element={<DashboardPage />} />
+            <Route path="/Attendance/TeamLeader" element={<AttendancePage />} />
             <Route path="/Project/TeamLeader" element={<ProjectPage />} />
-            <Route path="/Leave/TeamLeader" element={<SideBar />} />
-            <Route path="/Pay Roll/TeamLeader" element={<SideBar />} />
+            <Route path="/Leave/TeamLeader" element={<LeavePage />} />
+            <Route path="/Pay Roll/TeamLeader" element={<PayrollPage />} />
             <Route path="/Complaints/TeamLeader" element={<ComplaintsPage />} />
             <Route
               path="/ComplaintsPage_Tl_new/TeamLeader"
@@ -80,7 +92,10 @@ function App() {
               element={<ReplyComplaint />}
             />
             <Route path="/Blog/TeamLeader" element={<BlogPage />} />
-            <Route path="/Beneficiary/TeamLeader" element={<SideBar />} />
+            <Route
+              path="/Beneficiary/TeamLeader"
+              element={<BeneficiaryPage />}
+            />
             <Route path="/Team members/TeamLeader" element={<EmployeePage />} />
             <Route
               path="/Team members/TeamLeader/GenerateReport"
@@ -91,30 +106,43 @@ function App() {
               element={<Profile />}
             />
 
-            <Route path="/Dash Board/Admin" element={<SideBar />} />
-            <Route path="/Attendance/Admin" element={<SideBar />} />
-            <Route path="/Leave/Admin" element={<SideBar />} />
-            <Route path="/Pay Roll/Admin" element={<SideBar />} />
+            <Route path="/Dash Board/Admin" element={<DashboardPage />} />
+            <Route path="/Attendance/Admin" element={<AttendancePage />} />
+            <Route path="/Leave/Admin" element={<LeavePage />} />
+            <Route path="/Pay Roll/Admin" element={<PayrollPage />} />
             <Route path="/Complaints/Admin" element={<ComplaintsPage />} />
             <Route path="/Create User/Admin" element={<CreateUserPage />} />
             <Route path="/Inquires/Admin" element={<InquriesPage />} />
-            <Route path="/Beneficiary/Admin" element={<SideBar />} />
+            <Route path="/Beneficiary/Admin" element={<BeneficiaryPage />} />
 
-            <Route path="/Dash Board/HR" element={<SideBar />} />
-            <Route path="/Attendance/HR" element={<SideBar />} />
+            <Route path="/Dash Board/HR" element={<DashboardPage />} />
+            <Route path="/Attendance/HR" element={<AttendancePage />} />
             <Route path="/Project/HR" element={<ProjectPage />} />
-            <Route path="/Leave/HR" element={<SideBar />} />
+            <Route path="/Leave/HR" element={<LeavePage />} />
             <Route path="/Complaints/HR" element={<ComplaintsPage />} />
-            <Route path="/Pay Roll/HR" element={<SideBar />} />
+            <Route path="/Pay Roll/HR" element={<PayrollPage />} />
             <Route path="/Blog/HR" element={<BlogPage />} />
-            <Route path="/Employees/HR" element={<SideBar />} />
+            <Route path="/Employees/HR" element={<HR_EmployeePage />} />
+            <Route
+              path="/Employees/HR/Team_Profile"
+              element={<Team_Profile />}
+            />
             <Route path="/Jobs/HR" element={<JobPage />} />
-            <Route path="/Beneficiary/HR" element={<SideBar />} />
+            <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
 
-            <Route path="/Dash Board/FinanceAndSupport" element={<SideBar />} />
-            <Route path="/Attendance/FinanceAndSupport" element={<SideBar />} />
-            <Route path="/Leave/FinanceAndSupport" element={<SideBar />} />
-            <Route path="/Pay Roll/FinanceAndSupport" element={<SideBar />} />
+            <Route
+              path="/Dash Board/FinanceAndSupport"
+              element={<DashboardPage />}
+            />
+            <Route
+              path="/Attendance/FinanceAndSupport"
+              element={<AttendancePage />}
+            />
+            <Route path="/Leave/FinanceAndSupport" element={<LeavePage />} />
+            <Route
+              path="/Pay Roll/FinanceAndSupport"
+              element={<PayrollPage />}
+            />
             <Route
               path="/Complaints/FinanceAndSupport"
               element={<ComplaintsPage />}
@@ -122,17 +150,40 @@ function App() {
             <Route path="/Suppliers/FinanceAndSupport" element={<SideBar />} />
             <Route
               path="/Beneficiary/FinanceAndSupport"
-              element={<SideBar />}
+              element={<BeneficiaryPage />}
+            />
+            <Route
+              path="/Income & Expense/FinanceAndSupport"
+              element={<IncomeExpensePage />}
             />
 
-            <Route path="/Dash Board/Executive" element={<SideBar />} />
-            <Route path="/Attendance/Executive" element={<SideBar />} />
+            <Route path="/Dash Board/Executive" element={<DashboardPage />} />
+            <Route path="/Attendance/Executive" element={<AttendancePage />} />
             <Route path="/Project/Executive" element={<ProjectPage />} />
-            <Route path="/Leave/Executive" element={<SideBar />} />
+            <Route path="/Leave/Executive" element={<LeavePage />} />
             <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
-            <Route path="/Pay Roll/Executive" element={<SideBar />} />
-            <Route path="/Beneficiary/Executive" element={<SideBar />} />
-            <Route path="/Team members/Executive" element={<SideBar />} />
+            <Route path="/Pay Roll/Executive" element={<PayrollPage />} />
+            <Route
+              path="/Beneficiary/Executive"
+              element={<BeneficiaryPage />}
+            />
+            <Route
+              path="/Team members/Executive"
+              element={<EX_EmployeePage />}
+            />
+            <Route path="/Apply-leave" element={<ApplyLeaveForm />} />
+            <Route path="/ApplyClaim-1" element={<ApplyClaim_1 />} />
+            <Route path="/ApplyClaim-2" element={<ApplyClaim_2 />} />
+            <Route path="/ApplyClaim-3" element={<ApplyClaim_3 />} />
+            <Route path="/Applied-claim" element={<AppliedClaimForm />} />
+            <Route path="/Canceled-claim" element={<CanceledClaimForm />} />
+
+            <Route path="/Generate-Report" element={<GenerateReport />} />
+            {/* <Route path="/Teams" element={<Teams />} /> */}
+
+            <Route path="/CreateNewTeam" element={<CreateNewTeam />} />
+
+            <Route path="/NewApproval" element={<NewApproval />} />
           </Route>
         </Routes>
       </Router>

@@ -7,6 +7,7 @@ import ComplaintsToMe from "./ComplaintsToMe";
 import "./Complaints.css";
 
 const Complaints = ({ setActiveComponent }) => {
+  
   const [activeTab, setActiveTab] = useState("my-complaints");
 
   const handleTabChange = (tab) => {

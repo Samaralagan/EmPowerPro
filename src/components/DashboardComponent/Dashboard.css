@@ -12,10 +12,8 @@
     --2ST-COLOR: linear-gradient(to top, #86D3EC 100%, #55B7D6 100%, #1E98BE 100%);
   }
   .dashboard-body{
-  
-
     padding: 20px;
-    width: 79vw;
+    width: 83vw;
     display: flex;
     flex-direction: column;
     margin-left: 15rem;
@@ -69,7 +67,7 @@
     align-items: center;
   }
   .dashboard-content-top-box-text{
-    font-size: 1.7vh;
+    font-size: 16px;
     font-weight: 600;
     align-items: center;
     justify-content: center;
@@ -114,7 +112,7 @@
     margin-top: 1.7vh;
  }
  .dashboard-content-middle-content p{
-     font-size: 2.9vh;
+     font-size: 20px;
      font-weight: 800;
      margin: 0;
      /* margin-left: 1%; */
@@ -301,4 +299,9 @@
   }
   .dashboard-content-right-bottom-event p{
     margin: 0;
+  }
+
+  .dashboard-content-bottom-box canvas {
+    width: 100% !important;
+    height: auto !important;
   }

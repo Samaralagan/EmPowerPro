@@ -10,6 +10,7 @@ const Employee = ({ setActiveComponent }) => {
   const handlenewreport = () => {
     setActiveComponent("GenerateReport");
   };
+
   return (
     <div>
       {/* <Header /> */}

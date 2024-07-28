@@ -17,7 +17,7 @@
     width: 79vw;
     display: flex;
     flex-direction: column;
-    margin-left: 15rem;
+    margin-left: 17rem;
     padding: 1rem;
     margin-top: 5%;
   }
@@ -34,7 +34,7 @@
     padding: 10px;
     padding-right: 170px;
     padding-left: 15px;
-    font-size: 11px;
+    font-size: 14px;
     border: 2px solid var(--Main-color);
     border-radius: 10px;
     outline: none;
@@ -62,7 +62,7 @@
     outline: none;
     padding: 1%;
     flex-grow: 1;
-    font-size: 11px;
+    font-size: 14px;
   }
   
   .search-button-report {
@@ -87,8 +87,10 @@
     padding: 10px 60px;
     border-radius: 5px; 
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
+    margin-left: 10%;
+
    
   }
 
@@ -233,5 +235,5 @@
 
   .individual-report-box canvas {
     width: 100% !important;
-    height: auto !important;
+    height: 50% !important;
   }

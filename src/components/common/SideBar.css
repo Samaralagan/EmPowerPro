@@ -48,6 +48,7 @@
   margin-right: 0rem;
   border-radius: 40px 0px 0px 40px;
   position: relative; /* Add this to ensure sub-links are positioned relative to this */
+  margin-top: 3%;
 }
 
 .side-bar-link:hover {
@@ -65,7 +66,7 @@
 }
 
 .side-bar-link-text {
-  font-size: 13px;
+  font-size: 16px;
   margin: 0;
 }
 

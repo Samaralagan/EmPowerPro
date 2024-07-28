@@ -12,7 +12,7 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
   
-  .leave-body{
+  .inex-body{
     padding: 20px;
     width: 79vw;
     display: flex;
@@ -21,11 +21,11 @@
   }
   
  /* upper div content */
- .leave-rectangles-containers{
+ .inex-rectangles-containers{
   display: flex;
   justify-content: space-between;
  }
- .leave-rectangles-container {
+ .inex-rectangles-container {
     display: flex;
     /* justify-content: space-between; */
     gap: 1.5rem;
@@ -52,7 +52,7 @@
     transition: transform 0.3s ease;
   }
 
-  .leave-small-square {
+  .inex-small-square {
     width: 50px;
     height: 50px;
     background-color: rgba(255, 255, 255, 0.3); /* 30% transparency */
@@ -64,34 +64,34 @@
     justify-content: center;
   }
 
-  .leave-icon {
+  .inex-icon {
     color: rgba(255, 255, 255, 0.7); 
     font-size: 25px; 
   }
 
-  .leave-main-box-content{
+  .inex-main-box-content{
     font-size: 32px;
     margin-left: 20px;
   }
 
-  .leave-sub-box-content{
+  .inex-sub-box-content{
     font-size: 10px;
     margin-left: 23px;
   }
 
-  .leave-sub-box-content-1{
+  .inex-sub-box-content-1{
     font-size: 10px;
     margin-left: 24px;
   }
 
-  .leave-sub-box-content-2{
+  .inex-sub-box-content-2{
     font-size: 10px;
     margin-left: 25px;
   }
   
- /* apply leave */
+ /* apply inex */
 
- .leave-additional-rectangle-3{
+ .inex-additional-rectangle-3{
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -106,7 +106,7 @@
     margin-top: 20px;
    
   }
-  .leave-records-text {
+  .inex-records-text {
     margin-bottom: 10px;
 }
 
@@ -127,12 +127,12 @@
     color: #D9D9D9;
 }
 
-.leave-custom-table-container {
+.inex-custom-table-container {
     margin-top: 10px;
     padding: 5px;
 }
 
-.leave-custom-table {
+.inex-custom-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 15px; 
@@ -140,14 +140,14 @@
     border-radius: 20px;
 }
 
-.leave-custom-table th {
+.inex-custom-table th {
     background-color: #000F44;
     color: white;
     padding: 10px;
     text-align: left;
     
 }
-.leave-custom-table td {
+.inex-custom-table td {
     background-color: white;
     color: #000F44;
     padding: 10px;
@@ -155,7 +155,7 @@
    
 }
 
-.leave-custom-table tr {
+.inex-custom-table tr {
     background-color: white;
 }
 .approved  , .pending , .rejected {

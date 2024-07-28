@@ -36,6 +36,7 @@
   }
   .vacancy-popup-subtitle{
     color: var(--Main-color);
+    margin-top: 1%;
   }
 .vacancy-popup-rightpart{
     padding: 30px 50px;
@@ -70,3 +71,7 @@
     font-size: 14px;
   }
   
+
+  .vacancy-popup-header{
+    margin-top: 2%;
+  }
