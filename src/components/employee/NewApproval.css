@@ -1,0 +1,100 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+.new-resume-applied-claim-body{
+    /* margin-top: 80px; */
+    padding: 20px;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 18rem;
+    padding: 1rem;
+  }
+  
+  .new-resume-applied-container{
+    margin-top: 8%;
+  }
+  
+  .new-resume-applied-claim-body-2{
+    margin-top: 80px; 
+  }
+  .new-resume-arrow_icon{
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--Main-color); 
+    font-weight: bold;
+  }
+  
+  .new-resume-claimed-box{
+    width: 92%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px rgba(107, 107, 107, 0.1);
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2%;
+    font-size: 17px;
+    color: var(--Main-color);
+    margin-top: 2%;
+    padding-left: 3%;
+    margin-left: 4%;
+  }
+  
+  .new-resume-applied-reason{
+    color: var(--Main-color);
+    font-size: 18px;
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+  }
+  
+  .new-resume-event-topic-reason{
+    font-size: 20px;
+  }
+
+  .new-resume{
+    background-color: #0cb0f8;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    color: var(--Sub-color);
+    transition: all 0.3s ease; 
+    font-size: 14px; 
+  }
+
+  .new-resume-event-reason-row{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .resume-rule{
+    width: 100%;
+    border: 2px solid rgb(200, 200, 200);
+  
+  }
+
+  .new-resume-party-oneline{
+    display: flex;
+    gap: 3%;
+    padding: 5px;
+  }
+
+  .new-resume-detail-1{
+    color:  rgb(200, 200, 200) ;
+  }
+
+  .new-resume-detail-2{
+    color:  var(--Main-color);
+  }

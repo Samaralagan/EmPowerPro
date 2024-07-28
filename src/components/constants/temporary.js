@@ -13,7 +13,6 @@ import {
   FaBirthdayCake,
   FaGlassCheers,
 } from "react-icons/fa";
-// import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield,FaCalendar,FaClock,FaLink, FaBirthdayCake, FaGlassCheers } from "react-icons/fa";
 import NewCourseImg1 from "../../assets/images/newcourse 1.png";
 import NewCourseImg2 from "../../assets/images/newcourse 2.png";
 import NewCourseImg3 from "../../assets/images/newcourse 3.png";
@@ -27,16 +26,7 @@ import profile2 from "../../assets/images/profile2.png";
 import profile3 from "../../assets/images/profile3.png";
 import profile4 from "../../assets/images/profile4.png";
 import profile5 from "../../assets/images/profile5.png";
-
-// import MyCourseImg1 from '../../assets/images/mycourse 1.png'
-// import MyCourseImg2 from '../../assets/images/mycourse 2.png'
-// import celebrationImg1 from '../../assets/images/celebration (1).png'
-// import celebrationImg2 from '../../assets/images/celebration (2).png'
-// import profile1 from '../../assets/images/profile1.png'
-// import profile2 from '../../assets/images/profile2.png'
-// import profile3 from '../../assets/images/profile3.png'
-// import profile4 from '../../assets/images/profile4.png'
-// import profile5 from '../../assets/images/profile5.png'
+import transitions from "@material-ui/core/styles/transitions";
 
 export const EVENT_ACTIVITY_CARD = [
   {
@@ -100,7 +90,6 @@ export const SERVICES_CARD = [
 ];
 
 export const EVENT_VACANCY_CARD = [
-  //  {type:'',name:'',time_icon:'',time:'',salary_icon:'',salary:'',updated_time:''}
   {
     type: "Creative & Art",
     name: "User Experience Designer <br/>-Fully Remote",
@@ -273,32 +262,6 @@ export const NewCourseCardData = [
     enrolled: "1,361 already enrolled",
   },
 ];
-// export const NewCourseCardData=[
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-// ]
 
 export const MyCourseCardData = [
   {
@@ -359,6 +322,24 @@ export const ComplaintsReplyCard = [
     date: "23/03/2024",
     description:
       "I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.",
+  },
+];
+
+export const BeneficiaryData = [
+  { status: "Pending", about: "Hospitalization", date: "23/03/2024" },
+  { status: "Approved", about: "Medical Consultation", date: "23/03/2024" },
+  { status: "Approved", about: "Medical Consultation", date: "23/03/2024" },
+];
+
+export const BeneficiaryDataMore = [
+  {
+    status: "Pending",
+    about: "Medical Consultation",
+    date: "23/03/2024",
+    reason:
+      "In June 2024, I was hospitalized due to pneumonia. I was admitted to City General Hospital on June 1, 2024, and received comprehensive treatment including antibiotics, IV fluids, and oxygen therapy. After a 10-day stay, I was discharged on June 10, 2024.",
+    uploads: "Medical bills_receipts.PDF",
+    amount: "Rs.500,000.90",
   },
 ];
 
@@ -549,6 +530,44 @@ export const EmployeeTableData = [
     team: "Backend Development",
   },
 ];
+export const TeamTableData = [
+  {
+    name: "Code Crusaders",
+    status: "Completed",
+    teamlead: "Olivia Rajan",
+    project: "Robust network security solution",
+  },
+  {
+    name: "Tech Titans",
+    status: "On Progress",
+    teamlead: "Diana Lovece",
+    project: "AI system for predictive analytics",
+  },
+  {
+    name: "Digital Dynamos",
+    status: "Completed",
+    teamlead: "Can Samuel",
+    project: "Scalable cloud infrastructure",
+  },
+  {
+    name: "Data Mavericks",
+    status: "Completed",
+    teamlead: "Angelo Mathews",
+    project: "Real-time business intelligence",
+  },
+  {
+    name: "Cyber Guardians",
+    status: "On Progress",
+    teamlead: "Belly James",
+    project: "Cybersecurity framework",
+  },
+  {
+    name: "Quantum Quants",
+    status: "On Progress",
+    teamlead: "Can Samuel",
+    project: "Quantum computing solution",
+  },
+];
 export const ProfileData = [
   {
     image: profile1,
@@ -616,5 +635,14 @@ export const JobData = [
     email: "dianalovece@gmail.com",
     job: "Android App  Developer",
     type: "Full-Time",
+  },
+];
+export const IncomeExpensData = [
+  {
+    transitions_no: "01",
+    transitions_date: "",
+    transitions_subject: "",
+    transitions_category: "",
+    transitions_amount: "",
   },
 ];

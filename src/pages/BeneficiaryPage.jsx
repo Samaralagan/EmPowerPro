@@ -1,14 +1,28 @@
-import React from 'react'
-import SideBar from '../components/common/SideBar'
+import React, { useState } from "react";
+import SideBar from "../components/common/SideBar";
+
 import Beneficiary from '../components/BeneficiaryComponent/Beneficiary'
+import BeneficiaryMore from '../components/BeneficiaryComponent/BeneficiaryMore'
 
-function BeneficiaryPage() {
+// import NewComplaint from "../components/ComplaintsComponent/NewComplaint";
+
+const BeneficiaryPage = () => {
+
+  const [activeComponent, setActiveComponent] = useState("Beneficiary");
   return (
-    <div>
-        <SideBar/>
-        <Beneficiary/>
+    <div className="d-flex">
+      <SideBar />
+      {activeComponent === "Beneficiary" && (
+        <Beneficiary setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "BeneficiaryMore " && (
+        <BeneficiaryMore  setActiveComponent={setActiveComponent} />
+      )}
+      {/* {activeComponent === "NewComplaint" && (
+        <NewComplaint setActiveComponent={setActiveComponent} />
+      )} */}
     </div>
-  )
-}
+  );
+};
 
-export default BeneficiaryPage
+export default BeneficiaryPage;

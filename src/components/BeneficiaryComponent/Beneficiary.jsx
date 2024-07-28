@@ -12,7 +12,10 @@ import { useNavigate } from "react-router-dom";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 
-function Beneficiary() {
+import { BeneficiaryData } from "../constants/temporary";
+import BeneficiaryCard from "../common/BeneficiaryCard";
+
+function Beneficiary({ setActiveComponent }) {
   const navigate = useNavigate();
 
   const handleAppliedClaim = () => {
@@ -156,35 +159,15 @@ function Beneficiary() {
           </div>
 
           <div className="medical-claims">
-            <div className="medical-claim">
-              <div className="claim-status-heading">
-                <div className="status pending">Pending</div>
-                <div className="claimed-date">23-03-2024</div>
-              </div>
-              <div className="reason-topic">Reason</div>
-
-              <div className="reason-row">
-                <div className="reason">Hospitalization</div>
-                <div className="view-details" onClick={handleCanceledClaim}>
-                  View Details ...
-                </div>
-              </div>
-            </div>
-
-            <div className="medical-claim">
-              <div className="claim-status-heading">
-                <div className="status approved">Approved</div>
-                <div className="claimed-date">12-04-2024</div>
-              </div>
-
-              <div className="reason-topic">Reason </div>
-              <div className="reason-row">
-                <div className="reason">Medical Consultation</div>
-                <div className="view-details" onClick={handleAppliedClaim}>
-                  View Details ...
-                </div>
-              </div>
-            </div>
+            {BeneficiaryData.map((Card, index) => (
+              <BeneficiaryCard
+                key={index}
+                status={Card.status}
+                about={Card.about}
+                date={Card.date}
+                setActiveComponent={setActiveComponent}
+              />
+            ))}
           </div>
         </div>
       </div>

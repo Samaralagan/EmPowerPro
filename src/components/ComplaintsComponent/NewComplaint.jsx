@@ -11,7 +11,7 @@ function NewComplaint({ setActiveComponent }) {
   };
   return (
     <div>
-      <div className="newcomplaint-body">
+      <div className="contentbodyall">
         {/* <Header />
         <hr /> */}
         {/* <Link to={"/Complaints/"}> */}
