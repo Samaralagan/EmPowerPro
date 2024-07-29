@@ -25,6 +25,10 @@ import EmployeePage from './pages/EmployeePage.jsx';
 import Employee from './components/employee/Employee.jsx';
 import Profile from './components/employee/Profile.jsx';
 import GenerateReport from './components/employee/GenerateReport.jsx';
+import ApplyLeavePage from './components/LeaveComponent/ApplyLeave.jsx';
+import LeaveHistory from './components/LeaveComponent/LeaveHistory.jsx';
+import LeavePageHR from './components/LeaveComponent/LeaveHR.jsx'
+
 
 function App() {
   const role = 'Employee';
@@ -40,6 +44,7 @@ function App() {
               <Route path="/Attendance/Employee" element={<AttendancePage />} />
               <Route path="/Project/Employee" element={<ProjectPage />} />
               <Route path="/Leave/Employee" element={<LeavePage />} />
+              <Route path="/Leave/Employee/ApplyLeave" element={<ApplyLeavePage />} />
               <Route path="/Pay Roll/Employee" element={<SideBar />} />
               <Route path="/Complaints/Employee" element={<ComplaintsPage/>} />
               <Route path="/Complaints/Employee/NewComplaint" element={<NewComplaint/>} />
@@ -49,7 +54,8 @@ function App() {
               <Route path="/Dash Board/TeamLeader" element={<SideBar />} />
               <Route path="/Attendance/TeamLeader" element={<SideBar />} />
               <Route path="/Project/TeamLeader" element={<ProjectPage />} />
-              <Route path="/Leave/TeamLeader" element={<SideBar />} />
+              <Route path="/Leave/TeamLeader" element={<LeavePage />} />
+              <Route path="/Leave/TeamLeader/ApplyLeave" element={<ApplyLeavePage />} />
               <Route path="/Pay Roll/TeamLeader" element={<SideBar />} />
               <Route path="/Complaints/TeamLeader" element={<ComplaintsPage/>} />
               <Route path="/ComplaintsPage_Tl_new/TeamLeader" element={<NewComplaint/>} />
@@ -62,7 +68,8 @@ function App() {
 
               <Route path="/Dash Board/Admin" element={<SideBar />} />
               <Route path="/Attendance/Admin" element={<SideBar />} />
-              <Route path="/Leave/Admin" element={<SideBar />} />
+              <Route path="/Leave/Admin" element={<LeavePage />} />
+              <Route path="/Leave/Admin/ApplyLeave" element={<ApplyLeavePage />} />
               <Route path="/Pay Roll/Admin" element={<SideBar />} />
               <Route path="/Complaints/Admin" element={<ComplaintsPage/>} />
               <Route path='/Create User/Admin' element={<CreateUserPage />} />
@@ -72,7 +79,7 @@ function App() {
               <Route path="/Dash Board/HR" element={<SideBar />} />
               <Route path="/Attendance/HR" element={<SideBar />} />
               <Route path="/Project/HR" element={<ProjectPage />} />
-              <Route path="/Leave/HR" element={<SideBar />} />
+              <Route path="/Leave/HR" element={<LeavePageHR />} />
               <Route path="/Complaints/HR" element={<ComplaintsPage />} />
               <Route path="/Pay Roll/HR" element={<SideBar />} />
               <Route path="/Training/HR" element={<TrainingPage />} />
@@ -82,7 +89,8 @@ function App() {
 
               <Route path="/Dash Board/FinanceAndSupport" element={<SideBar />} />
               <Route path="/Attendance/FinanceAndSupport" element={<SideBar />} />
-              <Route path="/Leave/FinanceAndSupport" element={<SideBar />} />
+              <Route path="/Leave/FinanceAndSupport" element={<LeavePage />} />
+              <Route path="/Leave/FinanceAndSupport/ApplyLeave" element={<ApplyLeavePage />} />
               <Route path="/Pay Roll/FinanceAndSupport" element={<SideBar />} />
               <Route path="/Complaints/FinanceAndSupport" element={<ComplaintsPage />} />            
               <Route path="/Suppliers/FinanceAndSupport" element={<SupplierPage />} />

@@ -6,6 +6,7 @@ import { FaBookmark } from "react-icons/fa";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaRegCalendarTimes } from "react-icons/fa";
 import LeaveChart from "./LeaveChart";
+import { Link } from "react-router-dom";
 
 function Leave() {
   return (
@@ -52,6 +53,7 @@ function Leave() {
               </div>
             </div>
           </div>
+          <Link to="/Leave/Employee/ApplyLeave">
           <button
             className="gradient-blue-btn "
             style={{
@@ -64,6 +66,7 @@ function Leave() {
             <FaPlusCircle className="me-2" />
             Apply Leave
           </button>
+          </Link>
         </div>
 
         <div className="leave-additional-rectangle-3">

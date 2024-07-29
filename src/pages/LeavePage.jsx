@@ -18,12 +18,12 @@ function LeavePage() {
     <div>
       <SideBar />
       
-      {/* <Leave/> */}
+      <Leave/>
        {/* <ApplyLeave/> */}
 
       {/* <LeaveExecutive /> */}
        {/* <LeavePending/> */}
-      <ApproveLeave/>
+      {/* <ApproveLeave/> */}
       {/* <RejectLeave/> */}
 
 {/* <LeaveHR/> */}
