@@ -17,6 +17,7 @@ import DashboardPage from './pages/DashboardPage.jsx';
 import Complaintsmore from './components/ComplaintsComponent/Complaintsmore.jsx';
 import NewComplaint from './components/ComplaintsComponent/NewComplaint.jsx';
 import LeavePage from './pages/LeavePage.jsx';
+import SupplierPage from './pages/SupplierPage.jsx';
 import ReplyComplaint from './components/ComplaintsComponent/ReplyComplaint.jsx';
 import InquriesPage from './pages/InquriesPage.jsx';
 import CreateUserPage from './pages/CreateUserPage.jsx';
@@ -84,7 +85,7 @@ function App() {
               <Route path="/Leave/FinanceAndSupport" element={<SideBar />} />
               <Route path="/Pay Roll/FinanceAndSupport" element={<SideBar />} />
               <Route path="/Complaints/FinanceAndSupport" element={<ComplaintsPage />} />            
-              <Route path="/Suppliers/FinanceAndSupport" element={<SideBar />} />
+              <Route path="/Suppliers/FinanceAndSupport" element={<SupplierPage />} />
               <Route path="/Beneficiary/FinanceAndSupport" element={<SideBar />} />
               
               <Route path="/Dash Board/Executive" element={<SideBar />} />
