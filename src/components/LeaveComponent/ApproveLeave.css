@@ -27,7 +27,7 @@
     padding: 1.5vw;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 4px rgba(0, 0, 0, 0.2),
     0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.2);
-    margin-top: 3vh;
+    margin-top: 1vh;
     margin-left: 8vh;
     color: #000f44;
   }
@@ -82,47 +82,7 @@
     margin-bottom: 20px;
   }
   
-  .pending-date-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3vh;
-    width: 7vh;
-    border-radius: 50%;
-    cursor: pointer;
-    color: #95a5a6;
-  }
-  .pending-date-box label {
-    /* display: block; */
-    color: #95a5a6;
-    margin-bottom: 5px;
-  }
-  
-  .date-box input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    color: #2c3e50;
-  }
-  
-  .reason-section label {
-    display: block;
-    color: #95a5a6;
-    margin-bottom: 5px;
-  }
-  
-  .reason-section textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    height: 100px;
-    resize: none;
-    background-color: #f9f9f9;
-    color: #2c3e50;
-  }
+
   
  
 .leave-reply-container{
@@ -137,38 +97,23 @@
     padding: 2%;
     font-size: 17px;
     color: var(--Main-color);
-    margin-top: 2%;
+    margin-top: 1%;
     padding-left: 2%;
     margin-left: 4.5%;
   }
 
-  .leave-reply-buttons{
-    align-items: center;
-    justify-content: center;
-
+  .leave-approve-reply-buttons{
+    justify-content: start;
     display: flex;
     gap: 10%;
   }
-  .leave-hr-approve-button, .leave-hr-reject-button {
+  .leave-hr-approved {
     padding: 5px 30px; 
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 10px;
     font-size: 13px; 
-  }
-  
-  .leave-hr-approve-button {
-    background-color: var(--Main-color);
+    background-color:#02c416;
     color: white;
   }
   
-  .leave-hr-reject-button {
-    background-color: red;
-    color: white;
-  }
-  
-  .leave-reply-comment{
-    font-size: 14px;
-    color: #b3b3b3;
-    margin-top: 3%;
-  }
+ 

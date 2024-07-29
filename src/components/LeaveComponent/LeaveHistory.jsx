@@ -67,7 +67,7 @@ function LeaveRequestForm() {
           <div className="detail-row">
             <div style={{ width: "12.5%" }}>
               {" "}
-              <span className="detail-label">Reason:</span>
+              <span className="detail-label">Reason</span>
             </div>
 
             <div className="detail-value" style={{ width: "87.5%" }}>

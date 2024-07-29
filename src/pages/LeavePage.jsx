@@ -6,6 +6,8 @@ import ApplyLeave from "../components/LeaveComponent/ApplyLeave";
 import OthersLeave from "../components/LeaveComponent/OthersLeave";
 import LeaveHistory from "../components/LeaveComponent/LeaveHistory";
 import LeavePending from "../components/LeaveComponent/LeavePending";
+import ApproveLeave from "../components/LeaveComponent/ApproveLeave";
+import RejectLeave from "../components/LeaveComponent/RejectLeave";
 
 
 function LeavePage() {
@@ -19,6 +21,8 @@ function LeavePage() {
       {/* <OthersLeave/> */}
       {/* <LeaveHistory/> */}
       <LeavePending/>
+      {/* <ApproveLeave/> */}
+      {/* <RejectLeave/> */}
 
     </div>
   );
