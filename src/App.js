@@ -38,6 +38,7 @@ import AppliedClaimForm from "./components/BeneficiaryComponent/AppliedClaimForm
 // import CanceledClaimForm from "./components/BeneficiaryComponent/CanceledClaimForm.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
+import Performance from './components/DashboardComponent/Performance'
 
 function App() {
   const role = "Employee";
@@ -48,10 +49,12 @@ function App() {
         <Routes>
           {/* <Vacancy_Apply_Form/> */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/Login" element={<Vacancy_Apply_Form/>} />
 
           <Route path="/" element={<Layout />}>
             <Route path="/Dash Board/Employee" element={<DashboardPage />} />
+            <Route path="/Dash Board/Employee/Performance" element={<Performance/>} /> 
+            <Route path="/Dash Board/Employee/Profile" element={<Profile/>} /> 
             <Route path="/Attendance/Employee" element={<AttendancePage />} />
             <Route path="/Project/Employee" element={<ProjectPage />} />
             <Route path="/Leave/Employee" element={<LeavePage />} />

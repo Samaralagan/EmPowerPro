@@ -17,6 +17,12 @@ import profile2 from '../../assets/images/profile2.png'
 import profile3 from '../../assets/images/profile3.png'
 import profile4 from '../../assets/images/profile4.png'
 import profile5 from '../../assets/images/profile5.png'
+import performationEvaluationImg1 from '../../assets/images/profile1.png'
+import performationEvaluationImg2 from '../../assets/images/profile2.png'
+import performationEvaluationImg3 from '../../assets/images/profile3.png'
+import performationEvaluationImg4 from '../../assets/images/profile4.png'
+import performationEvaluationImg5 from '../../assets/images/profile5.png'
+
 
 // import MyCourseImg1 from '../../assets/images/mycourse 1.png'
 // import MyCourseImg2 from '../../assets/images/mycourse 2.png'
@@ -75,36 +81,19 @@ export const NewCourseCardData=[
    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},]
-// export const NewCourseCardData=[
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
-//    {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
-// ]
-
+   
 export const MyCourseCardData=[
-   {img:MyCourseImg1,title:'Software Design and Architecture',started:'Started : Jan 24',level:'Beginner Level',star:4.8 ,Progress:75},
-   {img:MyCourseImg2,title:'Agile Software Development',started:'Started : Jan 24',level:'Advanced Level',star:4.8 ,Progress:40}
+   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg3,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg4,title:'Software  Architecture',level:'Intermediate  Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+]
+
+export const BookMarkCourseCardData=[
+   {img:NewCourseImg1,title:'Software  Architecture',level:'Beginner Level',star:4.8,enrolled:'1,361 already enrolled'},
+   {img:NewCourseImg2,title:'Software  Architecture',level:'Advanced Level',star:4.8,enrolled:'1,361 already enrolled'},
+ 
 
 ]
 
@@ -182,4 +171,12 @@ export const EmployeeTableData = [
 ]
 export const ProfileData = [
    {image:profile1,name :"Olivia Rajan",email:"olivia1990@gmail.com",team:"Design",dob:"18.06.2000",age:"24",linkedin:"www.linkedin.com/can-samuel",summary:"Highly skilled UI/UX designer with [X] years of experience in creating user-friendly and aesthetically pleasing digital interfaces.With a keen eye for detail and a passion for understanding user behavior,  excels in transforming complex ideas into intuitive and engaging user experiences.",skill1:"Proficient in design tools such as Adobe XD, Sketch, Figma, and InVision.",skill2:"Strong understanding of user-centered design principles and best practices.",address:"23/A, Flower Lane, Colombo 07",phone:"0770156485"}
+]
+
+export const performanceEvaluationCardData = [
+   {img:performationEvaluationImg1,name:'Olivia Rajan',position:'Team Lead'},
+   {img:performationEvaluationImg2,name:'Diana Lovece',position:'Executive'},
+   {img:performationEvaluationImg3,name:'Can Samuel',position:'Team Member'},
+   {img:performationEvaluationImg4,name:'Angelo Mathews',position:'HR Manager'},
+   {img:performationEvaluationImg5,name:'Belly James',position:'Team Lead'},
 ]

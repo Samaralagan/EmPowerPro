@@ -10,6 +10,8 @@ import { FaBookOpen } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 import LineChart from "./LineChart";
+import {  useLocation, useNavigate } from "react-router-dom";
+
 const ProfileCard = ({
   image,
   name,
@@ -25,11 +27,35 @@ const ProfileCard = ({
   phone,
   setActiveComponent,
 }) => {
+
+  const navigate = useNavigate();
+  const location = useLocation(); 
+
   const handleProfile = () => {
-    if (setActiveComponent) {
-      setActiveComponent("Employee");
+    if (sidebar=== 'Team members') {
+      if (setActiveComponent) {
+        setActiveComponent("Employee");
+      }
+    }else{
+      handlePage(`Dash Board/${role}`)
     }
+   
   };
+
+  const handlePage = (PageName) => {
+    navigate(`/${PageName}`);
+  };
+
+
+  var sidebar=''
+  var role=''
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+     sidebar = pathname.split('/')[1];
+     role = pathname.split('/')[2];
+    return sidebar;
+  };const activePageName = getActivePageName();
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <IoMdArrowRoundBack
