@@ -7,9 +7,9 @@ function Card1(props) {
   return (
     <div className="card1body">
       {/* {props.test1} */}
-      <div className="darkbox">{props.variety}</div>
+      <div className="darkbox">{props.title}</div>
       <div className="p1" style={{ marginBottom: "0.3rem" }}>
-        {props.title}
+        {props.variety}
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div style={{ display: "flex", flexDirection: "column", width: "50%" }}>
@@ -30,7 +30,7 @@ function Card1(props) {
           }}
         >
           <div className="divcard2">Read More</div>
-          <div className="p2" style={{ fontSize: "10px" }}>
+          <div className="p2" style={{ fontSize: "15px" }}>
             {props.countappilication}
           </div>
         </div>
