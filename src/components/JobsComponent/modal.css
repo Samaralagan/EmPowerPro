@@ -1,0 +1,54 @@
+/* Modal.css */
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 1000; /* Ensure the modal is on top of other content */
+  }
+  
+  .modal-content {align-items: center;
+    background: var(--Main-color);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 60%;
+    position: relative;
+    z-index: 1001; /* Ensure the modal content is above the blur effect */
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--Sub-color);
+  }
+  .box1{
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 1rem;
+  }
+  

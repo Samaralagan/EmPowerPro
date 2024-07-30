@@ -1,0 +1,18 @@
+.inexdiv1{
+    display: flex;
+    flex-direction: row;
+}
+.inexdiv2{
+    width: 30%;
+    align-items: flex-start;
+}
+.inexdiv3{
+    width: 100%;
+    align-items: flex-start;
+}
+.inexform{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}

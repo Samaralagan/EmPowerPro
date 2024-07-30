@@ -1,0 +1,239 @@
+/* Colors and styling */
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+  .generate-report-body{
+    padding: 2%;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 17rem;
+    padding: 1rem;
+    margin-top: 5%;
+  }
+
+  
+.filter-row-report {
+    display: flex;
+    gap: 50%;
+    margin-left: 1%;
+    margin-top: 2%;
+  }
+  
+  .filter-dropdown-report {
+    padding: 10px;
+    padding-right: 170px;
+    padding-left: 15px;
+    font-size: 14px;
+    border: 2px solid var(--Main-color);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    color: var(--Main-color);
+    font-weight: 500;
+  }
+  
+  .search-bar-report {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--Main-color);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 40%;
+  }
+  
+  .search-icon-report {
+    padding: 0 10px;
+    color: var(--Main-color);
+  }
+  
+  .search-input-report {
+    border: none;
+    outline: none;
+    padding: 1%;
+    flex-grow: 1;
+    font-size: 14px;
+  }
+  
+  .search-button-report {
+    background-color: var(--Main-color);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button-report:hover {
+    background-color: var(--Main-color);
+  }
+
+  .download-button{
+    background-color: #007BFF; 
+    color: white;
+    border: none;
+    padding: 10px 60px;
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10%;
+
+   
+  }
+
+  .charts-row{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .chart-1{
+    width: 20%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px rgba(107, 107, 107, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2%;
+    color: var(--Main-color);
+    margin-top: 2%;
+    padding-left: 2.5%;
+    margin-left: 1%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chart-2{
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px rgba(107, 107, 107, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2%;
+    color: var(--Main-color);
+    margin-top: 2%;
+    padding-left: 2.5%;
+    margin-left: 1%;
+  }
+
+  .chart-3{
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px rgba(107, 107, 107, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2%;
+    color: var(--Main-color);
+    margin-top: 2%;
+    padding-left: 2.5%;
+    margin-left: 1%;
+  }
+
+  .progress-bar-report{
+    margin-top: 2%;
+  }
+
+  
+.chart-2 canvas, .chart-3 canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .arrow_icon-team{
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--Main-color); 
+    font-weight: bold;
+  }
+
+  .individual-contribution{
+    margin-top: 3%;
+    margin-left: 2%;
+  }
+
+  .individual-title-row{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .contribution-title{
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  
+.search-bar-individual {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--Main-color);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 40%;
+  }
+  
+  .search-icon-individual {
+    /* padding: 0 10px; */
+    color: var(--Main-color);
+    margin-left: 2%;
+  }
+  
+  .search-input-individual  {
+    border: none;
+    outline: none;
+    padding: 3%;
+    flex-grow: 1;
+    font-size: 11px;
+  }
+  
+  .search-button-individual  {
+    background-color: var(--Main-color);
+    color: white;
+    border: none;
+    padding: 4%;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button-individual :hover {
+    background-color: var(--Main-color);
+  }
+  
+
+  .individual-report-box{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px rgba(107, 107, 107, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2%;
+    color: var(--Main-color);
+    margin-top: 2%;
+    padding-left: 2.5%;
+    
+  }
+
+  .individual-report-box canvas {
+    width: 100% !important;
+    height: 50% !important;
+  }

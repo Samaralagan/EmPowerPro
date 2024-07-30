@@ -1,0 +1,24 @@
+.payroll-body{
+    padding: 20px;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 19vw;
+  }
+
+  .payroll-icon {
+    color: rgba(255, 255, 255); 
+    font-size: 25px; 
+  }
+
+  .payroll-small-square {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    left: 12px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

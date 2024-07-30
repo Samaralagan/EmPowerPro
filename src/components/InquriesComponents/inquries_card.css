@@ -19,27 +19,19 @@
     font-family: 'BreeSerif-Regular',;
     justify-content: center;
     display: flex;
-    width: 95%;
-    border-radius: 25px;
-    padding: 0vw 0.5vw 0vw 0.5vw;
-    box-shadow: 
-    2px 2px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 4px rgba(0, 0, 0, 0.2), 
-    0px 4px 4px rgba(0, 0, 0, 0.2), 
-    4px 0px 4px rgba(0, 0, 0, 0.2);
+    width: 99%;
+    border-radius: 10px;
+    padding: 1%;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
     cursor: pointer;
     margin-top: 2.5vh;
-    margin-left: 4vh;
+    margin-left: 1%;
     
   }
   .inquriescard-body:hover{
-    box-shadow: 
-    9px 6px 0px rgba(134, 183, 254, 0.2),  
-    0px 0px 4px rgba(134, 183, 254, 0.2), 
-    0px 4px 4px rgba(134, 183, 254, 0.2),   
-    4px 0px 4px rgba(134, 183, 254, 0.2); 
-    /* opacity: 0.8; */
-    /* opacity: 0.8; */
+    transform: scale(1.01);
+  transition: transform 0.2s ease;
   }
   
   .inquriescard-content{
@@ -55,15 +47,15 @@
     width: 50%;
   }
   .inquriescard-header-gray{
-    font-size: 1.8vh;
+    font-size: 13px;
     color: #ACA7A7;
-    
     margin-bottom: 0%;
   }
   .inquriescard-header-about{
-    font-size: 1.8vh;
+    font-size: 13px;
     color: black;
-    font-weight: bold;
+    font-weight: 400;
+    margin-top: -1%;
   }
 
   .pending_c{
@@ -97,12 +89,28 @@
 
   }
   .circle{
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     background-color: var(--Main-color);
     color: white;
     border-radius: 50px;
     display: flex;
-  justify-content: center; 
-  align-items: center;
+   justify-content: center; 
+   align-items: center;
+   font-size: 12px;
+  }
+
+  .email-inquiry{
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .email-inquiry-date{
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 60%;
+  }
+
+  .view-inquiry{
+    font-size: 12px;
   }

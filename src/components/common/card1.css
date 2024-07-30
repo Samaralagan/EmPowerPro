@@ -1,0 +1,85 @@
+:root {
+  --Main-color: #000F44;
+  --Sub-color: #FFFFFF;
+  --available: #F37C98;
+  --pending1: #FF9A9A;
+  --pendingtext: #7D0000;
+  --approved: #9BF37C;
+  --rejected: #F39F7C;
+  --pending: #FFAC0A;
+  --approved-btn: #02C416;
+  --approvedtext: #037A0F;
+  --Light: #D9D9D9;
+  --Flex-heading: #FFBB00;
+  --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+}
+
+.contentbodyall1 {
+  padding: 20px;
+  width: 79vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 17vw;
+  margin-top: 3.3rem;
+}
+
+.jobsTitle {
+  font-size: 24px;
+  /* font-weight: bold; */
+  margin-bottom: 1rem;
+  color: #000F44;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  scrollbar-width: none;
+  overflow-x: auto; /* This makes the container horizontally scrollable */
+}
+
+.card1body {
+  width: 25rem;
+  padding: 15px;
+  border: 3px solid var(--Main-color);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.darkbox {
+  background: var(--Main-color);
+  width: max-content;
+  padding: 2px 15px;
+  font-size: 16px;
+  color: var(--Sub-color);
+  border-radius: 80px;
+}
+
+.p1 {
+  width: 70%;
+  color: var(--Main-color);
+  font-size: 18px;
+}
+
+.p2 {
+  color: #7B7878;
+  font-size: 16px;
+}
+
+.card1icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #99EDFF;
+}
+.divcard1{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.divcard2{
+  width: max-content;
+  border: 2px solid var(--Main-color);
+  padding: 5px 10px 5px 10px;
+}

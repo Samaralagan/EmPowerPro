@@ -9,8 +9,8 @@ function Inquries({ setActiveComponent }) {
   // Accept setActiveComponent as a prop
   return (
     <div className="inquries-body">
-      <Header />
-      <hr />
+      {/* <Header />
+      <hr /> */}
       <div style={{ display: "flex" }}>
         <select
           className="form-select"

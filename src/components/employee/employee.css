@@ -13,20 +13,183 @@
   }
   
   .employee-body{
-    padding: 20px;
-    width: 79vw;
-    display: flex;
-    flex-direction: column;
-    margin-left: 17vw;
+  padding: 2%;
+  width: 82vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 17rem;
+  padding: 1rem;
+  margin-top: 6%;
   }
   
-  .employeeinner-body{
+.employeeinner-body{
     padding: 20px;
     width: 79vw;
     display: flex;
     flex-direction: column;
     /* margin-left: 17vw; */
   }
+
+  .team-firstrow{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.apply-claim-team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #66bee1 ;
+  color: white;
+  padding: 0px 30px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  gap: 15px;
+  font-weight: bold;
+  margin-top: 1%;
+  width: 35%;
+}
+
+.apply-claim-team:hover {
+  background-color: var(--Main-color); 
+}
+
+
+.add-icon-team {
+  font-size: 22px;
+  color: white;
+}
+
+
+.apply-claim-team-names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Main-color);
+  color: white;
+  padding: 0px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  gap: 15px;
+  font-weight: bold;
+  margin-top: 1%;
+  width: 20%;
+}
+
+.apply-claim-team-names:hover {
+  background-color: var(--Main-color); 
+}
+
+
+
+
+
+.apply-claim-teamreport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #66bee1;
+  color: white;
+  padding: 0px 30px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  gap: 15px;
+  font-weight: bold;
+  margin-top: 1%;
+  width: 30%;
+  margin-left: 70%;
+}
+
+.apply-claim-teamreport:hover {
+  background-color: var(--Main-color); 
+}
+
+
+.apply-claim-teamcreate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #66bee1;
+  color: white;
+  padding: 0px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  gap: 15px;
+  font-weight: bold;
+  margin-top: 2%;
+  width: 30%;
+  margin-left: 70%;
+}
+
+.apply-claim-teamcreate:hover {
+  background-color: var(--Main-color); 
+}
+
+.add-icon-teamreport {
+  font-size: 22px;
+  color: white;
+}
+
+
+.search-bar-team {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--Main-color);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 40%;
+}
+
+.search-icon-team  {
+  /* padding: 0 10px; */
+  color: var(--Main-color);
+  margin-left: 2%;
+}
+
+.search-input-team  {
+  border: none;
+  outline: none;
+  padding: 3%;
+  flex-grow: 1;
+  font-size: 11px;
+}
+
+.search-button-team  {
+  background-color: var(--Main-color);
+  color: white;
+  border: none;
+  padding: 4%;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.search-button-team :hover {
+  background-color: var(--Main-color);
+}
+
+
   /* ----------------------------------------------------- */
   .new-course-content{
     display: flex;
@@ -73,8 +236,131 @@
   .border-inbox {
     padding-left: 30px;
   }
+
+  /* .employee-body table{
+    border-radius:5px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+    padding: 3%;
+
+  } */
+
   .tablediv{
-    box-shadow: 0px 0px 4px 4px rgba(225, 225, 225, 0.6);
-    padding: 5px;
-    border-radius: 20px;
+    border-radius:5px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+    padding: 3%;
+    overflow: hidden;
   }
+  
+
+  .heading-row{
+    margin: 2%;
+    margin-bottom: 4%;
+  }
+  .tablediv th{
+    font-size: 13px;
+    font-weight: bold;
+   
+  }
+
+
+  /* EX-TEAM MEMBERS */
+
+  .employee-section-topic{
+    font-size: 20px;
+    color: var(--Main-color);
+    font-weight: bold;
+  }
+
+  .new-approval-search-bar-team{
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--Main-color);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 40%;
+    margin-left: 60%;
+  }
+
+  .new-approvals-box{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px  rgba(107, 107, 107, 0.1);
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1%;
+    font-size: 15px;
+    color: var(--Main-color);
+    margin-top: 20px;
+   
+  }
+
+  
+.new-approval-custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px; 
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+.new-approval-custom-table th {
+
+  color: rgb(200, 200, 200);
+  /* padding: 2%; */
+  text-align: left;
+  padding-left: 1%;
+  
+}
+
+.new-approval-custom-table td {
+  background-color: white;
+  color: #000F44;
+  padding: 10px;
+  border-radius: 5px;
+ 
+}
+
+
+
+.new-approval-custom-table tr {
+  background-color: white;
+}
+
+
+.new-approval-ontime{
+  border: 2px solid #fb0000;
+  border-radius: 50px;
+  color: #fb0000; 
+  padding: 5px;
+  background-color: var(--Sub-color);
+  width: 60%;
+  align-items: center;
+  justify-items: center;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.employee-section{
+  margin-top: 4%;
+}
+
+.approval-rule{
+  width: 555%;
+  border: 2px solid rgb(200, 200, 200);
+
+}
+
+.new-approval-resume{
+  background-color: #0cb0f8;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  color: var(--Sub-color);
+  transition: all 0.3s ease; 
+  font-size: 14px;
+}

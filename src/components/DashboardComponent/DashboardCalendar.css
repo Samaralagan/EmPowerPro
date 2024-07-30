@@ -18,7 +18,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
-  font-size: 5vh;
+  /* font-size:10px; */
+  font-weight: bold;
 }
 
 .days-header {
@@ -66,4 +67,12 @@ button {
   font-size: 16px;
   font-weight: bold;
   color: #007bff;
+}
+
+.calendar-header button{
+  font-size: 10px;
+}
+
+.calendar-header h5{
+  font-size: 12px;
 }

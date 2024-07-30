@@ -8,8 +8,8 @@ function ReplyInquries({ setActiveComponent }) {
   // Accept setActiveComponent as a prop
   return (
     <div className="replyinquries-body">
-      <Header />
-      <hr />
+      {/* <Header />
+      <hr /> */}
       {InquriesReplyData.map((Card, index) => (
         <InquriesReplyCard
           key={index}

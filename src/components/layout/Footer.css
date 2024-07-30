@@ -12,7 +12,7 @@
     --blue-btn:linear-gradient(to right, #86D3EC 0%, #55B7D6 39%, #1E98BE 100%);
   }
 .footer-body{
-    height: 40vh;
+    height: 50vh;
     background-color:var(--Main-color) ;
     color: var(--Sub-color);
     position: relative;
@@ -22,41 +22,53 @@
 .quick-link{
     color:#9B9898;
     cursor: pointer;
+    margin-top: 2%;
+
+   
 }
+
 .quick-link-icon{
   color:var(--Light) ;
+  margin-top: 2%;
 }
 .contact-us{
     color:#9B9898;
 }
 .social-media-icon{
-    background-color:#D9D9D9 ;
+    background-color:#0f5979 ;
     color: var(--Sub-color);
     margin: 3px;
     padding: 10px;
     border-radius: 20px;
     font-size: 40px;
     cursor: pointer;
+    margin-top: 5%;
 }
 .feedback-textbox{
     background-color:transparent;
-    width: 300px ;
+    width: 400px ;
     margin-top: 10px;
-    height: 80px;
+    height: 100px;
     color: #D9D9D9;
     font-size: 14px;
+    border: 2px solid var(--Light);
 }
 
-.gradient-blue-btn{
+.gradient-blue-btn-footer{
     padding: 8px 50px;
-    border-radius: 14px;
+    border-radius: 10px;
     background:linear-gradient(to right, #86D3EC 0%, #55B7D6 39%, #1E98BE 100%);
     border: none;
     color: var(--Light);
+    margin-top: 5%;
 }
 .copyright{
     font-size: 12px;
     position: absolute;
     bottom: 15px;
     right: 20px;
+}
+
+.mt-3 .social-media-icons{
+    margin-top: 5%;
 }

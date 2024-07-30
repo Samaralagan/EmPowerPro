@@ -1,0 +1,56 @@
+.roundcircle{
+    border: 2px solid #000F44;
+    border-radius: 80%;
+    /* padding: 0.25rem 0.5rem; */
+    /* padding: 10px 20px; */
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+.roundbox1{
+    border: 2px solid #000F44;
+    border-radius: 20px;
+    width: 80%;
+    height: 0.3rem;
+    margin-bottom: 1.3rem;
+
+}
+.newvacancy-additional-rectangle-1{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px  rgba(107, 107, 107, 0.1);
+    color: #333;
+    font-size: 16px;
+    /* font-weight: bold; */
+    padding: 15px;
+    
+   
+  }
+  .newvacancy-additional-rectangle-2{
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid;
+    padding: 0.2rem 0.5rem;
+  }
+  .newvacancy-additional-rectangle-3{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 1rem;
+  }
+  label{
+    font-size: 15px;
+    font-weight: bold;
+    color: #000F44;
+  }
+  .inputnewvacancy{
+    border: 2px solid #B3B3B3;
+    border-radius: 10px;
+    width: 70%;
+    padding: 0.5rem;
+  }

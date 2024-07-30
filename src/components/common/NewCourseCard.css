@@ -12,7 +12,7 @@
   }
 
   .newcoursecard-body{
-    height: 36vh;
+    height: 34vh;
     width: 17vw;
     border-radius: 25px;
     padding: 0.5vw;
@@ -51,14 +51,16 @@
     padding-left: 1vh;
     padding-right: 1vh;
     color: #6A6A6A;
+
   }
   .newcoursecard-level p{
     margin: 0;
   }
   .newcoursecard-enrolled{
-    font-size: 1.9vh;
+    font-size: 1.8vh;
     margin: 0;
     padding-left: 1vh;
     margin-top: 1vh;
     color: #4A4848;
+    margin: 0vh;
   }

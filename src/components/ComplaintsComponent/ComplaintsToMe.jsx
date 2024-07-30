@@ -2,9 +2,9 @@ import React from "react";
 import "./complaintstome.css";
 import { FaSearch } from "react-icons/fa";
 import { ComplaintsData } from "../constants/temporary";
-import { Card } from "react-bootstrap";
-import ComplaintsCard from "../common/ComplaintsCard";
-function ComplaintsToMe() {
+import ComplaintsReply from "./ComplaintsReply";
+
+const ComplaintsToMe = ({ setActiveComponent }) => {
   return (
     <div className="complaintstome-body">
       <div style={{ display: "flex", marginTop: "1.5rem" }}>
@@ -17,7 +17,7 @@ function ComplaintsToMe() {
             marginLeft: "3vh",
           }}
         >
-          <option selected>Filter By</option>
+          <option defaultValue>Filter By</option>
           <option value="1">Pending</option>
           <option value="2">Approved</option>
         </select>
@@ -35,7 +35,6 @@ function ComplaintsToMe() {
             type="text"
             placeholder="Search..."
             style={{
-              // padding: "8px,8px,8px,29px",
               paddingLeft: "29px",
               paddingRight: "8px",
               paddingBottom: "8px",
@@ -56,15 +55,18 @@ function ComplaintsToMe() {
         </div>
       </div>
       {ComplaintsData.map((Card, index) => (
-        <ComplaintsCard
+        <ComplaintsReply
           key={index}
-          status={Card.status}
+          reply_status={Card.reply_status}
           about={Card.about}
+          image={Card.image}
+          name={Card.name}
           date={Card.date}
+          setActiveComponent={setActiveComponent}
         />
       ))}
     </div>
   );
-}
+};
 
 export default ComplaintsToMe;

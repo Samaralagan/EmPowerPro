@@ -7,21 +7,27 @@ import "./replycomplaint.css";
 import { ComplaintsReplyCard } from "../constants/temporary";
 import ReplyComplaintCard from "./ReplyComplaintCard";
 
-function ReplyComplaint() {
+function ReplyComplaint({ setActiveComponent }) {
+  const handlebackreplyComplaint = () => {
+    setActiveComponent("Complaints");
+  };
   return (
-    <div className="reply-complaints-body">
-      <Header />
-      <hr />
-      <IoMdArrowRoundBack className="backarrow" />
-      <div className="reply-form-body">
-        <div className="reply-complaintcard-body">
+    <div className="contentbodyall">
+      <IoMdArrowRoundBack
+        className="backarrow"
+        onClick={handlebackreplyComplaint}
+      />
+      <div className="form-box">
+        <div className="">
           {ComplaintsReplyCard.map((Card, index) => (
             <ReplyComplaintCard
               key={index}
               name={Card.name}
+              image={Card.image}
               about={Card.about}
               date={Card.date}
               description={Card.description}
+              setActiveComponent={setActiveComponent}
             />
           ))}
         </div>

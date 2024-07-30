@@ -7,9 +7,9 @@ import { FaTimesCircle } from "react-icons/fa";
 
 function OthersLeave() {
   return (
-    <div className="others-leave-body">
-      <Header />
-      <hr />
+    <div className="contentbodyall">
+      {/* <Header />
+      <hr /> */}
       <div className="leave-section">
         <div className="leave-tabs">
           <button className="tab my-leaves">My Leaves</button>

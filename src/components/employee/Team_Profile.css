@@ -1,0 +1,137 @@
+/* Colors and styling */
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+  
+  .team-profile-body{
+    padding: 2%;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15rem;
+    padding: 1rem;
+    margin-top: 5%;
+  }
+  
+  .arrow_icon-teamdetail{
+    font-size: 20px;
+  }
+
+  .team-details-body{
+    width: 85%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px rgba(107, 107, 107, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--Main-color);
+    margin-top: 2%;
+    margin-left: 6%;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .team-name-bar{
+    width: 100%;
+    height: 30%;
+    border-radius: 10px 10px 0px 0px;
+    background-color: var(--Main-color);
+    color: var(--Sub-color);
+    padding: 2%;
+    display: flex;
+    gap: 10%;
+  
+
+
+  }
+
+  .onprogress{
+    border: 2px solid var(--Sub-color);
+    border-radius: 20px;
+    width: 20vh;
+    padding: 5px;
+    text-align: center;
+    font-size: 12px;
+    margin-top: -0.5%;
+    
+  }
+
+  .project-describe{
+    display: flex;
+    padding: 2%;
+    gap: 3%;
+    margin-top: 1%;
+  }
+
+
+  .project-describe-1{
+    color: #D9D9D9;
+  }
+
+  .team-members {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    width: 100%;
+  }
+  
+  .team-member {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .team-member-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+ 
+  .team-member-info {
+    display: flex;
+    gap: 2%;
+    width: 100%;
+  }
+  
+  .team-member-name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .team-member-role {
+    font-size: 12px;
+    color: #555;
+    border: 2px solid #000F44;
+    border-radius: 20px;
+    /* width: 80%; */
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 20%;
+  }
+
+  .team-member-profile-link {
+    font-size: 12px;
+    color: #D9D9D9;
+    cursor: pointer;
+    margin-left:5%;
+   
+  }
