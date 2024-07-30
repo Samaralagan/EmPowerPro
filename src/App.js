@@ -171,12 +171,12 @@ function App() {
               path="/Team members/Executive"
               element={<EX_EmployeePage />}
             />
-            <Route path="/Apply-leave" element={<ApplyLeaveForm />} />
+            {/* <Route path="/Apply-leave" element={<ApplyLeaveForm />} />
             <Route path="/ApplyClaim-1" element={<ApplyClaim_1 />} />
             <Route path="/ApplyClaim-2" element={<ApplyClaim_2 />} />
             <Route path="/ApplyClaim-3" element={<ApplyClaim_3 />} />
             <Route path="/Applied-claim" element={<AppliedClaimForm />} />
-            <Route path="/Canceled-claim" element={<CanceledClaimForm />} />
+            <Route path="/Canceled-claim" element={<CanceledClaimForm />} /> */}
 
             <Route path="/Generate-Report" element={<GenerateReport />} />
             {/* <Route path="/Teams" element={<Teams />} /> */}

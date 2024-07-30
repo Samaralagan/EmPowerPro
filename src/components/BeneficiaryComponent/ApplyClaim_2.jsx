@@ -7,22 +7,18 @@ import { useNavigate } from "react-router-dom";
 import { TiTick } from "react-icons/ti";
 import { FaUpload } from "react-icons/fa6";
 
-function ApplyClaim_2() {
+function ApplyClaim_2({ setActiveComponent }) {
   const navigate = useNavigate();
   const steps = ["Claim Info", "Upload Documents", "Banking Info"];
   const [currentStep, setCurrentStep] = useState(2); // Set to 2 for the second step
   const [complete, setComplete] = useState(false);
 
-  const handleClaimClick = () => {
-    navigate("/Beneficiary/Employee");
-  };
-
   const handleNext = () => {
-    navigate("/ApplyClaim-3");
+    setActiveComponent("ApplyClaim_3");
   };
 
   const handleBack = () => {
-    navigate("/ApplyClaim-1");
+    setActiveComponent("ApplyClaim_1");
   };
 
   return (
@@ -32,7 +28,7 @@ function ApplyClaim_2() {
 
       <div className="applied-claim-body">
         <div className="applied-claim-body-2">
-          <div className="form-arrow" onClick={handleClaimClick}>
+          <div className="form-arrow" onClick={handleBack}>
             <FaArrowLeft className="arrow_icon" />
           </div>
 

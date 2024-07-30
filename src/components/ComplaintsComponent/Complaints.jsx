@@ -6,7 +6,6 @@ import ComplaintsToMe from "./ComplaintsToMe";
 import "./Complaints.css";
 
 const Complaints = ({ setActiveComponent }) => {
-  
   const [activeTab, setActiveTab] = useState("my-complaints");
 
   const handleTabChange = (tab) => {
@@ -19,8 +18,6 @@ const Complaints = ({ setActiveComponent }) => {
 
   return (
     <div className="contentbodyall">
-      {/* <Header />
-      <hr /> */}
       <nav>
         <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <button
@@ -59,7 +56,7 @@ const Complaints = ({ setActiveComponent }) => {
           id="nav-home"
           role="tabpanel"
           aria-labelledby="nav-home-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div className="contactus-form-button" style={{ width: "97%" }}>
             <button
@@ -82,14 +79,14 @@ const Complaints = ({ setActiveComponent }) => {
                 marginLeft: "3vh",
               }}
             >
-              <option selected>Filter By</option>
+              <option defaultValue>Filter By</option>
               <option value="1">Pending</option>
               <option value="2">Approved</option>
             </select>
             <div
               style={{
                 display: "flex",
-                marginLeft: "28.5rem",
+                marginLeft: "33.5rem",
                 alignItems: "center",
                 position: "relative",
               }}
@@ -138,9 +135,9 @@ const Complaints = ({ setActiveComponent }) => {
           id="nav-profile"
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
-          tabindex="0"
+          tabIndex="0"
         >
-          <ComplaintsToMe />
+          <ComplaintsToMe setActiveComponent={setActiveComponent} />
         </div>
       </div>
     </div>

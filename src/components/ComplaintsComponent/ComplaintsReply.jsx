@@ -1,28 +1,43 @@
 import React from "react";
-import "./ComplaintsCard.css";
-import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
+const ComplaintsReply = ({
+  name,
+  reply_status,
+  about,
+  date,
+  setActiveComponent,
+  image,
+}) => {
   const location = useLocation();
+
   const getRoleName = () => {
     const pathname = decodeURIComponent(location.pathname);
     const role = pathname.split("/")[2];
     return role;
   };
   const role = getRoleName();
-  const handlemorecomplaint = () => {
-    setActiveComponent("Complaintsmore");
+  const handlereplycomplaint = () => {
+    setActiveComponent("ReplyComplaint");
   };
+
   return (
     <div className="complaintcard-body">
       <div className="complaintcard-content">
         <div className="complaintcard-header">
           <div className="left-flexbox-complaint">
-            <h5 className={status === "pending" ? "pending_c" : "approved_c"}>
-              {status}
-            </h5>
-
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "0.3vw",
+                width: "100%",
+                alignItems: "center",
+              }}
+            >
+              <img src={image} alt="" className="img1" />
+              {name}
+            </div>
             <p className="complaintcard-header-gray">Complaint</p>
             <p
               className="complaintcard-header-about"
@@ -38,17 +53,17 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
               {date}
             </p>
             <br />
-
-            <p onClick={handlemorecomplaint} style={{ margin: "0%" }}>
-              View Details &gt;&gt;&gt;{" "}
-            </p>
+            <div
+              className={reply_status === "Reply" ? "pending_c" : "approved_c"}
+              onClick={handlereplycomplaint}
+            >
+              {reply_status}
+            </div>
           </div>
         </div>
-
-        <div></div>
       </div>
     </div>
   );
 };
 
-export default ComplaintsCard;
+export default ComplaintsReply;

@@ -284,12 +284,34 @@ export const MyCourseCardData = [
 
 export const ComplaintsData = [
   {
+    image: profile1,
+    name: "Anna Lovlace",
+    reply_status: "Reply",
     status: "pending",
     about: "Regarding the heavy work load",
     date: "23/03/2024",
   },
   {
+    image: profile2,
+    name: "Can Williams",
+    reply_status: "Replied",
     status: "approved",
+    about: "Regarding Evaluvation marks",
+    date: "23/03/2024",
+  },
+];
+export const ComplaintsToMEData = [
+  {
+    image: profile1,
+    status: "Reply",
+    name: "Anna Lovlace",
+    about: "Regarding the heavy work load",
+    date: "23/03/2024",
+  },
+  {
+    image: profile2,
+    status: "Replied",
+    name: "Can Williams",
     about: "Regarding Evaluvation marks",
     date: "23/03/2024",
   },
@@ -310,14 +332,8 @@ export const ComplaintsDataMore = [
 
 export const ComplaintsReplyCard = [
   {
-    name: "Samar",
-    about: "Regarding the heavy work load",
-    date: "23/03/2024",
-    description:
-      "I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.",
-  },
-  {
-    name: "Umai",
+    image: profile1,
+    name: "Olivia Rajan",
     about: "Regarding the heavy work load",
     date: "23/03/2024",
     description:

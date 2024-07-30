@@ -17,17 +17,15 @@ import BeneficiaryCard from "../common/BeneficiaryCard";
 
 function Beneficiary({ setActiveComponent }) {
   const navigate = useNavigate();
-
-  const handleAppliedClaim = () => {
-    navigate("/Applied-claim");
+  const handleMoreBeneficiary = () => {
+    setActiveComponent("BeneficiaryMore");
   };
 
-  const handleCanceledClaim = () => {
-    navigate("/Canceled-claim");
-  };
-
+  // const handleApplyClaim = () => {
+  //   navigate("/ApplyClaim-1");
+  // };
   const handleApplyClaim = () => {
-    navigate("/ApplyClaim-1");
+    setActiveComponent("ApplyClaim_1");
   };
 
   return (
