@@ -15,8 +15,11 @@ import {
   FaDollarSign,
 } from "react-icons/fa";
 
-function NewApproval() {
-  const navigate = useNavigate();
+function NewApproval({ setActiveComponent }) {
+  // const navigate = useNavigate();
+  const handleBack = () => {
+    setActiveComponent("EX_Employees");
+  };
 
   return (
     <div>
@@ -27,7 +30,10 @@ function NewApproval() {
       <div className="new-resume-applied-claim-body">
         <div className="new-resume-applied-container">
           <div className="new-resume-form-arrow">
-            <FaArrowLeft className="new-resume-arrow_icon" />
+            <FaArrowLeft
+              className="new-resume-arrow_icon"
+              onClick={handleBack}
+            />
           </div>
 
           <div className="new-resume-claimed-box">
