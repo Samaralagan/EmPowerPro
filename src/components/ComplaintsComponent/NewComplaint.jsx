@@ -6,7 +6,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 function NewComplaint({ setActiveComponent }) {
-  const handleCreateNewComplaint = () => {
+  const handlebackCreateNewComplaint = () => {
     setActiveComponent("Complaints");
   };
   return (
@@ -16,7 +16,7 @@ function NewComplaint({ setActiveComponent }) {
         <hr /> */}
         {/* <Link to={"/Complaints/"}> */}
         <IoMdArrowRoundBack
-          onClick={handleCreateNewComplaint}
+          onClick={handlebackCreateNewComplaint}
           className="backarrow"
         />
         {/* </Link> */}

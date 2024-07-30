@@ -6,11 +6,14 @@ import "./Beneficiary.css";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
-function CanceledClaimForm() {
+function CanceledClaimForm({ setActiveComponent }) {
   const navigate = useNavigate();
 
+  // const handleClaimClick = () => {
+  //   navigate("/Beneficiary/Employee");
+  // };
   const handleClaimClick = () => {
-    navigate("/Beneficiary/Employee");
+    setActiveComponent("Beneficiary");
   };
   return (
     <div>

@@ -4,8 +4,7 @@ import EX_Employee from "../components/employee/EX_Employees";
 
 import Profile from "../components/employee/Profile";
 import GenerateReport from "../components/employee/GenerateReport";
-import Teams from '../components/employee/Teams'
-
+import Teams from "../components/employee/Teams";
 
 const EX_EmployeePage = () => {
   const [activeComponent, setActiveComponent] = useState("HR_Employee");
@@ -26,7 +25,6 @@ const EX_EmployeePage = () => {
       {activeComponent === "Teams" && (
         <Teams setActiveComponent={setActiveComponent} />
       )}
-
 
       {/* <Employee /> */}
       {/* <Profile /> */}

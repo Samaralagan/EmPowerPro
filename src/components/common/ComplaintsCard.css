@@ -16,36 +16,34 @@
   }
 
   .complaintcard-body{
-    
+    justify-content: center;
     display: flex;
     width: 95%;
-    border-radius: 25px;
-    padding: 0.5vw;
-    box-shadow: 
-    9px 6px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 4px rgba(0, 0, 0, 0.2), 
-    0px 4px 4px rgba(0, 0, 0, 0.2), 
-    4px 0px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 1.5%;
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
     cursor: pointer;
     margin-top: 4vh;
     margin-left: 4vh;
     
   }
   .complaintcard-body:hover{
-    box-shadow: 
+    /* box-shadow: 
     9px 6px 0px rgba(134, 183, 254, 0.2),  
     0px 0px 4px rgba(134, 183, 254, 0.2), 
     0px 4px 4px rgba(134, 183, 254, 0.2),   
-    4px 0px 4px rgba(134, 183, 254, 0.2); 
+    4px 0px 4px rgba(134, 183, 254, 0.2);  */
     /* opacity: 0.8; */
     /* opacity: 0.8; */
+    transform: scale(1.01);
+  transition: transform 0.2s ease;
   }
   
   .complaintcard-content{
     display: flex;
     flex-direction: row;
-    width: 90%;
-    padding: 2vh;
+    width: 95%;
+    /* padding: 2vh; */
   }
   .complaintcard-header{
     display: flex;
@@ -54,7 +52,7 @@
     width: 50%;
   }
   .complaintcard-header-gray{
-    font-size: 1.8vh;
+    font-size: 14px;
     color: #ACA7A7;
     
     margin-bottom: 0%;
@@ -68,19 +66,44 @@
   .pending_c{
     background-color: var(--pending1);
     border-radius: 20px;
-    width: 20vh;
-    padding: 5px;
+    width: 20vw;
+    padding: 5px 10px;
     text-align: center;
     color: var(--pendingtext);
+    font-size: 14px;
+    font-weight: bold;
     
   }
   .approved_c{
     background-color: var(--approved);
     border-radius: 20px;
-    width: 20vh;
-    padding: 5px;
+    width: 20vw;
+    padding: 5px 10px;
     text-align: center;
     color: var(--a);
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .reply_c{
+    background-color: var(--pending1);
+    border-radius: 20px;
+    width: 20vw;
+    padding: 5px 10px;
+    text-align: center;
+    color: var(--pendingtext);
+    font-size: 14px;
+    font-weight: bold;
+    
+  }
+  .replied_c{
+    background-color: var(--approved);
+    border-radius: 20px;
+    width: 20vw;
+    padding: 5px 10px;
+    text-align: center;
+    color: var(--a);
+    font-size: 14px;
+    font-weight: bold;
   }
   .left-flexbox-complaint{
     display: flex;
@@ -94,4 +117,8 @@
     flex-direction: column;
     align-items:end;
 
+  }
+  .datetxt{
+    font-size: 12px;
+    font-weight: bold;
   }

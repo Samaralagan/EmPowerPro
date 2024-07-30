@@ -15,13 +15,15 @@ import {
   FaDollarSign,
 } from "react-icons/fa";
 
-function PendingEvent() {
+function PendingEvent({ setActiveComponent }) {
   const navigate = useNavigate();
 
-  const handleClaimClick = () => {
-    navigate("/EXEC_Beneficiary");
+  // const handleClaimClick = () => {
+  //   navigate("/EXEC_Beneficiary");
+  // };
+  const handleBack = () => {
+    setActiveComponent("Beneficiary");
   };
-
   return (
     <div>
       <SideBar />
@@ -30,7 +32,7 @@ function PendingEvent() {
 
       <div className="applied-claim-body">
         <div className="applied-container">
-          <div className="form-arrow" onClick={handleClaimClick}>
+          <div className="form-arrow" onClick={handleBack}>
             <FaArrowLeft className="arrow_icon" />
           </div>
 

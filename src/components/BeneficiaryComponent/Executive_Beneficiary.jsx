@@ -13,27 +13,42 @@ import { useNavigate } from "react-router-dom";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 
-function Executive_Beneficiary() {
-  const navigate = useNavigate();
+function Executive_Beneficiary({ setActiveComponent }) {
+  // const navigate = useNavigate();
 
-  const handleAppliedClaim = () => {
-    navigate("/Applied-claim");
-  };
+  // const handleAppliedClaim = () => {
+  //   navigate("/Applied-claim");
+  // };
 
+  // const handleCanceledClaim = () => {
+  //   navigate("/Canceled-claim");
+  // };
+
+  // const handleApplyClaim = () => {
+  //   navigate("/ApplyClaim-1");
+  // };
+
+  // const handleEventCard = () => {
+  //   navigate("/RequestedEvent");
+  // };
+
+  // const handlePendingEventCard = () => {
+  //   navigate("/PendingEvent");
+  // };
   const handleCanceledClaim = () => {
-    navigate("/Canceled-claim");
+    setActiveComponent("CanceledClaimForm");
   };
-
+  const handleAppliedClaim = () => {
+    setActiveComponent("AppliedClaimForm");
+  };
   const handleApplyClaim = () => {
-    navigate("/ApplyClaim-1");
+    setActiveComponent("ApplyClaim_1");
   };
-
   const handleEventCard = () => {
-    navigate("/RequestedEvent");
+    setActiveComponent("RequestedEvent");
   };
-
-  const handlePendingEventCard = () => {
-    navigate("/PendingEvent");
+  const handleEventCard1 = () => {
+    setActiveComponent("PendingEvent");
   };
 
   return (
@@ -111,7 +126,7 @@ function Executive_Beneficiary() {
               </div>
             </div>
 
-            <div className="event-card" onClick={handlePendingEventCard}>
+            <div className="event-card" onClick={handleEventCard1}>
               <div className="img-part">
                 <img alt="event-img" src={event_3} />
               </div>
