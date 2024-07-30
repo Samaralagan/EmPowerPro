@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./AddBlogPopup.css";
 import Modal from "react-modal";
+import TextEditor from "../common/TextEditor";
 import Quill from "quill";
-import "quill/dist/quill.snow.css";
+// import 'quill/dist/quill.snow.css';
+const Delta = Quill.import("delta");
 
 const customStyles = {
   content: {
@@ -29,18 +31,12 @@ const customStyles = {
 };
 
 const AddBlogPopup = ({ modalIsOpen, closeModal }) => {
-  const quillRef = useRef();
+  const [range, setRange] = useState();
+  const [lastChange, setLastChange] = useState();
+  const [readOnly, setReadOnly] = useState(false);
 
-  useEffect(() => {
-    if (modalIsOpen && quillRef.current) {
-      // Check if Quill is already initialized to prevent re-initialization
-      if (!quillRef.current.__quill) {
-        new Quill(quillRef.current, {
-          theme: "snow",
-        });
-      }
-    }
-  }, [modalIsOpen, quillRef]);
+  // Use a ref to access the quill instance directly
+  const quillRef = useRef();
 
   return (
     <div className="addblog-popup-body">
@@ -80,11 +76,19 @@ const AddBlogPopup = ({ modalIsOpen, closeModal }) => {
           <label htmlFor="quillEditor" className="form-label">
             Blog Content
           </label>
-          <div
+          {/* <div ref={quillRef} id="quillEditor" style={{ height: '200px', backgroundColor: 'white' }}></div> */}
+          <TextEditor
             ref={quillRef}
-            id="quillEditor"
-            style={{ height: "200px", backgroundColor: "white" }}
-          ></div>
+            readOnly={readOnly}
+            defaultValue={new Delta()
+              .insert("Create ")
+              .insert("Blog", { bold: true })
+              .insert(" ")
+              .insert("content", { underline: true })
+              .insert("\n")}
+            onSelectionChange={setRange}
+            onTextChange={setLastChange}
+          />
         </div>
         <div>
           <center>
