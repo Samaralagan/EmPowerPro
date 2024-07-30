@@ -1,3 +1,15 @@
+:root{
+  --Main-color:#000F44;
+  --Sub-color:#FFFFFF;
+  --available:#F37C98;
+  --approved:#9BF37C;
+  --rejected:#F39F7C;
+  --pending:#FFAC0A;
+  --approved-btn:#02C416;
+  --Light:#D9D9D9;
+  --Flex-heading:#FFBB00;
+  --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+}
 .calendar-container {
   display: flex;
   justify-content: center;
@@ -76,3 +88,10 @@ button {
 .calendar-header h5{
   font-size: 12px;
 }
+.date-box.marked {
+  background-color: var(--Sub-color); /* Change to whatever color you prefer */
+  color: var(--Main-color);
+  position: relative;
+}
+
+

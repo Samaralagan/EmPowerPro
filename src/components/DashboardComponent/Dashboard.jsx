@@ -9,6 +9,7 @@ import { FaTrophy } from "react-icons/fa";
 import {DashboardCelebration,DashboardMarkTime,} from "../constants/temporary";
 import DashboardCalendar from "./DashboardCalendar";
 import {  useLocation, useNavigate } from "react-router-dom";
+import { FaPlusSquare } from "react-icons/fa";
 
 
 const Dashboard = () => {
@@ -26,7 +27,12 @@ const Dashboard = () => {
     return role;
   };const activePageName = getActivePageName();
 
-  
+  const markedDates = [
+    '2024-07-07',
+    '2024-07-12',
+    '2024-07-27'
+  ];
+
   return (
     <div className="dashboard-body">
       {/* <Header />
@@ -154,9 +160,12 @@ const Dashboard = () => {
               <DashboardCalendar
                 initialMonth={new Date().getMonth()}
                 initialYear={new Date().getFullYear()}
+                markedDates={markedDates}
               />
             </div>
+            
             <div className="dashboard-content-right-bottom-events">
+              <button className="dashboard-content-right-bottom-event-add"><FaPlusSquare className="me-1" />SCHEDULE  AN  EVENT</button>
               {DashboardMarkTime.map((data, index) => (
                 <div
                   className="dashboard-content-right-bottom-event"

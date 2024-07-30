@@ -12,8 +12,6 @@
     --2ST-COLOR: linear-gradient(to top, #86D3EC 100%, #55B7D6 100%, #1E98BE 100%);
   }
   .dashboard-body{
-  
-
     padding: 20px;
     width: 79vw;
     display: flex;
@@ -22,16 +20,19 @@
     margin-top: 3%;
     padding: 1rem;
     font-family: 'BreeSerif-Regular',;
+    scrollbar-width: none;
   }
   .dashboard-content{
     display: flex;
     flex-direction: row;
     width: 100%;
+    scrollbar-width: none;
   }
   .dashboard-content-left{
     display: flex;
     flex-direction: column;
     width: 70%;
+    scrollbar-width: none;
   }
   .dashboard-content-top-boxs{
     display: flex;
@@ -249,7 +250,7 @@
     margin-left: 1%;
     border-radius: 0px 20px 20px 0;
     padding: 3vh;
-
+    scrollbar-width: none;
   }
   .dashboard-content-right-top{
     display: flex;
@@ -312,6 +313,18 @@
     padding-left: 2vh;
     padding-right: 2vh;
     margin-top: 2%;
+    overflow: auto;
+    height: 20vh;
+    scrollbar-width: none;
+    margin-bottom: 1vh;
+  }
+  .dashboard-content-right-bottom-event-add{
+    padding: 1vh ;
+    border-radius: 10px;
+    color: var(--Main-color);
+    background-color: #98CBE7;
+    font-size: 1.7vh;
+    font-weight: 600;
   }
   .dashboard-content-right-bottom-event{
     display: flex;
