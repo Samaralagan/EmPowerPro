@@ -26,6 +26,11 @@ import profile2 from "../../assets/images/profile2.png";
 import profile3 from "../../assets/images/profile3.png";
 import profile4 from "../../assets/images/profile4.png";
 import profile5 from "../../assets/images/profile5.png";
+import performationEvaluationImg1 from "../../assets/images/profile1.png";
+import performationEvaluationImg2 from "../../assets/images/profile2.png";
+import performationEvaluationImg3 from "../../assets/images/profile3.png";
+import performationEvaluationImg4 from "../../assets/images/profile4.png";
+import performationEvaluationImg5 from "../../assets/images/profile5.png";
 import transitions from "@material-ui/core/styles/transitions";
 
 export const EVENT_ACTIVITY_CARD = [
@@ -660,5 +665,48 @@ export const IncomeExpensData = [
     transitions_subject: "",
     transitions_category: "",
     transitions_amount: "",
+  },
+];
+export const performanceEvaluationCardData = [
+  {
+    img: performationEvaluationImg1,
+    name: "Olivia Rajan",
+    position: "Team Lead",
+  },
+  {
+    img: performationEvaluationImg2,
+    name: "Diana Lovece",
+    position: "Executive",
+  },
+  {
+    img: performationEvaluationImg3,
+    name: "Can Samuel",
+    position: "Team Member",
+  },
+  {
+    img: performationEvaluationImg4,
+    name: "Angelo Mathews",
+    position: "HR Manager",
+  },
+  {
+    img: performationEvaluationImg5,
+    name: "Belly James",
+    position: "Team Lead",
+  },
+];
+export const BookMarkCourseCardData = [
+  {
+    img: NewCourseImg1,
+    title: "Software  Architecture",
+    level: "Beginner Level",
+    star: 4.8,
+    enrolled: "1,361 already enrolled",
+  },
+  {
+    img: NewCourseImg2,
+    title: "Software  Architecture",
+    level: "Advanced Level",
+    star: 4.8,
+    enrolled: "1,361 already enrolled",
   },
 ];

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './Blog.css'
-import { NewCourseCardData } from "../constants/temporary";
+import { BookMarkCourseCardData, MyCourseCardData, NewCourseCardData } from "../constants/temporary";
 import NewCourseCard from "../common/NewCourseCard";
 import Paginator from "../common/Paginator";
 import { FaPlus } from "react-icons/fa";
@@ -14,10 +14,19 @@ const Blog = () => {
   const [filteredCards, setFilteredCards] = useState(NewCourseCardData);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalIsOpen1, setModalIsOpen1] = useState(false);
-  const [activeTab, setActiveTab] = useState("my-complaints");
+  const [activeTab, setActiveTab] = useState("All-Blog");
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
+    console.log(tab)
+    if(tab==='All-Blog'){
+      setFilteredCards(NewCourseCardData);
+    }else if(tab==='My-Blog'){
+      setFilteredCards(MyCourseCardData);
+    }else if(tab === 'BookMark-Blog'){
+      setFilteredCards(BookMarkCourseCardData);
+    }
+    setCurrentPage(1);
   };
 
   const handlePaginationClick = (pageNumber) => {
@@ -54,35 +63,35 @@ const Blog = () => {
      <nav>
       <div className="nav nav-tabs mt-4" id="nav-tab" role="tablist">
         <button
-          className={`nav-link ${activeTab === "my-complaints" ? "active" : ""}`}
-          id="nav-my-complaints-tab"
+          className={`nav-link ${activeTab === "All-Blog" ? "active" : ""}`}
+          id="nav-All-Blog-tab"
           type="button"
           role="tab"
-          aria-controls="nav-my-complaints"
-          aria-selected={activeTab === "my-complaints"}
-          onClick={() => handleTabChange("my-complaints")}
+          aria-controls="nav-All-Blog"
+          aria-selected={activeTab === "All-Blog"}
+          onClick={() => handleTabChange("All-Blog")}
         >
           All Blog
         </button>
         <button
-          className={`nav-link ${activeTab === "complaints-to-me" ? "active" : ""}`}
-          id="nav-complaints-to-me-tab"
+          className={`nav-link ${activeTab === "My-Blog" ? "active" : ""}`}
+          id="nav-My-Blog-tab"
           type="button"
           role="tab"
-          aria-controls="nav-complaints-to-me"
-          aria-selected={activeTab === "complaints-to-me"}
-          onClick={() => handleTabChange("complaints-to-me")}
+          aria-controls="nav-My-Blog"
+          aria-selected={activeTab === "My-Blog"}
+          onClick={() => handleTabChange("My-Blog")}
         >
           My Blog
         </button>
         <button
-          className={`nav-link ${activeTab === "all-complaints" ? "active" : ""}`}
-          id="nav-all-complaints-tab"
+          className={`nav-link ${activeTab === "BookMark-Blog" ? "active" : ""}`}
+          id="nav-BookMark-Blog-tab"
           type="button"
           role="tab"
-          aria-controls="nav-all-complaints"
-          aria-selected={activeTab === "all-complaints"}
-          onClick={() => handleTabChange("all-complaints")}
+          aria-controls="nav-BookMark-Blog"
+          aria-selected={activeTab === "BookMark-Blog"}
+          onClick={() => handleTabChange("BookMark-Blog")}
         >
           BookMark Blog
         </button>

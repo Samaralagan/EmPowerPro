@@ -33,7 +33,8 @@ import BeneficiaryPage from "./pages/BeneficiaryPage.jsx";
 import HR_BeneficiaryPage from "./components/BeneficiaryComponent/HR_Beneficiary.jsx";
 import PayrollPage from "./pages/PayrollPage.jsx";
 import HR_EmployeePage from "./components/employee/HR_Employee.jsx";
-import EX_EmployeePage from "./components/employee/EX_Employees.jsx";
+// import EX_EmployeePage from "./components/employee/EX_Employees.jsx";
+import EX_EmployeePage from "./pages/EX_EmployeePage.jsx";
 
 import ApplyLeaveForm from "./components/LeaveComponent/ApplyLeaveForm.jsx";
 import ApplyClaim_1 from "./components/BeneficiaryComponent/ApplyClaim_1.jsx";
@@ -43,6 +44,7 @@ import AppliedClaimForm from "./components/BeneficiaryComponent/AppliedClaimForm
 import CanceledClaimForm from "./components/BeneficiaryComponent/CanceledClaimForm.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
+import Performance from "./components/DashboardComponent/Performance";
 
 import CreateNewTeam from "./components/employee/CreateTeam.jsx";
 
@@ -60,10 +62,15 @@ function App() {
         <Routes>
           {/* <Vacancy_Apply_Form/> */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/Login" element={<Vacancy_Apply_Form />} />
 
           <Route path="/" element={<Layout />}>
             <Route path="/Dash Board/Employee" element={<DashboardPage />} />
+            <Route
+              path="/Dash Board/Employee/Performance"
+              element={<Performance />}
+            />
+            <Route path="/Dash Board/Employee/Profile" element={<Profile />} />
             <Route path="/Attendance/Employee" element={<AttendancePage />} />
             <Route path="/Project/Employee" element={<ProjectPage />} />
             <Route path="/Leave/Employee" element={<LeavePage />} />
@@ -171,19 +178,13 @@ function App() {
               path="/Team members/Executive"
               element={<EX_EmployeePage />}
             />
-            {/* <Route path="/Apply-leave" element={<ApplyLeaveForm />} />
-            <Route path="/ApplyClaim-1" element={<ApplyClaim_1 />} />
-            <Route path="/ApplyClaim-2" element={<ApplyClaim_2 />} />
-            <Route path="/ApplyClaim-3" element={<ApplyClaim_3 />} />
-            <Route path="/Applied-claim" element={<AppliedClaimForm />} />
-            <Route path="/Canceled-claim" element={<CanceledClaimForm />} /> */}
 
-            <Route path="/Generate-Report" element={<GenerateReport />} />
-            {/* <Route path="/Teams" element={<Teams />} /> */}
+            {/* <Route path="/Generate-Report" element={<GenerateReport />} />
+           
 
             <Route path="/CreateNewTeam" element={<CreateNewTeam />} />
 
-            <Route path="/NewApproval" element={<NewApproval />} />
+            <Route path="/NewApproval" element={<NewApproval />} /> */}
           </Route>
         </Routes>
       </Router>
