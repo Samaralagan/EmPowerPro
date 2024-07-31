@@ -18,11 +18,11 @@ const HR_Employee = ({ setActiveComponent }) => {
     const navigate = useNavigate();
 
     const handleGenerateReport = () => {
-      navigate('/GenerateReport');
+      navigate('/Employees/HR/GenerateReport');
     }
 
     const handleTeams = () => {
-        navigate('/Teams');
+        navigate('/Employees/HR/Teams');
       }
 
      

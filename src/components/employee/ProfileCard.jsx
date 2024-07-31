@@ -31,15 +31,26 @@ const ProfileCard = ({
   const navigate = useNavigate();
   const location = useLocation(); 
 
-  const handleProfile = () => {
-    if (sidebar=== 'Team members') {
-      if (setActiveComponent) {
-        setActiveComponent("Employee");
-      }
-    }else{
-      handlePage(`Dash Board/${role}`)
-    }
+  // const handleProfile = () => {
+  //   if (sidebar=== 'Team members') {
+  //     if (setActiveComponent) {
+  //       setActiveComponent("Employee");
+  //     }
+  //   }else{
+  //     handlePage(`Dash Board/${role}`)
+  //   }
    
+  // };
+
+  const handleProfile  = () => {
+    // setActiveComponent("EX_Employees");
+    if(role === 'HR'){
+      navigate('/Employees/HR');
+    }
+    if(role === 'Executive'){
+      navigate('/Team members/Executive');
+    }
+    
   };
 
   const handlePage = (PageName) => {

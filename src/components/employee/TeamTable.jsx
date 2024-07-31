@@ -20,10 +20,11 @@ const TeamTable = ({ name, status, teamlead, project, setActiveComponent }) => {
   const [hover, setHover] = useState(false);
 
   const navigate = useNavigate();
+  
 
   const handleTeamDetails = () => {
     // navigate("/Team_Profile");
-    setActiveComponent("Team_Profile");
+    navigate("/Team members/Executive/Team_Profile");
   };
 
   return (

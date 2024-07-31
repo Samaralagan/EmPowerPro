@@ -7,7 +7,7 @@ import InquriesReplyCard from "./InquriesReplyCard";
 function ReplyInquries({ setActiveComponent }) {
   // Accept setActiveComponent as a prop
   return (
-    <div className="replyinquries-body">
+    <div className="contentbodyall1">
       {/* <Header />
       <hr /> */}
       {InquriesReplyData.map((Card, index) => (

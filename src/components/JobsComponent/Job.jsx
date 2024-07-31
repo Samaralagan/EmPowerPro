@@ -6,6 +6,7 @@ import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
 
 import Modal from "./Modal"; // Import the Modal component
+import './job.css'
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);

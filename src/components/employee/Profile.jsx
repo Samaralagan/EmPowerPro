@@ -3,6 +3,9 @@ import "./profile.css";
 import Header from "../layout/Header";
 import ProfileCard from "./ProfileCard";
 import { ProfileData } from "../constants/temporary";
+
+
+
 function Profile({ setActiveComponent }) {
   return (
     <div>
