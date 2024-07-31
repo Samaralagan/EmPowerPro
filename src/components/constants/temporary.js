@@ -180,3 +180,10 @@ export const performanceEvaluationCardData = [
    {img:performationEvaluationImg4,name:'Angelo Mathews',position:'HR Manager'},
    {img:performationEvaluationImg5,name:'Belly James',position:'Team Lead'},
 ]
+
+export const payrollDetailsData = [
+   {img:performationEvaluationImg1,name:'Olivia Rajan',emp:'EMP-1004',position:'Executive',Grosspay:'Rs. 250,000',Tax:'$ 50,000',Total:'$ 200,000'},
+   {img:performationEvaluationImg2,name:'Can Samuel',emp:'EMP-1005',position:'Team Lead',Grosspay:'Rs. 250,000',Tax:'$ 50,000',Total:'$ 100,000'},
+   {img:performationEvaluationImg3,name:'Belly James',emp:'EMP-1006',position:'Employee',Grosspay:'',Tax:'$ 50,000',Total:'$ 100,000'},
+   {img:performationEvaluationImg4,name:'Angelo Mathews',emp:'EMP-1007',position:'HR Manager',Grosspay:'',Tax:'$ 50,000',Total:'$ 300,000'},
+]

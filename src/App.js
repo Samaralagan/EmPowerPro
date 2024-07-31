@@ -39,6 +39,7 @@ import AppliedClaimForm from "./components/BeneficiaryComponent/AppliedClaimForm
 import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
 import Performance from './components/DashboardComponent/Performance'
+import PayrollFSForm from "./components/payrollComponent/PayrollFSForm.jsx";
 
 function App() {
   const role = "Employee";
@@ -117,7 +118,8 @@ function App() {
             <Route path="/Dash Board/FinanceAndSupport" element={<SideBar />} />
             <Route path="/Attendance/FinanceAndSupport" element={<SideBar />} />
             <Route path="/Leave/FinanceAndSupport" element={<SideBar />} />
-            <Route path="/Pay Roll/FinanceAndSupport" element={<SideBar />} />
+            <Route path="/Pay Roll/FinanceAndSupport" element={<PayrollPage />} />
+            <Route path="/Pay Roll/FinanceAndSupport/Form" element={<PayrollFSForm />} />
             <Route
               path="/Complaints/FinanceAndSupport"
               element={<ComplaintsPage />}
