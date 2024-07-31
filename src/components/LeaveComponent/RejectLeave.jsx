@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-const LeavePending = () => {
+const LeavePending = ({setActiveComponent}) => {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -13,13 +13,15 @@ const LeavePending = () => {
     // Add your form submission logic here
     navigate("/somewhere"); // Navigate to another route after form submission
   };
-
+  const handleBackLeave = () => {
+    setActiveComponent("Leave");
+  };
   return (
     <div className="pending-leave-body">
-      <Header />
+     
       <hr />
 
-      <IoMdArrowRoundBack className="backarrow" style={{ color: "#000f44" }} />
+      <IoMdArrowRoundBack className="backarrow mt-3" style={{ color: "#000f44" }} onClick={handleBackLeave}/>
       <div className="pending-leave-form-body">
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
           <div className="pending-leave-profile-section">

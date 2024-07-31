@@ -16,7 +16,7 @@ body {
   width: 79vw;
   display: flex;
   flex-direction: column;
-  margin-left: 19vw;
+  margin-left: 17.5vw;
 }
 .leave-tabs {
     display: flex;
@@ -45,11 +45,17 @@ body {
 .leave-request-card {
   background-color: var(--Sub-color);
   border-radius: 8px;
-  padding: 20px;
+  padding: 6vh;
   box-shadow: 0 0 0 2.5px rgba(0, 0, 0, 0.1);
   /* border-width: 1.5rem;
   border-color: #882c2c; */
   position: relative;
+}
+.leave-history-personal-info{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+ 
 }
 .approved-button {
   background-color: #9bff7a; /* Light green background */
@@ -73,12 +79,14 @@ body {
   font-weight: bold;
 }
 
-.profile-pic {
+.leave-history-profile-pic {
   float: left;
   margin-right: 10px;
+  width: 5%;
+
 }
 
-.profile-pic img {
+.leave-history-profile-pic img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -90,6 +98,7 @@ body {
   align-items: center;
   color: #00186b;
   margin-top: 1vh;
+  width: 90%;
 }
 
 .others-leave-type {

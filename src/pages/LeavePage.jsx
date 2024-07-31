@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SideBar from "../components/common/SideBar";
 import LeaveExecutive from "../components/LeaveComponent/LeaveExecutive";
 import Leave from "../components/LeaveComponent/Leave";
@@ -10,15 +10,64 @@ import LeaveHistory from "../components/LeaveComponent/LeaveHistory";
 import LeavePending from "../components/LeaveComponent/LeavePending";
 import ApproveLeave from "../components/LeaveComponent/ApproveLeave";
 import RejectLeave from "../components/LeaveComponent/RejectLeave";
+import ApplyLeaveForm from "../components/LeaveComponent/ApplyLeaveForm";
+import { useLocation } from "react-router-dom";
 
 
 
-function LeavePage() {
+const LeavePage = () =>  {
+  const [activeComponent, setActiveComponent] = useState("Leave");
+
+  const location = useLocation(); 
+  var role = ''
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+     role = pathname.split('/')[2];
+    return role;
+  };
+  
+  const activePageName = getActivePageName();
+
   return (
     <div>
       <SideBar />
+      {activeComponent === "Leave" &&  role  !== "HR" && role  !== "Executive" && (
+        <Leave setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "Leave" &&  role  === "HR" &&  (
+        <LeaveHR setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "Leave" &&  role  === "Executive" && (
+        <LeaveExecutive setActiveComponent={setActiveComponent} />
+      )}
+
+
+      {activeComponent === "ApplyLeave" && (
+        <ApplyLeave setActiveComponent={setActiveComponent} />
+      )}
+
+      {activeComponent === "Pending" && (
+        <LeavePending setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "Approved" && (
+        <ApproveLeave setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "Rejected" && (
+        <RejectLeave setActiveComponent={setActiveComponent} />
+      )}
       
-      <Leave/>
+      {activeComponent === "ApplyLeaveHR" && (
+        <ApplyLeaveHR setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "OthersLeave" && (
+        <OthersLeave setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "LeaveHistory" && (
+        <LeaveHistory setActiveComponent={setActiveComponent} />
+      )}
+
+      
+      {/* <Leave/> */}
        {/* <ApplyLeave/> */}
 
       {/* <LeaveExecutive /> */}
@@ -30,6 +79,7 @@ function LeavePage() {
 {/* <ApplyLeaveHR/> */}
       {/* <OthersLeave/> */}
       {/* <LeaveHistory/> */}
+     
      
 
     </div>

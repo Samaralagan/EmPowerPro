@@ -16,7 +16,7 @@
   width: 79vw;
   display: flex;
   flex-direction: column;
-  margin-left: 19vw;
+  margin-left: 17.5vw;
 }
 
 .supplier-view {
@@ -34,19 +34,19 @@
   margin-bottom: 20px;
 }
 
-.search-container {
+.supplier-search-container {
   display: flex;
   align-items: center;
 }
 
-.search-input {
-  padding: 10px;
+.supplier-search-input {
+  padding: 9px;
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px;
   outline: none;
 }
 
-.search-button {
+.supplier-search-button {
   padding: 10px 20px;
   background-color: #001f4d;
   color: white;
@@ -55,11 +55,11 @@
   cursor: pointer;
 }
 
-.create-button {
+.supplier-create-button {
   padding: 10px 20px;
   background-color: #1E98BE;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
 }

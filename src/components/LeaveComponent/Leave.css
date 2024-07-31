@@ -12,12 +12,13 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
   
-  .leave-body{
+  .leavemain-body{
     padding: 20px;
-    width: 79vw;
+    width: 78.5vw;
     display: flex;
     flex-direction: column;
-    margin-left: 19vw;
+    margin-left: 17.5vw;
+  margin-top: 10vh;
   }
   
   /* upper div content */

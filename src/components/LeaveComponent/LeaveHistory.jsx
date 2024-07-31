@@ -4,40 +4,32 @@ import "./LeaveHistory.css";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
-function LeaveRequestForm() {
-  const navigate = useNavigate();
-
+function LeaveRequestForm({ setActiveComponent }) {
   const handleBackClick = () => {
-    navigate("/Beneficiary");
+    setActiveComponent("OthersLeave");
   };
 
   return (
     <div className="leave-request-form-container">
-      <Header />
       <hr />
 
-      <div className="leave-tabs">
-        <button className="tab my-leaves">My Leaves</button>
-        <button className="tab others-leaves active">Others's Leaves</button>
-      </div>
       <div className="back-arrow">
-        <FaArrowLeft className="back-icon" onClick={handleBackClick} />
+        <FaArrowLeft className="back-icon mt-4" onClick={handleBackClick} />
       </div>
       <div className="leave-request-card">
         <div className="approved-button">Approved</div>
         <br />
 
         {/* <div className="status-badge approved">Approved</div> */}
-        <div className="profile-pic">
-          <img
-            src="https://randomuser.me/api/portraits/men/3.jpg"
-            className="profile-pic"
-          />{" "}
-        </div>
-        <div className="employee-details">
-          <h5>Anne Wotson ( Software Engineer )</h5>
-          <br />
-          <div className="others-leave-type">Medical Leave</div>
+        <div className="leave-history-personal-info">
+          <div className="leave-history-profile-pic">
+            <img src="https://randomuser.me/api/portraits/men/3.jpg" />{" "}
+          </div>
+          <div className="employee-details">
+            <h5>Anne Wotson ( Software Engineer )</h5>
+            <br />
+            <div className="others-leave-type">Medical Leave</div>
+          </div>
         </div>
 
         <div className="leave-details">

@@ -55,6 +55,7 @@ import ApplyLeavePage from './components/LeaveComponent/ApplyLeave.jsx';
 import LeaveHistory from './components/LeaveComponent/LeaveHistory.jsx';
 import LeavePageHR from './components/LeaveComponent/LeaveHR.jsx'
 
+
 function App() {
   const role = "Employee";
 
@@ -151,7 +152,8 @@ function App() {
               path="/Complaints/FinanceAndSupport"
               element={<ComplaintsPage />}
             />
-            <Route path="/Suppliers/FinanceAndSupport" element={<SideBar />} />
+            <Route path="/Suppliers/FinanceAndSupport"
+             element={<SupplierPage />} />
             <Route
               path="/Beneficiary/FinanceAndSupport"
               element={<BeneficiaryPage />}

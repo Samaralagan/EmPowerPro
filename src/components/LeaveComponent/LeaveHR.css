@@ -12,19 +12,19 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
   
-  .leave-body{
+  .leave-main-body{
     padding: 20px;
     width: 79vw;
     display: flex;
     flex-direction: column;
-    margin-left: 19vw;
+    margin-left: 17.5vw;
+    margin-top: 10vh;
   }
 
   /* leave hr tabs */
   .leave-hr-tabs {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
   }
   
   .tab-hr {
@@ -49,6 +49,7 @@
   .leave-rectangles-containers{
   display: flex;
   justify-content: space-between;
+
   }
   .leave-rectangles-container {
     display: flex;
@@ -57,6 +58,7 @@
     flex-wrap: wrap;
     margin-top: -40px;
     justify-content: space-between;
+    /* margin-top: 1vh; */
   }
   
   .rectangle-u {

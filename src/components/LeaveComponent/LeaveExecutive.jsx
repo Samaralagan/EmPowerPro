@@ -13,11 +13,22 @@ import Button from "@mui/material/Button";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from '@mui/icons-material/Search';
 
-function Leave() {
+function Leave({ setActiveComponent }) {
+
+  const handlePending = () => {
+    setActiveComponent("Pending");
+  };
+  const handleApproved = () => {
+    setActiveComponent("Approved");
+  };
+  const handleRejected = () => {
+    setActiveComponent("Rejected");
+  };
+
   return (
-    <div className="leave-body">
-      <Header />
-      <hr />
+    <div className="leavemain-body">
+      
+  
       <br />
       <br />
 
@@ -108,7 +119,7 @@ function Leave() {
                   <td>22 JUNE 2024</td>
                   <td>Friend's Wedding Function</td>
                   <td>
-                    <button className="leave-approved"> Approved</button>
+                    <button className="leave-approved" onClick={handleApproved} > Approved</button>
                   </td>
                 </tr>
                 <tr>
@@ -118,7 +129,7 @@ function Leave() {
                   <td>22 JUNE 2024</td>
                   <td>Friend's Wedding Function</td>
                   <td>
-                    <button className="leave-pending"> Pending</button>
+                    <button className="leave-pending" onClick={handlePending} > Pending</button>
                   </td>
                 </tr>
                 <tr>
@@ -128,7 +139,7 @@ function Leave() {
                   <td>22 JUNE 2024</td>
                   <td>Friend's Wedding Function</td>
                   <td>
-                    <button className="leave-rejected">Rejected</button>
+                    <button className="leave-rejected" onClick={handleRejected}>Rejected</button>
                   </td>
                 </tr>
                 {/* <tr>

@@ -21,6 +21,10 @@ body {
 
 .leave-section {
   margin-top: 20px;
+  margin-left: 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .leave-tabs {
@@ -50,26 +54,32 @@ body {
 .leave-requests-container {
   background-color: var(--Main-color);
   color: white;
-  padding: 20px;
+  padding: 2vh 3%;
   border-radius: 8px;
   margin-bottom: 20px;
+  width: 94%;
+  margin-left: 2vh;
+  
 }
 
 .leave-requests-container h2 {
   margin-bottom: 20px;
 }
-
+.leave-request p{
+margin: 0;
+}
 .leave-request {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: var(--Main-color);
   border: 1px solid var(--Sub-color);
   padding: 10px;
   border-radius: 8px;
+  align-items: center;
   margin-bottom: 10px;
 }
 
-.profile-pic {
+.profile-picture {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -111,6 +121,8 @@ body {
 .leave-tracker {
   display: flex;
   justify-content: space-between;
+  width: 94%;
+  margin-left: 2vh;
 }
 
 .today-leave-tracker,
@@ -160,6 +172,7 @@ body {
 
 .leave-history-part-4 {
   align-self: stretch;
+  position: relative;
   /* display: flex; */
   flex-direction: column;
 }

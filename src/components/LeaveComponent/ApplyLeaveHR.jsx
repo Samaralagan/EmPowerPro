@@ -3,7 +3,7 @@ import Header from "../layout/Header";
 import "./ApplyLeaveHR.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-function ApplyLeave() {
+function ApplyLeave({setActiveComponent}) {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [error, setError] = useState('');
@@ -24,16 +24,19 @@ function ApplyLeave() {
     return true;
   };
 
+  const handleBackLeave = () => {
+    setActiveComponent("Leave");
+  };
   return (
     <div className="apply-leave-body">
-      <Header />
+     
       <hr />
       
-      <IoMdArrowRoundBack className="backarrow"  />
-      <div className="leave-hr-tabs">
-          <button className="tab-hr my-leaves active">My Leaves</button>
+      <IoMdArrowRoundBack className="backarrow mt-3"  onClick={handleBackLeave} />
+      {/* <div className="leave-hr-tabs">
+          <button className="tab-hr my-leaves active" >My Leaves</button>
           <button className="tab-hr others-leaves ">Others Leaves</button>
-        </div>
+        </div> */}
       <div className="apply-leave-form-body">
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
        
@@ -105,7 +108,8 @@ function ApplyLeave() {
             <textarea
               name=""
               id=""
-              className="inputtext"
+              className="applyLeave-inputtext"
+              placeholder="Enter the reason.."
               style={{ height: "8rem", width:"55rem", borderColor:"#000f44"}}
             ></textarea>
           </div>

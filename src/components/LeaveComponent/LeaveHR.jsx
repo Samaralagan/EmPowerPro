@@ -7,20 +7,25 @@ import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaRegCalendarTimes } from "react-icons/fa";
 import LeaveChart from "./LeaveChart";
 
-function Leave() {
+function Leave({setActiveComponent}) {
+  const handleApplyLeaveHR = () => {
+    setActiveComponent("ApplyLeaveHR");
+  };
+  const handleOthersLeave = () =>
+  {  setActiveComponent("OthersLeave");
+  };
+  
   return (
-    <div className="leave-body">
-      <Header />
-      <hr />
-      <br />
-      <br />
+    <div className="leave-main-body">
+      
      
         <div className="leave-hr-tabs">
           <button className="tab-hr my-leaves active">My Leaves</button>
-          <button className="tab-hr others-leaves ">Others Leaves</button>
+          <button className="tab-hr others-leaves " onClick={handleOthersLeave}>Others Leaves</button>
         </div>
+       
       <div>
-        <div className="leave-rectangles-container">
+        <div className="leave-rectangles-container mt-3" >
           <div className="d-flex ">
             <div className="rectangle-u rectangle-2 me-2">
               <div className="leave-small-square">
@@ -58,12 +63,14 @@ function Leave() {
           </div>
           <button
             className="gradient-blue-btn "
+            onClick={handleApplyLeaveHR}
             style={{
               color: "white",
               width: "167px",
               height: "45px",
               padding: "10px",
             }}
+           
           >
             <FaPlusCircle className="me-2" />
             Apply Leave

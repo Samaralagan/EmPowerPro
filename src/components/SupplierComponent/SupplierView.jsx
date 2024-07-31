@@ -3,18 +3,21 @@ import Header from '../layout/Header';
 import './SupplierView.css';
 import SupplierTable from './SupplierTable';
 
-const SupplierView = () => {
+const SupplierView = ({setActiveComponent}) => {
+  const handleCreateSupplier = () => {
+    setActiveComponent("CreateSupplier");
+  };
   return (
     <div className="supplier-body">
-      <Header />
+     <br/>
       <hr/>
       <div className="supplier-view">
         <div className="top-section">
-          <div className="search-container">
-            <input type="text" placeholder="Search by Name" className="search-input" />
-            <button className="search-button">Search</button>
+          <div className="supplier-search-container">
+            <input type="text" placeholder="Search by Name" className="supplier-search-input" />
+            <button className="supplier-search-button">Search</button>
           </div>
-          <button className="create-button">+ Create Suppliers</button>
+          <button className="supplier-create-button " onClick={handleCreateSupplier}>+ Create Suppliers</button>
         </div>
         <SupplierTable />
       </div>
