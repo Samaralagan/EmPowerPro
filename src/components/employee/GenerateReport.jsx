@@ -58,6 +58,9 @@ function GenerateReport() {
     if(role === 'Executive'){
       navigate('/Team members/Executive');
     }
+    if(role === 'TeamLeader'){
+      navigate('/Team members/TeamLeader');
+    }
     
   };
  

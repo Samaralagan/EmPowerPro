@@ -144,7 +144,7 @@ export const HRSidebar = [
 
 export const ExecutiveSidebar = [
   { name: "Dash Board", icon: GrAppsRounded },
-  { name: "Attendance", icon: FaCalendarCheck },
+  // { name: "Attendance", icon: FaCalendarCheck },
   { name: "Project", icon: FaProjectDiagram },
   { name: "Leave", icon: FaHandSpock },
   { name: "Pay Roll", icon: RiMoneyDollarBoxFill },

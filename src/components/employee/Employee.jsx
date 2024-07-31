@@ -5,11 +5,14 @@ import { FaSearch } from "react-icons/fa";
 import { FaPlusCircle } from "react-icons/fa";
 import EmployeeTable from "./EmployeeTable";
 import { EmployeeTableData } from "../constants/temporary";
+import { useNavigate } from 'react-router-dom'
 
 const Employee = ({ setActiveComponent }) => {
+  const navigate = useNavigate();
+
   const handlenewreport = () => {
-    setActiveComponent("GenerateReport");
-  };
+    navigate('/Team members/TeamLeader/GenerateReport');
+  }
 
   return (
     <div>
