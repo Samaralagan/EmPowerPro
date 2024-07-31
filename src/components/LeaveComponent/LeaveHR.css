@@ -12,19 +12,44 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
   
-  .leavemain-body{
+  .leave-main-body{
     padding: 20px;
-    width: 78.5vw;
+    width: 79vw;
     display: flex;
     flex-direction: column;
     margin-left: 17.5vw;
-  margin-top: 10vh;
+    margin-top: 10vh;
+  }
+
+  /* leave hr tabs */
+  .leave-hr-tabs {
+    display: flex;
+    justify-content: center;
   }
   
+  .tab-hr {
+    padding: 10px 20px;
+    border: 2px solid var(--Main-color);
+    background-color: var(--Sub-color);
+    color: var(--Main-color);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 25px;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+  .tab-hr.active,
+  .tab-hr:hover {
+    background-color: var(--Main-color);
+    color: var(--Sub-color);
+  }
+
   /* upper div content */
   .leave-rectangles-containers{
   display: flex;
   justify-content: space-between;
+
   }
   .leave-rectangles-container {
     display: flex;
@@ -33,6 +58,7 @@
     flex-wrap: wrap;
     margin-top: -40px;
     justify-content: space-between;
+    /* margin-top: 1vh; */
   }
   
   .rectangle-u {
@@ -43,7 +69,6 @@
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 16px;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 1rem; 

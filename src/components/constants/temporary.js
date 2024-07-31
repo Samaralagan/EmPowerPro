@@ -343,6 +343,8 @@ export const ComplaintsReplyCard = [
     date: "23/03/2024",
     description:
       "I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.",
+    replied:
+      "We have carefully reevaluated your assignment [or test] and taken into consideration your points regarding the grading criteria.",
   },
 ];
 

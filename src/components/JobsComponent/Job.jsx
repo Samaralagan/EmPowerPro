@@ -4,6 +4,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import { IoCallSharp } from "react-icons/io5";
 import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
+
 import Modal from "./Modal"; // Import the Modal component
 
 const Job = ({ setActiveComponent }) => {
@@ -69,21 +70,21 @@ const Job = ({ setActiveComponent }) => {
           title="User Experience Designer - Fully Remote"
           variety="Creative & Art"
           type="Full Time"
-          salary="$45 - $55"
+          DeadLine="09/01/2024"
           countappilication="500+ applications"
         />
         <Card1
           title="Android App Developer - Hybrid"
           variety="Programming"
           type="Full Time"
-          salary="$45 - $55"
+          DeadLine="08/03/2024"
           countappilication="500+ applications"
         />
         <Card1
           title="Intern Front-End Developer - Fully Remote"
           variety="Creative & Art"
           type="Full Time"
-          salary="$45 - $55"
+          DeadLine="08/03/2024"
           countappilication="500+ applications"
         />
         {/* Add more Card1 components as needed */}

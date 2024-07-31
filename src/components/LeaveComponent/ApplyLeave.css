@@ -69,14 +69,18 @@
 }
 .form-control{
   margin-top: 2vh;
+  
  
 }
-.inputtext {
-  border: var(--bs-border-width) solid var(--bs-border-color);
+.applyLeave-inputtext {
   width: 60%;
   display: flex;
   align-items: flex-start;
   border-radius: 10px;
+  font-size: 2.2vh;
+ border: solid 1px;
+ padding: 3vh;
+
 }
 textarea:focus {
   border-color: #86b7fe;

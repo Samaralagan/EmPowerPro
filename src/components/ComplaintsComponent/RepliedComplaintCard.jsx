@@ -1,13 +1,15 @@
 import React from "react";
-import "./replycomplaintcard.css";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { Link } from "react-router-dom";
-import { FaPlusCircle, FaSearch } from "react-icons/fa";
 
-const ReplyComplaintCard = ({ name, about, date, description, image }) => {
+function RepliedComplaintCard({
+  name,
+  about,
+  date,
+  description,
+  image,
+  replied,
+}) {
   return (
     <div>
-      {/* <IoMdArrowRoundBack className="backarrow" onClick={handlemorecomplaint} /> */}
       <div className="">
         <div className="complaintmorecard-content">
           <div className="complaintmorecard-header">
@@ -46,15 +48,7 @@ const ReplyComplaintCard = ({ name, about, date, description, image }) => {
             >
               Reply :{" "}
             </p>
-            <p className="complaintmorecard-header-text">
-              <textarea name="" id="" className="inputtext"></textarea>
-            </p>
-            <div className="contactus-form-button" style={{ width: "97%" }}>
-              <button className="gradient-blue-btn" style={{ color: "white" }}>
-                <FaPlusCircle className="me-2" />
-                Send
-              </button>
-            </div>
+            <p className="complaintmorecard-header-text">{replied}</p>
           </div>
 
           <div></div>
@@ -62,6 +56,6 @@ const ReplyComplaintCard = ({ name, about, date, description, image }) => {
       </div>
     </div>
   );
-};
+}
 
-export default ReplyComplaintCard;
+export default RepliedComplaintCard;
