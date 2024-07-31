@@ -45,6 +45,7 @@ import AppliedClaimForm from "./components/BeneficiaryComponent/AppliedClaimForm
 import CanceledClaimForm from "./components/BeneficiaryComponent/CanceledClaimForm.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
+import PayrollFSForm from "./components/payrollComponent/PayrollFSForm.jsx";
 import Performance from "./components/DashboardComponent/Performance";
 
 import CreateNewTeam from "./components/employee/CreateTeam.jsx";
@@ -156,6 +157,10 @@ function App() {
             <Route
               path="/Pay Roll/FinanceAndSupport"
               element={<PayrollPage />}
+            />
+            <Route
+              path="/Pay Roll/FinanceAndSupport/Form"
+              element={<PayrollFSForm />}
             />
             <Route
               path="/Complaints/FinanceAndSupport"

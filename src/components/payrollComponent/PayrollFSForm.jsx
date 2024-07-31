@@ -1,54 +1,29 @@
-import Header from "../layout/Header";
 import "./payroll.css";
-import React from "react";
-import HeaderCard from "../common/HeaderCard";
-import { SlCalender } from "react-icons/sl";
-import { GiCash } from "react-icons/gi";
-import { GiExpense } from "react-icons/gi";
-import { Margin } from "@mui/icons-material";
-function Payroll() {
+import React, { useState } from "react";
+import PayrollFixedRates from "./PayrollFixedRates";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+function PayrollFSForm() {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const navication = useNavigate()
+    const openModal = () => {
+        setModalIsOpen(true);
+      };
+    
+      const closeModal = () => {
+        setModalIsOpen(false);
+      };
+      const handleback = ()=>{
+        navication('/Pay Roll/FinanceAndSupport')
+      }
   return (
-    <div className="payroll-body"> 
-      {/* <Header/>
-        <hr/> */}
+    <div className="payroll-body mt-4"> 
       <br />
       <br />
 
       <div className="" >
-        <div className="d-flex mt-5  mb-2">
-          <div className="rectangle-u me-4 ms-3 rectangle-2">
-            <HeaderCard
-              icon={<SlCalender className="payroll-icon" />}
-              value="MARCH"
-              title="Month"
-            />
-          </div>
-          <div className="rectangle-u me-4 rectangle-3">
-            <HeaderCard
-              icon={<GiCash className="payroll-icon" />}
-              value="80,000"
-              title="Total Salary"
-            />
-          </div>
-          <div className="rectangle-u me-4 rectangle-4">
-            <HeaderCard
-              icon={<GiExpense className="payroll-icon" />}
-              value="15,000"
-              title="Deduction"
-            />
-          </div>
-          <div
-            className="rectangle-u me-4 rectangle-4"
-            style={{ marginLeft: "19rem",backgroundColor:'#993434' }}
-          >
-            <HeaderCard
-              style={{ marginLeft: "10rem" }}
-              icon={<GiExpense className="leave-icon" />}
-              value="45,000"
-              title="MonthlySalary"
-            />
-          </div>
-        </div>
+        <div className="mb-2 fs-3" onClick={handleback} > <IoMdArrowRoundBack /></div>
+        
          <div className="payroll-middle">
             <select className="payrole-custom-dropdown" defaultValue="">
               <option value="" disabled>
@@ -58,8 +33,11 @@ function Payroll() {
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
             </select>
-            <button className="gradient-blue-btn me-3">Download Pay Slip</button>
+            <button className="gradient-blue-btn me-3" onClick={openModal}>Fixed Rates</button>
+            
+
          </div>
+         <PayrollFixedRates modalIsOpen={modalIsOpen} closeModal={closeModal} />
         
         <div className="payroll-content">
            <div className="payroll-content-title">Salary Calculation of month of March 2024</div>
@@ -68,48 +46,48 @@ function Payroll() {
                 <div  className="payroll-content-col">
                    <div className="payroll-content-col1">Employee Code</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">1004</div>
+                   <div className="payroll-content-col3"><input type='text'/></div>
                 </div>
                 <div className="payroll-content-col">
                    <div className="payroll-content-col1">Employee Name</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">K. Raguram</div>
+                   <div className="payroll-content-col3"><input type='text'/></div>
                 </div>
              </div>
              <div className="payroll-content-row">
                 <div  className="payroll-content-col">
                    <div className="payroll-content-col1">EPF Number</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3"> 123</div>
+                   <div className="payroll-content-col3"> <input type='text'/></div>
                 </div>
                 <div className="payroll-content-col">
                    <div className="payroll-content-col1">Designation</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">Graphic Designer</div>
+                   <div className="payroll-content-col3"><input type='text'/></div>
                 </div>
              </div>
              <div className="payroll-content-row">
                 <div  className="payroll-content-col">
                    <div className="payroll-content-col1">Joined Date</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">2020-08-20</div>
+                   <div className="payroll-content-col3"><input type='text'/></div>
                 </div>
                 <div className="payroll-content-col">
                    <div className="payroll-content-col1">NIC</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">0000-0000-0000</div>
+                   <div className="payroll-content-col3"><input type='text'/></div>
                 </div>
              </div>
              <div className="payroll-content-row">
                 <div  className="payroll-content-col">
                    <div className="payroll-content-col1">Employment Type</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">Permanent</div>
+                   <div className="payroll-content-col3"><input type='text'/></div>
                 </div>
                 <div className="payroll-content-col">
                    <div className="payroll-content-col1">Address</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">No.54/A,Colombo 06</div>
+                   <div className="payroll-content-col3"><input type='text'/></div>
                 </div>
              </div>
            </div>
@@ -122,38 +100,38 @@ function Payroll() {
               </tr>
               <tr className="salary-table-td">
                  <td>Basic Salary </td>
-                 <td>200,000.00</td>
+                 <td></td>
                  <td></td>
               </tr>
               <tr className="salary-table-td">
                 <td>Additional Income</td>
-                <td>50,000.00</td>
+                <td></td>
                 <td></td>
               </tr>
               <tr className="salary-table-td">
                 <td>Medical Allowance</td>
-                <td>50,000.00 </td>
+                <td></td>
                 <td></td>
               </tr>
               <tr className="salary-table-td">
                 <td>Other Allowances</td>
-                <td>50,000.00</td>
+                <td></td>
                 <td></td>
               </tr>
               <tr className="salary-table-td">
                 <td>Advanced Personal Income Tax</td>
                 <td></td>
-                <td>50,000.00</td>
+                <td></td>
               </tr>
               <tr className="salary-table-td">
                 <td>EPF Employee Contribution</td>
                 <td></td>
-                <td>50,000.00</td>
+                <td></td>
               </tr>
               <tr className="salary-table-td">
                 <td className="salary-table-total">Total</td>
-                <td className="salary-table-total">Rs.350,000.00</td>
-                <td className="salary-table-total">Rs.100,000.00</td>
+                <td className="salary-table-total">Rs.</td>
+                <td className="salary-table-total">Rs.</td>
               </tr>
               <tr>
                 <td rowspan="2" className="salary-table-details">
@@ -165,8 +143,8 @@ function Payroll() {
               </tr>
               <tr>
                 <td colspan="2" className="salary-table-salary">
-                   Rs.200,000.00 <br />
-                   <span>Two Hundred Thousand Only </span>
+                    <br />
+                   <span></span>
                 </td>
               </tr>
            </table>
@@ -177,4 +155,4 @@ function Payroll() {
   );
 }
 
-export default Payroll;
+export default PayrollFSForm;

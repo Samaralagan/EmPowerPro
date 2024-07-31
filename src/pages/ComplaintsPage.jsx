@@ -10,7 +10,6 @@ const ComplaintsPage = () => {
   const [activeComponent, setActiveComponent] = useState("Complaints");
   return (
     <div className="d-flex">
-      <SideBar />
       {activeComponent === "Complaints" && (
         <Complaints setActiveComponent={setActiveComponent} />
       )}
