@@ -19,12 +19,16 @@ const EX_Employees = ({ setActiveComponent }) => {
     navigate("/GenerateReport");
   };
 
-  const handleTeams = () => {
-    navigate("/Teams");
+  // const handleTeams = () => {
+  //   navigate("/Teams");
+  // };
+
+  const handleviewresume = () => {
+    setActiveComponent("NewApproval");
   };
 
-  const handleNewResume = () => {
-    navigate("/NewApproval");
+  const handleTeams = () => {
+    setActiveComponent("Teams");
   };
 
   return (
@@ -65,7 +69,7 @@ const EX_Employees = ({ setActiveComponent }) => {
                   <td>
                     <button
                       className="new-approval-resume"
-                      onClick={handleNewResume}
+                      onClick={handleviewresume}
                     >
                       {" "}
                       View Resume{" "}

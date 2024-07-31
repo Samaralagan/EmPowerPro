@@ -2,54 +2,10 @@ import React from "react";
 import "./replycomplaintcard.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { FaPlusCircle, FaSearch } from "react-icons/fa";
 
-const ReplyComplaintCard = ({
-  name,
-  about,
-  date,
-  description,
-  image,
-  // setActiveComponent,
-}) => {
-  // const handlemorecomplaint = () => {
-  //   if (setActiveComponent) {
-  //     setActiveComponent("Complaints");
-  //   }
-  // };
+const ReplyComplaintCard = ({ name, about, date, description, image }) => {
   return (
-    // <div>
-    //   <div className="reply-complaintcard-header">
-    //     <div className="reply-left-flexbox-complaint">
-    //       <div
-    //         style={{
-    //           display: "flex",
-    //           flexDirection: "row",
-    //           alignItems: "center",
-    //         }}
-    //       >
-    //         <img src={image} alt="" className="img2" />
-    //         {name}
-    //       </div>
-
-    //       <br />
-
-    //       <p className="reply-complaintcard-header-about">
-    //         <b>{about}</b>
-    //       </p>
-    //       <p>{description}</p>
-    //     </div>
-    //   </div>
-    //   <div className="reply-complaintcard-header">
-    //     <div className="reply-right-flexbox-complaint">
-    //       <h5>{date}</h5>
-    //       <br />
-    //       <br />
-    //     </div>
-    //   </div>
-
-    //   <div></div>
-    // </div>
-
     <div>
       {/* <IoMdArrowRoundBack className="backarrow" onClick={handlemorecomplaint} /> */}
       <div className="">
@@ -93,7 +49,14 @@ const ReplyComplaintCard = ({
             <p className="complaintmorecard-header-text">
               <textarea name="" id="" className="inputtext"></textarea>
             </p>
+            <div className="contactus-form-button" style={{ width: "97%" }}>
+              <button className="gradient-blue-btn" style={{ color: "white" }}>
+                <FaPlusCircle className="me-2" />
+                Send
+              </button>
+            </div>
           </div>
+
           <div></div>
         </div>
       </div>

@@ -20,7 +20,7 @@ const ComplaintMoreCard = ({
   return (
     <div>
       <IoMdArrowRoundBack className="backarrow" onClick={handlemorecomplaint} />
-      <div className="complaintmorecard-body">
+      <div className="claimed-box">
         <div className="complaintmorecard-content">
           <div className="complaintmorecard-header">
             <br />

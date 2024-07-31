@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../layout/Header";
 import "./Leave.css";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaRegCalendarTimes } from "react-icons/fa";
+import LeaveChart from "./LeaveChart";
+// import { Link } from "react-router-dom";
 
-function Leave() {
+const Leave= ({ setActiveComponent }) => {
+  const handleApplyLeave = () => {
+    setActiveComponent("ApplyLeave");
+  };
+  
   return (
-    <div className="contentbodyall">
+    <div className="leavemain-body">
       {/* <Header />
       <hr /> */}
       <br />
@@ -51,6 +57,7 @@ function Leave() {
               </div>
             </div>
           </div>
+          
           <button
             className="gradient-blue-btn "
             style={{
@@ -59,10 +66,12 @@ function Leave() {
               height: "45px",
               padding: "10px",
             }}
+            onClick={handleApplyLeave}
           >
             <FaPlusCircle className="me-2" />
             Apply Leave
           </button>
+          
         </div>
 
         <div className="leave-additional-rectangle-3">
@@ -80,7 +89,7 @@ function Leave() {
             <select
               className="custom-dropdown"
               defaultValue=""
-              style={{ marginLeft: "35vw" }}
+              style={{ marginLeft: "45vw" }}
             >
               <option value="" disabled>
                 Status
@@ -112,7 +121,7 @@ function Leave() {
                   <td>22 JUNE 2024</td>
                   <td>Friend's Wedding Function</td>
                   <td>
-                    <button className="approved"> Approved</button>
+                    <button className="leave-approved"> Approved</button>
                   </td>
                 </tr>
                 <tr>
@@ -122,7 +131,7 @@ function Leave() {
                   <td>22 JUNE 2024</td>
                   <td>Friend's Wedding Function</td>
                   <td>
-                    <button className="pending"> Pending</button>
+                    <button className="leave-pending"> Pending</button>
                   </td>
                 </tr>
                 <tr>
@@ -132,7 +141,7 @@ function Leave() {
                   <td>22 JUNE 2024</td>
                   <td>Friend's Wedding Function</td>
                   <td>
-                    <button className="rejected">Rejected</button>
+                    <button className="leave-rejected">Rejected</button>
                   </td>
                 </tr>
                 <tr>
@@ -142,7 +151,7 @@ function Leave() {
                   <td>22 JUNE 2024</td>
                   <td>Friend's Wedding Function</td>
                   <td>
-                    <button className="approved"> Approved</button>
+                    <button className="leave-approved"> Approved</button>
                   </td>
                 </tr>
                 <td>01</td>
@@ -151,12 +160,13 @@ function Leave() {
                 <td>22 JUNE 2024</td>
                 <td>Friend's Wedding Function</td>
                 <td>
-                  <button className="rejected">Rejected</button>
+                  <button className="leave-rejected">Rejected</button>
                 </td>
               </tbody>
             </table>
           </div>
         </div>
+        
       </div>
     </div>
   );

@@ -6,17 +6,9 @@ import { MdDoubleArrow } from "react-icons/md";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
-const TeamTable = ({
-
-  name,
-  status,
-  teamlead,
-  project,
-  setActiveComponent,
-}) => {
-
+const TeamTable = ({ name, status, teamlead, project, setActiveComponent }) => {
   const location = useLocation();
   const getRoleName = () => {
     const pathname = decodeURIComponent(location.pathname);
@@ -24,24 +16,20 @@ const TeamTable = ({
     return role;
   };
   const role = getRoleName();
-  
-
 
   const [hover, setHover] = useState(false);
 
   const navigate = useNavigate();
 
   const handleTeamDetails = () => {
-    navigate('/Employees/HR/Team_Profile');
-  }
+    // navigate("/Team_Profile");
+    setActiveComponent("Team_Profile");
+  };
 
   return (
-
     <tr className="employee-row">
       <td scope="row">
-        <div className="employee-cell">
-          {name}
-        </div>
+        <div className="employee-cell">{name}</div>
       </td>
       <td>
         <div className={status === "Completed" ? "active_e" : "offline_e"}>
@@ -58,7 +46,7 @@ const TeamTable = ({
           className="button1"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          onClick={ handleTeamDetails }
+          onClick={handleTeamDetails}
         >
           {hover ? <FaArrowAltCircleRight /> : "View Profile"}
         </div>

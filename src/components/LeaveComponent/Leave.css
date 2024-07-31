@@ -12,20 +12,21 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
   
-  .leave-body{
+  .leavemain-body{
     padding: 20px;
-    width: 79vw;
+    width: 78.5vw;
     display: flex;
     flex-direction: column;
-    margin-left: 19vw;
+    margin-left: 17.5vw;
+  margin-top: 10vh;
   }
   
- /* upper div content */
- .leave-rectangles-containers{
+  /* upper div content */
+  .leave-rectangles-containers{
   display: flex;
   justify-content: space-between;
- }
- .leave-rectangles-container {
+  }
+  .leave-rectangles-container {
     display: flex;
     /* justify-content: space-between; */
     gap: 1.5rem;
@@ -33,7 +34,7 @@
     margin-top: -40px;
     justify-content: space-between;
   }
-
+  
   .rectangle-u {
     width: 200px;
     height: 80px;
@@ -51,7 +52,7 @@
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
-
+  
   .leave-small-square {
     width: 50px;
     height: 50px;
@@ -63,40 +64,40 @@
     align-items: center;
     justify-content: center;
   }
-
+  
   .leave-icon {
     color: rgba(255, 255, 255, 0.7); 
     font-size: 25px; 
   }
-
+  
   .leave-main-box-content{
     font-size: 32px;
     margin-left: 20px;
   }
-
+  
   .leave-sub-box-content{
     font-size: 10px;
     margin-left: 23px;
   }
-
+  
   .leave-sub-box-content-1{
     font-size: 10px;
     margin-left: 24px;
   }
-
+  
   .leave-sub-box-content-2{
     font-size: 10px;
     margin-left: 25px;
   }
   
- /* apply leave */
-
- .leave-additional-rectangle-3{
+  /* apply leave */
+  
+  .leave-additional-rectangle-3{
     width: 100%;
     height: auto;
     border-radius: 10px;
     background-color: var(--Sub-color);
-    box-shadow: 1px 4px 4px 4px  rgba(107, 107, 107, 0.1);
+    box-shadow: 0px 0px 0px 6px  rgba(107, 107, 107, 0.1);
     color: #333;
     font-size: 16px;
     font-weight: bold;
@@ -108,14 +109,14 @@
   }
   .leave-records-text {
     margin-bottom: 10px;
-}
-
-.dropdown-row {
+  }
+  
+  .dropdown-row {
     display: flex;
     gap: 30px;
-}
-
-.custom-dropdown {
+  }
+  
+  .custom-dropdown {
     padding: 5px;
     padding-right: 100px;
     padding-left: 15px;
@@ -125,40 +126,40 @@
     outline: none;
     cursor: pointer;
     color: #D9D9D9;
-}
-
-.leave-custom-table-container {
+  }
+  
+  .leave-custom-table-container {
     margin-top: 10px;
     padding: 5px;
-}
-
-.leave-custom-table {
+  }
+  
+  .leave-custom-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 15px; 
     font-size: 11px;
     border-radius: 20px;
-}
-
-.leave-custom-table th {
+  }
+  
+  .leave-custom-table th {
     background-color: #000F44;
     color: white;
     padding: 10px;
     text-align: left;
     
-}
-.leave-custom-table td {
+  }
+  .leave-custom-table td {
     background-color: white;
     color: #000F44;
     padding: 10px;
     border-radius: 5px;
    
-}
-
-.leave-custom-table tr {
+  }
+  
+  .leave-custom-table tr {
     background-color: white;
-}
-.approved  , .pending , .rejected {
+  }
+  .leave-approved  , .leave-pending , .leave-rejected {
     border: 2px solid #213fa9;
     border-radius: 50px;
     color: #FFAC0A; 
@@ -168,31 +169,31 @@
     align-items: center;
     justify-items: center;
     font-weight: bold;
-}
-
-.approved{
+  }
+  
+  .leave-approved{
     border: 2px solid var(--approved-btn);
     color: var(--approved-btn); 
-}
-
-.pending{
+  }
+  
+  .leave-pending{
     border: 2px solid var(--pending);
     color: var(--pending); 
-}
-
-.rejected{
+  }
+  
+  .leave-rejected{
     border: 2px solid var(--rejected);
     color: var(--rejected); 
-}
+  }
   
- 
- 
- 
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   

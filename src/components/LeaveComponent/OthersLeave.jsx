@@ -4,15 +4,22 @@ import "./OthersLeave.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Checkmark } from "react-checkmark";
 import { FaTimesCircle } from "react-icons/fa";
+import img1 from "../../assets/images/image 1.png"
 
-function OthersLeave() {
+function OthersLeave({setActiveComponent}) {
+  const handleBackLeave = () => {
+    setActiveComponent("Leave");
+  };
+  const handleLeaveHistory = () => {
+    setActiveComponent("LeaveHistory");
+  };
   return (
     <div className="contentbodyall">
       {/* <Header />
       <hr /> */}
       <div className="leave-section">
         <div className="leave-tabs">
-          <button className="tab my-leaves">My Leaves</button>
+          <button className="tab my-leaves" onClick={handleBackLeave}>My Leaves</button>
           <button className="tab others-leaves active">Others Leaves</button>
         </div>
 
@@ -22,8 +29,8 @@ function OthersLeave() {
           <br />
           <div className="leave-request">
             <img
-              src="https://randomuser.me/api/portraits/men/3.jpg"
-              className="profile-pic"
+              src={img1}
+              className="profile-picture"
             />
 
             <div>
@@ -48,8 +55,8 @@ function OthersLeave() {
           </div>
           <div className="leave-request">
             <img
-              src="https://randomuser.me/api/portraits/men/4.jpg"
-              className="profile-pic"
+              src="https://randomuser.me/api/portraits/men/5.jpg"
+              className="profile-picture"
             />
             <div>
               <p>Anne Watson</p>
@@ -222,7 +229,7 @@ function OthersLeave() {
               </div>
               <div className="leave-history-part-4">
                 <div className="leave-div-14">
-                  <div className="leave-div-15" style={{ cursor: "pointer" }}>
+                  <div className="leave-div-15" style={{ cursor: "pointer" }} onClick={handleLeaveHistory}>
                     View Details »
                   </div>
                 </div>
@@ -266,7 +273,7 @@ function OthersLeave() {
               </div>
               <div className="leave-history-part-4">
                 <div className="leave-div-14">
-                  <div className="leave-div-15" style={{ cursor: "pointer" }}>
+                  <div className="leave-div-15" style={{ cursor: "pointer" }} onClick={handleLeaveHistory}>
                     View Details »
                   </div>
                 </div>

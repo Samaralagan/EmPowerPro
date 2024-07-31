@@ -21,6 +21,7 @@ import Complaintsmore from "./components/ComplaintsComponent/Complaintsmore.jsx"
 import NewComplaint from "./components/ComplaintsComponent/NewComplaint.jsx";
 import LeavePage from "./pages/LeavePage.jsx";
 import ReplyComplaint from "./components/ComplaintsComponent/ReplyComplaint.jsx";
+import SupplierPage from "./pages/SupplierPage.jsx";
 import InquriesPage from "./pages/InquriesPage.jsx";
 import CreateUserPage from "./pages/CreateUserPage.jsx";
 import EmployeePage from "./pages/EmployeePage.jsx";
@@ -44,6 +45,7 @@ import AppliedClaimForm from "./components/BeneficiaryComponent/AppliedClaimForm
 import CanceledClaimForm from "./components/BeneficiaryComponent/CanceledClaimForm.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
+import PayrollFSForm from "./components/payrollComponent/PayrollFSForm.jsx";
 import Performance from "./components/DashboardComponent/Performance";
 
 import CreateNewTeam from "./components/employee/CreateTeam.jsx";
@@ -52,6 +54,11 @@ import NewApproval from "./components/employee/NewApproval.jsx";
 
 import Teams from "./components/employee/Teams.jsx";
 import IncomeExpensePage from "./pages/IncomeExpensePage.jsx";
+import ApplyLeavePage from "./components/LeaveComponent/ApplyLeave.jsx";
+import LeaveHistory from "./components/LeaveComponent/LeaveHistory.jsx";
+import LeavePageHR from "./components/LeaveComponent/LeaveHR.jsx";
+import Card1 from "./components/common/Card1.jsx";
+import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
 
 function App() {
   const role = "Employee";
@@ -62,7 +69,7 @@ function App() {
         <Routes>
           {/* <Vacancy_Apply_Form/> */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/Login" element={<Vacancy_Apply_Form />} />
+          <Route path="/Login" element={<LoginPage />} />
 
           <Route path="/" element={<Layout />}>
             <Route path="/Dash Board/Employee" element={<DashboardPage />} />
@@ -135,6 +142,7 @@ function App() {
               element={<Team_Profile />}
             />
             <Route path="/Jobs/HR" element={<JobPage />} />
+            <Route path="/Jobs/HR/card1" element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
 
             <Route
@@ -151,10 +159,17 @@ function App() {
               element={<PayrollPage />}
             />
             <Route
+              path="/Pay Roll/FinanceAndSupport/Form"
+              element={<PayrollFSForm />}
+            />
+            <Route
               path="/Complaints/FinanceAndSupport"
               element={<ComplaintsPage />}
             />
-            <Route path="/Suppliers/FinanceAndSupport" element={<SideBar />} />
+            <Route
+              path="/Suppliers/FinanceAndSupport"
+              element={<SupplierPage />}
+            />
             <Route
               path="/Beneficiary/FinanceAndSupport"
               element={<BeneficiaryPage />}
