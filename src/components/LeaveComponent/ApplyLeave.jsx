@@ -107,7 +107,7 @@ function ApplyLeave({setActiveComponent}) {
               id=""
               className="applyLeave-inputtext"
               placeholder="Enter the reason.."
-              style={{ height: "8rem", width: "55rem", borderColor: "#000f44" }}
+              style={{ height: "8rem", width: "60rem", borderColor: "#000f44" }}
             ></textarea>
           </div>
 
@@ -115,7 +115,7 @@ function ApplyLeave({setActiveComponent}) {
             <button
               type="submit"
               className="gradient-blue-btn"
-              style={{ color: "white", marginRight: "1rem" }}
+              style={{ color: "white", marginRight: "5rem" }}
             >
               APPLY
             </button>

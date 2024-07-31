@@ -99,6 +99,7 @@
 }
 .header-content div img{
   height:6vh;
+  width: 6vh;
   border-radius: 30px;
   margin-right: 10px;
   cursor: pointer;

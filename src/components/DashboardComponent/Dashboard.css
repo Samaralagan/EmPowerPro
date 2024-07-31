@@ -76,7 +76,10 @@
     font-size: 4vh;
     font-weight: 600;
   }
-
+  .dashboard-content-top-box-data-finance{
+    font-size: 2vh;
+    font-weight: 600;
+  }
   .dashboard-content-middle-boxs{
     display: flex;
     justify-content: space-around;

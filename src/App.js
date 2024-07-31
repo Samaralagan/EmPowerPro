@@ -56,7 +56,11 @@ import IncomeExpensePage from "./pages/IncomeExpensePage.jsx";
 import ApplyLeavePage from './components/LeaveComponent/ApplyLeave.jsx';
 import LeaveHistory from './components/LeaveComponent/LeaveHistory.jsx';
 import LeavePageHR from './components/LeaveComponent/LeaveHR.jsx'
-
+import DashboardEmployee from "./components/DashboardComponent/DashboardEmployee.jsx"
+import DashboardAdmin from "./components/DashboardComponent/DashboardAdmin.jsx";
+import DashboardHR from "./components/DashboardComponent/DashboardHR.jsx";
+import DashboardFinance from "./components/DashboardComponent/DashboardFinance.jsx";
+import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
 
 function App() {
   const role = "Employee";
@@ -70,7 +74,7 @@ function App() {
           <Route path="/Login" element={<Vacancy_Apply_Form />} />
 
           <Route path="/" element={<Layout />}>
-            <Route path="/Dash Board/Employee" element={<DashboardPage />} />
+            <Route path="/Dash Board/Employee" element={<DashboardEmployee/>} />
             <Route
               path="/Dash Board/Employee/Performance"
               element={<Performance />}
@@ -118,7 +122,7 @@ function App() {
               element={<Profile />}
             />
 
-            <Route path="/Dash Board/Admin" element={<DashboardPage />} />
+            <Route path="/Dash Board/Admin" element={<DashboardAdmin />} />
             <Route path="/Attendance/Admin" element={<AttendancePage />} />
             <Route path="/Leave/Admin" element={<LeavePage />} />
             <Route path="/Pay Roll/Admin" element={<PayrollPage />} />
@@ -127,7 +131,7 @@ function App() {
             <Route path="/Inquires/Admin" element={<InquriesPage />} />
             <Route path="/Beneficiary/Admin" element={<BeneficiaryPage />} />
 
-            <Route path="/Dash Board/HR" element={<DashboardPage />} />
+            <Route path="/Dash Board/HR" element={<DashboardHR />} />
             <Route path="/Attendance/HR" element={<AttendancePage />} />
             <Route path="/Project/HR" element={<ProjectPage />} />
             <Route path="/Leave/HR" element={<LeavePage />} />
@@ -144,7 +148,7 @@ function App() {
 
             <Route
               path="/Dash Board/FinanceAndSupport"
-              element={<DashboardPage />}
+              element={<DashboardFinance />}
             />
             <Route
               path="/Attendance/FinanceAndSupport"
@@ -170,7 +174,7 @@ function App() {
               element={<IncomeExpensePage />}
             />
 
-            <Route path="/Dash Board/Executive" element={<DashboardPage />} />
+            <Route path="/Dash Board/Executive" element={<DashboardExecutive />} />
             <Route path="/Attendance/Executive" element={<AttendancePage />} />
             <Route path="/Project/Executive" element={<ProjectPage />} />
             <Route path="/Leave/Executive" element={<LeavePage />} />
