@@ -24,7 +24,7 @@ const EmployeeTable = ({
      role = pathname.split('/')[2];
     return role;
   };
-  
+
   const activePageName = getActivePageName();
 
   const  handleviewprofile = () => {
@@ -34,6 +34,9 @@ const EmployeeTable = ({
     }
     if(role === 'Executive'){
       navigate('/Team members/Executive/Profile');
+    }
+    if(role === 'TeamLeader'){
+      navigate('/Team members/TeamLeader/Profile');
     }
     
   };
