@@ -39,8 +39,8 @@
 }
 
 .card1body {
-  width: 25rem;
-  padding: 15px;
+  width:28rem;
+  padding: 20px;
   border: 3px solid var(--Main-color);
   border-radius: 20px;
   display: flex;

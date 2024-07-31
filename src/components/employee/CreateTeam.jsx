@@ -14,8 +14,8 @@ function CreateTeam({ setActiveComponent }) {
   const navigate = useNavigate();
 
   const handleTeams = () => {
-    // navigate('/Teams');
-    setActiveComponent("Teams");
+    navigate('/Team members/Executive');
+    // setActiveComponent("Teams");
   };
 
   const handleAddTeamMember = () => {

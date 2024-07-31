@@ -27,7 +27,7 @@ import EmployeePage from "./pages/EmployeePage.jsx";
 import Employee from "./components/employee/Employee.jsx";
 import Profile from "./components/employee/Profile.jsx";
 import Team_Profile from "./components/employee/Team_Profile.jsx";
-import GenerateReport from "./components/employee/GenerateReport.jsx";
+
 import BeneficiaryMore from "./components/BeneficiaryComponent/BeneficiaryMore.jsx";
 import BeneficiaryPage from "./pages/BeneficiaryPage.jsx";
 import HR_BeneficiaryPage from "./components/BeneficiaryComponent/HR_Beneficiary.jsx";
@@ -51,6 +51,7 @@ import CreateNewTeam from "./components/employee/CreateTeam.jsx";
 import NewApproval from "./components/employee/NewApproval.jsx";
 
 import Teams from "./components/employee/Teams.jsx";
+import GenerateReport from "./components/employee/GenerateReport.jsx";
 import IncomeExpensePage from "./pages/IncomeExpensePage.jsx";
 
 function App() {
@@ -129,13 +130,18 @@ function App() {
             <Route path="/Complaints/HR" element={<ComplaintsPage />} />
             <Route path="/Pay Roll/HR" element={<PayrollPage />} />
             <Route path="/Blog/HR" element={<BlogPage />} />
-            <Route path="/Employees/HR" element={<HR_EmployeePage />} />
+            <Route path="/Employees/HR" element={<EmployeePage />} />
+            <Route path="/Employees/HR/Teams" element={<Teams/>} />
+            <Route path="/Employees/HR/GenerateReport" element={<GenerateReport/>} />
+            <Route path="/Employees/HR/CreateNewTeam" element={<CreateNewTeam/>} />
             <Route
               path="/Employees/HR/Team_Profile"
               element={<Team_Profile />}
             />
             <Route path="/Jobs/HR" element={<JobPage />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
+            <Route path="/Employees/HR/Profile" element={< Profile/>} />
+
 
             <Route
               path="/Dash Board/FinanceAndSupport"
@@ -176,8 +182,21 @@ function App() {
             />
             <Route
               path="/Team members/Executive"
-              element={<EX_EmployeePage />}
+              element={<EmployeePage />}
             />
+
+
+
+                 <Route path="/Team members/Executive/Teams" element={<Teams/>} />
+                 <Route path="/Team members/Executive/GenerateReport" element={<GenerateReport/>} />
+
+                 <Route path="/Team members/Executive/NewApproval" element={<NewApproval/>} />
+
+                 <Route path="/Team members/Executive/CreateNewTeam" element={<CreateNewTeam/>} />
+
+                 <Route path="/Team members/Executive/Profile" element={< Profile/>} />
+
+                 <Route path="/Team members/Executive/Team_Profile" element={< Team_Profile/>} />
 
             {/* <Route path="/Generate-Report" element={<GenerateReport />} />
            

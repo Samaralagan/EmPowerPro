@@ -9,15 +9,32 @@ import Teams from "../components/employee/Teams";
 import NewApproval from "../components/employee/NewApproval";
 import Team_Profile from "../components/employee/Team_Profile";
 import CreateTeam from "../components/employee/CreateTeam";
+import { useLocation} from 'react-router-dom';
+
+import HR_Employee from '../components/employee/HR_Employee'
 
 const EX_EmployeePage = () => {
+  const location = useLocation(); 
   const [activeComponent, setActiveComponent] = useState("EX_Employees");
+  var role = ''
+ 
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+     role = pathname.split('/')[2];
+    return role;
+  };
+  
+
+  const activePageName = getActivePageName();
   return (
     <div>
-      <SideBar />
+      
 
-      {activeComponent === "EX_Employees" && (
+      {activeComponent === "EX_Employees" && role === "Executive" &&(
         <EX_Employees setActiveComponent={setActiveComponent} />
+      )}
+       {activeComponent === "EX_Employees" &&  role === "HR" && (
+        <HR_Employee setActiveComponent={setActiveComponent} />
       )}
       {activeComponent === "GenerateReport" && (
         <GenerateReport setActiveComponent={setActiveComponent} />

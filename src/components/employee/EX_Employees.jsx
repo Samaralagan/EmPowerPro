@@ -16,7 +16,7 @@ const EX_Employees = ({ setActiveComponent }) => {
   const navigate = useNavigate();
 
   const handleGenerateReport = () => {
-    navigate("/GenerateReport");
+    navigate("/Team members/Executive/GenerateReport");
   };
 
   // const handleTeams = () => {
@@ -24,11 +24,11 @@ const EX_Employees = ({ setActiveComponent }) => {
   // };
 
   const handleviewresume = () => {
-    setActiveComponent("NewApproval");
+    navigate("/Team members/Executive/NewApproval");
   };
 
   const handleTeams = () => {
-    setActiveComponent("Teams");
+    navigate("/Team members/Executive/Teams");
   };
 
   return (
@@ -84,7 +84,7 @@ const EX_Employees = ({ setActiveComponent }) => {
                   <td>Android App Developer</td>
                   <td>Part-Time</td>
                   <td>
-                    <button className="new-approval-resume">
+                    <button className="new-approval-resume"   onClick={handleviewresume}>
                       {" "}
                       View Resume{" "}
                     </button>
@@ -98,7 +98,7 @@ const EX_Employees = ({ setActiveComponent }) => {
                   <td>Intern Front-End Developer</td>
                   <td>Internship</td>
                   <td>
-                    <button className="new-approval-resume">
+                    <button className="new-approval-resume"   onClick={handleviewresume}>
                       {" "}
                       View Resume{" "}
                     </button>
@@ -112,7 +112,7 @@ const EX_Employees = ({ setActiveComponent }) => {
                   <td>User Experience Designer</td>
                   <td>Part-Time</td>
                   <td>
-                    <button className="new-approval-resume">
+                    <button className="new-approval-resume"   onClick={handleviewresume}>
                       {" "}
                       View Resume{" "}
                     </button>
