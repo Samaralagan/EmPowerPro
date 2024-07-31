@@ -40,6 +40,7 @@ import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
 import Performance from './components/DashboardComponent/Performance'
 import PayrollFSForm from "./components/payrollComponent/PayrollFSForm.jsx";
+import PayrollApproveSalary from "./components/payrollComponent/PayrollApproveSalary.jsx";
 
 function App() {
   const role = "Employee";
@@ -135,7 +136,8 @@ function App() {
             <Route path="/Project/Executive" element={<ProjectPage />} />
             <Route path="/Leave/Executive" element={<SideBar />} />
             <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
-            <Route path="/Pay Roll/Executive" element={<SideBar />} />
+            <Route path="/Pay Roll/Executive" element={<PayrollPage />} />
+            <Route path="/Pay Roll/Executive/ApproveSalary" element={<PayrollApproveSalary />} />
             <Route path="/Beneficiary/Executive" element={<SideBar />} />
             <Route path="/Team members/Executive" element={<SideBar />} />
           </Route>

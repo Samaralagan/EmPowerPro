@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Payroll from '../components/payrollComponent/Payroll';
 import { useLocation } from 'react-router-dom';
 import PayrollFS from '../components/payrollComponent/PayrollFS';
+import PayrollExecutive from '../components/payrollComponent/PayrollExecutive';
 
 const PayrollPage = () => {
   const [activeComponent, setActiveComponent] = useState("Payroll");
@@ -25,7 +26,7 @@ const PayrollPage = () => {
         <PayrollFS setActiveComponent={setActiveComponent} />
       )}
       {activeComponent === "Payroll" && role === 'Executive' && (
-        <Payroll setActiveComponent={setActiveComponent} />
+        <PayrollExecutive setActiveComponent={setActiveComponent} />
       )}
      
     </div>
