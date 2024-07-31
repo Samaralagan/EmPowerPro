@@ -5,7 +5,7 @@ import "./CreateSupplier.css";
 
 function CreateSupplier({ setActiveComponent }) {
   const handlebackSupplierView = () => {
-    setActiveComponent("CreateSupplier");
+    setActiveComponent("SupplierView");
   };
 
   return (
