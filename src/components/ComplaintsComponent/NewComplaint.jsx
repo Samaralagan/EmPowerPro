@@ -20,7 +20,7 @@ function NewComplaint({ setActiveComponent }) {
           className="backarrow"
         />
         {/* </Link> */}
-        <div className="form-body">
+        <div className="tablediv">
           <form action="" style={{ width: "100%" }}>
             <br />
             <div className="divform">

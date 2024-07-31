@@ -8,7 +8,7 @@ import event_3 from "../../assets/images/event-3.jpg";
 
 import { FaPlusCircle } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 
@@ -16,10 +16,10 @@ import { BeneficiaryData } from "../constants/temporary";
 import BeneficiaryCard from "../common/BeneficiaryCard";
 
 function Beneficiary({ setActiveComponent }) {
-  const navigate = useNavigate();
-  const handleMoreBeneficiary = () => {
-    setActiveComponent("BeneficiaryMore");
-  };
+  // const navigate = useNavigate();
+  // const handleMoreBeneficiary = () => {
+  //   setActiveComponent("BeneficiaryMore");
+  // };
 
   // const handleApplyClaim = () => {
   //   navigate("/ApplyClaim-1");
@@ -28,13 +28,52 @@ function Beneficiary({ setActiveComponent }) {
     setActiveComponent("ApplyClaim_1");
   };
 
+  const location = useLocation();
+
+  var role = "";
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+    role = pathname.split("/")[2];
+    return role;
+  };
+
+  const activePageName = getActivePageName();
+
   return (
     <div>
       {/* <Header /> */}
 
       <div className="beneficiary-body">
         <div className="company-events-category">
-          <div className="event-topic">Company Events</div>
+          {/* <div className="event-topic">Company Events</div> */}
+
+          <div className="claim-head">
+            <div className="claim-topic">Company Events</div>
+          </div>
+
+          {role === "Executive" && (
+            <div className="filter-row">
+              <select className="filter-dropdown" defaultValue="">
+                <option value="" disabled>
+                  Filter By
+                </option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+              </select>
+
+              <div className="search-bar">
+                <FaSearch className="search-icon" />
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="search-input"
+                />
+                <button className="search-button">Search</button>
+              </div>
+            </div>
+          )}
+
           <div className="event-cards">
             <div className="event-card">
               <div className="img-part">
@@ -53,14 +92,19 @@ function Beneficiary({ setActiveComponent }) {
                   At Shagri-La, Colombo
                 </div>
 
-                <div className="voting">
-                  <div className="interested">
-                    <FaThumbsUp className="like-icon" /> Interested
+                {role !== "Executive" && (
+                  <div className="voting">
+                    <div className="interested">
+                      <FaThumbsUp className="like-icon" /> Interested
+                    </div>
+                    <div className="not-interested">
+                      <FaThumbsDown className="dislike-icon" /> Not Interested
+                    </div>
                   </div>
-                  <div className="not-interested">
-                    <FaThumbsDown className="dislike-icon" /> Not Interested
-                  </div>
-                </div>
+                )}
+                {role === "Executive" && (
+                  <div className="eventstatus approved">Approved</div>
+                )}
               </div>
             </div>
 
@@ -81,14 +125,19 @@ function Beneficiary({ setActiveComponent }) {
                   At Conference Room
                 </div>
 
-                <div className="voting">
-                  <div className="interested">
-                    <FaThumbsUp className="like-icon" /> Interested
+                {role !== "Executive" && (
+                  <div className="voting">
+                    <div className="interested">
+                      <FaThumbsUp className="like-icon" /> Interested
+                    </div>
+                    <div className="not-interested">
+                      <FaThumbsDown className="dislike-icon" /> Not Interested
+                    </div>
                   </div>
-                  <div className="not-interested">
-                    <FaThumbsDown className="dislike-icon" /> Not Interested
-                  </div>
-                </div>
+                )}
+                {role === "Executive" && (
+                  <div className="eventstatus approved">Approved</div>
+                )}
               </div>
             </div>
 
@@ -108,14 +157,19 @@ function Beneficiary({ setActiveComponent }) {
                   At One-Gall Face Hotel ,Colombo
                 </div>
 
-                <div className="voting">
-                  <div className="interested">
-                    <FaThumbsUp className="like-icon" /> Interested
+                {role !== "Executive" && (
+                  <div className="voting">
+                    <div className="interested">
+                      <FaThumbsUp className="like-icon" /> Interested
+                    </div>
+                    <div className="not-interested">
+                      <FaThumbsDown className="dislike-icon" /> Not Interested
+                    </div>
                   </div>
-                  <div className="not-interested">
-                    <FaThumbsDown className="dislike-icon" /> Not Interested
-                  </div>
-                </div>
+                )}
+                {role === "Executive" && (
+                  <div className="eventstatus pending">Requesting</div>
+                )}
               </div>
             </div>
           </div>

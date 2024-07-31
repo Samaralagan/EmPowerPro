@@ -2,6 +2,7 @@ import React from "react";
 import "./replycomplaintcard.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { FaPlusCircle, FaSearch } from "react-icons/fa";
 
 const ReplyComplaintCard = ({
   name,
@@ -93,7 +94,14 @@ const ReplyComplaintCard = ({
             <p className="complaintmorecard-header-text">
               <textarea name="" id="" className="inputtext"></textarea>
             </p>
+            <div className="contactus-form-button" style={{ width: "97%" }}>
+              <button className="gradient-blue-btn" style={{ color: "white" }}>
+                <FaPlusCircle className="me-2" />
+                Send
+              </button>
+            </div>
           </div>
+
           <div></div>
         </div>
       </div>

@@ -13,25 +13,36 @@ import { useNavigate } from "react-router-dom";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 
-function HR_Beneficiary() {
+function HR_Beneficiary({ setActiveComponent }) {
   const navigate = useNavigate();
 
+  // const handleAppliedClaim = () => {
+  //   navigate("/Applied-claim");
+  // };
+
+  // const handleCanceledClaim = () => {
+  //   navigate("/Canceled-claim");
+  // };
+
+  // const handleApplyClaim = () => {
+  //   navigate("/ApplyClaim-1");
+  // };
+
+  // const handleApplyEvent = () => {
+  //   navigate("/ApplyEvent");
+  // };
   const handleAppliedClaim = () => {
-    navigate("/Applied-claim");
+    setActiveComponent("AppliedClaimForm");
   };
-
   const handleCanceledClaim = () => {
-    navigate("/Canceled-claim");
+    setActiveComponent("CanceledClaimForm");
   };
-
   const handleApplyClaim = () => {
-    navigate("/ApplyClaim-1");
+    setActiveComponent("ApplyClaim_1");
   };
-
   const handleApplyEvent = () => {
-    navigate("/ApplyEvent");
+    setActiveComponent("ApplyEvent");
   };
-
   return (
     <div>
       <SideBar />
