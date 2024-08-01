@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card1 from "../common/Card1";
 
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
 import { IoCallSharp } from "react-icons/io5";
 import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
-
 import Modal from "./Modal"; // Import the Modal component
-import "./job.css";
+import { listVacancies } from "../../service/ApplyJobService";
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [checkedItems, setCheckedItems] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false); // Manage modal visibility
+
+  const [vacancies, setVacancies] = useState([]);
+
+  useEffect(() => {
+    listVacancies()
+      .then((response) => {
+        setVacancies(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const handleAllCheckboxChange = (e) => {
     const isChecked = e.target.checked;
@@ -67,30 +78,44 @@ const Job = ({ setActiveComponent }) => {
           </button>
         </div>
       </div>
-      <div className="cardsContainer">
-        <Card1
+
+      {/* <Card1
           title="User Experience Designer - Fully Remote"
           variety="Creative & Art"
           type="Full Time"
-          DeadLine="09/01/2024"
+          salary="$45 - $55"
           countappilication="500+ applications"
         />
         <Card1
           title="Android App Developer - Hybrid"
           variety="Programming"
           type="Full Time"
-          DeadLine="08/03/2024"
+          salary="$45 - $55"
           countappilication="500+ applications"
         />
         <Card1
           title="Intern Front-End Developer - Fully Remote"
           variety="Creative & Art"
           type="Full Time"
-          DeadLine="08/03/2024"
+          salary="$45 - $55"
           countappilication="500+ applications"
-        />
-        {/* Add more Card1 components as needed */}
+        /> */}
+      {/* Add more Card1 components as needed */}
+      <div className="cardsContainer">
+        {vacancies.map((vacancy, index) => (
+          <Card1
+            key={index}
+            title={vacancy.jobTitle}
+            variety={vacancy.jobDescription} // Assuming variety is a field in your vacancy object
+            type={vacancy.employmentType}
+            deadLine={new Date(
+              vacancy.applicationDeadline
+            ).toLocaleDateString()} // Assuming salary is a field in your vacancy object
+            countappilication="5000+ Applications" // Assuming countApplication is a field in your vacancy object
+          />
+        ))}
       </div>
+
       <br />
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div className="jobsTitle">JOB APPLICATIONS</div>
@@ -179,10 +204,10 @@ const Job = ({ setActiveComponent }) => {
                 />
                 All
               </th>
-              <th scope="col">Applicant</th>
+              <th scope="col">Team Member</th>
               <th scope="col">Email</th>
-              <th scope="col">Job</th>
-              <th scope="col">Type</th>
+              <th scope="col">Job role</th>
+              <th scope="col">Status</th>
               <th scope="col"></th>
             </tr>
           </thead>

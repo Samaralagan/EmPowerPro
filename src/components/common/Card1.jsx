@@ -31,7 +31,7 @@ function Card1(props, { setActiveComponent }) {
     <div className="card1body">
       {/* {props.test1} */}
       <div style={{ display: "flex" }}>
-        <div className="darkbox">{props.variety}</div>
+        <div className="darkbox">{props.title}</div>
         <div className="card1-toggle" style={{ marginLeft: "11vw" }}>
           <HiDotsVertical onClick={handleopentoggle} />
           <div
@@ -44,7 +44,7 @@ function Card1(props, { setActiveComponent }) {
         </div>
       </div>
       <div className="p1" style={{ marginBottom: "0.3rem" }}>
-        {props.title}
+        {props.variety}
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div style={{ display: "flex", flexDirection: "column", width: "50%" }}>
@@ -54,7 +54,7 @@ function Card1(props, { setActiveComponent }) {
           </div>
           <div className="divcard1">
             <FaHourglassEnd className="card1icon" />{" "}
-            <div className="p2">{props.DeadLine}</div>
+            <div className="p2">{props.deadLine}</div>
           </div>
         </div>
         <div
