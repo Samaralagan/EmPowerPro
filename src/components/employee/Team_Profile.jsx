@@ -38,6 +38,7 @@ function Team_Profile({ setActiveComponent }) {
     
   };
 
+
   const teamMembers = [
     { name: "Olivia Rajan", image: profile1, role: "Team Lead" },
     { name: "Can Samuel", image: profile3, role: "" },
@@ -50,24 +51,7 @@ function Team_Profile({ setActiveComponent }) {
       <SideBar />
       <Header />
       <div className="team-profile-body">
-        {/* {ProfileData.map((Card, index) => (
-        <ProfileCard
-          key={index}
-          image={Card.image}
-          email={Card.email}
-          team={Card.team}
-          dob={Card.dob}
-          age={Card.age}
-          linkedin={Card.linkedin}
-          summary={Card.summary}
-          skill1={Card.skill1}
-          skill2={Card.skill2}
-          name={Card.name}
-          address={Card.address}
-          phone={Card.phone}
-          setActiveComponent={setActiveComponent}
-        />
-      ))} */}
+        
 
         <div className="form-arrow-team" onClick={handleReportBack}>
           <FaArrowLeft className="arrow_icon-teamdetail" />

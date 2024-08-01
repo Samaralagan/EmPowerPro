@@ -31,12 +31,18 @@ const Teams = ({ setActiveComponent }) => {
     }
     
   };
-
   const handleNewTeam = () => {
-    // setActiveComponent("CreateTeam");
-    navigate("/Team members/Executive/CreateNewTeam ");
+    // setActiveComponent("EX_Employees");
+    if(role === 'HR'){
+      navigate('/Employees/HR/CreateNewTeam');
+    }
+    if(role === 'Executive'){
+      navigate('/Team members/Executive/CreateNewTeam');
+    }
+    
   };
 
+ 
 
   return (
     <div>
