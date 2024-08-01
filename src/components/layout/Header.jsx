@@ -40,7 +40,9 @@ const Header = () => {
   return (
     <div className="header-body" onMouseLeave={handleLeaveDropDown}>
       <div className="header-content">
+       <div style={{display:"flex",flexDirection:"column" , textAlign:"center"}}> 
         <h2>Hi , Raguram</h2>
+       <span style={{fontSize: '2.3vh' ,  color:' var(--Light)'}}>  Employee </span></div>
         <div className="header-profile" >
           <img src={img} alt="" className="profile-pic" onMouseEnter={handleEnterDropDown} />
           <FaBell className="notify-icon" onMouseEnter={handleEnterNotification} />

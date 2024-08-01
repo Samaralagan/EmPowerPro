@@ -8,11 +8,11 @@ import { FaRegCalendarTimes } from "react-icons/fa";
 import LeaveChart from "./LeaveChart";
 // import { Link } from "react-router-dom";
 
-const Leave= ({ setActiveComponent }) => {
+const Leave = ({ setActiveComponent }) => {
   const handleApplyLeave = () => {
     setActiveComponent("ApplyLeave");
   };
-  
+
   return (
     <div className="leavemain-body">
       {/* <Header />
@@ -57,7 +57,7 @@ const Leave= ({ setActiveComponent }) => {
               </div>
             </div>
           </div>
-          
+
           <button
             className="gradient-blue-btn "
             style={{
@@ -71,7 +71,6 @@ const Leave= ({ setActiveComponent }) => {
             <FaPlusCircle className="me-2" />
             Apply Leave
           </button>
-          
         </div>
 
         <div className="leave-additional-rectangle-3">
@@ -80,11 +79,11 @@ const Leave= ({ setActiveComponent }) => {
           <div className="dropdown-row">
             <select className="custom-dropdown" defaultValue="">
               <option value="" disabled>
-                Last 6 Months
+                Last 4 Months
               </option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+              <option value="option1">Last 4 Months</option>
+              <option value="option2">Last 8 Months</option>
+              <option value="option3">last 12 Months</option>
             </select>
             <select
               className="custom-dropdown"
@@ -116,49 +115,50 @@ const Leave= ({ setActiveComponent }) => {
               <tbody>
                 <tr>
                   <td>01</td>
-                  <td>Casual</td>
+                  <td>Medical</td>
                   <td>20 JUNE 2024</td>
                   <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
+                  <td>Emergency hospital visit</td>
                   <td>
                     <button className="leave-approved"> Approved</button>
                   </td>
                 </tr>
                 <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
+                  <td>02</td>
+                  <td>Vacation</td>
+                  <td>10 JULY 2024</td>
+                  <td>15 JULY 2024</td>
+                  <td>Family vacation</td>
                   <td>
                     <button className="leave-pending"> Pending</button>
                   </td>
                 </tr>
                 <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
+                  <td>03</td>
+                  <td>Personal</td>
+                  <td>05 AUGUST 2024</td>
+                  <td>07 AUGUST 2024</td>
+                  <td>Personal reasons</td>
                   <td>
                     <button className="leave-rejected">Rejected</button>
                   </td>
                 </tr>
                 <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
+                  <td>04</td>
+                  <td>Maternity</td>
+                  <td>01 SEPTEMBER 2024</td>
+                  <td>30 NOVEMBER 2024</td>
+                  <td>Maternity leave</td>
                   <td>
                     <button className="leave-approved"> Approved</button>
                   </td>
                 </tr>
-                <td>01</td>
-                <td>Casual</td>
-                <td>20 JUNE 2024</td>
-                <td>22 JUNE 2024</td>
-                <td>Friend's Wedding Function</td>
+                <td>05</td>
+                <td>Study</td>
+                <td>12 DECEMBER 2024</td>
+                <td>19 DECEMBER 2024</td>
+                <td>Exam preparation</td>
+                
                 <td>
                   <button className="leave-rejected">Rejected</button>
                 </td>
@@ -166,10 +166,9 @@ const Leave= ({ setActiveComponent }) => {
             </table>
           </div>
         </div>
-        
       </div>
     </div>
   );
-}
+};
 
 export default Leave;
