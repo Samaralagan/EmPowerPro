@@ -41,6 +41,7 @@ import JobPage from "./pages/JobPage.jsx";
 import Performance from './components/DashboardComponent/Performance'
 import PayrollFSForm from "./components/payrollComponent/PayrollFSForm.jsx";
 import PayrollApproveSalary from "./components/payrollComponent/PayrollApproveSalary.jsx";
+import Login from "./components/LoginComponent/Login.jsx";
 
 function App() {
   const role = "Employee";
@@ -51,7 +52,8 @@ function App() {
         <Routes>
           {/* <Vacancy_Apply_Form/> */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/Login" element={<Vacancy_Apply_Form/>} />
+          <Route path="/Login" element={<Login/>} />
+          <Route path="/VacancyApplyForm" element={<Vacancy_Apply_Form/>} />
 
           <Route path="/" element={<Layout />}>
             <Route path="/Dash Board/Employee" element={<DashboardPage />} />

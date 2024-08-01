@@ -3,9 +3,9 @@ import './Contactus.css'
 import { CONTACTUS } from '../constants/contents'
 import { SOCIALMEDIA } from '../constants/contents'
 
-const Contactus = () => {
+const Contactus = ({id}) => {
   return (
-    <div className='contactus-body'>
+    <div className='contactus-body' id={id}>
         <div className='d-flex'>
             <div  className='contactus-body-left'>
                 <h2 className='contactus-title'>{CONTACTUS.title}</h2>

@@ -3,6 +3,7 @@ import "./EventVacancyPopup.css";
 import Modal from 'react-modal';
 import { GoDotFill } from "react-icons/go";
 import { FaHtml5, FaLaptopCode, FaReact } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const customStyles = {
   content: {
@@ -28,7 +29,13 @@ const customStyles = {
   },
 };
 
+  
+
 const EventVacancyPopup = ({ modalIsOpen, closeModal }) => {
+  const navigation = useNavigate();
+  const handleApply = ()=>{
+    navigation('/VacancyApplyForm')
+  }
   return (
     <div className="vacancy-popup-body">
         <Modal
@@ -75,7 +82,7 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal }) => {
             </div>
             
             <div className='vacancy-popup-applybtn mt-3'>
-                <button>Apply Now</button>
+                <button onClick={handleApply}>Apply Now</button>
             </div>
             
            </div>
