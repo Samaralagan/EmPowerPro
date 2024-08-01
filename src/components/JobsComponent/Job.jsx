@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Card1 from "../common/Card1";
-import { FaPlusCircle } from "react-icons/fa";
+
+import { FaPlusCircle, FaSearch } from "react-icons/fa";
 import { IoCallSharp } from "react-icons/io5";
 import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
 
 import Modal from "./Modal"; // Import the Modal component
-import './job.css'
+import "./job.css";
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
@@ -93,13 +94,63 @@ const Job = ({ setActiveComponent }) => {
       <br />
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div className="jobsTitle">JOB APPLICATIONS</div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <div
+          style={{
+            display: "flex",
+            // marginLeft: "33.5rem",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <FaSearch className="search-icon" />
+          <input
+            className="border-inbox"
+            type="text"
+            placeholder="Search..."
+            style={{
+              paddingLeft: "29px",
+              paddingRight: "8px",
+              paddingBottom: "8px",
+              paddingTop: "8px",
+              fontSize: "16px",
+            }}
+          />
+          <button
+            style={{
+              padding: "9.8px",
+              fontSize: "16px",
+              background: "var(--Main-color)",
+              color: "white",
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <select
+          className="form-select"
+          aria-label="Default select example"
+          style={{
+            width: "345px",
+            height: "5.5vh",
+            border: "2px solid black",
+            marginLeft: "3vw",
+          }}
+        >
+          <option defaultValue>Filter By</option>
+          <option value="1"> Full Time</option>
+          <option value="2">Internship</option>
+          <option value="3">Part Time</option>
+          <option value="4">On Demand</option>
+        </select>
         <div
           className="contactus-form-button"
           style={{
             width: "33%",
             marginTop: "0%",
             marginBottom: "1rem",
-            marginLeft: "34rem",
+            // marginLeft: "34rem",
             marginRight: "0rem",
           }}
         >
@@ -128,10 +179,10 @@ const Job = ({ setActiveComponent }) => {
                 />
                 All
               </th>
-              <th scope="col">Team Member</th>
-              <th scope="col">Status</th>
+              <th scope="col">Applicant</th>
               <th scope="col">Email</th>
-              <th scope="col">Teams</th>
+              <th scope="col">Job</th>
+              <th scope="col">Type</th>
               <th scope="col"></th>
             </tr>
           </thead>

@@ -38,7 +38,7 @@ const EX_Employees = ({ setActiveComponent }) => {
 
       <div className="employee-body">
         <div className="new-approval-section">
-          <div className="employee-section-topic">NEW APPROVALS</div>
+          <div className="employee-section-topic">NEW APPLICANT</div>
 
           <div className="new-approval-search-bar-team">
             <FaSearch className="search-icon-team" />
@@ -84,7 +84,10 @@ const EX_Employees = ({ setActiveComponent }) => {
                   <td>Android App Developer</td>
                   <td>Part-Time</td>
                   <td>
-                    <button className="new-approval-resume"   onClick={handleviewresume}>
+                    <button
+                      className="new-approval-resume"
+                      onClick={handleviewresume}
+                    >
                       {" "}
                       View Resume{" "}
                     </button>
@@ -98,7 +101,10 @@ const EX_Employees = ({ setActiveComponent }) => {
                   <td>Intern Front-End Developer</td>
                   <td>Internship</td>
                   <td>
-                    <button className="new-approval-resume"   onClick={handleviewresume}>
+                    <button
+                      className="new-approval-resume"
+                      onClick={handleviewresume}
+                    >
                       {" "}
                       View Resume{" "}
                     </button>
@@ -112,7 +118,10 @@ const EX_Employees = ({ setActiveComponent }) => {
                   <td>User Experience Designer</td>
                   <td>Part-Time</td>
                   <td>
-                    <button className="new-approval-resume"   onClick={handleviewresume}>
+                    <button
+                      className="new-approval-resume"
+                      onClick={handleviewresume}
+                    >
                       {" "}
                       View Resume{" "}
                     </button>

@@ -46,6 +46,7 @@ import CanceledClaimForm from "./components/BeneficiaryComponent/CanceledClaimFo
 import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
 import PayrollFSForm from "./components/payrollComponent/PayrollFSForm.jsx";
+import PayrollApproveSalary from "./components/payrollComponent/PayrollApproveSalary.jsx";
 import Performance from "./components/DashboardComponent/Performance";
 
 import CreateNewTeam from "./components/employee/CreateTeam.jsx";
@@ -138,9 +139,15 @@ function App() {
             <Route path="/Pay Roll/HR" element={<PayrollPage />} />
             <Route path="/Blog/HR" element={<BlogPage />} />
             <Route path="/Employees/HR" element={<EmployeePage />} />
-            <Route path="/Employees/HR/Teams" element={<Teams/>} />
-            <Route path="/Employees/HR/GenerateReport" element={<GenerateReport/>} />
-            <Route path="/Employees/HR/CreateNewTeam" element={<CreateNewTeam/>} />
+            <Route path="/Employees/HR/Teams" element={<Teams />} />
+            <Route
+              path="/Employees/HR/GenerateReport"
+              element={<GenerateReport />}
+            />
+            <Route
+              path="/Employees/HR/CreateNewTeam"
+              element={<CreateNewTeam />}
+            />
             <Route
               path="/Employees/HR/Team_Profile"
               element={<Team_Profile />}
@@ -148,8 +155,7 @@ function App() {
             <Route path="/Jobs/HR" element={<JobPage />} />
             <Route path="/Jobs/HR/card1" element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
-            <Route path="/Employees/HR/Profile" element={< Profile/>} />
-
+            <Route path="/Employees/HR/Profile" element={<Profile />} />
 
             <Route
               path="/Dash Board/FinanceAndSupport"
@@ -192,26 +198,40 @@ function App() {
             <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
             <Route path="/Pay Roll/Executive" element={<PayrollPage />} />
             <Route
+              path="/Pay Roll/Executive/ApproveSalary"
+              element={<PayrollApproveSalary />}
+            />
+            <Route
               path="/Beneficiary/Executive"
               element={<BeneficiaryPage />}
             />
+            <Route path="/Team members/Executive" element={<EmployeePage />} />
+
+            <Route path="/Team members/Executive/Teams" element={<Teams />} />
             <Route
-              path="/Team members/Executive"
-              element={<EmployeePage />}
+              path="/Team members/Executive/GenerateReport"
+              element={<GenerateReport />}
             />
 
+            <Route
+              path="/Team members/Executive/NewApproval"
+              element={<NewApproval />}
+            />
 
+            <Route
+              path="/Team members/Executive/CreateNewTeam"
+              element={<CreateNewTeam />}
+            />
 
-                 <Route path="/Team members/Executive/Teams" element={<Teams/>} />
-                 <Route path="/Team members/Executive/GenerateReport" element={<GenerateReport/>} />
+            <Route
+              path="/Team members/Executive/Profile"
+              element={<Profile />}
+            />
 
-                 <Route path="/Team members/Executive/NewApproval" element={<NewApproval/>} />
-
-                 <Route path="/Team members/Executive/CreateNewTeam" element={<CreateNewTeam/>} />
-
-                 <Route path="/Team members/Executive/Profile" element={< Profile/>} />
-
-                 <Route path="/Team members/Executive/Team_Profile" element={< Team_Profile/>} />
+            <Route
+              path="/Team members/Executive/Team_Profile"
+              element={<Team_Profile />}
+            />
 
             {/* <Route path="/Generate-Report" element={<GenerateReport />} />
            
