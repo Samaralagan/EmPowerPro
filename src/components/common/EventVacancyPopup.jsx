@@ -3,7 +3,7 @@ import "./EventVacancyPopup.css";
 import Modal from "react-modal";
 import { GoDotFill } from "react-icons/go";
 import { FaHtml5, FaLaptopCode, FaReact } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const customStyles = {
   content: {
@@ -31,6 +31,10 @@ const customStyles = {
 const EventVacancyPopup = ({ modalIsOpen, closeModal }) => {
   const location = useLocation();
   var mainPath = "";
+  const navigation = useNavigate();
+  const handleApply = () => {
+    navigation("/VacancyApplyForm");
+  };
 
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
@@ -102,7 +106,7 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal }) => {
               </div>
               {activePageName !== "Jobs" && (
                 <div className="vacancy-popup-applybtn mt-3">
-                  <button>Apply Now</button>
+                  <button onClick={handleApply}>Apply Now</button>
                 </div>
               )}
             </div>

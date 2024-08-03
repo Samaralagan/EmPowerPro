@@ -77,6 +77,7 @@ function App() {
           {/* <Vacancy_Apply_Form/> */}
           <Route path="/" element={<HomePage />} />
           <Route path="/Login" element={<LoginPage />} />
+          <Route path="/VacancyApplyForm" element={<Vacancy_Apply_Form />} />
 
           <Route path="/" element={<Layout />}>
             <Route
@@ -102,6 +103,14 @@ function App() {
             <Route path="/Beneficiary/Employee" element={<BeneficiaryPage />} />
 
             <Route path="/Dash Board/TeamLeader" element={<DashboardPage />} />
+            <Route
+              path="/Dash Board/TeamLeader/Performance"
+              element={<Performance />}
+            />
+            <Route
+              path="/Dash Board/TeamLeader/Profile"
+              element={<Profile />}
+            />
             <Route path="/Attendance/TeamLeader" element={<AttendancePage />} />
             <Route path="/Project/TeamLeader" element={<ProjectPage />} />
             <Route path="/Leave/TeamLeader" element={<LeavePage />} />
@@ -131,6 +140,11 @@ function App() {
             />
 
             <Route path="/Dash Board/Admin" element={<DashboardAdmin />} />
+            <Route
+              path="/Dash Board/Admin/Performance"
+              element={<Performance />}
+            />
+            <Route path="/Dash Board/Admin/Profile" element={<Profile />} />
             <Route path="/Attendance/Admin" element={<AttendancePage />} />
             <Route path="/Leave/Admin" element={<LeavePage />} />
             <Route path="/Pay Roll/Admin" element={<PayrollPage />} />
@@ -140,6 +154,11 @@ function App() {
             <Route path="/Beneficiary/Admin" element={<BeneficiaryPage />} />
 
             <Route path="/Dash Board/HR" element={<DashboardHR />} />
+            <Route
+              path="/Dash Board/HR/Performance"
+              element={<Performance />}
+            />
+            <Route path="/Dash Board/HR/Profile" element={<Profile />} />
             <Route path="/Attendance/HR" element={<AttendancePage />} />
             <Route path="/Project/HR" element={<ProjectPage />} />
             <Route path="/Leave/HR" element={<LeavePage />} />
@@ -168,6 +187,14 @@ function App() {
             <Route
               path="/Dash Board/FinanceAndSupport"
               element={<DashboardFinance />}
+            />
+            <Route
+              path="/Dash Board/FinanceAndSupport/Performance"
+              element={<Performance />}
+            />
+            <Route
+              path="/Dash Board/FinanceAndSupport/Profile"
+              element={<Profile />}
             />
             <Route
               path="/Attendance/FinanceAndSupport"
@@ -203,6 +230,11 @@ function App() {
               path="/Dash Board/Executive"
               element={<DashboardExecutive />}
             />
+            <Route path="/Dash Board/Executive/Profile" element={<Profile />} />
+            <Route
+              path="/Dash Board/Executive/Performance"
+              element={<Performance />}
+            />
             <Route path="/Attendance/Executive" element={<AttendancePage />} />
             <Route path="/Project/Executive" element={<ProjectPage />} />
             <Route path="/Leave/Executive" element={<LeavePage />} />
@@ -216,31 +248,28 @@ function App() {
               path="/Beneficiary/Executive"
               element={<BeneficiaryPage />}
             />
-            <Route path="/Team members/Executive" element={<EmployeePage />} />
+            <Route path="/Employee/Executive" element={<EmployeePage />} />
 
-            <Route path="/Team members/Executive/Teams" element={<Teams />} />
+            <Route path="/Employee/Executive/Teams" element={<Teams />} />
             <Route
-              path="/Team members/Executive/GenerateReport"
+              path="/Employee/Executive/GenerateReport"
               element={<GenerateReport />}
             />
 
             <Route
-              path="/Team members/Executive/NewApproval"
+              path="/Employee/Executive/NewApproval"
               element={<NewApproval />}
             />
 
             <Route
-              path="/Team members/Executive/CreateNewTeam"
+              path="/Employee/Executive/CreateNewTeam"
               element={<CreateNewTeam />}
             />
 
-            <Route
-              path="/Team members/Executive/Profile"
-              element={<Profile />}
-            />
+            <Route path="/Employee/Executive/Profile" element={<Profile />} />
 
             <Route
-              path="/Team members/Executive/Team_Profile"
+              path="/Employee/Executive/Team_Profile"
               element={<Team_Profile />}
             />
 

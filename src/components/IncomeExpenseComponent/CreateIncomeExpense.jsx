@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaPlusCircle } from "react-icons/fa";
 import "./createincomeexpense.css";
@@ -26,6 +26,7 @@ function CreateIncomeExpense({ setActiveComponent }) {
     createAccount(account)
       .then((response) => {
         console.log(response.data);
+        setActiveComponent("IncomeExpense");
       })
       .catch((error) => {
         console.error(error);
@@ -57,7 +58,7 @@ function CreateIncomeExpense({ setActiveComponent }) {
               <div className="inexdiv3">
                 <input
                   type="date"
-                   id=""
+                  id=""
                   name="dateOfTransaction"
                   value={dateOfTransaction}
                   onChange={(e) => setDateOfTransaction(e.target.value)}
@@ -71,12 +72,12 @@ function CreateIncomeExpense({ setActiveComponent }) {
                 <label htmlFor="">Category : </label>
               </div>
               <div className="inexdiv3">
-                <select 
-                id="" 
-                className="inputnewvacancy"
-                name="category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                <select
+                  id=""
+                  className="inputnewvacancy"
+                  name="category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="" disabled>
                     Category
@@ -91,13 +92,13 @@ function CreateIncomeExpense({ setActiveComponent }) {
                 <label htmlFor="">Subject : </label>
               </div>
               <div className="inexdiv3">
-                <input 
-                type="text" 
-                className="inputnewvacancy"
-                name="subject"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                 />
+                <input
+                  type="text"
+                  className="inputnewvacancy"
+                  name="subject"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                />
               </div>
             </div>
             <div className="inexdiv1">
@@ -116,7 +117,11 @@ function CreateIncomeExpense({ setActiveComponent }) {
               </div>
             </div>
             <div className="contactus-form-button" style={{ width: "97%" }}>
-              <button className="gradient-blue-btn" onClick={saveAccount} style={{ color: "white" }}>
+              <button
+                className="gradient-blue-btn"
+                onClick={saveAccount}
+                style={{ color: "white" }}
+              >
                 <FaPlusCircle className="me-2" />
                 Create
               </button>

@@ -132,7 +132,7 @@ export const AdminSidebar = [
 export const HRSidebar = [
   { name: "Dash Board", icon: GrAppsRounded },
   { name: "Attendance", icon: FaCalendarCheck },
-  { name: "Project", icon: FaProjectDiagram },
+  // { name: "Project", icon: FaProjectDiagram },
   { name: "Leave", icon: FaHandSpock },
   { name: "Pay Roll", icon: RiMoneyDollarBoxFill },
   { name: "Complaints", icon: MdReportProblem },
@@ -150,7 +150,7 @@ export const ExecutiveSidebar = [
   { name: "Pay Roll", icon: RiMoneyDollarBoxFill },
   { name: "Complaints", icon: MdReportProblem },
   { name: "Beneficiary", icon: FaHandHoldingHeart },
-  { name: "Team members", icon: HiMiniUserGroup },
+  { name: "Employee", icon: HiMiniUserGroup },
 ];
 
 export const EmployeeDashboard = [

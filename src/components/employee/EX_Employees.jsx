@@ -16,7 +16,7 @@ const EX_Employees = ({ setActiveComponent }) => {
   const navigate = useNavigate();
 
   const handleGenerateReport = () => {
-    navigate("/Team members/Executive/GenerateReport");
+    navigate("/Employee/Executive/GenerateReport");
   };
 
   // const handleTeams = () => {
@@ -24,11 +24,11 @@ const EX_Employees = ({ setActiveComponent }) => {
   // };
 
   const handleviewresume = () => {
-    navigate("/Team members/Executive/NewApproval");
+    navigate("/Employee/Executive/NewApproval");
   };
 
   const handleTeams = () => {
-    navigate("/Team members/Executive/Teams");
+    navigate("/Employee/Executive/Teams");
   };
 
   return (

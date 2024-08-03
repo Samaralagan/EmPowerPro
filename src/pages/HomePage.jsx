@@ -9,11 +9,11 @@ import Contactus from '../components/HomeComponent/Contactus'
 const HomePage = () => {
   return (
     <div>
-        <Home/>
-        <Services/>
-        <Events/>
-        <About/>
-        <Contactus/>
+        <Home id="home-section"/>
+        <Services id="services-section"/>
+        <Events id="events-section" />
+        <About id="about-section"/>
+        <Contactus id="contact-section"/>
         <Footer/>
     </div>
   )

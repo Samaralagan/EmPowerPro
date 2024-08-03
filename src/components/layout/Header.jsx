@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { FaBell } from "react-icons/fa";
-import img from "../../assets/images/profile-pro.jpg";
+import img from "../../assets/images/About_img1.jpg";
 import { IoPerson } from "react-icons/io5";
 import { IoMdLogOut } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -46,11 +46,11 @@ const Header = () => {
             textAlign: "center",
           }}
         >
-          <h2>Hi , Raguram</h2>
-          <span style={{ fontSize: "2.3vh", color: " var(--Light)" }}>
+          <h2>{role}</h2>
+          {/* <span style={{ fontSize: "2.3vh", color: " var(--Light)" }}>
             {" "}
-            {role}{" "}
-          </span>
+            {" "}
+          </span> */}
         </div>
         <div className="header-profile">
           <img
