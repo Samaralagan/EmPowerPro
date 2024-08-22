@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   track: {},
 });
 
-function ApplyClaim_1() {
+function ApplyClaim_1({ setActiveComponent }) {
   const classes = useStyles();
   const navigate = useNavigate();
   const steps = ["Claim Info", "Upload Documents", "Banking Info"];
@@ -39,11 +39,16 @@ function ApplyClaim_1() {
   };
 
   const handleNext = () => {
-    navigate("/ApplyClaim-2");
+    setActiveComponent("ApplyClaim_2");
   };
 
   const handleBack = () => {
-    navigate("/Beneficiary/Employee");
+    setActiveComponent("Beneficiary");
+  };
+  const handlemorecomplaint = () => {
+    if (setActiveComponent) {
+      setActiveComponent("Beneficiary");
+    }
   };
 
   return (
@@ -54,7 +59,7 @@ function ApplyClaim_1() {
 
       <div className="applied-claim-body">
         <div className="applied-claim-body-2">
-          <div className="form-arrow" onClick={handleClaimClick}>
+          <div className="form-arrow" onClick={handlemorecomplaint}>
             <FaArrowLeft className="arrow_icon" />
           </div>
 

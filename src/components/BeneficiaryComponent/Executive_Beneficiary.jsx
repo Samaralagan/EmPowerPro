@@ -13,27 +13,26 @@ import { useNavigate } from "react-router-dom";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 
-function Executive_Beneficiary() {
-  const navigate = useNavigate();
+import profile2 from "../../assets/images/profile2.png";
+import profile3 from "../../assets/images/profile3.png";
 
-  const handleAppliedClaim = () => {
-    navigate("/Applied-claim");
-  };
 
+function Executive_Beneficiary({ setActiveComponent }) {
+ 
   const handleCanceledClaim = () => {
-    navigate("/Canceled-claim");
+    setActiveComponent("RequestedClaim");
   };
-
+  const handleAppliedClaim = () => {
+    setActiveComponent("AppliedClaimForm");
+  };
   const handleApplyClaim = () => {
-    navigate("/ApplyClaim-1");
+    setActiveComponent("ApplyClaim_1");
   };
-
   const handleEventCard = () => {
-    navigate("/RequestedEvent");
+    setActiveComponent("RequestedEvent");
   };
-
-  const handlePendingEventCard = () => {
-    navigate("/PendingEvent");
+  const handleEventCard1 = () => {
+    setActiveComponent("PendingEvent");
   };
 
   return (
@@ -111,7 +110,7 @@ function Executive_Beneficiary() {
               </div>
             </div>
 
-            <div className="event-card" onClick={handlePendingEventCard}>
+            <div className="event-card" onClick={handleEventCard1}>
               <div className="img-part">
                 <img alt="event-img" src={event_3} />
               </div>
@@ -137,14 +136,14 @@ function Executive_Beneficiary() {
           <div className="claim-head">
             <div className="claim-topic">Medical Claims</div>
 
-            <div className="apply-claim" onClick={handleApplyClaim}>
+            {/* <div className="apply-claim" onClick={handleApplyClaim}>
               <div className="add-icon-circle">
                 <FaPlusCircle className="add-icon" />
               </div>
               <div className="new-button-content">
                 <div className="new-content">Create New Claim</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="filter-row">
@@ -169,11 +168,21 @@ function Executive_Beneficiary() {
           </div>
 
           <div className="medical-claims">
+
             <div className="medical-claim">
+
               <div className="claim-status-heading">
-                <div className="status pending">Pending</div>
+                <div className="status pending">Requesting</div>
                 <div className="claimed-date">23-03-2024</div>
               </div>
+
+              <div className="claimed-person" >
+              <img src={profile2} alt="Event 1" className="claimed-image" />
+              <div  className="claimed-name">
+                 Can Williams
+              </div>
+               </div>
+
               <div className="reason-topic">Reason</div>
 
               <div className="reason-row">
@@ -189,6 +198,13 @@ function Executive_Beneficiary() {
                 <div className="status approved">Approved</div>
                 <div className="claimed-date">12-04-2024</div>
               </div>
+
+              <div className="claimed-person" >
+              <img src={profile3} alt="Event 1" className="claimed-image" />
+              <div  className="claimed-name">
+              Angello Mathews
+              </div>
+               </div>
 
               <div className="reason-topic">Reason </div>
               <div className="reason-row">

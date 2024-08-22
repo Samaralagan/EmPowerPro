@@ -4,23 +4,27 @@ import Header from "../layout/Header";
 import "./newcomplaint.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { FaUpload } from "react-icons/fa6";
 
 function NewComplaint({ setActiveComponent }) {
-  const handleCreateNewComplaint = () => {
+  const handlebackCreateNewComplaint = () => {
     setActiveComponent("Complaints");
   };
   return (
     <div>
-      <div className="newcomplaint-body">
+      <div className="contentbodyall">
         {/* <Header />
         <hr /> */}
         {/* <Link to={"/Complaints/"}> */}
         <IoMdArrowRoundBack
-          onClick={handleCreateNewComplaint}
+          onClick={handlebackCreateNewComplaint}
           className="backarrow"
         />
         {/* </Link> */}
-        <div className="form-body">
+        <div
+          className="tablediv"
+          style={{ padding: "2% 5% 2% 5%", marginLeft: "3vw" }}
+        >
           <form action="" style={{ width: "100%" }}>
             <br />
             <div className="divform">
@@ -62,11 +66,20 @@ function NewComplaint({ setActiveComponent }) {
             </div>
             <br />
 
-            <div className="divform">
+            {/* <div className="divform">
               <label htmlFor="" className="left-flexbox-newcomplaint">
                 Files to upload :
               </label>
               <input type="file" />
+            </div>
+             */}
+            <div className="upload-box">
+              <FaUpload size={50} className="upload-icon" />
+              <p>
+                Click to browse of drag and drop documents <br />
+                Acceptable file types are PDF, JPG etc.File size less than 10MB
+                each
+              </p>
             </div>
 
             <div className="contactus-form-button">

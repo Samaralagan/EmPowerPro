@@ -1,0 +1,27 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+    --blue-btn:linear-gradient(to right, #86D3EC 0%, #55B7D6 39%, #1E98BE 100%);
+  }
+
+
+
+.jobsTitle{
+
+    font-weight: bold;
+    color: var(--Main-color);
+    font-size: 18px;
+}
+
+.gradient-blue-btn{
+    margin-top: 3%;
+  
+}

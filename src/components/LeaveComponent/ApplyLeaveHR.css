@@ -1,0 +1,129 @@
+/* Colors and styling */
+:root {
+    --Main-color: #000f44;
+    --Sub-color: #ffffff;
+    --available: #f37c98;
+    --approved: #9bf37c;
+    --rejected: #f39f7c;
+    --pending: #ffac0a;
+    --approved-btn: #02c416;
+    --Light: #d9d9d9;
+    --Flex-heading: #ffbb00;
+    --1ST-COLOR: linear-gradient(to right, #000f44 0%, #00186b 72%, #0025aa 100%);
+  }
+  
+  .apply-leave-body {
+    padding: 20px;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 19vw;
+  }
+
+  /* leave hr tabs */
+  .leave-hr-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tab-hr {
+    padding: 10px 20px;
+    border: 2px solid var(--Main-color);
+    background-color: var(--Sub-color);
+    color: var(--Main-color);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 25px;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+  .tab-hr.active,
+  .tab-hr:hover {
+    background-color: var(--Main-color);
+    color: var(--Sub-color);
+  }
+  /* Apply leave-form */
+  .apply-leave-form-body {
+    display: flex;
+    width: 80%;
+    border-radius: 25px;
+    padding: 1.5vw;
+    box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.2), 0px -4px 4px rgba(0, 0, 0, 0.2),
+      0px 4px 4px rgba(0, 0, 0, 0.2), 4px 0px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-top: 4vh;
+    margin-left: 15vh;
+    color: #000f44;
+  }
+  .Apply-leave-form-title {
+    font-size: 3vh;
+    font-weight: 600;
+    color: #000f44;
+    
+  }
+  .apply-leave-form-label{
+      flex-direction: column;
+      align-items:start;
+      width: 18%;
+      color: #000f44;
+    
+  }
+  .divform {
+    /* display: flex; */
+    flex-direction: row;
+    width: 100%;
+  }
+  .divform-date {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  
+  }
+  .start-date,.end-date{
+    width: 65%;
+  
+  }
+  /* .divform label {
+    font-weight: bold;
+  } */
+  .form-select{
+    margin-top: 2vh;
+  }
+  .form-control{
+    margin-top: 2vh;
+    
+   
+  }
+  .inputtext {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    width: 60%;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 10px;
+  }
+  textarea:focus {
+    border-color: #86b7fe;
+    outline: 0;
+  }
+  
+  
+  input[type="file"]::before {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    content: "Choose File";
+    display: inline-block;
+    background: #0056b3;
+    border: 1px solid #cccccc;
+    padding: 0.5em 0.75em;
+    border-radius: 20px;
+    color: white;
+    font-size: 1em;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  

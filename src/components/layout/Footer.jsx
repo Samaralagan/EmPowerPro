@@ -39,7 +39,7 @@ const Footer = () => {
         <Col md={4} className='pt-3'>
             <div className='mt-5 '><b>FEEDBACKS</b></div>
             <div><textarea className='feedback-textbox' placeholder='Enter your feedbacks'></textarea></div>
-            <div><button className='gradient-blue-btn'>SEND</button></div>
+            <div><button className='gradient-blue-btn-footer'>SEND</button></div>
             <div className='copyright'>Copyright@EmpowerPro.lk | all rights reserved</div>
         </Col>
         </Row>

@@ -1,0 +1,106 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+    --2ST-COLOR: linear-gradient(to top, #86D3EC 100%, #55B7D6 100%, #1E98BE 100%);
+  }
+
+  .performance-body{
+    padding: 20px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15rem;
+    margin-top: 3%;
+    padding: 1rem;
+    font-family: 'BreeSerif-Regular',;
+  }
+  .performance-back{
+    margin-top: 3vh;
+    font-size: 3.4vh ;
+  }
+  .performance-top{
+    margin-top: 3vh;
+    display: flex;
+    justify-content:space-between;
+    width: 90%;
+    background-color: var(--Sub-color);
+    margin-left: 5%;
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+    padding: 4vh 8vh;
+    border-radius: 10px;
+  }
+  .performance-top div{
+    font-size: 2.4vh;
+    font-weight: 700;
+    color: var(--Main-color);
+  }
+  .performance-top button{
+    background-color: #00C008;
+    color: var(--Sub-color);
+    padding: 1vh 7vh;
+    border-radius: 10px;
+    font-size: 1.8vh;
+    font-weight: 500;
+  }
+  .performance-content{
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: var(--Sub-color);
+    margin-left: 5%;
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
+    padding: 3vh 8vh;
+    border-radius: 10px;
+  }
+  .performance-content-title{
+    font-size: 2.4vh;
+    font-weight: 700;
+    color: var(--Main-color);
+    margin-bottom: 3vh;
+  }
+  .performance-content-boxs{
+    display: flex;
+    flex-direction: column;
+  }
+  .performance-content-box{
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+  }
+  .performance-content-box img{
+    width: 6vh;
+    height: 6vh;
+    border-radius: 100px;
+    margin-right: 5vh;
+  }
+  .performance-content-box p{
+     margin: 0;
+     font-size: 2vh;
+     font-weight: 600;
+     color: var(--Main-color);
+     width: 20vw;
+  }
+  .performance-content-box span{
+    font-size: 2vh;
+    color: #D9D9D9;
+    font-weight: 600;
+    width: 23.5vw;
+  }
+  .performance-content-box button{
+    background-color:#73E978;
+    color: var(--Sub-color);
+    padding: 1vh 7vh;
+    border-radius: 10px;
+    font-size: 1.8vh;
+    font-weight: 500;
+
+  }

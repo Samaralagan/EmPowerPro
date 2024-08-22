@@ -1,0 +1,125 @@
+:root{
+    --Main-color:#000F44;
+    --Sub-color:#FFFFFF;
+    --available:#F37C98;
+    --approved:#9BF37C;
+    --rejected:#F39F7C;
+    --pending:#FFAC0A;
+    --approved-btn:#02C416;
+    --Light:#D9D9D9;
+    --Flex-heading:#FFBB00;
+    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
+  }
+
+  
+/* Applied claim  */
+.applied-claim-body{
+    /* margin-top: 80px; */
+    padding: 20px;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 18rem;
+    padding: 1rem;
+  }
+  
+  .applied-container{
+    margin-top: 8%;
+  }
+  
+  .applied-claim-body-2{
+    margin-top: 80px; 
+  }
+  .arrow_icon{
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--Main-color); 
+    font-weight: bold;
+  }
+  
+  .claimed-box{
+    width: 92%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    box-shadow: 1px 4px 4px 4px rgba(107, 107, 107, 0.1);
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2%;
+    font-size: 17px;
+    color: var(--Main-color);
+    margin-top: 2%;
+    padding-left: 3%;
+    margin-left: 4%;
+  }
+  
+  .applied-reason{
+    color: var(--Main-color);
+    font-size: 18px;
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+  }
+  
+  .claimed-applied-date{
+    font-size: 12px;
+    color: #b3b3b3;
+    margin-top: 1.5%;
+  }
+  
+  .applied-subtopics{
+    font-size: 13px;
+    color: #b3b3b3;
+    margin-top: 2%;
+    margin-left: 1%;
+  }
+  
+  .applied-content{
+    font-size: 13px;
+    color: var(--Main-color);
+    margin-top: 1.5%;
+    margin-left: 2%;
+  }
+  
+  /* General styles */
+  .applied-claim-body {
+    padding: 2%;
+  
+  }
+  
+
+  
+  .status_pending {
+    width: 15%;
+    border-radius: 40px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 1%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4%;
+    padding-right: 4%;
+    background-color: #f67e7e;
+    color: #bf0000;
+  }
+  
+  .status_approved{
+    width: 15%;
+    border-radius: 40px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 1%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4%;
+    padding-right: 4%;
+    background-color: #9BF37C;
+    color: #02C416;
+  }

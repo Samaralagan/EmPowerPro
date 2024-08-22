@@ -9,7 +9,7 @@ import Event_Vacancy_Popup from '../common/EventVacancyPopup';
 
 
 
-const Events = () => {
+const Events = ({id}) => {
   const Ref = useRef(null);
   const[Cards,setCards]=useState([])
   const [isActivity,setIsActivity]=useState(true)
@@ -63,7 +63,7 @@ const closeModal = () => {
   setModalIsOpen(false);
 };
   return (
-    <div className='about-body' > 
+    <div className='about-body' id={id} > 
       <Container >
       <Row className="pt-5">
         <Col fluid className="title-fade text-center" ref={Ref}>

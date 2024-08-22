@@ -3,7 +3,7 @@ import Header from "../layout/Header";
 import "./ApplyLeave.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-function ApplyLeave() {
+function ApplyLeave({setActiveComponent}) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [error, setError] = useState("");
@@ -25,13 +25,16 @@ function ApplyLeave() {
     }
     return true;
   };
-
+  const handleBackLeave = () => {
+    setActiveComponent("Leave");
+  };
+  
   return (
     <div className="contentbodyall">
       {/* <Header />
       <hr /> */}
 
-      <IoMdArrowRoundBack className="backarrow" />
+      <IoMdArrowRoundBack className="backarrow"  onClick={handleBackLeave }/>
 
       <div className="apply-leave-form-body">
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
@@ -102,8 +105,9 @@ function ApplyLeave() {
             <textarea
               name=""
               id=""
-              className="inputtext"
-              style={{ height: "8rem", width: "55rem", borderColor: "#000f44" }}
+              className="applyLeave-inputtext"
+              placeholder="Enter the reason.."
+              style={{ height: "8rem", width: "60rem", borderColor: "#000f44" }}
             ></textarea>
           </div>
 
@@ -111,7 +115,7 @@ function ApplyLeave() {
             <button
               type="submit"
               className="gradient-blue-btn"
-              style={{ color: "white", marginRight: "1rem" }}
+              style={{ color: "white", marginRight: "5rem" }}
             >
               APPLY
             </button>

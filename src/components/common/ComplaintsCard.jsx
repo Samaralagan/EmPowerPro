@@ -36,33 +36,32 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
             <h5 className={status === "pending" ? "pending_c" : "approved_c"}>
               {status}
             </h5>
-            <br />
+
             <p className="complaintcard-header-gray">Complaint</p>
-            <p className="complaintcard-header-about">
+            <p
+              className="complaintcard-header-about"
+              style={{ marginBottom: "0%" }}
+            >
               <b>{about}</b>
             </p>
           </div>
         </div>
         <div className="complaintcard-header">
           <div className="right-flexbox-complaint">
-            <h5>date</h5>
-            <br />
+            <p className="datetxt" style={{ marginBottom: "2vh" }}>
+              {date}
+            </p>
             <br />
 
-            <p onClick={handlemorecomplaint}>View Details &gt;&gt;&gt; </p>
+            <p onClick={handlemorecomplaint} style={{ margin: "0%" }}>
+              View Details &gt;&gt;&gt;{" "}
+            </p>
           </div>
         </div>
 
         <div></div>
       </div>
     </div>
-
-    // <div>
-    //   <div className={status === "pending" ? "pending" : "approved"}>
-    //     {status}
-    //   </div>
-    //   {/* <div className="pending">{status}</div> */}
-    // </div>
   );
 };
 

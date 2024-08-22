@@ -11,8 +11,26 @@ import {
   DashboardMarkTime,
 } from "../constants/temporary";
 import DashboardCalendar from "./DashboardCalendar";
+import { useLocation, useNavigate } from "react-router-dom";
+import { FaPlusSquare } from "react-icons/fa";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handlePage = (PageName) => {
+    navigate(`/${PageName}`);
+  };
+  var role = "";
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+    role = pathname.split("/")[2];
+    return role;
+  };
+  const activePageName = getActivePageName();
+
+  const markedDates = ["2024-08-07", "2024-08-12", "2024-08-27"];
+
   return (
     <div className="dashboard-body">
       {/* <Header />
@@ -100,13 +118,22 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="dashboard-content-middle-box">
-                <div className="dashboard-Trophy">
+                {/* <div className="dashboard-Trophy">
                   <FaTrophy />
                 </div>
                 <div className="dashboard-content-middle-box-content">
                   <h5>Evaluation Marks</h5>
                   <h2>9/10</h2>
                   <p>You did a great job, keep it up</p>
+                </div> */}
+                <div className="dashboard-content-middle-box-content">
+                  <h5>Last Performance Evaluation</h5>
+                  <h2>Exceptionally Succeed</h2>
+                  <button
+                    onClick={() => handlePage(`Dash Board/${role}/Performance`)}
+                  >
+                    View Last Report
+                  </button>
                 </div>
               </div>
             </div>
@@ -135,9 +162,15 @@ const Dashboard = () => {
               <DashboardCalendar
                 initialMonth={new Date().getMonth()}
                 initialYear={new Date().getFullYear()}
+                markedDates={markedDates}
               />
             </div>
+
             <div className="dashboard-content-right-bottom-events">
+              <button className="dashboard-content-right-bottom-event-add">
+                <FaPlusSquare className="me-1" />
+                SCHEDULE AN EVENT
+              </button>
               {DashboardMarkTime.map((data, index) => (
                 <div
                   className="dashboard-content-right-bottom-event"

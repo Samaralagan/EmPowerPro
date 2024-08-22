@@ -39,7 +39,7 @@ const JobsTable = ({
           className="button1"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          onClick={handleviewprofile}
+          // onClick={handleviewprofile}
         >
           {hover ? <FaArrowAltCircleRight /> : "View Resume"}
         </div>

@@ -13,6 +13,7 @@
   .addblog-popup-body{
     background-color: var(--Sub-color);
     color: var(--Main-color);
+    scrollbar-width: none;
   }
 
   

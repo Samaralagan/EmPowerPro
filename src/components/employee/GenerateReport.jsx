@@ -16,10 +16,11 @@ import {
   LineElement,
 } from "chart.js";
 
-import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import DashboardBarChart from "./DashboardBarChart";
+
+import { useLocation, useNavigate } from "react-router-dom";
 
 // Register the required components
 ChartJS.register(
@@ -35,9 +36,26 @@ ChartJS.register(
 
 function GenerateReport() {
   const navigate = useNavigate();
+  const location = useLocation();
+  var role = "";
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+    role = pathname.split("/")[2];
+    return role;
+  };
+  const activePageName = getActivePageName();
 
   const handleReportBack = () => {
-    navigate("/Team members/TeamLeader");
+    // setActiveComponent("EX_Employees");
+    if (role === "HR") {
+      navigate("/Employees/HR");
+    }
+    if (role === "Executive") {
+      navigate("/Employee/Executive");
+    }
+    if (role === "TeamLeader") {
+      navigate("/Team members/TeamLeader");
+    }
   };
 
   const lineData = {
@@ -89,6 +107,34 @@ function GenerateReport() {
   };
 
   const barOptions = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
+  const barData_2 = {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        label: "Average",
+        data: [50, 60, 70, 80, 90, 100],
+        backgroundColor: "rgba(65, 158, 90, 0.8)",
+        borderColor: "rgba(65, 158, 90, 1)",
+        borderWidth: 1,
+      },
+      {
+        label: "Actual",
+        data: [45, 55, 65, 75, 85, 95],
+        backgroundColor: "rgba(105, 27, 98, 0.7)",
+        borderColor: "rgba(105, 27, 98, 1)",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const barOptions_2 = {
     scales: {
       y: {
         beginAtZero: true,
@@ -160,7 +206,7 @@ function GenerateReport() {
           </div>
 
           <div className="individual-report-box">
-            <DashboardBarChart />
+            <Bar data={barData_2} options={barOptions_2} />
           </div>
         </div>
       </div>

@@ -39,8 +39,8 @@
 }
 
 .card1body {
-  width: 25rem;
-  padding: 15px;
+  width:28rem;
+  padding: 20px;
   border: 3px solid var(--Main-color);
   border-radius: 20px;
   display: flex;
@@ -82,4 +82,31 @@
   width: max-content;
   border: 2px solid var(--Main-color);
   padding: 5px 10px 5px 10px;
+}
+.card1-opentoggle1{
+  display: none;
+}
+.card1-toggle{
+  position: relative;
+}
+.card1-opentoggle{
+   position: absolute;
+   top: 3vh;
+   left: 0;
+  background-color: var(--Sub-color);
+  color: var(--Main-color);
+  padding: 0vh;
+  font-size: 1.9vh;
+  border: solid 1px;
+  border-radius: 12px;
+}
+.card1-opentoggle div{
+  padding: 1vh 2vh;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card1-opentoggle div:hover{
+  background-color: var(--Main-color);
+  color: var(--Sub-color);
+  border-radius: 10px;
 }
