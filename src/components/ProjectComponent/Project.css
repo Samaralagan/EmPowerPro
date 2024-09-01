@@ -29,11 +29,8 @@
     flex-direction: column;
     width: 30%;
     height: 80vh;
-    box-shadow: 
-    -4px 0px 4px rgba(0, 0, 0, 0.2),  
-    0px -4px 4px rgba(0, 0, 0, 0.2), 
-    0px 4px 4px rgba(0, 0, 0, 0.2),   
-    4px 0px 4px rgba(0, 0, 0, 0.2); 
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
     border-radius: 20px;
     padding: 3vh;
   }
@@ -152,11 +149,8 @@
     flex-direction: column;
     width: 30%;
     height: 80vh;
-    box-shadow: 
-    -4px 0px 4px rgba(0, 0, 0, 0.2),  
-    0px -4px 4px rgba(0, 0, 0, 0.2), 
-    0px 4px 4px rgba(0, 0, 0, 0.2),   
-    4px 0px 4px rgba(0, 0, 0, 0.2); 
+    background-color: var(--Sub-color);
+    box-shadow: 1px 2px 4px 4px rgba(107, 107, 107, 0.1);
     border-radius: 20px;
     padding: 3vh;
   }
@@ -189,6 +183,16 @@
     height: 1.2vh;
     margin-right: 1.5vh;
     border-radius: 20px;
+  }
+
+  .project-card-color-box-popup{
+    width: 25vh;
+    height: 5vh;
+    margin-right: 1.5vh;
+    border-radius: 5px;
+    text-align: center;
+    align-content: center;
+    align-self: center;
   }
   .project-card-content{
     display: flex;
@@ -233,6 +237,7 @@
     color: var(--Light);
    
   }
+
   .project-addtask{
     width: 100%;
     border: solid  2px;
@@ -246,3 +251,184 @@
     font-size: 12px;
     font-weight: bold;
   }
+
+  .date-members{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .project-card-members{
+    display: flex;
+    gap: 5px;
+  }
+  .project-card-member{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+
+  .project-card-member-popup{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+  .project-card-member-progress{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background: var(--Main-color);
+    color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    width: 900px;
+    position: relative;
+  }
+  
+  .popup-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+
+  .popup-top{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+
+  }
+
+  .sticky{
+    font-size: 2rem;
+  }
+
+  .description-label {
+    color: gray;
+  }
+
+  .subtasks-button {
+    background-color: #ab0d93;
+    color: var(--Sub-color);
+    padding: 1vh 9vh;
+    border-radius: 10px;
+    font-size: 1.8vh;
+    font-weight: 500;
+  }
+  
+  
+
+
+  .popup-bar-label{
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .nested-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; 
+
+  }
+  
+  .nested-popup-content {
+    background-color: #000F44;
+    color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    width: 500px;
+    position: relative;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .nested-popup-content h4{
+    align-self: center;
+  }
+  
+  
+  .project-card-circle-popup{
+    border: solid white 2px;
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 35%;
+    margin-top: 5%;
+    
+  }
+  .project-card-circle-popup p{
+    margin: 0;
+    font-weight: 600;
+    font-size: 5vh;
+    color: red;
+  }
+  .project-card-circle-popup div{
+    margin-left: 5px;
+    font-size: 2vh;
+    color: var(--Light);
+   
+  }
+
+  
+.subtasks-container {
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+  margin: 10px 0; 
+
+
+}
+
+
+.subtask-item {
+  display: flex;
+  align-items: center; 
+}
+
+/* Checkbox styles */
+.subtask-checkbox {
+  margin-right: 10px;
+}
+
+/* Label styles */
+.subtask-label {
+  font-size: 14px; 
+  color: var(--Sub-color); 
+}
+
+

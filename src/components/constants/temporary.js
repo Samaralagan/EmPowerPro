@@ -389,51 +389,138 @@ export const ProjectToDo = [
   {
     title: "Complete the frontend development ",
     date: "Due Date  : 21st March 2024",
+    image1: profile1,
+    image2: profile2,
+    image3: profile3,
     green: true,
     orange: true,
     blue: true,
+    total: 0,
+    finish: 0,
+    description:"Design and implement the user interface of the application, focusing on creating responsive, user-friendly, and visually appealing layouts.",
+  
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
   },
+
   {
     title: "Four CRUD operations ",
     date: "Due Date  : 21st March 2024",
+    image1: profile5,
+    image2: profile4,
+    image3: profile3,
     orange: true,
     blue: true,
+    total: 0,
+    finish: 0,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"CRUD operations are the four fundamental operations used in software development to interact with databases and manage data."
   },
-  { title: "Action Plan  ", date: "Due Date  : 21st March 2024", blue: true },
+  { title: "Action Plan  ",
+    date: "Due Date  : 21st March 2024", 
+    image1: profile2,
+    image2: profile4,
+    image3: profile1,
+    total: 0,
+    finish: 0,
+    description :"An Action Plan is a strategic document outlining the specific steps, resources, and timelines necessary to achieve a particular goal or project objective. ",
+    blue: true,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ], },
 ];
 
 export const ProjectInProgress = [
   {
     title: "UI Designing ",
     date: "Due Date  : 21st March 2024",
+    image1: profile5,
+    image2: profile4,
+    image3: profile3,
     green: true,
     orange: true,
     blue: true,
     total: 5,
     finish: 3,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"UI Designing is the art and science of creating intuitive and visually appealing interfaces for digital applications and devices. "
   },
   {
     title: "Design the ER Diagram",
     date: "Due Date  : 21st March 2024",
+    image1: profile1,
+    image2: profile2,
+    image3: profile3,
     orange: true,
     total: 5,
     finish: 4,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description : " The diagram should include all relevant entities, attributes, and relationships, as well as specify primary and foreign keys"
   },
   {
     title: "State transition diagrams ",
     date: "Due Date  : 21st March 2024",
+    image1: profile2,
+    image2: profile4,
+    image3: profile1,
     orange: true,
     blue: true,
     total: 7,
     finish: 2,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"A State Transition Diagram is a graphical representation used in software engineering and system design to model the states and transitions of a system or component"
   },
   {
     title: "User Interface Flow diagrams ",
     date: "Due Date  : 21st March 2024",
+    image1: profile5,
+    image2: profile2,
+    image3: profile1,
     green: true,
     orange: true,
     total: 7,
     finish: 2,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :" Represent the different pages or states of the application, such as home pages, dashboards, forms, and detailed views."
   },
 ];
 
@@ -441,21 +528,60 @@ export const ProjectDone = [
   {
     title: "Requirements Analysis ",
     date: "Completed : 15th February 2024",
+    image1: profile5,
+    image2: profile1,
+    image3: profile4,
     green: true,
     orange: true,
     blue: true,
+    total: 5,
+    finish: 5,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"Requirements Analysis is the process of gathering, analyzing, and defining the requirements of a software system to ensure that it meets the intended needs of stakeholders and end-users. "
   },
   {
     title: "Project Presentation ",
     date: "Completed : 15th February 2024",
+    image1: profile4,
+    image2: profile2,
+    image3: profile3,
     orange: true,
     green: true,
+    total: 5,
+    finish: 5,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"Provide a brief overview of the project, including the context or problem it addresses. Mention why the project is important and its goals."
   },
   {
     title: "Proposal Submission ",
     date: "Completed : 15th February 2024",
+    image1: profile5,
+    image2: profile2,
+    image3: profile1,
     blue: true,
     orange: true,
+    total: 5,
+    finish: 5,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes."
   },
 ];
 
