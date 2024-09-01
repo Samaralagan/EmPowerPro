@@ -5,7 +5,9 @@ import { GiCash } from "react-icons/gi";
 import { FaHourglassEnd } from "react-icons/fa6";
 import { HiDotsVertical } from "react-icons/hi";
 import EventVacancyPopup from "./EventVacancyPopup";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+
 
 function Card1(props, { setActiveComponent }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -23,9 +25,16 @@ function Card1(props, { setActiveComponent }) {
   const handleopentoggle = () => {
     setOpentoggle(!openToggle);
   };
-  const EditVacancy = () => {
-    navigate("/Jobs/HR/card1");
-  };
+
+  const handleDelete = async(id)=>{
+    try{
+      await axios.delete(
+        `http://localhost:8080/api/hr/vacancy-delete/${id}`);
+        props.onDelete(id);
+    }catch(error){
+      console.log(error);
+    }  
+  }
 
   return (
     <div className="card1body">
@@ -38,8 +47,9 @@ function Card1(props, { setActiveComponent }) {
             className={openToggle ? "card1-opentoggle" : "card1-opentoggle1"}
             onMouseLeave={handleopentoggle}
           >
-            <div onClick={EditVacancy}>Edit</div>
-            <div>Delete</div>
+            <div><Link   style={{ textDecoration: "none", color: "inherit" }} to={`/Jobs/HR/edit/${props.id}`}>Edit</Link></div>
+            
+            <div onClick={()=> handleDelete(props.id)}>Delete</div>
           </div>
         </div>
       </div>
