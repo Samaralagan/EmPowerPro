@@ -5,7 +5,9 @@ import { GiCash } from "react-icons/gi";
 import { FaHourglassEnd } from "react-icons/fa6";
 import { HiDotsVertical } from "react-icons/hi";
 import EventVacancyPopup from "./EventVacancyPopup";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+
 
 function Card1(props, { setActiveComponent }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -23,16 +25,20 @@ function Card1(props, { setActiveComponent }) {
   const handleopentoggle = () => {
     setOpentoggle(!openToggle);
   };
-  const EditVacancy = () => {
-    navigate("/Jobs/HR/card1");
-  };
+
+  const handleDelete = async(id)=>{
+    try{
+      await axios.delete(
+        `http://localhost:8080/api/hr/vacancy-delete/${id}`);
+        props.onDelete(id);
+    }catch(error){
+      console.log(error);
+    }  
+  }
 
   return (
     <div className="card1body">
       {/* {props.test1} */}
-<<<<<<< HEAD
-      <div className="darkbox">{props.title}</div>
-=======
       <div style={{ display: "flex" }}>
         <div className="darkbox">{props.title}</div>
         <div className="card1-toggle" style={{ marginLeft: "11vw" }}>
@@ -41,12 +47,12 @@ function Card1(props, { setActiveComponent }) {
             className={openToggle ? "card1-opentoggle" : "card1-opentoggle1"}
             onMouseLeave={handleopentoggle}
           >
-            <div onClick={EditVacancy}>Edit</div>
-            <div>Delete</div>
+            <div><Link   style={{ textDecoration: "none", color: "inherit" }} to={`/Jobs/HR/edit/${props.id}`}>Edit</Link></div>
+            
+            <div onClick={()=> handleDelete(props.id)}>Delete</div>
           </div>
         </div>
       </div>
->>>>>>> main
       <div className="p1" style={{ marginBottom: "0.3rem" }}>
         {props.variety}
       </div>
@@ -68,10 +74,6 @@ function Card1(props, { setActiveComponent }) {
             marginLeft: "4rem",
           }}
         >
-<<<<<<< HEAD
-          <div className="divcard2">Read More</div>
-          <div className="p2" style={{ fontSize: "15px" }}>
-=======
           <div className="divcard2" onClick={openModal}>
             Read More
           </div>
@@ -80,7 +82,6 @@ function Card1(props, { setActiveComponent }) {
             closeModal={closeModal}
           />
           <div className="p2" style={{ fontSize: "10px" }}>
->>>>>>> main
             {props.countappilication}
           </div>
         </div>

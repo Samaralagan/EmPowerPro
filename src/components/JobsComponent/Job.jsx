@@ -22,6 +22,10 @@ const Job = ({ setActiveComponent }) => {
             console.log(error);
         })
     },[])
+
+    const handleVacancyDelete = (id) => {
+      setVacancies((prevVacancies) => prevVacancies.filter(vacancy => vacancy.id !== id));
+  };
   
   const handleAllCheckboxChange = (e) => {
     const isChecked = e.target.checked;
@@ -104,6 +108,7 @@ const Job = ({ setActiveComponent }) => {
         {vacancies.map((vacancy, index) => (
           <Card1
             key={index}
+            id={vacancy.id}
             title={vacancy.jobTitle}
             variety={vacancy.jobDescription} // Assuming variety is a field in your vacancy object
             type={vacancy.employmentType}
@@ -111,6 +116,7 @@ const Job = ({ setActiveComponent }) => {
               vacancy.applicationDeadline
             ).toLocaleDateString()} // Assuming salary is a field in your vacancy object
             countappilication="5000+ Applications" // Assuming countApplication is a field in your vacancy object
+            onDelete={handleVacancyDelete}
           />
         ))}
       </div>

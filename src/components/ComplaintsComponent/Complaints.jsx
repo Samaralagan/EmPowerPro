@@ -1,42 +1,8 @@
-<<<<<<< HEAD
-import React,{useState,useEffect} from "react";
-import "./Complaints.css";
-import Header from "../layout/Header";
-=======
 import React, { useState } from "react";
->>>>>>> main
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
 import { ComplaintsData } from "../constants/temporary";
 import ComplaintsCard from "../common/ComplaintsCard";
 import ComplaintsToMe from "./ComplaintsToMe";
-<<<<<<< HEAD
-import ComplaintsPage from "../../pages/ComplaintsPage";
-import axios from "axios";
-
-const Complaints = ({ setActiveComponent }) => {
-  const [complaints, setComplaints] = useState([]);
-  const location = useLocation();
-  const getRoleName = () => {
-    const pathname = decodeURIComponent(location.pathname); // Decode the URL
-    const role = pathname.split("/")[2];
-    return role;
-  };
-  const role = getRoleName();
-
-  // useEffect(() => {
-  //   const fetchComplaints = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:8080/complaints");
-  //       setComplaints(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching complaints data:", error);
-  //     }
-  //   };
-
-  //   fetchComplaints();
-  // }, []);
-
-=======
 import "./Complaints.css";
 
 const Complaints = ({ setActiveComponent }) => {
@@ -45,7 +11,6 @@ const Complaints = ({ setActiveComponent }) => {
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
->>>>>>> main
 
   const handleCreateNewComplaint = () => {
     setActiveComponent("NewComplaint");
