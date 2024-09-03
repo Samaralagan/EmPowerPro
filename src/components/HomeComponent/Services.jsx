@@ -19,6 +19,8 @@ const Services = ({id}) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
+
   return (
     <div className='service-body' id={id}>
       <Container >

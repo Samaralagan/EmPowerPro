@@ -31,7 +31,8 @@ import performationEvaluationImg2 from "../../assets/images/profile2.png";
 import performationEvaluationImg3 from "../../assets/images/profile3.png";
 import performationEvaluationImg4 from "../../assets/images/profile4.png";
 import performationEvaluationImg5 from "../../assets/images/profile5.png";
-import transitions from "@material-ui/core/styles/transitions";
+import { transitions } from '@mui/material/styles';
+
 
 export const EVENT_ACTIVITY_CARD = [
   {

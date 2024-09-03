@@ -5,7 +5,7 @@ import { EmployeeDashboard } from "../constants/contents";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import DashboardBarChart from "./DashboardBarChart";
-import { FaTrophy } from "react-icons/fa";
+import { FaPlusSquare, FaTrophy } from "react-icons/fa";
 import {
   DashboardCelebration,
   DashboardMarkTime,
@@ -27,6 +27,9 @@ const Dashboard = () => {
     return role;
   };
   const activePageName = getActivePageName();
+
+  const markedDates = ["2024-08-07", "2024-08-12", "2024-08-27"];
+
 
   return (
     <div className="dashboard-body">
@@ -152,12 +155,17 @@ const Dashboard = () => {
           </div>
           <div className="dashboard-content-right-bottom">
             <div>
-              <DashboardCalendar
+            <DashboardCalendar
                 initialMonth={new Date().getMonth()}
                 initialYear={new Date().getFullYear()}
+                markedDates={markedDates}
               />
             </div>
             <div className="dashboard-content-right-bottom-events">
+            <button className="dashboard-content-right-bottom-event-add">
+                <FaPlusSquare className="me-1" />
+                SCHEDULE AN EVENT
+              </button>
               {DashboardMarkTime.map((data, index) => (
                 <div
                   className="dashboard-content-right-bottom-event"

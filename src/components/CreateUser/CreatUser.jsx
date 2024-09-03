@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./createuser.css";
-import Header from "../layout/Header";
 import { createEmployee } from "../../service/ApplyJobService";
 import { useNavigate } from "react-router-dom";
 
 function CreatUser() {
-  const [firstName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState(""); 
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -30,7 +29,7 @@ function CreatUser() {
 
     if (!lastName.trim()) {
       errorsCopy.lastName = "last Name is required";
-      formValid = false;
+      formValid = false; 
     }
     if (!email.trim()) {
       errorsCopy.email = "Email is required";
@@ -93,7 +92,8 @@ function CreatUser() {
           navigator("/Dash Board/Admin");
         })
         .catch((error) => {
-          console.error(error);
+          console.error(error); 
+          
         });
     }
   }

@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
-import Header from "../layout/Header";
+import DashboardDateMark from "./DashboardDateMark";
 import { EmployeeDashboard } from "../constants/contents";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import DashboardBarChart from "./DashboardBarChart";
-import { FaTrophy } from "react-icons/fa";
 import {
   DashboardCelebration,
-  DashboardMarkTime,
 } from "../constants/temporary";
 import DashboardCalendar from "./DashboardCalendar";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaPlusSquare } from "react-icons/fa";
+import { getAllcalendarMarker } from "../../service/IncomeExpenseService";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [markData,setMarkData] = useState([])
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  useEffect(() => {
+    getAllMarker()})
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  function getAllMarker(){
+    getAllcalendarMarker().then((response)=>{
+        setMarkData(response.data);
+    }).catch(error => {
+        console.log(error);
+    })
+}
 
   const handlePage = (PageName) => {
     navigate(`/${PageName}`);
@@ -167,18 +185,19 @@ const Dashboard = () => {
             </div>
 
             <div className="dashboard-content-right-bottom-events">
-              <button className="dashboard-content-right-bottom-event-add">
+              <button className="dashboard-content-right-bottom-event-add " onClick={openModal}>
                 <FaPlusSquare className="me-1" />
                 SCHEDULE AN EVENT
               </button>
-              {DashboardMarkTime.map((data, index) => (
+              <DashboardDateMark modalIsOpen={modalIsOpen} closeModal={closeModal} /> 
+              {markData.map((data, index) => (
                 <div
                   className="dashboard-content-right-bottom-event"
                   key={index}
                 >
-                  <p>{data.date}</p>
-                  <p>{data.name}</p>
-                  <p>{data.time}</p>
+                  <p className='mt-1'>{data.eventDate}</p>
+                  <p className='mt-1'>{data.event}</p>
+                  <p className='mt-1'>{data.eventTime}</p>
                 </div>
               ))}
               <div>
