@@ -585,6 +585,87 @@ export const ProjectDone = [
   },
 ];
 
+
+export const SelectProjects = [
+  {
+    title: "Proposal Submission ",
+    date: "Completed : 15th February 2024",
+    image1: profile5,
+    image2: profile2,
+    image3: profile1,
+    blue: true,
+    orange: true,
+    total: 5,
+    finish: 5,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes."
+  },
+  {
+    title: "Requirements Analysis ",
+    date: "Completed : 15th February 2024",
+    image1: profile5,
+    image2: profile1,
+    image3: profile4,
+    green: true,
+    orange: true,
+    blue: true,
+    total: 5,
+    finish: 5,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"Requirements Analysis is the process of gathering, analyzing, and defining the requirements of a software system to ensure that it meets the intended needs of stakeholders and end-users. "
+  },
+  {
+    title: "Project Presentation ",
+    date: "Completed : 15th February 2024",
+    image1: profile4,
+    image2: profile2,
+    image3: profile3,
+    orange: true,
+    green: true,
+    total: 5,
+    finish: 5,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"Provide a brief overview of the project, including the context or problem it addresses. Mention why the project is important and its goals."
+  },
+  {
+    title: "Proposal Submission ",
+    date: "Completed : 15th February 2024",
+    image1: profile5,
+    image2: profile2,
+    image3: profile1,
+    blue: true,
+    orange: true,
+    total: 5,
+    finish: 5,
+    subtasks: [
+      "Set Up Project Structure",
+      "Develop UI Components",
+      "Integrate with APIs",
+      "Implement Routing",
+      "State Management"
+    ],
+    description :"Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes."
+  },
+];
+
 export const DashboardCelebration = [
   {
     img: celebrationImg1,

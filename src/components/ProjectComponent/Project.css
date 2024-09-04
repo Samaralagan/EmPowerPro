@@ -160,7 +160,7 @@
     color: var(--Main-color);
   }
   .project-box-title{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
   }
   .project-box-top-icon{
@@ -174,6 +174,16 @@
     border-radius: 15px;
     margin-top: 2vh;
     cursor: pointer;
+  }
+
+  .select-project-card{
+    background-color: var(--Main-color);
+    padding: 2vh 3vh;
+    border-radius: 15px;
+    margin-top: 2vh;
+    cursor: pointer;
+    width: 450px;
+    
   }
   .project-card-color-boxs{
     display: flex;
@@ -432,3 +442,55 @@
 }
 
 
+.project-choose{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: auto;
+  background-color: var(--Sub-color);
+  box-shadow: 1px 2px 4px 4px rgba(107, 107, 107, 0.1);
+  border-radius: 20px;
+  padding: 3vh;
+  margin-left: 10%;
+  margin-top: 2%;
+  
+}
+
+.project-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr); /* Creates two columns */
+  gap: 20px; /* Adds space between columns */
+}
+
+
+
+
+
+.project-form-button-row{
+  margin-top: 20px;
+  display: flex;
+  gap: 78%;
+  /* margin-left: 60%; */
+
+}
+
+.project-next-button{
+  background-color: #007BFF; 
+  color: white;
+  border: none;
+  padding: 10px 60px;
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+ 
+}
+.project-back-button{
+  text-decoration: none;
+  border: none;
+  background-color: var(--Sub-color);
+  font-size: 13px;
+  font-weight: 600;
+  color: #b3b3b3;
+
+}
