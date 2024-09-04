@@ -13,7 +13,7 @@ function Card1(props, { setActiveComponent }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const navigate = useNavigate();
   //open and clocse popup
-  const openModal = () => {
+  const openModal = (id) => {
     setModalIsOpen(true);
   };
 
@@ -49,7 +49,7 @@ function Card1(props, { setActiveComponent }) {
           >
             <div><Link   style={{ textDecoration: "none", color: "inherit" }} to={`/Jobs/HR/edit/${props.id}`}>Edit</Link></div>
             
-            <div onClick={()=> handleDelete(props.id)}>Delete</div>
+            <div  style={{ background: "red" }} onClick={()=> handleDelete(props.id)}>Delete</div>
           </div>
         </div>
       </div>
@@ -80,6 +80,7 @@ function Card1(props, { setActiveComponent }) {
           <EventVacancyPopup
             modalIsOpen={modalIsOpen}
             closeModal={closeModal}
+            id={props.id}
           />
           <div className="p2" style={{ fontSize: "10px" }}>
             {props.countappilication}
