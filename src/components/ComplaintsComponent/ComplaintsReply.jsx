@@ -18,7 +18,11 @@ const ComplaintsReply = ({
   };
   const role = getRoleName();
   const handlereplycomplaint = () => {
-    setActiveComponent("ReplyComplaint");
+    if (reply_status === "Reply") {
+      setActiveComponent("ReplyComplaint");
+    } else if (reply_status === "Replied") {
+      setActiveComponent("RepliedComplaint");
+    }
   };
 
   return (

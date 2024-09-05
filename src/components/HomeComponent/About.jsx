@@ -3,7 +3,7 @@ import './About.css'
 import { Col, Container, Row } from 'react-bootstrap'
 import { ABOUT } from '../constants/contents'
 
-const About = () => {
+const About = ({id}) => {
   const aboutRef = useRef(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className='about-body' >
+    <div className='about-body' id={id} >
       <Container >
       <Row className="pt-5">
         <Col fluid className="title-fade text-center" ref={aboutRef}>

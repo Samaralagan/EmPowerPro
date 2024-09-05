@@ -4,26 +4,30 @@ import "./employeetable.css";
 import { GoDotFill } from "react-icons/go";
 import { MdDoubleArrow } from "react-icons/md";
 import { FaArrowAltCircleRight } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
-
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const TeamTable = ({ name, status, teamlead, project, setActiveComponent }) => {
+  const [hover, setHover] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
-  const getRoleName = () => {
-    const pathname = decodeURIComponent(location.pathname);
-    const role = pathname.split("/")[2];
+  let role = "";
+
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+    role = pathname.split("/")[2];
     return role;
   };
-  const role = getRoleName();
 
-  const [hover, setHover] = useState(false);
-
-  const navigate = useNavigate();
+  const activePageName = getActivePageName();
 
   const handleTeamDetails = () => {
-    // navigate("/Team_Profile");
-    setActiveComponent("Team_Profile");
+    // setActiveComponent("EX_Employees");
+    if (role === "HR") {
+      navigate("/Employees/HR/Team_Profile");
+    }
+    if (role === "Executive") {
+      navigate("/Employee/Executive/Team_Profile");
+    }
   };
 
   return (

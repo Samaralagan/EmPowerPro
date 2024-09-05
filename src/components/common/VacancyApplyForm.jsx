@@ -3,10 +3,17 @@ import './VacancyApplyForm.css'
 import { Form, FormControl } from 'react-bootstrap'
 import { FaPlus } from 'react-icons/fa'
 import { BsUpload } from "react-icons/bs";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 
 const VacancyApplyForm = () => {
     const[education,setEducation] = useState(false)
     const[experience,setExperience]=useState(false)
+    const navication =useNavigate();
+
+    const handleback = () =>{
+        navication('/')
+    }
     
     const handleClickEducation=()=>{
         setEducation(!education)
@@ -16,6 +23,7 @@ const VacancyApplyForm = () => {
     }
   return (
     <div className='vacancy-apply-form-body'>
+          <div><IoMdArrowRoundBack  className='fs-3' onClick={handleback}/></div>
             <div className='vacancy-apply-form-header'>
                 <h2>Intern Front-End  Developer   -   Fully Remote</h2>
                 <h5>Application</h5>

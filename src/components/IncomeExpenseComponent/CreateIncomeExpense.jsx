@@ -1,12 +1,37 @@
-import React from "react";
+import { React, useState } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaPlusCircle } from "react-icons/fa";
 import "./createincomeexpense.css";
+import { createAccount } from "../../service/IncomeExpenseService";
 
 function CreateIncomeExpense({ setActiveComponent }) {
+  const [subject, setSubject] = useState("");
+  const [amount, setAmount] = useState("");
+  const [dateOfTransaction, setDateOfTransaction] = useState("");
+  const [category, setCategory] = useState("");
+
   const handlebackIncomeExpense = () => {
     setActiveComponent("IncomeExpense");
   };
+
+  function saveAccount(e) {
+    e.preventDefault();
+    const account = {
+      subject,
+      amount,
+      dateOfTransaction,
+      category,
+    };
+    console.log(account);
+    createAccount(account)
+      .then((response) => {
+        console.log(response.data);
+        setActiveComponent("IncomeExpense");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <div>
@@ -33,8 +58,10 @@ function CreateIncomeExpense({ setActiveComponent }) {
               <div className="inexdiv3">
                 <input
                   type="date"
-                  name=""
                   id=""
+                  name="dateOfTransaction"
+                  value={dateOfTransaction}
+                  onChange={(e) => setDateOfTransaction(e.target.value)}
                   className="inputnewvacancy"
                   style={{ width: "100%" }}
                 />
@@ -45,12 +72,18 @@ function CreateIncomeExpense({ setActiveComponent }) {
                 <label htmlFor="">Category : </label>
               </div>
               <div className="inexdiv3">
-                <select name="" id="" className="inputnewvacancy">
+                <select
+                  id=""
+                  className="inputnewvacancy"
+                  name="category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                >
                   <option value="" disabled>
                     Category
                   </option>
-                  <option value="">Expense</option>
-                  <option value="">Income</option>
+                  <option value="Expense">Expense</option>
+                  <option value="Income">Income</option>
                 </select>
               </div>
             </div>
@@ -59,7 +92,13 @@ function CreateIncomeExpense({ setActiveComponent }) {
                 <label htmlFor="">Subject : </label>
               </div>
               <div className="inexdiv3">
-                <input type="text" className="inputnewvacancy" />
+                <input
+                  type="text"
+                  className="inputnewvacancy"
+                  name="subject"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                />
               </div>
             </div>
             <div className="inexdiv1">
@@ -69,14 +108,20 @@ function CreateIncomeExpense({ setActiveComponent }) {
               <div className="inexdiv3">
                 <input
                   type="number"
-                  name=""
                   id=""
                   className="inputnewvacancy"
+                  name="amount"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
                 />
               </div>
             </div>
             <div className="contactus-form-button" style={{ width: "97%" }}>
-              <button className="gradient-blue-btn" style={{ color: "white" }}>
+              <button
+                className="gradient-blue-btn"
+                onClick={saveAccount}
+                style={{ color: "white" }}
+              >
                 <FaPlusCircle className="me-2" />
                 Create
               </button>

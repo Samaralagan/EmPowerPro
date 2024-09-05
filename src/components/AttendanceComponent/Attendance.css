@@ -258,7 +258,7 @@
 }
 
 .additional-rectangle-2 {
-    width: 75%;
+    width: 72%;
     height: 260px;
     border-radius: 10px;
     background-color: var(--Sub-color);
@@ -381,7 +381,7 @@
     color: #FFAC0A; 
     padding: 5px;
     background-color: var(--Sub-color);
-    width: 30%;
+    width: 50%;
     align-items: center;
     justify-items: center;
     font-weight: bold;

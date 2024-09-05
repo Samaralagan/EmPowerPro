@@ -16,9 +16,9 @@ import {
 } from "react-icons/fa";
 
 function NewApproval({ setActiveComponent }) {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleBack = () => {
-    setActiveComponent("EX_Employees");
+    navigate("/Employee/Executive");
   };
 
   return (

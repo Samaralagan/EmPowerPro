@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './DashboardCalendar.css'; // Import CSS for styling
-import { DashboardMarkTime } from '../constants/temporary';
 
-const DashboardCalendar = ({ initialMonth, initialYear }) => {
+const DashboardCalendar = ({ initialMonth, initialYear, markedDates = [] }) => {
   const [month, setMonth] = useState(initialMonth);
   const [year, setYear] = useState(initialYear);
 
@@ -27,6 +26,11 @@ const DashboardCalendar = ({ initialMonth, initialYear }) => {
     }
   };
 
+  const isMarked = (date) => {
+    const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+    return markedDates.includes(formattedDate);
+  };
+
   return (
     <div className="calendar-container">
       <div className="calendar">
@@ -42,7 +46,10 @@ const DashboardCalendar = ({ initialMonth, initialYear }) => {
         </div>
         <div className="dates-container">
           {[...Array(firstDayOfMonth).fill(null), ...Array(daysInMonth).fill().map((_, index) => index + 1)].map((date, index) => (
-            <div key={index} className={`date-box ${date !== null ? 'active' : ''}`}>
+            <div
+              key={index}
+              className={`date-box ${date !== null ? 'active' : ''} ${isMarked(date) ? 'marked' : ''}`}
+            >
               {date !== null ? date : ''}
             </div>
           ))}

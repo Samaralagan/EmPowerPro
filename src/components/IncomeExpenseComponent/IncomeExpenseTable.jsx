@@ -1,6 +1,7 @@
-import React from "react";
+import {React,useState,useEffect} from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import "./incomeexpensetable.css";
+import { listAccounts } from "../../service/IncomeExpenseService";
 
 const IncomeExpenseTable = ({ setActiveComponent }) => {
   const handleCreateTransaction = () => {
@@ -9,6 +10,17 @@ const IncomeExpenseTable = ({ setActiveComponent }) => {
   const handleeditTransaction = () => {
     setActiveComponent("IncomeExpenseEdit");
   };
+
+  const [accounts, setAccounts] = useState([]);
+
+    useEffect(()=>{
+        listAccounts().then((response)=>{
+            setAccounts(response.data);
+        }).catch(error=>{
+            console.log(error);
+        })
+    },[])
+
   return (
     <div>
       <div className="inex-additional-rectangle-3">
@@ -53,90 +65,20 @@ const IncomeExpenseTable = ({ setActiveComponent }) => {
             </thead>
 
             <tbody>
+            {accounts.map((account, index) => (
               <tr>
-                <td>01</td>
-                <td>22 June 2024</td>
-                <td>Operating Expenses</td>
-                <td>Expense</td>
-                <td>$ 50.00</td>
+                <td>{account.id}</td>
+                <td>{account.dateOfTransaction}</td>
+                <td>{account.subject}</td>
+                <td>{account.category}</td>
+                <td>${account.amount}</td>
                 <td onClick={handleeditTransaction}>
                   <div className="button1" style={{ cursor: "pointer" }}>
                     View More
                   </div>
                 </td>
               </tr>
-              <tr>
-                <td>02</td>
-                <td>22 June 2024</td>
-                <td>Miscellaneous Income</td>
-                <td>Income</td>
-                <td>$ 978.00</td>
-                <td onClick={handleeditTransaction}>
-                  <div className="button1" style={{ cursor: "pointer" }}>
-                    View More
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>03</td>
-                <td>22 June 2024</td>
-                <td>Employee-Related Expenses</td>
-                <td>Expense</td>
-                <td>$ 120.00</td>
-                <td onClick={handleeditTransaction}>
-                  <div className="button1" style={{ cursor: "pointer" }}>
-                    View More
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>22 June 2024</td>
-                <td>Financial Expenses</td>
-                <td>Expense</td>
-                <td>$ 78.00</td>
-                <td onClick={handleeditTransaction}>
-                  <div className="button1" style={{ cursor: "pointer" }}>
-                    View More
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>05</td>
-                <td>22 June 2024</td>
-                <td>Operating Income</td>
-                <td>Expense</td>
-                <td>$ 668.00</td>
-                <td onClick={handleeditTransaction}>
-                  <div className="button1" style={{ cursor: "pointer" }}>
-                    View More
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>06</td>
-                <td>22 June 2024</td>
-                <td>Operating Income</td>
-                <td>Expense</td>
-                <td>$ 668.00</td>
-                <td onClick={handleeditTransaction}>
-                  <div className="button1" style={{ cursor: "pointer" }}>
-                    View More
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>07</td>
-                <td>22 June 2024</td>
-                <td>Operating Income</td>
-                <td>Expense</td>
-                <td>$ 668.00</td>
-                <td onClick={handleeditTransaction}>
-                  <div className="button1" style={{ cursor: "pointer" }}>
-                    View More
-                  </div>
-                </td>
-              </tr>
+            ))}
             </tbody>
           </table>
         </div>

@@ -13,30 +13,14 @@ import { useNavigate } from "react-router-dom";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 
+import profile2 from "../../assets/images/profile2.png";
+import profile3 from "../../assets/images/profile3.png";
+
+
 function Executive_Beneficiary({ setActiveComponent }) {
-  // const navigate = useNavigate();
-
-  // const handleAppliedClaim = () => {
-  //   navigate("/Applied-claim");
-  // };
-
-  // const handleCanceledClaim = () => {
-  //   navigate("/Canceled-claim");
-  // };
-
-  // const handleApplyClaim = () => {
-  //   navigate("/ApplyClaim-1");
-  // };
-
-  // const handleEventCard = () => {
-  //   navigate("/RequestedEvent");
-  // };
-
-  // const handlePendingEventCard = () => {
-  //   navigate("/PendingEvent");
-  // };
+ 
   const handleCanceledClaim = () => {
-    setActiveComponent("CanceledClaimForm");
+    setActiveComponent("RequestedClaim");
   };
   const handleAppliedClaim = () => {
     setActiveComponent("AppliedClaimForm");
@@ -152,14 +136,14 @@ function Executive_Beneficiary({ setActiveComponent }) {
           <div className="claim-head">
             <div className="claim-topic">Medical Claims</div>
 
-            <div className="apply-claim" onClick={handleApplyClaim}>
+            {/* <div className="apply-claim" onClick={handleApplyClaim}>
               <div className="add-icon-circle">
                 <FaPlusCircle className="add-icon" />
               </div>
               <div className="new-button-content">
                 <div className="new-content">Create New Claim</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="filter-row">
@@ -184,11 +168,21 @@ function Executive_Beneficiary({ setActiveComponent }) {
           </div>
 
           <div className="medical-claims">
+
             <div className="medical-claim">
+
               <div className="claim-status-heading">
-                <div className="status pending">Pending</div>
+                <div className="status pending">Requesting</div>
                 <div className="claimed-date">23-03-2024</div>
               </div>
+
+              <div className="claimed-person" >
+              <img src={profile2} alt="Event 1" className="claimed-image" />
+              <div  className="claimed-name">
+                 Can Williams
+              </div>
+               </div>
+
               <div className="reason-topic">Reason</div>
 
               <div className="reason-row">
@@ -204,6 +198,13 @@ function Executive_Beneficiary({ setActiveComponent }) {
                 <div className="status approved">Approved</div>
                 <div className="claimed-date">12-04-2024</div>
               </div>
+
+              <div className="claimed-person" >
+              <img src={profile3} alt="Event 1" className="claimed-image" />
+              <div  className="claimed-name">
+              Angello Mathews
+              </div>
+               </div>
 
               <div className="reason-topic">Reason </div>
               <div className="reason-row">

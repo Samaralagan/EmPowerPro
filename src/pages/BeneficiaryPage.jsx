@@ -13,6 +13,7 @@ import PendingEvent from "../components/BeneficiaryComponent/PendingEvent";
 import CanceledClaimForm from "../components/BeneficiaryComponent/CanceledClaimForm";
 import AppliedClaimForm from "../components/BeneficiaryComponent/AppliedClaimForm";
 import ApplyEvent from "../components/BeneficiaryComponent/ApplyEvent";
+import RequestedClaim from '../components/BeneficiaryComponent/RequestedClaim'
 
 const BeneficiaryPage = () => {
   const [activeComponent, setActiveComponent] = useState("Beneficiary");
@@ -67,6 +68,10 @@ const BeneficiaryPage = () => {
       )}
       {activeComponent === "ApplyEvent" && (
         <ApplyEvent setActiveComponent={setActiveComponent} />
+      )}
+
+      {activeComponent === "RequestedClaim" && (
+        <RequestedClaim setActiveComponent={setActiveComponent} />
       )}
     </div>
   );

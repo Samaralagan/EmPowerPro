@@ -21,14 +21,14 @@ import Complaintsmore from "./components/ComplaintsComponent/Complaintsmore.jsx"
 import NewComplaint from "./components/ComplaintsComponent/NewComplaint.jsx";
 import LeavePage from "./pages/LeavePage.jsx";
 import ReplyComplaint from "./components/ComplaintsComponent/ReplyComplaint.jsx";
-import SupplierPage from './pages/SupplierPage.jsx';
+import SupplierPage from "./pages/SupplierPage.jsx";
 import InquriesPage from "./pages/InquriesPage.jsx";
 import CreateUserPage from "./pages/CreateUserPage.jsx";
 import EmployeePage from "./pages/EmployeePage.jsx";
 import Employee from "./components/employee/Employee.jsx";
 import Profile from "./components/employee/Profile.jsx";
 import Team_Profile from "./components/employee/Team_Profile.jsx";
-import GenerateReport from "./components/employee/GenerateReport.jsx";
+
 import BeneficiaryMore from "./components/BeneficiaryComponent/BeneficiaryMore.jsx";
 import BeneficiaryPage from "./pages/BeneficiaryPage.jsx";
 import HR_BeneficiaryPage from "./components/BeneficiaryComponent/HR_Beneficiary.jsx";
@@ -45,6 +45,8 @@ import AppliedClaimForm from "./components/BeneficiaryComponent/AppliedClaimForm
 import CanceledClaimForm from "./components/BeneficiaryComponent/CanceledClaimForm.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import JobPage from "./pages/JobPage.jsx";
+import PayrollFSForm from "./components/payrollComponent/PayrollFSForm.jsx";
+import PayrollApproveSalary from "./components/payrollComponent/PayrollApproveSalary.jsx";
 import Performance from "./components/DashboardComponent/Performance";
 
 import CreateNewTeam from "./components/employee/CreateTeam.jsx";
@@ -52,15 +54,18 @@ import CreateNewTeam from "./components/employee/CreateTeam.jsx";
 import NewApproval from "./components/employee/NewApproval.jsx";
 
 import Teams from "./components/employee/Teams.jsx";
+import GenerateReport from "./components/employee/GenerateReport.jsx";
 import IncomeExpensePage from "./pages/IncomeExpensePage.jsx";
-import ApplyLeavePage from './components/LeaveComponent/ApplyLeave.jsx';
-import LeaveHistory from './components/LeaveComponent/LeaveHistory.jsx';
-import LeavePageHR from './components/LeaveComponent/LeaveHR.jsx'
-import DashboardEmployee from "./components/DashboardComponent/DashboardEmployee.jsx"
+import ApplyLeavePage from "./components/LeaveComponent/ApplyLeave.jsx";
+import LeaveHistory from "./components/LeaveComponent/LeaveHistory.jsx";
+import LeavePageHR from "./components/LeaveComponent/LeaveHR.jsx";
+import Card1 from "./components/common/Card1.jsx";
+import DashboardEmployee from "./components/DashboardComponent/DashboardEmployee.jsx";
 import DashboardAdmin from "./components/DashboardComponent/DashboardAdmin.jsx";
 import DashboardHR from "./components/DashboardComponent/DashboardHR.jsx";
 import DashboardFinance from "./components/DashboardComponent/DashboardFinance.jsx";
 import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
+import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
 
 function App() {
   const role = "Employee";
@@ -71,10 +76,14 @@ function App() {
         <Routes>
           {/* <Vacancy_Apply_Form/> */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/Login" element={<Vacancy_Apply_Form />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/VacancyApplyForm" element={<Vacancy_Apply_Form />} />
 
           <Route path="/" element={<Layout />}>
-            <Route path="/Dash Board/Employee" element={<DashboardEmployee/>} />
+            <Route
+              path="/Dash Board/Employee"
+              element={<DashboardEmployee />}
+            />
             <Route
               path="/Dash Board/Employee/Performance"
               element={<Performance />}
@@ -94,6 +103,14 @@ function App() {
             <Route path="/Beneficiary/Employee" element={<BeneficiaryPage />} />
 
             <Route path="/Dash Board/TeamLeader" element={<DashboardPage />} />
+            <Route
+              path="/Dash Board/TeamLeader/Performance"
+              element={<Performance />}
+            />
+            <Route
+              path="/Dash Board/TeamLeader/Profile"
+              element={<Profile />}
+            />
             <Route path="/Attendance/TeamLeader" element={<AttendancePage />} />
             <Route path="/Project/TeamLeader" element={<ProjectPage />} />
             <Route path="/Leave/TeamLeader" element={<LeavePage />} />
@@ -123,6 +140,11 @@ function App() {
             />
 
             <Route path="/Dash Board/Admin" element={<DashboardAdmin />} />
+            <Route
+              path="/Dash Board/Admin/Performance"
+              element={<Performance />}
+            />
+            <Route path="/Dash Board/Admin/Profile" element={<Profile />} />
             <Route path="/Attendance/Admin" element={<AttendancePage />} />
             <Route path="/Leave/Admin" element={<LeavePage />} />
             <Route path="/Pay Roll/Admin" element={<PayrollPage />} />
@@ -132,23 +154,47 @@ function App() {
             <Route path="/Beneficiary/Admin" element={<BeneficiaryPage />} />
 
             <Route path="/Dash Board/HR" element={<DashboardHR />} />
+            <Route
+              path="/Dash Board/HR/Performance"
+              element={<Performance />}
+            />
+            <Route path="/Dash Board/HR/Profile" element={<Profile />} />
             <Route path="/Attendance/HR" element={<AttendancePage />} />
             <Route path="/Project/HR" element={<ProjectPage />} />
             <Route path="/Leave/HR" element={<LeavePage />} />
             <Route path="/Complaints/HR" element={<ComplaintsPage />} />
             <Route path="/Pay Roll/HR" element={<PayrollPage />} />
             <Route path="/Blog/HR" element={<BlogPage />} />
-            <Route path="/Employees/HR" element={<HR_EmployeePage />} />
+            <Route path="/Employees/HR" element={<EmployeePage />} />
+            <Route path="/Employees/HR/Teams" element={<Teams />} />
+            <Route
+              path="/Employees/HR/GenerateReport"
+              element={<GenerateReport />}
+            />
+            <Route
+              path="/Employees/HR/CreateNewTeam"
+              element={<CreateNewTeam />}
+            />
             <Route
               path="/Employees/HR/Team_Profile"
               element={<Team_Profile />}
             />
             <Route path="/Jobs/HR" element={<JobPage />} />
+            <Route path="/Jobs/HR/card1" element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
+            <Route path="/Employees/HR/Profile" element={<Profile />} />
 
             <Route
               path="/Dash Board/FinanceAndSupport"
               element={<DashboardFinance />}
+            />
+            <Route
+              path="/Dash Board/FinanceAndSupport/Performance"
+              element={<Performance />}
+            />
+            <Route
+              path="/Dash Board/FinanceAndSupport/Profile"
+              element={<Profile />}
             />
             <Route
               path="/Attendance/FinanceAndSupport"
@@ -160,11 +206,17 @@ function App() {
               element={<PayrollPage />}
             />
             <Route
+              path="/Pay Roll/FinanceAndSupport/Form"
+              element={<PayrollFSForm />}
+            />
+            <Route
               path="/Complaints/FinanceAndSupport"
               element={<ComplaintsPage />}
             />
-            <Route path="/Suppliers/FinanceAndSupport"
-             element={<SupplierPage />} />
+            <Route
+              path="/Suppliers/FinanceAndSupport"
+              element={<SupplierPage />}
+            />
             <Route
               path="/Beneficiary/FinanceAndSupport"
               element={<BeneficiaryPage />}
@@ -174,19 +226,51 @@ function App() {
               element={<IncomeExpensePage />}
             />
 
-            <Route path="/Dash Board/Executive" element={<DashboardExecutive />} />
+            <Route
+              path="/Dash Board/Executive"
+              element={<DashboardExecutive />}
+            />
+            <Route path="/Dash Board/Executive/Profile" element={<Profile />} />
+            <Route
+              path="/Dash Board/Executive/Performance"
+              element={<Performance />}
+            />
             <Route path="/Attendance/Executive" element={<AttendancePage />} />
             <Route path="/Project/Executive" element={<ProjectPage />} />
             <Route path="/Leave/Executive" element={<LeavePage />} />
             <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
             <Route path="/Pay Roll/Executive" element={<PayrollPage />} />
             <Route
+              path="/Pay Roll/Executive/ApproveSalary"
+              element={<PayrollApproveSalary />}
+            />
+            <Route
               path="/Beneficiary/Executive"
               element={<BeneficiaryPage />}
             />
+            <Route path="/Employee/Executive" element={<EmployeePage />} />
+
+            <Route path="/Employee/Executive/Teams" element={<Teams />} />
             <Route
-              path="/Team members/Executive"
-              element={<EX_EmployeePage />}
+              path="/Employee/Executive/GenerateReport"
+              element={<GenerateReport />}
+            />
+
+            <Route
+              path="/Employee/Executive/NewApproval"
+              element={<NewApproval />}
+            />
+
+            <Route
+              path="/Employee/Executive/CreateNewTeam"
+              element={<CreateNewTeam />}
+            />
+
+            <Route path="/Employee/Executive/Profile" element={<Profile />} />
+
+            <Route
+              path="/Employee/Executive/Team_Profile"
+              element={<Team_Profile />}
             />
 
             {/* <Route path="/Generate-Report" element={<GenerateReport />} />

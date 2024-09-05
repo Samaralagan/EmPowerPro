@@ -2,11 +2,43 @@ import React from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaPlusCircle } from "react-icons/fa";
 import "./CreateSupplier.css";
+import { createSupplier } from "../../service/SupplyService";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateSupplier({ setActiveComponent }) {
+  const [supplierName, setSupplierName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactPhoneNo, setContactPhoneNo] = useState("");
+  const [supplierDescription, setSupplierDescription] = useState("");
+
   const handlebackSupplierView = () => {
     setActiveComponent("SupplierView");
   };
+
+  function saveSupplier(e) {
+    e.preventDefault();
+    const validateForm = true;
+
+    if (validateForm) {
+      const supplier = {
+        supplierName,
+        contactEmail,
+        contactPhoneNo,
+        supplierDescription,
+      };
+      console.log(supplier);
+      createSupplier(supplier)
+        .then((response) => {
+          console.log(response.data);
+          // setActiveComponent("Job");
+          setActiveComponent("SupplierView");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }
 
   return (
     <div>
@@ -32,7 +64,13 @@ function CreateSupplier({ setActiveComponent }) {
                 <label htmlFor="">Name : </label>
               </div>
               <div className="supplier-inexdiv3">
-                <input type="text" className="inputnewvacancy" />
+                <input
+                  type="text"
+                  name="supplierName"
+                  value={supplierName}
+                  onChange={(e) => setSupplierName(e.target.value)}
+                  className="inputnewvacancy"
+                />
               </div>
             </div>
 
@@ -41,7 +79,13 @@ function CreateSupplier({ setActiveComponent }) {
                 <label htmlFor="">Email Address : </label>
               </div>
               <div className="supplier-inexdiv3">
-                <input type="text" className="inputnewvacancy" />
+                <input
+                  type="text"
+                  className="inputnewvacancy"
+                  name="jobTitle"
+                  value={contactEmail}
+                  onChange={(e) => setContactEmail(e.target.value)}
+                />
               </div>
             </div>
             <div className="supplier-inexdiv1">
@@ -49,7 +93,13 @@ function CreateSupplier({ setActiveComponent }) {
                 <label htmlFor="">Contact No : </label>
               </div>
               <div className="supplier-inexdiv3">
-                <input type="text" className="inputnewvacancy" />
+                <input
+                  type="text"
+                  className="inputnewvacancy"
+                  name="contactPhoneNo"
+                  value={contactPhoneNo}
+                  onChange={(e) => setContactPhoneNo(e.target.value)}
+                />
               </div>
             </div>
             <div className="supplier-inexdiv1">
@@ -57,7 +107,13 @@ function CreateSupplier({ setActiveComponent }) {
                 <label htmlFor="">Description : </label>
               </div>
               <div className="supplier-inexdiv3">
-                <input type="text" className="inputnewvacancy" />
+                <input
+                  type="text"
+                  className="inputnewvacancy"
+                  name="supplierDescription"
+                  value={supplierDescription}
+                  onChange={(e) => setSupplierDescription(e.target.value)}
+                />
               </div>
             </div>
 
@@ -65,7 +121,11 @@ function CreateSupplier({ setActiveComponent }) {
               className="supplier-submit-form-button"
               style={{ width: "77%" }}
             >
-              <button className="gradient-blue-btn" style={{ color: "white" }}>
+              <button
+                className="gradient-blue-btn"
+                style={{ color: "white" }}
+                onClick={saveSupplier}
+              >
                 <FaPlusCircle className="me-2" />
                 Submit
               </button>

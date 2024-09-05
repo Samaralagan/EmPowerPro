@@ -4,18 +4,33 @@ import Header from "../layout/Header";
 import "./CreateTeam.css";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaPlusCircle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+
 import { FaSearch } from "react-icons/fa";
 import SelectEmployees from "./SelectEmployees";
 import { EmployeeTableData } from "../constants/temporary";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function CreateTeam({ setActiveComponent }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+
   const navigate = useNavigate();
+  const location = useLocation();
+  var role = "";
+  const getActivePageName = () => {
+    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+    role = pathname.split("/")[2];
+    return role;
+  };
+  const activePageName = getActivePageName();
 
   const handleTeams = () => {
-    // navigate('/Teams');
-    setActiveComponent("Teams");
+    // setActiveComponent("EX_Employees");
+    if (role === "HR") {
+      navigate("/Employees/HR");
+    }
+    if (role === "Executive") {
+      navigate("/Employee/Executive");
+    }
   };
 
   const handleAddTeamMember = () => {

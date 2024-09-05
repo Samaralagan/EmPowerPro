@@ -6,27 +6,31 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import DashboardBarChart from "./DashboardBarChart";
 import { FaTrophy } from "react-icons/fa";
-import {DashboardCelebration,DashboardMarkTime,} from "../constants/temporary";
+import {
+  DashboardCelebration,
+  DashboardMarkTime,
+} from "../constants/temporary";
 import DashboardCalendar from "./DashboardCalendar";
-import {  useLocation, useNavigate } from "react-router-dom";
-
+import { useLocation, useNavigate } from "react-router-dom";
+import { FaPlusSquare } from "react-icons/fa";
 
 const Dashboard = () => {
-
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
 
   const handlePage = (PageName) => {
     navigate(`/${PageName}`);
   };
-  var role=''
+  var role = "";
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
-     role = pathname.split('/')[2];
+    role = pathname.split("/")[2];
     return role;
-  };const activePageName = getActivePageName();
+  };
+  const activePageName = getActivePageName();
 
-  
+  const markedDates = ["2024-08-07", "2024-08-12", "2024-08-27"];
+
   return (
     <div className="dashboard-body">
       {/* <Header />
@@ -125,7 +129,11 @@ const Dashboard = () => {
                 <div className="dashboard-content-middle-box-content">
                   <h5>Last Performance Evaluation</h5>
                   <h2>Exceptionally Succeed</h2>
-                  <button onClick={() => handlePage(`Dash Board/${role}/Performance`)} >View Last Report</button>
+                  <button
+                    onClick={() => handlePage(`Dash Board/${role}/Performance`)}
+                  >
+                    View Last Report
+                  </button>
                 </div>
               </div>
             </div>
@@ -154,9 +162,15 @@ const Dashboard = () => {
               <DashboardCalendar
                 initialMonth={new Date().getMonth()}
                 initialYear={new Date().getFullYear()}
+                markedDates={markedDates}
               />
             </div>
+
             <div className="dashboard-content-right-bottom-events">
+              <button className="dashboard-content-right-bottom-event-add">
+                <FaPlusSquare className="me-1" />
+                SCHEDULE AN EVENT
+              </button>
               {DashboardMarkTime.map((data, index) => (
                 <div
                   className="dashboard-content-right-bottom-event"
