@@ -3,6 +3,7 @@ import "./Project.css";
 import Header from "../layout/Header";
 import { IoIosMore } from "react-icons/io";
 import { FaCalendarWeek } from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 import {
   ProjectDone,
   ProjectInProgress,
@@ -23,7 +24,7 @@ const Project = () => {
     <div className="">
       {/* <Header /> */}
       <div className="contentbodyall1">
-        <div className="project-boxs">
+        {/* <div className="project-boxs">
           <div className="project-box">
             <div className="project-box-top">
               <p className="project-box-title"> To Do</p>
@@ -167,6 +168,71 @@ const Project = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div> */}
+        <div className="projectcreate">
+          <div className="projectcreate-div1">
+            <FaPlusCircle
+              style={{ width: "51px", height: "46px", color: "white" }}
+            />
+            <h5>CREATE NEW PROJECT</h5>
+          </div>
+          <div className="projectcreate-div1" style={{ gap: "19vw" }}>
+            <div>
+              <input
+                className="inputs1"
+                type="text"
+                style={{ width: "30vw" }}
+                placeholder="Enter Project Name"
+              />
+            </div>
+            <div style={{ display: "flex", gap: "1vw" }}>
+              <div>
+                <input
+                  className="inputs1"
+                  type="date"
+                  name=""
+                  id=""
+                  placeholder="Start Date"
+                />
+              </div>
+              <div>
+                <input
+                  className="inputs1"
+                  type="date"
+                  name=""
+                  id=""
+                  placeholder="End Date"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="projectcreate-div1">
+            <input
+              type="text"
+              className="inputs1"
+              style={{ height: "11vh", width: "97%" }}
+              placeholder="Project Description"
+            />
+          </div>
+          <div
+            style={{ display: "flex", flexDirection: "row", columnGap: "39vw" }}
+          >
+            <div className="projectcreate-div1">
+              <input
+                type="text"
+                className="inputs1"
+                placeholder="Project Description"
+              />
+            </div>
+            <div className="create-team-apply-claim">
+              <div className="create-team-add-icon-circle">
+                <FaPlusCircle className="create-team-add-icon" />
+              </div>
+              <div className="create-team-new-button-content">
+                <div className="create-team-new-content">Add Team Member</div>
+              </div>
             </div>
           </div>
         </div>
