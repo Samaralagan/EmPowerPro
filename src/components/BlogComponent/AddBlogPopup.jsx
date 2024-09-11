@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import { MultiSelect } from 'primereact/multiselect';
 import "./AddBlogPopup.css";
 import Modal from "react-modal";
 import TextEditor from "../common/TextEditor";
 import Quill from "quill";
-// import 'quill/dist/quill.snow.css';
 const Delta = Quill.import("delta");
 
 const customStyles = {
@@ -34,10 +34,19 @@ const AddBlogPopup = ({ modalIsOpen, closeModal }) => {
   const [range, setRange] = useState();
   const [lastChange, setLastChange] = useState();
   const [readOnly, setReadOnly] = useState(false);
-
-  // Use a ref to access the quill instance directly
   const quillRef = useRef();
 
+    const [selectedCities, setSelectedCities] = useState([]);
+  const [cities, setCities] = useState([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Paris', code: 'PRS' }
+  ]);
+  
+
+
+  
   return (
     <div className="addblog-popup-body">
       <Modal
@@ -58,25 +67,27 @@ const AddBlogPopup = ({ modalIsOpen, closeModal }) => {
             type="text"
             className="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
+            placeholder="Enter the Title"
           />
         </div>
         <div>
           <label htmlFor="exampleFormControlInput1" className="form-label">
             Search Name
           </label>
-          <input
+          {/* <input
             type="text"
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
-          />
+          /> */}
+         <MultiSelect value={selectedCities} onChange={(e) => setSelectedCities(e.value)} options={cities} optionLabel="name" 
+           placeholder="Select Cities" maxSelectedLabels={3} className="w-full md:w-20rem" />
         </div>
         <div className="mb-3 mt-4">
           <label htmlFor="quillEditor" className="form-label">
             Blog Content
           </label>
-          {/* <div ref={quillRef} id="quillEditor" style={{ height: '200px', backgroundColor: 'white' }}></div> */}
+         
           <TextEditor
             ref={quillRef}
             readOnly={readOnly}

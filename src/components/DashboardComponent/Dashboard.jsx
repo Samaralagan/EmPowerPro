@@ -18,6 +18,8 @@ const Dashboard = () => {
   const location = useLocation();
   const [markData,setMarkData] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const  markedDates =[];
+  const  markedDates1 =[];
   useEffect(() => {
     getAllMarker()})
   const openModal = () => {
@@ -47,7 +49,15 @@ const Dashboard = () => {
   };
   const activePageName = getActivePageName();
 
-  const markedDates = ["2024-08-07", "2024-08-12", "2024-08-27"];
+
+  // const markedDates = ["2024-08-07", "2024-08-12", "2024-08-27"];
+
+   const updatemarkedDates = (date)=>{
+    markedDates.push(date)
+   }
+   const updatemarkedDates1 = (date)=>{
+    markedDates1.push(date)
+   }
 
   return (
     <div className="dashboard-body">
@@ -181,6 +191,7 @@ const Dashboard = () => {
                 initialMonth={new Date().getMonth()}
                 initialYear={new Date().getFullYear()}
                 markedDates={markedDates}
+                markedDates1={markedDates1}
               />
             </div>
 
@@ -193,9 +204,12 @@ const Dashboard = () => {
               {markData.map((data, index) => (
                 <div
                   className="dashboard-content-right-bottom-event"
+                  style={data.state === 'complete' ? { backgroundColor: '#11f4d0' } : {}}
                   key={index}
                 >
                   <p className='mt-1'>{data.eventDate}</p>
+                  {/* {markedDates.push(data.eventDate)} */}
+                  {data.state === 'complete'?(<>{updatemarkedDates1(data.eventDate)}</> ): (<>{updatemarkedDates(data.eventDate)}</> )}
                   <p className='mt-1'>{data.event}</p>
                   <p className='mt-1'>{data.eventTime}</p>
                 </div>
