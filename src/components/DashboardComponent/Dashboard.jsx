@@ -167,7 +167,7 @@ const Dashboard = () => {
             </div>
             <div className="dashboard-content-bottom-box">
               <DashboardBarChart />
-            </div>
+            </div> 
           </div>
         ))}
 
