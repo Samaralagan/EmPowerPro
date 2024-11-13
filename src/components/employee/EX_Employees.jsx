@@ -129,6 +129,7 @@ const EX_Employees = ({ setActiveComponent }) => {
         <div className="employee-section">
           <div className="employee-section-topic">EMPLOYEES</div>
           <div className="team-firstrow">
+            
             <div className="apply-claim-team-names" onClick={handleTeams}>
               <div className="new-button-content-team-names">
                 <div className="new-content-team-names">Teams</div>
