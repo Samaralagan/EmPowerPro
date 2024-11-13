@@ -49,3 +49,18 @@
     outline: 0;
     /* box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25); */
 }
+.contentbodyall form{
+  padding: 20px;
+
+}
+
+.newcomplaint-input{
+width: 100%;
+border: none;
+border-bottom: 2px solid var(--Main-color);
+padding-left: 8px;
+font-weight: 300;
+font-size: 14px;
+padding-bottom: 3px;
+
+}

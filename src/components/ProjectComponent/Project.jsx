@@ -29,10 +29,10 @@ const Project = () => {
   };
   const role = getRoleName();
 
-  // Function to handle card click
+
   const handleCardClick = (card) => {
-    setSelectedCard(card); // Set selected card data
-    setShowPopup(true); // Show the popup
+    setSelectedCard(card);
+    setShowPopup(true); 
   };
 
   // Function to close the popup
@@ -51,20 +51,11 @@ const Project = () => {
     setShowNestedPopup(false);
   };
 
-    // // Handle checkbox click for subtasks
-    // const handleCheckboxClick = (index) => {
-    //   if (selectedCard) {
-    //     const updatedCard = { ...selectedCard };
-    //     updatedCard.finish = Math.min(updatedCard.finish + 1, updatedCard.total);
-    //     setSelectedCard(updatedCard);
-    //   }
-    // };
-  
-
   return (
     <div className="">
       {/* <Header /> */}
       <div className="contentbodyall1">
+        
         <div className="project-boxs">
           <div className="project-box">
             <div className="project-box-top">

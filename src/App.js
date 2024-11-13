@@ -40,6 +40,8 @@ import NewApproval from "./components/employee/NewApproval.jsx";
 import Teams from "./components/employee/Teams.jsx";
 import GenerateReport from "./components/employee/GenerateReport.jsx";
 import IncomeExpensePage from "./pages/IncomeExpensePage.jsx";
+import EX_ProjectPage from "./pages/EX_ProjectPage.jsx";
+import Create_Project_1 from "./components/ProjectComponent/Create_Project_1.jsx"
 
 
 import Home from './components/HomeComponent/Home.jsx';
@@ -142,7 +144,7 @@ function App() {
 
             <Route path="/Dash Board/Executive" element={<DashboardPage />} />
             <Route path="/Attendance/Executive" element={<AttendancePage />} />
-            <Route path="/Project/Executive" element={<ProjectPage />} />
+            <Route path="/Project/Executive" element={<EX_ProjectPage />} />
             <Route path="/Leave/Executive" element={<LeavePage />} />
             <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
             <Route path="/Pay Roll/Executive" element={<PayrollPage />} />
@@ -154,6 +156,8 @@ function App() {
             <Route path="/Team members/Executive/CreateNewTeam" element={<CreateNewTeam />} />
             <Route path="/Team members/Executive/Profile" element={< Profile />} />
             <Route path="/Team members/Executive/Team_Profile" element={< Team_Profile />} />
+
+            <Route path="/Project/Executive/create-project" element={<Create_Project_1 />} />
 
 
           </Route>
