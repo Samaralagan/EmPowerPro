@@ -13,6 +13,7 @@
 .about-body{
     height: 100vh;
     color: var(--Main-color);
+    padding-bottom: 20px ;
 }
 .about-title{
     font-weight: 600;

@@ -14,6 +14,7 @@
   .contactus-body{
     height: 100vh;
     width: 100vw;
+    padding-bottom: 20px;
   }
   .contactus-body-left{
     width: 70vw;
@@ -27,7 +28,6 @@
   }
   .contactus-content{
     color: #C5C6C7;
-    /* padding: 10px 20px; */
     margin: 13px 70px;
   }
 
@@ -137,4 +137,11 @@
     width: 100%;
     margin-left: 30px;
     margin-top: 80px;  
+}
+
+/* Error message styles */
+.error {
+  color: red;
+  font-size: 0.9rem; 
+  font-weight: normal; 
 }
