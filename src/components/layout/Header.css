@@ -16,7 +16,7 @@
   width: 100%;
   /* height: 6vh; */
   /* position: fixed; */
-  margin-left: 14.8vw;
+  margin-left: 14vw;
   margin-top: 0rem;
   /* margin-right: 0rem; */
   background-color: white;
@@ -63,10 +63,12 @@
   background-color: var(--Sub-color);
   bottom: -11vh;
   color: var(--Main-color);
-  padding: 0vh;
+  padding: 5%;
   font-size: 1.9vh;
   border: solid 1px;
   border-radius: 12px;
+  width: 10vw;
+ 
 }
 .header-dropdown1{
   display: none;
@@ -91,6 +93,7 @@
   padding: 1vh 2vh;
   border-radius: 10px;
   cursor: pointer;
+  
 }
 .header-dropdown div:hover{
   background-color: var(--Main-color);
