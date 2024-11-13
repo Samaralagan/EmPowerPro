@@ -1,35 +1,81 @@
-import React, { useState , useCallback} from 'react'
+import React, { useState , useCallback,  useEffect} from 'react'
 import './VacancyApplyForm.css'
 import { Form, FormControl } from 'react-bootstrap'
 import { FaPlus } from 'react-icons/fa'
 import { BsUpload } from "react-icons/bs";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useDropzone } from 'react-dropzone'; 
+import { useDropzone } from 'react-dropzone';
 
 
 
 const VacancyApplyForm = () => {
-     // State for personal details fields
+    
      const [nic, setNic] = useState('');
      const [firstName, setFirstName] = useState('');
      const [lastName, setLastName] = useState('');
      const [streetAddress, setStreetAddress] = useState('');
-
+     const [phone, setPhone] = useState('');
+     const [email, setEmail] = useState('');
+     const [address, setAddress] = useState('');
+     const [postalcode, setPostalcode] = useState('');
+     const [city, setCity] = useState('');
+     const [country, setCountry] = useState('');
      const [errors, setErrors] = useState({});
 
-     const [validated, setValidated] = useState(false);
+     const [countries, setCountries] = useState([]);
+     const [selectedCountry, setSelectedCountry] = useState('');
+
+
+     const nicPattern = /^(?:\d{9}[VXvx]|\d{12})$/;
+     const namePattern = /^[A-Za-z]+$/;
+     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     const phonePattern = /^07\d{8}$/;
 
 
      const handleSubmit = (e) => {
         e.preventDefault();
-        setValidated(true); 
-
         const newErrors = {};
 
-        if (!nic) newErrors.nic = "Please enter your NIC!";
-        if (!firstName) newErrors.firstName = "Please enter your First Name!";
-        if (!lastName) newErrors.lastName = "Please enter your Last Name!";
+
+        if (!nic){
+            newErrors.nic = "Please enter your NIC!";
+        }
+        else if (!nicPattern.test(nic)) {
+            newErrors.nic = "Please enter a valid NIC number!";
+        }
+
+        if (!firstName) {
+            newErrors.firstName = "Please enter your First Name!";
+        } else if (!namePattern.test(firstName)) {
+            newErrors.firstName = "First Name can only contain letters!";
+        }
+
+        if (!lastName) {
+            newErrors.lastName = "Please enter your Last Name!";
+        } else if (!namePattern.test(lastName)) {
+            newErrors.lastName = "Last Name can only contain letters!";
+        }
+
+        if (!phone) {
+            newErrors.phone = "Please enter your phone number!";
+        } else if (!phonePattern.test(phone)) {
+            newErrors.phone = "Please enter a valid Phone number!";
+        }
+
+        if (!email) {
+            newErrors.email = "Please enter your Email!";
+        } else if (!emailPattern.test(email)) {
+            newErrors.email = "Please enter a valid Email!";
+        }
+
+        if (!address) newErrors.address = "Please enter your Street Address!";
+
+        if (!postalcode) newErrors.postalcode = " Please enter your Postal code";
+
+        if (!city) newErrors.city= " Please enter your City";
+
+        if (!country) newErrors.country = " Please select your Country!";
 
         if (!fileName) newErrors.fileName = "Please upload your resume!";
 
@@ -52,7 +98,23 @@ const VacancyApplyForm = () => {
     const handleClickExperience = () => {
         setExperience(!experience)
     }
+
+    useEffect(() => {
+        // Fetch the country list from the API
+        fetch('https://restcountries.com/v3.1/all')
+            .then(response => response.json())
+            .then(data => {
+               
+                const countryList = data.map(country => ({
+                    code: country.cca2,
+                    name: country.name.common, 
+                }));
+                setCountries(countryList);
+            })
+            .catch(error => console.error('Error fetching countries:', error));
+    }, []);
      
+   
     //educational and experiences saving
      const handleSave = () => {
        
@@ -83,7 +145,7 @@ const VacancyApplyForm = () => {
                 <h2>Intern Front-End  Developer   -   Fully Remote</h2>
                 <h5>Application</h5>
             </div>
-            <Form onSubmit={handleSubmit} noValidate validated={validated} >
+            <Form onSubmit={handleSubmit} noValidate  >
                 <legend className='mt-4 mb-4 vacancy-apply-form-legend' >PERSONAL DETAILS  <span>*</span> </legend>
                 <div className="row mt-3">
                     <div className="col-6 mb-4">
@@ -149,9 +211,12 @@ const VacancyApplyForm = () => {
                                 required
                                 type="text"
                                 placeholder="Street Address "
-                                className='vacancy-apply-form-input'/>
+                                className='vacancy-apply-form-input'
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                                isInvalid={!!errors.address}/>
                             <Form.Control.Feedback type="invalid">
-                                Please enter your Street Address!
+                                {errors.address}
                             </Form.Control.Feedback>
                         </Form.Group>
                     </div>
@@ -177,9 +242,12 @@ const VacancyApplyForm = () => {
                                 required
                                 type="number"
                                 placeholder="Postal code "
-                                className='vacancy-apply-form-input'/>
+                                className='vacancy-apply-form-input'
+                                value={postalcode}
+                                onChange={(e) => setPostalcode(e.target.value)}
+                                isInvalid={!!errors.postalcode}/>
                             <Form.Control.Feedback type="invalid">
-                                Please enter your Postal code
+                               {errors.postalcode}
                             </Form.Control.Feedback>
                         </Form.Group>
                     </div>
@@ -190,53 +258,67 @@ const VacancyApplyForm = () => {
                                 required
                                 type="text"
                                 placeholder="City"
-                                className='vacancy-apply-form-input'/>
+                                className='vacancy-apply-form-input'
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}
+                                isInvalid={!!errors.city}/>
                             <Form.Control.Feedback type="invalid">
-                                Please enter your City
+                                {errors.city}
                             </Form.Control.Feedback>
                         </Form.Group>
                     </div>
 
                     <div className="col-5">
                         <Form.Group controlId="formBasicSelect">
-                            <Form.Control as="select" style={{ color: '#A3A2A2', fontSize: '14px' }} required className='vacancy-apply-form-input'>
-                                <option value="" >Country </option>
-                                <option value="option1">Option 1</option>
-                                <option value="option2">Option 2</option>
-                                <option value="option3">Option 3</option>
+                            <Form.Control
+                                as="select"
+                                style={{ color: '#A3A2A2', fontSize: '14px' }}
+                                required
+                                className="vacancy-apply-form-input"
+                                value={selectedCountry}
+                                onChange={(e) => setSelectedCountry(e.target.value)}
+                                isInvalid={!!errors.country}
+                            >
+                                <option value="">Select Country</option>
+                                {countries.map((country) => (
+                                    <option key={country.code} value={country.code}>
+                                        {country.name}
+                                    </option>
+                                ))}
                             </Form.Control>
                             <Form.Control.Feedback type="invalid">
-                                Please select Country!
+                                {errors.country}
                             </Form.Control.Feedback>
                         </Form.Group>
                     </div>
-
                 </div>
 
-                <br/>
+                <br />
                 <legend className='mt-4 mb-4 vacancy-apply-form-legend'>CONTACT DETAILS  <span>*</span></legend>
                 <div className="row">
                     <div className="col-2">
                         <Form.Group>
                             <FormControl
+                                readOnly
                                 required
                                 type="number"
                                 placeholder="+94"
-                                className='ps-5 vacancy-apply-form-input'/>
-                            <Form.Control.Feedback type="invalid">
-                                Please enter your number code
-                            </Form.Control.Feedback>
+                                className='ps-5 vacancy-apply-form-input' />
                         </Form.Group>
                     </div>
                     <div className="col-4">
                         <Form.Group>
                             <FormControl
+
                                 required
                                 type="text"
                                 placeholder="Phone number"
-                                className='vacancy-apply-form-input'/>
+                                className='vacancy-apply-form-input'
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                                isInvalid={!!errors.phone}/>
                             <Form.Control.Feedback type="invalid">
-                                Please enter your Phone number
+                                {errors.phone}
                             </Form.Control.Feedback>
                         </Form.Group>
                     </div>
@@ -246,9 +328,12 @@ const VacancyApplyForm = () => {
                                 required
                                 type="text"
                                 placeholder="Email Address   "
-                                className='vacancy-apply-form-input'/>
+                                className='vacancy-apply-form-input'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                isInvalid={!!errors.email}/>
                             <Form.Control.Feedback type="invalid">
-                                Please enter your Email Address
+                               {errors.email}
                             </Form.Control.Feedback>
                         </Form.Group>
                     </div>
