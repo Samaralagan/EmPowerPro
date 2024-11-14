@@ -292,7 +292,7 @@ export const ComplaintsData = [
     image: profile1,
     name: "Anna Lovlace",
     reply_status: "Reply",
-    status: "pending",
+    status: "Pending",
     about: "Regarding the heavy work load",
     date: "23/03/2024",
   },
@@ -300,7 +300,7 @@ export const ComplaintsData = [
     image: profile2,
     name: "Can Williams",
     reply_status: "Replied",
-    status: "approved",
+    status: "Approved",
     about: "Regarding Evaluvation marks",
     date: "23/03/2024",
   },
@@ -324,7 +324,7 @@ export const ComplaintsToMEData = [
 
 export const ComplaintsDataMore = [
   {
-    status: "pending",
+    status: "Pending",
     about: "Regarding the heavy work load",
     date: "23/03/2024",
     to: "Human Resource Manager",

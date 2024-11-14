@@ -220,19 +220,18 @@
   }
 
   /* Pop-Up Overlay */
-.project-popup-overlay {
+  .project-popup-overlay {
+    background: rgba(0, 0, 0, 0.5); 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-}
-
+  }
 
 .project-popup-content {
     background-color: var(--Main-color); 
@@ -299,7 +298,174 @@
     align-items: center;
 
   }
+
+  .project-labels-row{
+    display: flex;
+    gap: 2vw;
+    margin-top: 40px;
+  }
   
+  .one-project-label{
+    background-color: #4c617a;
+    color: white;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 40%;
+    align-items: center;
+    display: flex;
+
+  }
+
+  .subtask-form-input-row{
+    display: flex;
+    gap: 2vw;
+  }
+  .subtask-form-input{
+    border: solid 1px var(--Main-color);
+    background-color:white;
+    padding: 10px 10px;
+    width: 100%;
+    color: var(--Light);
+    margin-top: 0%;
+  }
+ 
+  .subtask-form-input-label{
+    background-color: var(--Main-color);
+    color: white;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 20%;
+    align-items: center;
+    display: flex;
+  }
+
+  .subtask-btn-row{
+    display: flex;
+    margin-top: 10px;
+    gap: 2vw;
+  }
+
+  .subtask-btn-primary{
+    background-color:#8bdaf7 ;
+    color: white;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 15%;
+    padding: 5px;
+
+  }
+
+  .subtask-btn-secondary{
+    background-color: var(--Main-color);
+    color: #8bdaf7;
+    border: 2px solid #8bdaf7;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 15%;
+    padding: 5px;
+
+  }
+
+  .members-popup {
+    background-color:var(--Main-color); 
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 3000;
+    position: fixed;
+    top: 6vw; 
+    left: 25vw;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .members-popup-topic{
+
+     align-items: center;
+     justify-content: center;
+     margin-top: 2vw;
+     margin-bottom: 2vw;
+     font-size: 18px;
+     font-weight: bold;
+  }
+
+  .member-popup-close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background: transparent;
+    font-weight: bold;
+}
+
+  .members-search-bar {
+    width: 90%;
+    padding: 10px;
+    margin-left: 2.2vw;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: var(--Main-color);
+    color: white;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .members-search-bar::placeholder {
+    color: #d9d9d9; 
+  }
+  
+  .member-label{
+    display: flex;
+    gap: 2vw;
+    margin-top: 1vw;
+    background-color: #4c617a;
+    padding: 10px;
+    width: 90%;
+    border-radius: 10px;
+    margin-left: 2vw;
+    padding-left: 20px;
+   
+  }
+
+  .member-profile-pic{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-top: 5px;
+  }
+
+  .member-name{
+    margin-top:10px;
+  }
+
+  .add-member-button{
+    background-color: #68bcd4 ;
+    color: white;
+    padding: 10px ;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 40%;
+  }
+
   .add-task-button {
     background-color: var(--Main-color);
     color: white;
