@@ -1,10 +1,25 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import "./complaintstome.css";
 import { FaSearch } from "react-icons/fa";
-import { ComplaintsData } from "../constants/temporary";
 import ComplaintsReply from "./ComplaintsReply";
+import axios from "axios";
 
 const ComplaintsToMe = ({ setActiveComponent }) => {
+  const [complaints, setComplaints] = useState([]);
+  useEffect(() => {
+    const fetchComplaints = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/api/v1/hr/assigned-to-hr"
+        );
+        setComplaints(response.data);
+      } catch (error) {
+        console.error("Error fetching complaint data:", error);
+      }
+    };
+
+    fetchComplaints();
+  }, []);
   return (
     <div className="complaintstome-body">
       <div style={{ display: "flex", marginTop: "1.5rem" }}>
@@ -54,14 +69,13 @@ const ComplaintsToMe = ({ setActiveComponent }) => {
           </button>
         </div>
       </div>
-      {ComplaintsData.map((Card, index) => (
+      {complaints.map((complaint, index) => (
         <ComplaintsReply
           key={index}
-          reply_status={Card.reply_status}
-          about={Card.about}
-          image={Card.image}
-          name={Card.name}
-          date={Card.date}
+          reply_status={complaint.reply}
+          about={complaint.about}
+          image={complaint.image}
+          date={new Date(complaint.date).toLocaleDateString()}
           setActiveComponent={setActiveComponent}
         />
       ))}
