@@ -466,6 +466,159 @@
     margin-left: 40%;
   }
 
+
+  
+  .labels-popup {
+    background-color:var(--Main-color); 
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 3000;
+    position: fixed;
+    top: 6vw; 
+    left: 25vw;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .labels-popup-topic{
+
+     align-items: center;
+     justify-content: center;
+     margin-top: 1vw;
+     margin-bottom: 2vw;
+     font-size: 18px;
+     font-weight: bold;
+  }
+
+  .labels-popup-close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background: transparent;
+    font-weight: bold;
+}
+
+  .labels-search-bar {
+    width: 90%;
+    padding: 10px;
+    margin-left: 2.2vw;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: var(--Main-color);
+    color: white;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .labels-search-bar::placeholder {
+    color: #d9d9d9; 
+  }
+  
+  .labels-label{
+    display: flex;
+    gap: 2vw;
+    margin-top: 1vw;
+    width: 85%;
+    border-radius: 10px;
+    margin-left: 2vw;
+    padding-left: 20px;
+  }
+
+  .label-full-line{
+    display: flex;
+    gap: 5px;
+  }
+
+  .labels-name{
+    margin-top:12px;
+  }
+
+  .label-checkbox{
+
+    margin-left: 2vw;
+  }
+
+
+  .add-labels-button{
+    background-color: #68bcd4 ;
+    color: white;
+    padding: 5px ;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 30%;
+  }
+
+  .add-labels-create-button{
+    background-color: var(--Main-color) ;
+    color: white;
+    padding: 5px ;
+    border: 2px solid  #68bcd4;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 30%;
+
+  }
+
+  
+  
+  .create-labels-popup {
+    background-color:var(--Main-color); 
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 3000;
+    position: fixed;
+    left: 25vw;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .create-label-fields{
+    display: flex;
+    gap: 2vw;
+    margin-top: 2vw;
+  }
+
+  .label-name-input{
+    border: solid 1px var(--Main-color);
+    background-color:white;
+    padding: 5px;
+    width: 60%;
+    color: var(--Light);
+  
+  }
+
+  .add-new-labels-create-button{
+    background-color: #68bcd4 ;
+    color: white;
+    padding: 5px ;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%;
+    font-size: 14px;
+    font-weight: 600;
+    
+   
+  }
+
   .add-task-button {
     background-color: var(--Main-color);
     color: white;

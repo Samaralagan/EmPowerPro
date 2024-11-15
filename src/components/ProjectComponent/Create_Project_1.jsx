@@ -13,9 +13,7 @@ import { FaUsers ,  FaList , FaClock  , FaPaperclip} from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 
 import profile1 from "../../assets/images/profile1.png";
-import profile2 from "../../assets/images/profile2.png";
 import profile3 from "../../assets/images/profile3.png";
-import profile4 from "../../assets/images/profile4.png";
 import profile5 from "../../assets/images/profile5.png";
 
 
@@ -30,6 +28,9 @@ function Create_Project_1() {
   const [showPopup, setShowPopup] = useState(false);
   const [showSubTaskFields, setShowSubTaskFields] = useState(false);
   const [showMembersPopup, setShowMembersPopup] = useState(false);
+  const [showLabelsPopup, setShowLabelsPopup] = useState(false);
+  const [showCreateLabelFields, setShowCreateLabelFields] = useState(false); 
+ 
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -39,8 +40,16 @@ const toggleMembersPopup = () => {
   setShowMembersPopup(!showMembersPopup); 
 };
 
+const toggleLabelsPopup = () => {
+  setShowLabelsPopup(!showLabelsPopup); 
+};
+
   const handleSubTaskClick = () => {
     setShowSubTaskFields(!showSubTaskFields); 
+  };
+
+  const handleCreateLabelClick = () => {
+    setShowCreateLabelFields(!showCreateLabelFields); 
   };
 
   const handleSave = () => {
@@ -66,6 +75,26 @@ const toggleMembersPopup = () => {
     },
 
   ];
+
+  const labels=[
+    {
+      label_name:"Planning",
+      label_color: "#16BD59",
+    },
+    {
+      label_name:"Design",
+      label_color: "#EE6401",
+    },
+    {
+      label_name:"Implementation",
+      label_color: "#2DA3B3",
+    },
+    {
+      label_name:"Documentation",
+      label_color: "#B40799",
+    },
+
+  ]
 
   return (
     <div className='create-project-1'>
@@ -108,6 +137,7 @@ const toggleMembersPopup = () => {
                   </div>
 
                   <div className="project-form-group">
+
                     <div className="project-form-main-title" onClick={handleSubTaskClick}>
                       <HiOutlineDocumentText style={{ fontSize: '20px' }} />
                       <label>Sub Tasks</label>
@@ -146,11 +176,13 @@ const toggleMembersPopup = () => {
                         </div>
                       </div>
                     )}
+
                   </div>
 
 
 
                   <div className='project-labels-row'>
+
                     <div className="one-project-label"  onClick={toggleMembersPopup}>
                       <FaUsers className='me-4' />
                       Members
@@ -178,10 +210,45 @@ const toggleMembersPopup = () => {
                       </div>
                     )}
 
-                    <div className="one-project-label">
+
+
+                    <div className="one-project-label"  onClick={toggleLabelsPopup}>
                         <FaList className='me-4'/>
                          Labels
                     </div>
+
+                    {showLabelsPopup && (
+                      <div className="labels-popup">
+                        <AiOutlineClose
+                          className="labels-popup-close-icon"
+                          onClick={toggleLabelsPopup}
+                        />
+                        <center className="labels-popup-topic">Labels</center>
+                        <input type="text" placeholder="Search Labels"  className="labels-search-bar"/>
+
+                          {labels.map((label, index)=>(
+                            <div className='label-full-line' key={index}>
+                             <input type="checkbox" className="label-checkbox" />
+                             <div className="labels-label"  style={{ backgroundColor: label.label_color}}>
+                               <p className='labels-name'>{label.label_name}</p>
+                             </div>
+                          </div>
+                        ))}
+
+                      <button className="add-labels-button">Add</button>
+                      <button className="add-labels-create-button"  onClick={handleCreateLabelClick} >Create a new label</button>
+
+                        {showCreateLabelFields && (
+                          <div className="create-label-fields">
+                            <input type="text" placeholder="Label Name" className='label-name-input' />
+                            <input type="color" />
+                            <button onClick={() => setShowCreateLabelFields(false)} className="add-new-labels-create-button">Save Label</button>
+                          </div>
+                        )}
+
+                      </div>
+                    )}
+
 
                     <div className="one-project-label">
                         <FaClock className='me-4'/>
@@ -194,7 +261,6 @@ const toggleMembersPopup = () => {
                     </div>
                   </div>
 
-                  
 
                   <button className="add-task-button">ADD TASK</button>
 
