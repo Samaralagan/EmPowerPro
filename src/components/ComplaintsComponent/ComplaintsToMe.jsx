@@ -72,7 +72,7 @@ const ComplaintsToMe = ({ setActiveComponent }) => {
       {complaints.map((complaint, index) => (
         <ComplaintsReply
           key={index}
-          reply_status={complaint.reply}
+          status={complaint.status}
           about={complaint.about}
           image={complaint.image}
           date={new Date(complaint.date).toLocaleDateString()}

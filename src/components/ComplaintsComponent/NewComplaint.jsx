@@ -20,8 +20,9 @@ function NewComplaint({ setActiveComponent }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const senderId = localStorage.getItem("userId");
     const formData = new FormData();
+    formData.append("senderId", senderId);
     formData.append("assignedTo", to);
     formData.append("about", subject);
     formData.append("description", description);
