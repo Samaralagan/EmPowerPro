@@ -185,6 +185,12 @@ function App() {
             <Route path="/Employees/HR/Profile" element={<Profile />} />
 
             <Route
+              exact
+              path="/Complaints/HR/:complaintId"
+              element={<Complaintsmore />}
+            />
+
+            <Route
               path="/Dash Board/FinanceAndSupport"
               element={<DashboardFinance />}
             />

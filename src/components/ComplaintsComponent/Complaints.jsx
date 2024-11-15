@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
 import { ComplaintsData } from "../constants/temporary";
 import ComplaintsCard from "../common/ComplaintsCard";
 import ComplaintsToMe from "./ComplaintsToMe";
 import "./Complaints.css";
+import axios from "axios";
 
 const Complaints = ({ setActiveComponent }) => {
   const [activeTab, setActiveTab] = useState("my-complaints");
+  const [complaintsData, setComplaintsData] = useState([]);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -15,6 +17,29 @@ const Complaints = ({ setActiveComponent }) => {
   const handleCreateNewComplaint = () => {
     setActiveComponent("NewComplaint");
   };
+
+  useEffect(() => {
+    const fetchComplaints = async () => {
+      try {
+        // Retrieve the userId from localStorage
+        const userId = localStorage.getItem("userId");
+
+        // Ensure userId exists in localStorage before sending the request
+        if (userId) {
+          const response = await axios.get(
+            `http://localhost:8080/api/v1/hr/complaint/${userId}` // Send userId as a path variable
+          );
+          setComplaintsData(response.data);
+        } else {
+          console.error("No userId found in localStorage.");
+        }
+      } catch (error) {
+        console.error("Error fetching complaints", error);
+      }
+    };
+
+    fetchComplaints();
+  }, []);
 
   return (
     <div className="contentbodyall">
@@ -117,12 +142,14 @@ const Complaints = ({ setActiveComponent }) => {
             </div>
           </div>
           <div>
-            {ComplaintsData.map((Card, index) => (
+            {complaintsData.map((Card, index) => (
               <ComplaintsCard
                 key={index}
                 status={Card.status}
                 about={Card.about}
-                date={Card.date}
+                date={`${new Date(Card.date).toLocaleDateString()} ${new Date(
+                  Card.date
+                ).toLocaleTimeString()}`}
                 setActiveComponent={setActiveComponent}
               />
             ))}

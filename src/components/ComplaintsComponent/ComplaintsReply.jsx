@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 const ComplaintsReply = ({
   name,
-  reply_status,
+  status,
   about,
   date,
   setActiveComponent,
@@ -18,9 +18,9 @@ const ComplaintsReply = ({
   };
   const role = getRoleName();
   const handlereplycomplaint = () => {
-    if (reply_status === "Reply") {
+    if (status === "PENDING") {
       setActiveComponent("ReplyComplaint");
-    } else if (reply_status === "Replied") {
+    } else if (status === "REPLIED") {
       setActiveComponent("RepliedComplaint");
     }
   };
@@ -58,10 +58,10 @@ const ComplaintsReply = ({
             </p>
             <br />
             <div
-              className={reply_status === "Reply" ? "pending_c" : "approved_c"}
+              className={status === "PENDING" ? "pending_c" : "approved_c"}
               onClick={handlereplycomplaint}
             >
-              {reply_status}
+              {status}
             </div>
           </div>
         </div>
