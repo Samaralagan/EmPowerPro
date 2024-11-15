@@ -615,9 +615,171 @@
     width: 20%;
     font-size: 14px;
     font-weight: 600;
-    
-   
+
   }
+
+  
+  .dates-popup {
+    background-color:var(--Main-color); 
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 3000;
+    position: fixed;
+    top: 9vw; 
+    left: 25vw;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dates-popup-close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background: transparent;
+    font-weight: bold;
+}
+
+.date-selection, .time-selection, .reminder-selection {
+  margin-top: 2vw;
+  
+}
+
+.date-selection input, .time-selection input, .reminder-selection select {
+  border: solid 1px white;
+  background-color:var(--Main-color);
+  padding: 5px;
+  width: 60%;
+  color: var(--Light);
+  border-radius: 5px;
+}
+
+.date-selection label, .time-selection label, .reminder-selection label {
+  color: white;
+  font-weight: 500;
+  margin-right: 2vw;
+}
+
+.reminder-selection select {
+  margin-top: 10px;
+}
+
+small {
+  display: block;
+  font-size: 12px;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+.add-dates-button{
+  background-color: #68bcd4 ;
+  color: white;
+  padding: 5px ;
+  border: 2px solid #FFF;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 40%;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4vw;
+  margin-left: 30%;
+}
+
+
+
+.attachment-popup {
+  background-color:var(--Main-color); 
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 3000;
+  position: fixed;
+  top: 9vw; 
+  left: 25vw;
+  width: 50%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.attachment-popup-close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  background: transparent;
+  font-weight: bold;
+}
+
+
+.link-selection{
+  margin-top: 2vw;
+}
+
+.link-selection input{
+  border: solid 1px white;
+  background-color:var(--Main-color);
+  padding: 5px;
+  width: 60%;
+  color: var(--Light);
+  border-radius: 5px;
+}
+
+.link-selection label{
+  color: white;
+  font-weight: 500;
+  margin-right: 2vw;
+}
+
+.add-link-button{
+  background-color: #68bcd4 ;
+  color: white;
+  padding: 10px ;
+  border: 2px solid #FFF;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 40%;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 3vw;
+  margin-left: 30%;
+}
+
+
+.attachment-input-upload-area {
+  border: 2px dashed #ccc; 
+  padding: 40px;
+  width: 90%;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  background-color:var(--Main-color);
+  transition: background-color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+}
+
+.attachment-input-upload-area-icon {
+  font-size: 40px;
+  color: var(--Light);
+}
+
+.attachment-input-upload-area span,
+.attachment-input-upload-area div {
+  font-size: 16px;
+  color: #555;
+}
+
+
 
   .add-task-button {
     background-color: var(--Main-color);

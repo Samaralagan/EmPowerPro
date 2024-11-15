@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./EX_Project.css";
 import { IoIosMore } from "react-icons/io";
@@ -11,6 +11,8 @@ import { IoIosPaper } from 'react-icons/io';
 import { HiOutlineDocumentText } from 'react-icons/hi';
 import { FaUsers ,  FaList , FaClock  , FaPaperclip} from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
+import { BsUpload } from "react-icons/bs";
+import { useDropzone } from 'react-dropzone';
 
 import profile1 from "../../assets/images/profile1.png";
 import profile3 from "../../assets/images/profile3.png";
@@ -26,11 +28,13 @@ import FormControl from 'react-bootstrap/FormControl';
 
 function Create_Project_1() {
   const [showPopup, setShowPopup] = useState(false);
-  const [showSubTaskFields, setShowSubTaskFields] = useState(false);
   const [showMembersPopup, setShowMembersPopup] = useState(false);
   const [showLabelsPopup, setShowLabelsPopup] = useState(false);
-  const [showCreateLabelFields, setShowCreateLabelFields] = useState(false); 
+  const [showDatesPopup, setShowDatesPopup] = useState(false);
+  const [showAttachmentsPopup, setShowAttachmentsPopup] = useState(false);
  
+  const [showSubTaskFields, setShowSubTaskFields] = useState(false);
+  const [showCreateLabelFields, setShowCreateLabelFields] = useState(false); 
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -43,6 +47,15 @@ const toggleMembersPopup = () => {
 const toggleLabelsPopup = () => {
   setShowLabelsPopup(!showLabelsPopup); 
 };
+
+const toggleDatesPopup = () => {
+  setShowDatesPopup(!showDatesPopup); 
+};
+
+const toggleAttachmentsPopup = () => {
+  setShowAttachmentsPopup(!showAttachmentsPopup); 
+};
+
 
   const handleSubTaskClick = () => {
     setShowSubTaskFields(!showSubTaskFields); 
@@ -59,6 +72,19 @@ const toggleLabelsPopup = () => {
   const handleCancel = () => {
     setShowSubTaskFields(false); 
   };
+
+  const onDrop = useCallback((acceptedFiles) => {
+    setFileName(acceptedFiles[0].name);
+}, []);
+
+const { getRootProps, getInputProps } = useDropzone({
+    onDrop, 
+    accept: '.pdf, .doc, .docx', 
+});
+
+const [fileName, setFileName] = React.useState('');
+
+
 
   const members=[
     {
@@ -250,15 +276,83 @@ const toggleLabelsPopup = () => {
                     )}
 
 
-                    <div className="one-project-label">
+                    <div className="one-project-label"  onClick={toggleDatesPopup}>
                         <FaClock className='me-4'/>
                          Dates
                     </div>
 
-                    <div className="one-project-label">
+                    {showDatesPopup && (
+                      <div className="dates-popup">
+                        <AiOutlineClose
+                          className="dates-popup-close-icon"
+                          onClick={toggleDatesPopup}
+                        />
+                        <center className="labels-popup-topic">Dates</center>
+
+                        <div className="date-selection">
+                          <label>Due Date</label>
+                          <input type="date" />
+                        </div>
+
+                        <div className="time-selection">
+                          <label>Time</label>
+                          <input type="time" />
+                        </div>
+
+                        <div className="reminder-selection">
+                          <label>Set due date reminder</label>
+                          <select>
+                            <option>1 Day before</option>
+                            <option>2 Days before</option>
+                            <option>1 Week before</option>
+                          </select>
+                          <small>Reminders will send to all task members</small>
+                        </div>
+
+
+                        <button className="add-dates-button">Save</button>
+
+                      </div>
+                    )}
+
+
+                    <div className="one-project-label" onClick={toggleAttachmentsPopup}>
                         <FaPaperclip className='me-4'/>
                          Attachments
                     </div>
+
+                    {showAttachmentsPopup && (
+                      <div className="attachment-popup">
+                        <AiOutlineClose
+                          className="attachment-popup-close-icon"
+                          onClick={toggleAttachmentsPopup}
+                        />
+                        <center className="labels-popup-topic">Attachments</center>
+
+                        <div className='col-16 attachment-input '>
+                        <div
+                            {...getRootProps()} 
+                            className="attachment-input-upload-area"
+                        >
+                            <BsUpload className='attachment-input-upload-area-icon' />
+                             <br/>
+                            <span>Drag and drop to upload Or click to browse</span>
+                            <input {...getInputProps()} /> {}
+                        </div>
+
+                        {fileName && <div>Selected File: {fileName}</div>}
+                       
+
+                    </div>
+
+                        <div className="link-selection">
+                          <label>Paste a link</label>
+                          <input type="text" />
+                        </div>
+
+                        <button className="add-link-button">Insert</button>
+                      </div>
+                    )}
                   </div>
 
 
