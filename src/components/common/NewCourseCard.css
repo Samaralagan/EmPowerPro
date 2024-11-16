@@ -12,6 +12,7 @@
   }
 
   .newcoursecard-body{
+    position: relative;
     height: 34vh;
     width: 17vw;
     border-radius: 25px;
@@ -41,6 +42,23 @@
     margin-top: 0.9vh;
     padding-left: 1vh;
 
+  }
+  .newcoursecard-button{
+    display: flex;
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+  }
+  .newcoursecard-button button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vh;
+    width: 4vh;
+    margin: 1vh 1vh 0 0;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 1px;
   }
   .newcoursecard-level{
     font-size: 1.7vh;

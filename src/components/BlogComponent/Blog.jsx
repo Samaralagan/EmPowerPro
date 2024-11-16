@@ -32,7 +32,7 @@ const Blog = () => {
     if (tab === 'All-Blog') {
       setFilteredCards(blogData);
     } else if (tab === 'My-Blog') {
-      const myBlogs = blogData.filter((data) => data.userId === 2001);
+      const myBlogs = blogData.filter((data) => data.userId === 1);
       setFilteredCards(myBlogs);
     } else if (tab === 'BookMark-Blog') {
       setFilteredCards(BookMarkCourseCardData);
@@ -157,7 +157,7 @@ const Blog = () => {
                   <NewCourseCard
                     title={card.title}
                     date={card.uploadDate}
-                    // Other props can be added here like img, level, etc.
+                    type={activeTab}
                   />
                 
                 </div>
