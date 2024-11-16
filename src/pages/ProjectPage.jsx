@@ -8,9 +8,9 @@ const ProjectPage = () => {
   return (
     <div>
         <SideBar/>
-        {/* <Project/> */}
+        <Project/>
 
-        <Project_Agile/>
+        {/* <Project_Agile/> */}
 
 
     </div>

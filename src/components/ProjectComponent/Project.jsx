@@ -23,7 +23,7 @@ const Project = () => {
 
 
   const getRoleName = () => {
-    const pathname = decodeURIComponent(location.pathname); // Decode the URL
+    const pathname = decodeURIComponent(location.pathname); 
     const role = pathname.split("/")[2];
     return role;
   };
@@ -35,7 +35,7 @@ const Project = () => {
     setShowPopup(true); 
   };
 
-  // Function to close the popup
+ 
   const handleClosePopup = () => {
     setShowPopup(false);
     setSelectedCard(null);
@@ -43,10 +43,9 @@ const Project = () => {
 
   const handleViewAllClick = (selectedCard) => {
     setSelectedCard(selectedCard);
-    setShowNestedPopup(true); // Show the nested popup
+    setShowNestedPopup(true);
   };
 
-  // Function to close the nested popup
   const handleCloseNestedPopup = () => {
     setShowNestedPopup(false);
   };
@@ -55,7 +54,7 @@ const Project = () => {
     <div className="">
       {/* <Header /> */}
       <div className="contentbodyall1">
-        
+
         <div className="project-boxs">
           <div className="project-box">
             <div className="project-box-top">
