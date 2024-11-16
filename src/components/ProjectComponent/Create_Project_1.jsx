@@ -533,8 +533,6 @@ const [fileName, setFileName] = React.useState('');
             <p className="project-box-title"> Done</p>
             <IoIosMore className="project-box-top-icon" />
           </div>
-{/* 
-          <img src={done} alt='done-image' className='project-box-image'/> */}
 
           <div>
               {ProjectDone.map((card, index) => (
@@ -542,7 +540,7 @@ const [fileName, setFileName] = React.useState('');
                   className="project-card"
                   style={{ opacity: 0.8 }}
                   key={index}
-                  onClick={() => handleCardClick(card)}
+                  onClick={() =>  handleCardClick(card)}
                 >
                   <div className="project-card-color-boxs">
                     {card.green && (
@@ -585,8 +583,6 @@ const [fileName, setFileName] = React.useState('');
                 </div>
               ))}
             </div>
-
-
 
         </div>
 
@@ -949,6 +945,8 @@ const [fileName, setFileName] = React.useState('');
         </div>
 
       )}
+
+
 
     </div>
   )
