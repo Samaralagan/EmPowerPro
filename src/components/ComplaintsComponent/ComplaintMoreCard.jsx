@@ -1,6 +1,7 @@
 import React from "react";
 import "./complaintmorecard.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const ComplaintMoreCard = ({
   status,
@@ -11,20 +12,19 @@ const ComplaintMoreCard = ({
   reply,
   setActiveComponent,
 }) => {
-  const handlemorecomplaint = () => {
-    if (setActiveComponent) {
-      setActiveComponent("Complaints"); // Ensure "Complaints" matches the value in ComplaintsPage.jsx
-    }
+  const navigate = useNavigate();
+  const handleBackClick = () => {
+    navigate(-1); // Navigates to the previous page
   };
 
   return (
     <div>
-      <IoMdArrowRoundBack className="backarrow" onClick={handlemorecomplaint} />
+      <IoMdArrowRoundBack className="backarrow" onClick={handleBackClick} />
       <div className="claimed-box">
         <div className="complaintmorecard-content">
           <div className="complaintmorecard-header">
             <br />
-            <h5 className={status === "pending" ? "pending" : "approved"}>
+            <h5 className={status === "PENDING" ? "pending" : "approved"}>
               {status}
             </h5>
             <br />
@@ -42,10 +42,18 @@ const ComplaintMoreCard = ({
             <p className="complaintmorecard-header-gray">description : </p>
             <p className="complaintmorecard-header-text">{description}</p>
             <br />
-            <p className="complaintmorecard-header-gray">reply : </p>
-            <p className="complaintmorecard-header-text">{reply}</p>
+            {reply && ( // Conditionally render the reply section
+              <>
+                <p className="complaintmorecard-header-gray">reply : </p>
+                <p className="complaintmorecard-header-text">{reply}</p>
+              </>
+            )}
+            <br />{" "}
+            <button className="complaintmorecard-header-button">
+              {" "}
+              Show Attachments{" "}
+            </button>
           </div>
-          <div></div>
         </div>
       </div>
     </div>

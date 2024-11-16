@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
-import { ComplaintsData } from "../constants/temporary";
 import ComplaintsCard from "../common/ComplaintsCard";
 import ComplaintsToMe from "./ComplaintsToMe";
 import "./Complaints.css";
@@ -9,6 +8,8 @@ import axios from "axios";
 const Complaints = ({ setActiveComponent }) => {
   const [activeTab, setActiveTab] = useState("my-complaints");
   const [complaintsData, setComplaintsData] = useState([]);
+  const [filter, setFilter] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -40,6 +41,24 @@ const Complaints = ({ setActiveComponent }) => {
 
     fetchComplaints();
   }, []);
+
+  const filteredComplaints = complaintsData.filter((complaint) => {
+    if (filter === "All") return true; // Show all complaints
+    if (filter === "Pending") return complaint.status === "PENDING";
+    if (filter === "Replied") return complaint.status === "REPLIED";
+    return true;
+  });
+
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/api/v1/hr/complaint-searchAbout?query=${searchTerm}`
+      );
+      setComplaintsData(response.data);
+    } catch (error) {
+      console.error("Error searching complaints:", error);
+    }
+  };
 
   return (
     <div className="contentbodyall">
@@ -97,16 +116,17 @@ const Complaints = ({ setActiveComponent }) => {
           <div style={{ display: "flex" }}>
             <select
               className="form-select"
-              aria-label="Default select example"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)} // Update filter state
               style={{
                 width: "345px",
                 border: "2px solid black",
                 marginLeft: "3vh",
               }}
             >
-              <option defaultValue>Filter By</option>
-              <option value="1">Pending</option>
-              <option value="2">Approved</option>
+              <option value="All">All</option>
+              <option value="Pending">Pending</option>
+              <option value="Replied">Replied</option>
             </select>
             <div
               style={{
@@ -120,7 +140,9 @@ const Complaints = ({ setActiveComponent }) => {
               <input
                 className="border-inbox"
                 type="text"
-                placeholder="Search..."
+                placeholder="Search by about..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
                   paddingLeft: "29px",
                   paddingRight: "8px",
@@ -136,15 +158,17 @@ const Complaints = ({ setActiveComponent }) => {
                   background: "var(--Main-color)",
                   color: "white",
                 }}
+                onClick={handleSearch}
               >
                 Search
               </button>
             </div>
           </div>
           <div>
-            {complaintsData.map((Card, index) => (
+            {filteredComplaints.map((Card, index) => (
               <ComplaintsCard
                 key={index}
+                complaintId={Card.id}
                 status={Card.status}
                 about={Card.about}
                 date={`${new Date(Card.date).toLocaleDateString()} ${new Date(

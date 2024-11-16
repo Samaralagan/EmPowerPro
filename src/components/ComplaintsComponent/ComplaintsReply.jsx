@@ -38,10 +38,7 @@ const ComplaintsReply = ({
                 width: "100%",
                 alignItems: "center",
               }}
-            >
-              <img src={image} alt="" className="img1" />
-              {name}
-            </div>
+            ></div>
             <p className="complaintcard-header-gray">Complaint</p>
             <p
               className="complaintcard-header-about"
