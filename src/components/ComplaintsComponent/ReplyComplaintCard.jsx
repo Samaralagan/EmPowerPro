@@ -39,7 +39,11 @@ const ReplyComplaintCard = ({ name, about, date, description, image }) => {
               description :{" "}
             </p>
             <p className="complaintmorecard-header-text">{description}</p>
-            {/* <br /> */}
+            <br />
+            <button className="complaintmorecard-header-button">
+              {" "}
+              Show Attachments{" "}
+            </button>
             <p
               className="complaintmorecard-header-gray"
               style={{ marginLeft: "2vw" }}

@@ -6,8 +6,10 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import "./replycomplaint.css";
 import { ComplaintsReplyCard } from "../constants/temporary";
 import ReplyComplaintCard from "./ReplyComplaintCard";
+import { useNavigate } from "react-router-dom";
 
 function ReplyComplaint({ setActiveComponent }) {
+  const navigate = useNavigate();
   const handlebackreplyComplaint = () => {
     setActiveComponent("Complaints");
   };
