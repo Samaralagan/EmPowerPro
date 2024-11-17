@@ -24,7 +24,8 @@ const Dashboard = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
      role = pathname.split('/')[2];
     return role;
-  };const activePageName = getActivePageName();
+  };
+  const activePageName = getActivePageName();
 
   
   return (

@@ -19,6 +19,7 @@
     flex-direction: column;
     margin-left: 16vw;
     padding: 1rem;
+    margin-top: 0;
   }
   .project-boxs{
     display: flex;
@@ -372,5 +373,20 @@
   font-size: 13px;
   font-weight: 600;
   color: #b3b3b3;
+
+}
+
+.select-agile-button {
+  background-color: #92c6fe;
+  color: white;
+  padding: 10px 20px;
+  border: 2px solid #FFF;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 30%;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 69%;
+  /* margin-top: 6%; */
 
 }

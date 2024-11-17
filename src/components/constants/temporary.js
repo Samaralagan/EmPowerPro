@@ -589,7 +589,7 @@ export const ProjectDone = [
 export const SelectProjects = [
   {
     title: "Proposal Submission ",
-    date: "Completed : 15th February 2024",
+    date: "Due Date  : 21st March 2024",
     image1: profile5,
     image2: profile2,
     image3: profile1,
@@ -608,7 +608,7 @@ export const SelectProjects = [
   },
   {
     title: "Requirements Analysis ",
-    date: "Completed : 15th February 2024",
+    date: "Due Date  : 21st March 2024",
     image1: profile5,
     image2: profile1,
     image3: profile4,
@@ -628,7 +628,7 @@ export const SelectProjects = [
   },
   {
     title: "Project Presentation ",
-    date: "Completed : 15th February 2024",
+    date: "Due Date  : 21st March 2024",
     image1: profile4,
     image2: profile2,
     image3: profile3,
@@ -647,7 +647,7 @@ export const SelectProjects = [
   },
   {
     title: "Proposal Submission ",
-    date: "Completed : 15th February 2024",
+    date: "Due Date  : 21st March 2024",
     image1: profile5,
     image2: profile2,
     image3: profile1,

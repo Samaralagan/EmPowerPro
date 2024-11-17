@@ -16,6 +16,7 @@ import ComplaintsPage from "./pages/ComplaintsPage.jsx";
 import ComplaintsPage_Tl from "./pages/ComplaintsPage_Tl.jsx";
 import AttendancePage from "./pages/AttendancePage.jsx";
 import ProjectPage from "./pages/ProjectPage.jsx";
+import ProjectAgile from './components/ProjectComponent/Project_Agile.jsx';
 import DashboardPage from "./pages/DashboardPage.jsx";
 import Complaintsmore from "./components/ComplaintsComponent/Complaintsmore.jsx";
 import NewComplaint from "./components/ComplaintsComponent/NewComplaint.jsx";
@@ -84,6 +85,7 @@ function App() {
             <Route path="/Blog/Employee" element={<BlogPage />} />
             <Route path="/Complaints/Employee/NewComplaint" element={<NewComplaint />} />
             <Route path="/Beneficiary/Employee" element={<BeneficiaryPage />} />
+            <Route  path="/Project/Employee/AgileProject"  element={<ProjectAgile />} />
 
 
             <Route path="/Dash Board/TeamLeader" element={<DashboardPage />} />

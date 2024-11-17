@@ -1,27 +1,29 @@
 import React, { useState } from "react";
 import "./Project.css";
-import Header from "../layout/Header";
 import { IoIosMore } from "react-icons/io";
 import { FaCalendarWeek } from "react-icons/fa";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import {
   ProjectDone,
   ProjectInProgress,
   ProjectToDo,
   SelectProjects
 } from "../constants/temporary";
-import { useLocation } from "react-router-dom";
 import { FaPlusSquare } from "react-icons/fa";
 import { FaRegStickyNote } from "react-icons/fa";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Project = () => {
+  const navigate = useNavigate();
+
+  const handlePage = (PageName) => {
+    navigate(`/${PageName}`);
+  };
   const location = useLocation();
 
   const [showPopup, setShowPopup] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [showNestedPopup, setShowNestedPopup] = useState(false);
-
-  
-
 
   const getRoleName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
@@ -32,8 +34,8 @@ const Project = () => {
 
   // Function to handle card click
   const handleCardClick = (card) => {
-    setSelectedCard(card); // Set selected card data
-    setShowPopup(true); // Show the popup
+    setSelectedCard(card);
+    setShowPopup(true);
   };
 
   // Function to close the popup
@@ -52,70 +54,64 @@ const Project = () => {
     setShowNestedPopup(false);
   };
 
-    // // Handle checkbox click for subtasks
-    // const handleCheckboxClick = (index) => {
-    //   if (selectedCard) {
-    //     const updatedCard = { ...selectedCard };
-    //     updatedCard.finish = Math.min(updatedCard.finish + 1, updatedCard.total);
-    //     setSelectedCard(updatedCard);
-    //   }
-    // };
-  
+
 
   return (
     <div className="">
-      {/* <Header /> */}
       <div className="contentbodyall1">
-
-       <div className="project-choose">
-                <p  className="project-box-title">Select tasks to do</p>
-
-              <div className="project-columns">
-
-              {SelectProjects.map((card, index) => (
-                <div className="select-project-card" key={index}>
-                  <div className="project-card-color-boxs">
-                    {card.green && (
-                      <div
-                        className="project-card-color-box"
-                        style={{ backgroundColor: "#16BD59" }}
-                      ></div>
-                    )}
-                    {card.orange && (
-                      <div
-                        className="project-card-color-box"
-                        style={{ backgroundColor: "#EE6401" }}
-                      ></div>
-                    )}
-                    {card.blue && (
-                      <div
-                        className="project-card-color-box"
-                        style={{ backgroundColor: "#2DA3B3" }}
-                      ></div>
-                    )}
-                  </div>
-                  <div className="project-card-content">
-                    <p>{card.title} </p>
-                    <input type="checkbox" />
-                  </div>
-                  <div className="project-card-date">
-                    <FaCalendarWeek className="me-2" />
-                    {card.date}
-                  </div>
-                </div>
-              ))}
-
-            </div>
-            <div className="project-form-button-row">
-              <button className="project-back-button" >
-                Cancel
-              </button>
-              <button className="project-next-button" >
-               Add
-              </button>
-            </div>
+        <div className='performance-back'>
+          <IoMdArrowRoundBack onClick={() => handlePage(`Project/${role}`)} />
         </div>
-        
+
+        <div className="project-choose">
+          <p className="project-box-title">Select tasks to do</p>
+
+          <div className="project-columns">
+
+            {SelectProjects.map((card, index) => (
+              <div className="select-project-card" key={index}>
+                <div className="project-card-color-boxs">
+                  {card.green && (
+                    <div
+                      className="project-card-color-box"
+                      style={{ backgroundColor: "#16BD59" }}
+                    ></div>
+                  )}
+                  {card.orange && (
+                    <div
+                      className="project-card-color-box"
+                      style={{ backgroundColor: "#EE6401" }}
+                    ></div>
+                  )}
+                  {card.blue && (
+                    <div
+                      className="project-card-color-box"
+                      style={{ backgroundColor: "#2DA3B3" }}
+                    ></div>
+                  )}
+                </div>
+                <div className="project-card-content">
+                  <p>{card.title} </p>
+                  <input type="checkbox" />
+                </div>
+                <div className="project-card-date">
+                  <FaCalendarWeek className="me-2" />
+                  {card.date}
+                </div>
+              </div>
+            ))}
+
+          </div>
+          <div className="project-form-button-row">
+            <button className="project-back-button" >
+              Cancel
+            </button>
+            <button className="project-next-button" >
+              Add
+            </button>
+          </div>
+        </div>
+
         <div className="project-boxs">
           <div className="project-box">
             <div className="project-box-top">
@@ -401,7 +397,7 @@ const Project = () => {
                           type="checkbox"
                           id={`subtask-${index}`}
                           className="subtask-checkbox"
-                          // onClick={() => handleCheckboxClick(index)}
+                        // onClick={() => handleCheckboxClick(index)}
                         />
                         <label htmlFor={`subtask-${index}`} className="subtask-label">
                           {subtask}

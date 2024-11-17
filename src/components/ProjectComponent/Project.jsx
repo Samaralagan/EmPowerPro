@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./Project.css";
 import Header from "../layout/Header";
 import { IoIosMore } from "react-icons/io";
@@ -13,6 +14,14 @@ import { FaPlusSquare } from "react-icons/fa";
 import { FaRegStickyNote } from "react-icons/fa";
 
 const Project = () => {
+
+  const navigate = useNavigate();
+
+  const handlePage = (PageName) => {
+    navigate(`/${PageName}`);
+  };
+ 
+
   const location = useLocation();
 
   const [showPopup, setShowPopup] = useState(false);
@@ -50,10 +59,14 @@ const Project = () => {
     setShowNestedPopup(false);
   };
 
+
   return (
     <div className="">
+
+
       {/* <Header /> */}
       <div className="contentbodyall1">
+       <button className="select-agile-button" onClick={() => handlePage(`Project/${role}/AgileProject`)}>For Agile Companies</button>
 
         <div className="project-boxs">
           <div className="project-box">
