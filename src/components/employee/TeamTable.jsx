@@ -9,12 +9,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 const TeamTable = ({ name, status, teamlead, project, setActiveComponent }) => {
   const [hover, setHover] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation(); 
-  let role = '';
+  const location = useLocation();
+  let role = "";
 
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
-    role = pathname.split('/')[2];
+    role = pathname.split("/")[2];
     return role;
   };
 
@@ -22,11 +22,11 @@ const TeamTable = ({ name, status, teamlead, project, setActiveComponent }) => {
 
   const handleTeamDetails = () => {
     // setActiveComponent("EX_Employees");
-    if(role === 'HR'){
+    if (role === "HR") {
       navigate("/Employees/HR/Team_Profile");
     }
-    if(role === 'Executive'){
-      navigate("/Team members/Executive/Team_Profile");
+    if (role === "Executive") {
+      navigate("/Employee/Executive/Team_Profile");
     }
   };
 

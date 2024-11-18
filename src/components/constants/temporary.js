@@ -343,6 +343,8 @@ export const ComplaintsReplyCard = [
     date: "23/03/2024",
     description:
       "I am writing to formally lodge a complaint regarding the marks I received in the recent evaluation. I feel that the marks awarded do not accurately reflect the effort and quality of work I put into the assignment.",
+    replied:
+      "We have carefully reevaluated your assignment [or test] and taken into consideration your points regarding the grading criteria.",
   },
 ];
 
@@ -915,5 +917,43 @@ export const BookMarkCourseCardData = [
     level: "Advanced Level",
     star: 4.8,
     enrolled: "1,361 already enrolled",
+  },
+];
+export const payrollDetailsData = [
+  {
+    img: performationEvaluationImg1,
+    name: "Olivia Rajan",
+    emp: "EMP-1004",
+    position: "Executive",
+    Grosspay: "Rs. 250,000",
+    Tax: "$ 50,000",
+    Total: "$ 200,000",
+  },
+  {
+    img: performationEvaluationImg2,
+    name: "Can Samuel",
+    emp: "EMP-1005",
+    position: "Team Lead",
+    Grosspay: "Rs. 250,000",
+    Tax: "$ 50,000",
+    Total: "$ 100,000",
+  },
+  {
+    img: performationEvaluationImg3,
+    name: "Belly James",
+    emp: "EMP-1006",
+    position: "Employee",
+    Grosspay: "",
+    Tax: "$ 50,000",
+    Total: "$ 100,000",
+  },
+  {
+    img: performationEvaluationImg4,
+    name: "Angelo Mathews",
+    emp: "EMP-1007",
+    position: "HR Manager",
+    Grosspay: "",
+    Tax: "$ 50,000",
+    Total: "$ 300,000",
   },
 ];

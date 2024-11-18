@@ -5,7 +5,7 @@ import { FaLaptopCode, FaMobileAlt, FaNetworkWired, FaUserShield } from "react-i
 import { SERVICES } from '../constants/contents';
 import { SERVICES_CARD } from '../constants/temporary';
 
-const Services = () => {
+const Services = ({id}) => {
   const Ref = useRef(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className='service-body' >
+    <div className='service-body' id={id}>
       <Container >
       <Row className="pt-5">
         <Col fluid className="title-fade text-center" ref={Ref}>

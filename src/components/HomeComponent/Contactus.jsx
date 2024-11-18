@@ -3,6 +3,7 @@ import './Contactus.css'
 import { CONTACTUS } from '../constants/contents'
 import { SOCIALMEDIA } from '../constants/contents'
 
+<<<<<<< HEAD
 const Contactus = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -55,8 +56,11 @@ const Contactus = () => {
         }
       };
     
+=======
+const Contactus = ({id}) => {
+>>>>>>> 1ad056f712db1a13cab62f203827ccb063292ab5
   return (
-    <div className='contactus-body'>
+    <div className='contactus-body' id={id}>
         <div className='d-flex'>
             <div  className='contactus-body-left'>
                 <h2 className='contactus-title'>{CONTACTUS.title}</h2>

@@ -16,13 +16,11 @@ import {
   LineElement,
 } from "chart.js";
 
-
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import DashboardBarChart from "./DashboardBarChart";
 
-import { useLocation,useNavigate } from "react-router-dom";
-
+import { useLocation, useNavigate } from "react-router-dom";
 
 // Register the required components
 ChartJS.register(
@@ -36,34 +34,29 @@ ChartJS.register(
   LineElement
 );
 
-
-
 function GenerateReport() {
-  
   const navigate = useNavigate();
-  const location = useLocation(); 
-  var role = ''
+  const location = useLocation();
+  var role = "";
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
-     role = pathname.split('/')[2];
+    role = pathname.split("/")[2];
     return role;
   };
   const activePageName = getActivePageName();
 
   const handleReportBack = () => {
     // setActiveComponent("EX_Employees");
-    if(role === 'HR'){
-      navigate('/Employees/HR');
+    if (role === "HR") {
+      navigate("/Employees/HR");
     }
-    if(role === 'Executive'){
-      navigate('/Team members/Executive');
+    if (role === "Executive") {
+      navigate("/Employee/Executive");
     }
-    if(role === 'TeamLeader'){
-      navigate('/Team members/TeamLeader');
+    if (role === "TeamLeader") {
+      navigate("/Team members/TeamLeader");
     }
-    
   };
- 
 
   const lineData = {
     labels: ["January", "February", "March", "April", "May", "June"],

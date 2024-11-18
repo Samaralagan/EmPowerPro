@@ -1,0 +1,174 @@
+/* Colors and styling */
+:root {
+    --Main-color: #000f44;
+    --Sub-color: #ffffff;
+    --available: #f37c98;
+    --approved: #9bf37c;
+    --rejected: #f39f7c;
+    --pending: #ffac0a;
+    --approved-btn: #02c416;
+    --Light: #d9d9d9;
+    --Flex-heading: #ffbb00;
+    --1ST-COLOR: linear-gradient(to right, #000f44 0%, #00186b 72%, #0025aa 100%);
+  }
+  
+  .pending-leave-body {
+    padding: 20px;
+    width: 79vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 19vw;
+  }
+  /* Apply leave-form */
+  .pending-leave-form-body {
+    display: flex;
+    width:90%;
+    border-radius: 10px;
+    padding: 1.5vw;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 4px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.2);
+    margin-top: 3vh;
+    margin-left: 8vh;
+    color: #000f44;
+  }
+ 
+  .divform {
+    /* display: flex; */
+    flex-direction: row;
+    width: 100%;
+  }
+
+ 
+  .pending-leave-profile-section{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+  
+  .pending-profile-info h2 {
+    margin: 0;
+    color: #000f44;
+    font-size: 24px;
+  }
+  
+  .pending-profile-info p {
+    margin: 5px 0 0;
+    color: #95a5a6;
+    font-size: 14px;
+  }
+  
+  .leave-type {
+    margin-left: auto;
+    text-align: right;
+  }
+  
+  .leave-type-value {
+    color: #2c3e50;
+    font-weight: bold;
+  }
+  
+  .leave-details .date-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .pending-date-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    width: 7vh;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #95a5a6;
+  }
+  .pending-date-box label {
+    /* display: block; */
+    color: #95a5a6;
+    margin-bottom: 5px;
+  }
+  
+  .date-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #2c3e50;
+  }
+  
+  .reason-section label {
+    display: block;
+    color: #95a5a6;
+    margin-bottom: 5px;
+  }
+  
+  .reason-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100px;
+    resize: none;
+    background-color: #f9f9f9;
+    color: #2c3e50;
+  }
+  
+ 
+.leave-reply-container{
+    width: 90.5%;
+    height: auto;
+    border-radius: 10px;
+    background-color: var(--Sub-color);
+    border: solid 2px var(--Main-color);
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2%;
+    font-size: 17px;
+    color: var(--Main-color);
+    margin-top: 2%;
+    padding-left: 2%;
+    margin-left: 4.5%;
+  }
+
+  .leave-reply-buttons{
+    align-items: center;
+    justify-content: center;
+
+    display: flex;
+    gap: 10%;
+  }
+  .leave-hr-approve-button, .leave-hr-reject-button {
+    padding: 5px 30px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px; 
+  }
+  
+  .leave-hr-approve-button {
+    background-color: var(--Main-color);
+    color: white;
+  }
+  
+  .leave-hr-reject-button {
+    background-color: red;
+    color: white;
+  }
+  
+  .leave-reply-comment{
+    font-size: 14px;
+    color: #b3b3b3;
+    margin-top: 3%;
+  }

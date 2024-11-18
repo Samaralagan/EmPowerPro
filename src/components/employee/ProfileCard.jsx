@@ -10,7 +10,7 @@ import { FaBookOpen } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 import LineChart from "./LineChart";
-import {  useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ProfileCard = ({
   image,
@@ -27,9 +27,8 @@ const ProfileCard = ({
   phone,
   setActiveComponent,
 }) => {
-
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
 
   // const handleProfile = () => {
   //   if (sidebar=== 'Team members') {
@@ -39,37 +38,39 @@ const ProfileCard = ({
   //   }else{
   //     handlePage(`Dash Board/${role}`)
   //   }
-   
+
   // };
 
-  const handleProfile  = () => {
+  const handleProfile = () => {
     // setActiveComponent("EX_Employees");
-    if(role === 'HR'){
-      navigate('/Employees/HR');
+    if (sidebar === "Team members") {
+      if (role === "HR") {
+        navigate("/Employees/HR");
+      }
+      if (role === "Executive") {
+        navigate("/Employee/Executive");
+      }
+      if (role === "TeamLeader") {
+        navigate("/Team members/TeamLeader");
+      }
+    } else {
+      handlePage(`Dash Board/${role}`);
     }
-    if(role === 'Executive'){
-      navigate('/Team members/Executive');
-    }
-    if(role === 'TeamLeader'){
-      navigate('/Team members/TeamLeader');
-    }
-    
-    
   };
 
   const handlePage = (PageName) => {
     navigate(`/${PageName}`);
   };
 
-
-  var sidebar=''
-  var role=''
+  var sidebar = "";
+  var role = "";
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
-     sidebar = pathname.split('/')[1];
-     role = pathname.split('/')[2];
+    sidebar = pathname.split("/")[1];
+    role = pathname.split("/")[2];
     return sidebar;
-  };const activePageName = getActivePageName();
+  };
+  const activePageName = getActivePageName();
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

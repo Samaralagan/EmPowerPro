@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card1 from "../common/Card1";
-import { FaPlusCircle } from "react-icons/fa";
+
+import { FaPlusCircle, FaSearch } from "react-icons/fa";
 import { IoCallSharp } from "react-icons/io5";
 import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
 import Modal from "./Modal"; // Import the Modal component
-import './job.css'
+import { listVacancies } from "../../service/ApplyJobService";
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [checkedItems, setCheckedItems] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false); // Manage modal visibility
+
+  const [vacancies, setVacancies] = useState([]);
+
+  useEffect(() => {
+    listVacancies()
+      .then((response) => {
+        setVacancies(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const handleAllCheckboxChange = (e) => {
     const isChecked = e.target.checked;
@@ -65,8 +78,8 @@ const Job = ({ setActiveComponent }) => {
           </button>
         </div>
       </div>
-      <div className="cardsContainer">
-        <Card1
+
+      {/* <Card1
           title="User Experience Designer - Fully Remote"
           variety="Creative & Art"
           type="Full Time"
@@ -86,19 +99,83 @@ const Job = ({ setActiveComponent }) => {
           type="Full Time"
           salary="$45 - $55"
           countappilication="500+ applications"
-        />
-        {/* Add more Card1 components as needed */}
+        /> */}
+      {/* Add more Card1 components as needed */}
+      <div className="cardsContainer">
+        {vacancies.map((vacancy, index) => (
+          <Card1
+            key={index}
+            title={vacancy.jobTitle}
+            variety={vacancy.jobDescription} // Assuming variety is a field in your vacancy object
+            type={vacancy.employmentType}
+            deadLine={new Date(
+              vacancy.applicationDeadline
+            ).toLocaleDateString()} // Assuming salary is a field in your vacancy object
+            countappilication="5000+ Applications" // Assuming countApplication is a field in your vacancy object
+          />
+        ))}
       </div>
+
       <br />
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div className="jobsTitle">JOB APPLICATIONS</div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <div
+          style={{
+            display: "flex",
+            // marginLeft: "33.5rem",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <FaSearch className="search-icon" />
+          <input
+            className="border-inbox"
+            type="text"
+            placeholder="Search..."
+            style={{
+              paddingLeft: "29px",
+              paddingRight: "8px",
+              paddingBottom: "8px",
+              paddingTop: "8px",
+              fontSize: "16px",
+            }}
+          />
+          <button
+            style={{
+              padding: "9.8px",
+              fontSize: "16px",
+              background: "var(--Main-color)",
+              color: "white",
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <select
+          className="form-select"
+          aria-label="Default select example"
+          style={{
+            width: "345px",
+            height: "5.5vh",
+            border: "2px solid black",
+            marginLeft: "3vw",
+          }}
+        >
+          <option defaultValue>Filter By</option>
+          <option value="1"> Full Time</option>
+          <option value="2">Internship</option>
+          <option value="3">Part Time</option>
+          <option value="4">On Demand</option>
+        </select>
         <div
           className="contactus-form-button"
           style={{
             width: "33%",
             marginTop: "0%",
             marginBottom: "1rem",
-            marginLeft: "34rem",
+            // marginLeft: "34rem",
             marginRight: "0rem",
           }}
         >
@@ -128,9 +205,9 @@ const Job = ({ setActiveComponent }) => {
                 All
               </th>
               <th scope="col">Team Member</th>
-              <th scope="col">Status</th>
               <th scope="col">Email</th>
-              <th scope="col">Teams</th>
+              <th scope="col">Job role</th>
+              <th scope="col">Status</th>
               <th scope="col"></th>
             </tr>
           </thead>

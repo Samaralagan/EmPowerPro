@@ -8,7 +8,7 @@ import { InquriesData } from "../constants/temporary";
 function Inquries({ setActiveComponent }) {
   // Accept setActiveComponent as a prop
   return (
-    <div className="inquries-body">
+    <div className="contentbodyall1">
       {/* <Header />
       <hr /> */}
       <div style={{ display: "flex" }}>

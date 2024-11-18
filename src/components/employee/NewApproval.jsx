@@ -16,10 +16,9 @@ import {
 } from "react-icons/fa";
 
 function NewApproval({ setActiveComponent }) {
-
   const navigate = useNavigate();
   const handleBack = () => {
-    navigate("/Team members/Executive");
+    navigate("/Employee/Executive");
   };
 
   return (
@@ -73,7 +72,7 @@ function NewApproval({ setActiveComponent }) {
             <button className="reject-button">Reject</button>
           </div>
 
-        <div className="reply-comment">Enter your comment.....</div>
+          <div className="reply-comment">Enter your comment.....</div>
         </div>
       </div>
     </div>

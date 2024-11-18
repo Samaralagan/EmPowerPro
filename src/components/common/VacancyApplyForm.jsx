@@ -3,6 +3,7 @@ import './VacancyApplyForm.css'
 import { Form, FormControl } from 'react-bootstrap'
 import { FaPlus } from 'react-icons/fa'
 import { BsUpload } from "react-icons/bs";
+<<<<<<< HEAD
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDropzone } from 'react-dropzone';
@@ -10,6 +11,19 @@ import { useDropzone } from 'react-dropzone';
 
 
 const VacancyApplyForm = () => {
+=======
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
+
+const VacancyApplyForm = () => {
+    const[education,setEducation] = useState(false)
+    const[experience,setExperience]=useState(false)
+    const navication =useNavigate();
+
+    const handleback = () =>{
+        navication('/')
+    }
+>>>>>>> 1ad056f712db1a13cab62f203827ccb063292ab5
     
      const [nic, setNic] = useState('');
      const [firstName, setFirstName] = useState('');
@@ -98,6 +112,7 @@ const VacancyApplyForm = () => {
     const handleClickExperience = () => {
         setExperience(!experience)
     }
+<<<<<<< HEAD
 
     useEffect(() => {
         // Fetch the country list from the API
@@ -141,6 +156,11 @@ const VacancyApplyForm = () => {
 
     return (
         <div className='vacancy-apply-form-body'>
+=======
+  return (
+    <div className='vacancy-apply-form-body'>
+          <div><IoMdArrowRoundBack  className='fs-3' onClick={handleback}/></div>
+>>>>>>> 1ad056f712db1a13cab62f203827ccb063292ab5
             <div className='vacancy-apply-form-header'>
                 <h2>Intern Front-End  Developer   -   Fully Remote</h2>
                 <h5>Application</h5>

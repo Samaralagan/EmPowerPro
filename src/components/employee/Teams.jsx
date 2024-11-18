@@ -8,41 +8,37 @@ import { TeamTableData } from "../constants/temporary";
 import SideBar from "../common/SideBar";
 import { FaArrowLeft } from "react-icons/fa6";
 
-import { useLocation,useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Teams = ({ setActiveComponent }) => {
   const navigate = useNavigate();
-  const location = useLocation(); 
-  var role = ''
+  const location = useLocation();
+  var role = "";
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
-     role = pathname.split('/')[2];
+    role = pathname.split("/")[2];
     return role;
   };
   const activePageName = getActivePageName();
 
   const handleBack = () => {
     // setActiveComponent("EX_Employees");
-    if(role === 'HR'){
-      navigate('/Employees/HR');
+    if (role === "HR") {
+      navigate("/Employees/HR");
     }
-    if(role === 'Executive'){
-      navigate('/Team members/Executive');
+    if (role === "Executive") {
+      navigate("/Team members/Executive");
     }
-    
   };
   const handleNewTeam = () => {
     // setActiveComponent("EX_Employees");
-    if(role === 'HR'){
-      navigate('/Employees/HR/CreateNewTeam');
+    if (role === "HR") {
+      navigate("/Employees/HR/CreateNewTeam");
     }
-    if(role === 'Executive'){
-      navigate('/Team members/Executive/CreateNewTeam');
+    if (role === "Executive") {
+      navigate("/Employee/Executive/CreateNewTeam");
     }
-    
   };
-
- 
 
   return (
     <div>
