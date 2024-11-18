@@ -7,7 +7,7 @@ import { FaPlus } from 'react-icons/fa6';
 import RatingPopup from './RatingPopup';
 import BlogComment from './BlogComment';
 import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
-import { createAddFavourite } from '../../service/BlogService';
+import { createAddFavourite, deleteAddFavourite} from '../../service/BlogService';
 
 const customStyles = {
   content: {
@@ -31,32 +31,33 @@ const customStyles = {
   },
 };
 
-const ViewBlogPopup = ({blogId, title ,contant, modalIsOpen1, closeModal1 }) => {
-  const [addFavourite, setAddFavourite] = useState(true);
+const ViewBlogPopup = ({blogId, title ,contant, modalIsOpen1, closeModal1 ,addfavourite }) => {
+  const [addFavourite, setAddFavourite] = useState(addfavourite[0]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalIsOpen2, setModalIsOpen2] = useState(false);
 
   const HandleAddFavourite = () => {
-    // console.log(data)
-    //   updateCalenderMarker(data.id,data).then((response)=>{
-    //       console.log(response.data)
-    //       setAddFavourite(!addFavourite);
-    //   }).catch(error=>{
-    //       console.log(error);
-    //   })
-    const data = {
-      'userId':'',
-      'blog':''
-    }
-
-    createAddFavourite(data)
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error(error); 
-      
-    });
+   if(addFavourite){
+    const userId = 1;
+      createAddFavourite(userId,blogId)
+      .then((response) => {
+        setAddFavourite(false)
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error); 
+        
+      }); 
+  }
+  else{
+    // console.log(addfavourite[1])
+    const userId = 1;
+      deleteAddFavourite(userId,blogId).then((response)=>{
+         setAddFavourite(true)
+      }).catch(error=>{
+          console.log(error);
+      })
+  }
     
   };
 
@@ -120,7 +121,7 @@ const ViewBlogPopup = ({blogId, title ,contant, modalIsOpen1, closeModal1 }) => 
           <button className='viewblog-comment' onClick={openModal2}>
               Comment
           </button>
-          <BlogComment modalIsOpen2={modalIsOpen2} closeModal2={closeModal2} />
+          <BlogComment modalIsOpen2={modalIsOpen2} closeModal2={closeModal2} blogId={blogId} />
         </div>
       </Modal>    
     </div>

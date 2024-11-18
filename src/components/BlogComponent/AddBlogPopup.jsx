@@ -11,7 +11,6 @@ import { createBlog } from "../../service/BlogService";
 const Delta = Quill.import("delta");
 const customStyles = {
   content: {
-    zIndex: 1000,
     top: "50%",
     left: "50%",
     right: "auto",
@@ -19,12 +18,14 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%) ",
     width: "70%",
-    height: "80%",
+    height: "75%",
     backgroundColor: "white", // Modal content background
     padding: "20px",
     borderRadius: "10px",
     boxShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
     overflowY: "scroll",
+    zIndex: 1200,
+    overflow: 'hidden',
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.15)", // Dark background

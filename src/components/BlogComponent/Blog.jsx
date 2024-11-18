@@ -6,7 +6,7 @@ import Paginator from "../common/Paginator";
 import { FaPlus } from "react-icons/fa";
 import AddBlogPopup from "./AddBlogPopup";
 import ViewBlogPopup from "./ViewBlogPopup";
-import { getAllBlog } from "../../service/BlogService";
+import { createBlogView, getAllBlog, getAllFavouriteBlog, getSearchBlog } from "../../service/BlogService";
 import LoadingSpinner from "../common/LoadingSpinner";  // Optional: You can use a spinner component for better UX
 
 const Blog = () => {
@@ -20,25 +20,48 @@ const Blog = () => {
   const [filteredCards, setFilteredCards] = useState([blogData]);
   const [loading, setLoading] = useState(false);  // Loading state
   const [openBlog,setOpenBlog]=useState(0);
+  const[input,setInput] =useState("")
 
   useEffect(() => {
-    if (activeTab === 'All-Blog') {
+    if (activeTab === 'All-Blog' && input==="") {
       getAllBlogData();
+    }else if(activeTab === 'BookMark-Blog' && input===""){
+      getAllFavouriteBlogs();
     }
   }, []);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
     if (tab === 'All-Blog') {
+      setInput("");
+      getAllBlogData();
       setFilteredCards(blogData);
     } else if (tab === 'My-Blog') {
+      setInput("");
+      getAllBlogData();
       const myBlogs = blogData.filter((data) => data.userId === 1);
       setFilteredCards(myBlogs);
     } else if (tab === 'BookMark-Blog') {
-      setFilteredCards(BookMarkCourseCardData);
+      setInput("");
+      getAllFavouriteBlogs()
+      setFilteredCards(blogData);
     }
     setCurrentPage(1);
   };
+  function getAllFavouriteBlogs(){
+    setLoading(true);  // Start loading
+    const userId =1;
+    getAllFavouriteBlog(userId)
+      .then((response) => {
+        setBlogData(response.data);
+        setFilteredCards(response.data);  // Update filtered cards after fetching
+        setLoading(false);  // Stop loading
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);  // Stop loading in case of error
+      });
+  }
 
   function getAllBlogData() {
     setLoading(true);  // Start loading
@@ -84,6 +107,50 @@ const Blog = () => {
     setModalIsOpen1(false);
   };
 
+  const handleInputChange = (e)=>{
+    setInput(e.target.value)
+    if (activeTab === 'All-Blog' && input==="") {
+      getAllBlogData();
+    }else if(activeTab === 'BookMark-Blog' && input===""){
+      getAllFavouriteBlogs();
+    }
+  }
+
+  const handleClickInput = () =>{
+  
+    if(input!=""){
+      
+    setLoading(true);  // Start loading
+    getSearchBlog(input)
+      .then((response) => {
+        // window.alert(input)
+        setBlogData(response.data);
+        setFilteredCards(response.data);  // Update filtered cards after fetching
+        setLoading(false);  // Stop loading
+      })
+      .catch((error) => {
+       
+        console.log(error);
+        setLoading(false);  // Stop loading in case of error
+      });
+    }else if (activeTab === 'All-Blog' && input==="") {
+      getAllBlogData();
+    }else if(activeTab === 'BookMark-Blog' && input===""){
+      getAllFavouriteBlogs();
+    }
+  }
+
+  function handleAddBlogView(blogId){
+    const userId =  1;
+    createBlogView(userId,blogId)
+    .then((response) => {
+        // window.alert(response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   return (
     <div className="contentbodyall">
       <nav>
@@ -127,8 +194,8 @@ const Blog = () => {
       <div>
         <div className="new-course-content mt-2">
           <div className="new-course-filterbar">
-            <div className="new-course-filter">Filter</div>
-            <input type="text" placeholder="Search......." />
+            <div className="new-course-filter" onClick={handleClickInput}>Filter</div>
+            <input type="text" value={input} placeholder="Search......." onChange={handleInputChange}/>
           </div>
           <button className="gradient-blue-btn" onClick={openModal}>
             <FaPlus className="me-2 " /> Add
@@ -140,8 +207,7 @@ const Blog = () => {
           {loading ? (
             <div className="loading-indicator">
               <center>
-              {/* Use a spinner or loading text here */}
-              <LoadingSpinner />  {/* Optional spinner component */}
+              <LoadingSpinner />  
               <p>Loading...</p>
               </center>
             </div>
@@ -150,14 +216,17 @@ const Blog = () => {
               <div>
                 
                 <div onClick={()=>{
+                    handleAddBlogView(card.blogId)
                     openModal1();
                     setOpenBlog(card.blogId);
+
 
                     }} key={index}>
                   <NewCourseCard
                     title={card.title}
                     date={card.uploadDate}
                     type={activeTab}
+                    blogId={card.blogId}
                   />
                 
                 </div>
@@ -171,7 +240,7 @@ const Blog = () => {
         <div>
           {console.log(card.content)}
             {openBlog === card.blogId &&(         
-                <ViewBlogPopup key={index} blogId={card.blogId} title={card.title} contant={card.content} modalIsOpen1={modalIsOpen1} closeModal1={closeModal1}  />  
+                <ViewBlogPopup key={index} blogId={card.blogId} title={card.title} contant={card.content} modalIsOpen1={modalIsOpen1} closeModal1={closeModal1} addfavourite={card.favourites.some(fav => fav.userId === 1)?[false, card.favourites.find(fav => fav.userId === 1).favouriteId]:[true,0]} />  
             )}
           </div>
         ))}
