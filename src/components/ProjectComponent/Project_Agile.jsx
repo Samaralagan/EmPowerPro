@@ -7,6 +7,7 @@ import {
   ProjectDone,
   ProjectInProgress,
   ProjectToDo,
+  SelectProjects
 } from "../constants/temporary";
 import { useLocation } from "react-router-dom";
 import { FaPlusSquare } from "react-icons/fa";
@@ -19,7 +20,8 @@ const Project = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [showNestedPopup, setShowNestedPopup] = useState(false);
 
-  const [checkedSubtasks, setCheckedSubtasks] = useState({});
+  
+
 
   const getRoleName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
@@ -50,19 +52,70 @@ const Project = () => {
     setShowNestedPopup(false);
   };
 
-  // // Handle checkbox click for subtasks
-  // const handleCheckboxClick = (index) => {
-  //   if (selectedCard) {
-  //     const updatedCard = { ...selectedCard };
-  //     updatedCard.finish = Math.min(updatedCard.finish + 1, updatedCard.total);
-  //     setSelectedCard(updatedCard);
-  //   }
-  // };
+    // // Handle checkbox click for subtasks
+    // const handleCheckboxClick = (index) => {
+    //   if (selectedCard) {
+    //     const updatedCard = { ...selectedCard };
+    //     updatedCard.finish = Math.min(updatedCard.finish + 1, updatedCard.total);
+    //     setSelectedCard(updatedCard);
+    //   }
+    // };
+  
 
   return (
     <div className="">
       {/* <Header /> */}
       <div className="contentbodyall1">
+
+       <div className="project-choose">
+                <p  className="project-box-title">Select tasks to do</p>
+
+              <div className="project-columns">
+
+              {SelectProjects.map((card, index) => (
+                <div className="select-project-card" key={index}>
+                  <div className="project-card-color-boxs">
+                    {card.green && (
+                      <div
+                        className="project-card-color-box"
+                        style={{ backgroundColor: "#16BD59" }}
+                      ></div>
+                    )}
+                    {card.orange && (
+                      <div
+                        className="project-card-color-box"
+                        style={{ backgroundColor: "#EE6401" }}
+                      ></div>
+                    )}
+                    {card.blue && (
+                      <div
+                        className="project-card-color-box"
+                        style={{ backgroundColor: "#2DA3B3" }}
+                      ></div>
+                    )}
+                  </div>
+                  <div className="project-card-content">
+                    <p>{card.title} </p>
+                    <input type="checkbox" />
+                  </div>
+                  <div className="project-card-date">
+                    <FaCalendarWeek className="me-2" />
+                    {card.date}
+                  </div>
+                </div>
+              ))}
+
+            </div>
+            <div className="project-form-button-row">
+              <button className="project-back-button" >
+                Cancel
+              </button>
+              <button className="project-next-button" >
+               Add
+              </button>
+            </div>
+        </div>
+        
         <div className="project-boxs">
           <div className="project-box">
             <div className="project-box-top">
@@ -76,8 +129,7 @@ const Project = () => {
             )}
             <div>
               {ProjectToDo.map((card, index) => (
-                <div
-                  className="project-card"
+                <div className="project-card"
                   key={index}
                   onClick={() => handleCardClick(card)}
                 >
@@ -111,24 +163,14 @@ const Project = () => {
                       {card.date}
                     </div>
 
-                    <div className="project-card-members">
-                      <img
-                        src={card.image1}
-                        alt=""
-                        className="project-card-member"
-                      />
-                      <img
-                        src={card.image2}
-                        alt=""
-                        className="project-card-member"
-                      />
-                      <img
-                        src={card.image3}
-                        alt=""
-                        className="project-card-member"
-                      />
-                    </div>
+                    {/* <div className="project-card-members">
+                      <img src={card.image1} alt="" className="project-card-member" />
+                      <img src={card.image2} alt="" className="project-card-member" />
+                      <img src={card.image3} alt="" className="project-card-member" />
+                    </div> */}
+
                   </div>
+
                 </div>
               ))}
             </div>
@@ -146,11 +188,10 @@ const Project = () => {
             )}
             <div>
               {ProjectInProgress.map((card, index) => (
-                <div
-                  className="project-card"
+                <div className="project-card"
                   key={index}
-                  onClick={() => handleCardClick(card)}
-                >
+                  onClick={() => handleCardClick(card)} >
+
                   <div className="project-card-color-boxs">
                     {card.green && (
                       <div
@@ -177,24 +218,13 @@ const Project = () => {
                         <input type="checkbox" className="mt-2 me-2" />
                         <p>{card.title} </p>
                         {/* <p>{card.description} </p> */}
+
                       </div>
-                      <div className="project-card-members">
-                        <img
-                          src={card.image1}
-                          alt=""
-                          className="project-card-member-progress"
-                        />
-                        <img
-                          src={card.image2}
-                          alt=""
-                          className="project-card-member-progress"
-                        />
-                        <img
-                          src={card.image3}
-                          alt=""
-                          className="project-card-member-progress"
-                        />
-                      </div>
+                      {/* <div className="project-card-members">
+                        <img src={card.image1} alt="" className="project-card-member-progress" />
+                        <img src={card.image2} alt="" className="project-card-member-progress" />
+                        <img src={card.image3} alt="" className="project-card-member-progress" />
+                      </div> */}
 
                       <div className="project-card-date">
                         <FaCalendarWeek className="me-2" />
@@ -256,30 +286,22 @@ const Project = () => {
                       {card.date}
                     </div>
 
-                    <div className="project-card-members">
-                      <img
-                        src={card.image1}
-                        alt=""
-                        className="project-card-member"
-                      />
-                      <img
-                        src={card.image2}
-                        alt=""
-                        className="project-card-member"
-                      />
-                      <img
-                        src={card.image3}
-                        alt=""
-                        className="project-card-member"
-                      />
-                    </div>
+                    {/* <div className="project-card-members">
+                      <img src={card.image1} alt="" className="project-card-member" />
+                      <img src={card.image2} alt="" className="project-card-member" />
+                      <img src={card.image3} alt="" className="project-card-member" />
+                    </div> */}
+
                   </div>
+
                 </div>
               ))}
             </div>
           </div>
         </div>
       </div>
+
+
 
       {/* Popup Component */}
       {showPopup && (
@@ -292,45 +314,36 @@ const Project = () => {
             <div className="popup-top">
               <FaRegStickyNote className="sticky" />
               <h4>{selectedCard?.title}</h4>
+
             </div>
 
             <p>
               <span className="description-label">Description:</span> <br />
+
               {selectedCard?.description}
             </p>
 
             <p>
               <span className="description-label">Subtasks:</span> <br />
-              <button
-                className="subtasks-button"
-                onClick={() => handleViewAllClick(selectedCard)}
-              >
-                View All
-              </button>
+
+              <button className="subtasks-button" onClick={() => handleViewAllClick(selectedCard)}>View All</button>
+
             </p>
 
-            <p>
+
+
+            {/* <p>
               <span className="description-label">Members:</span> <br />
               <div className="project-card-members">
-                <img
-                  src={selectedCard?.image1}
-                  alt="Member"
-                  className="project-card-member-popup"
-                />
-                <img
-                  src={selectedCard?.image2}
-                  alt="Member"
-                  className="project-card-member-popup"
-                />
-                <img
-                  src={selectedCard?.image3}
-                  alt="Member"
-                  className="project-card-member-popup"
-                />
+                <img src={selectedCard?.image1} alt="Member" className="project-card-member-popup" />
+                <img src={selectedCard?.image2} alt="Member" className="project-card-member-popup" />
+                <img src={selectedCard?.image3} alt="Member" className="project-card-member-popup" />
               </div>
-            </p>
+
+            </p> */}
 
             <p>
+
               <span className="description-label">Labels:</span> <br />
               <div className="project-card-color-boxs">
                 {selectedCard.green && (
@@ -339,6 +352,7 @@ const Project = () => {
                     style={{ backgroundColor: "#16BD59" }}
                   >
                     <p className="popup-bar-label">Planning</p>
+
                   </div>
                 )}
                 {selectedCard.orange && (
@@ -353,6 +367,7 @@ const Project = () => {
                   <div
                     className="project-card-color-box-popup"
                     style={{ backgroundColor: "#2DA3B3" }}
+
                   >
                     <p className="popup-bar-label">Implementation</p>
                   </div>
@@ -366,19 +381,9 @@ const Project = () => {
 
             {/* Nested Popup for 'View All' */}
             {showNestedPopup && (
-              <div
-                className="nested-popup-overlay"
-                onClick={handleCloseNestedPopup}
-              >
-                <div
-                  className="nested-popup-content"
-                  onClick={(e) => e.stopPropagation()}
-                  style={{ backgroundColor: "blue", color: "white" }}
-                >
-                  <button
-                    className="popup-close-btn"
-                    onClick={handleCloseNestedPopup}
-                  >
+              <div className="nested-popup-overlay" onClick={handleCloseNestedPopup}>
+                <div className="nested-popup-content" onClick={(e) => e.stopPropagation()} style={{ backgroundColor: 'blue', color: 'white' }}>
+                  <button className="popup-close-btn" onClick={handleCloseNestedPopup}>
                     X
                   </button>
                   <h4>Sub Tasks</h4>
@@ -398,21 +403,23 @@ const Project = () => {
                           className="subtask-checkbox"
                           // onClick={() => handleCheckboxClick(index)}
                         />
-                        <label
-                          htmlFor={`subtask-${index}`}
-                          className="subtask-label"
-                        >
+                        <label htmlFor={`subtask-${index}`} className="subtask-label">
                           {subtask}
                         </label>
                       </div>
                     ))}
                   </div>
+
                 </div>
               </div>
             )}
+
+
+
           </div>
         </div>
       )}
+
     </div>
   );
 };
