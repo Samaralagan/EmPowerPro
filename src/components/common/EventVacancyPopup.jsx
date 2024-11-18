@@ -1,15 +1,11 @@
-import React from "react";
+import {React, useState,useEffect} from "react";
 import "./EventVacancyPopup.css";
 import Modal from "react-modal";
 import { GoDotFill } from "react-icons/go";
-<<<<<<< HEAD
-import { FaHtml5, FaLaptopCode, FaReact } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
-
-=======
-import { FaHtml5, FaLaptopCode, FaReact } from "react-icons/fa";
+import { FaHtml5, FaLaptopCode, FaReact,FaClipboardCheck,FaDollarSign,FaCalendarAlt } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
->>>>>>> 1ad056f712db1a13cab62f203827ccb063292ab5
+import { useScatterChartProps } from "@mui/x-charts/internals";
+import axios from "axios";
 
 const customStyles = {
   content: {
@@ -34,21 +30,37 @@ const customStyles = {
   },
 };
 
-const EventVacancyPopup = ({ modalIsOpen, closeModal }) => {
-<<<<<<< HEAD
-  const navigate = useNavigate(); 
-  
-  const handleApplyNowClick = () => {
-    navigate('/apply'); 
-  };
 
-=======
+
+const EventVacancyPopup = ({ modalIsOpen, closeModal,id }) => {
+  
+  const [vacancyDetails, setVacancyDetails] = useState(null);
+
   const location = useLocation();
   var mainPath = "";
   const navigation = useNavigate();
   const handleApply = () => {
     navigation("/VacancyApplyForm");
   };
+
+
+  useEffect(() => {
+    if (modalIsOpen && id) {
+      const getVacancyDetails = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:8080/api/hr/vacancy-get-one/${id}`
+          );
+          setVacancyDetails(response.data); // Set the vacancy details in state
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      getVacancyDetails();
+    }
+  }, [modalIsOpen, id]);
+  
 
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
@@ -58,7 +70,7 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal }) => {
 
   const activePageName = getActivePageName();
 
->>>>>>> 1ad056f712db1a13cab62f203827ccb063292ab5
+  
   return (
     <div className="vacancy-popup-body">
       <Modal
@@ -70,85 +82,56 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal }) => {
         <button className="close-button" onClick={closeModal}>
           ×
         </button>
-        <h4 className="vacancy-popup-header">We are hiring a</h4>
-        <h2 className="vacancy-popup-title">
-          Intern Front-End Developer - Fully Remote
-        </h2>
-        <div className=" vacancy-popup-updatedtime">
-          <GoDotFill className="fs-4" />
-          <h6 className="ms-2 mt-2">2 hours ago</h6>
-        </div>
-        <div className="d-flex mt-3">
-          <div className="col-md-8">
-            <div className="vacancy-popup-rightpart">
-              <h4 className="vacancy-popup-subtitle">About the job:</h4>
-              <p>
-                We are seeking a Front-End Development Intern with a focus on
-                React to join our team for a six-month paid internship. This
-                role offers a chance to work on real-world projects and develop
-                your front-end skills.
-              </p>
-              <h4 className="vacancy-popup-subtitle">Responsibilities:</h4>
-              <ul>
-                <li>
-                  Assist in developing and maintaining web applications using
-                  React
-                </li>
-                <li>
-                  Implement responsive designs using HTML, CSS, and JavaScript
-                </li>
-                <li>
-                  Collaborate with designers to create user-friendly interfaces
-                </li>
-              </ul>
+        {vacancyDetails ? (
+          <>
+            <h4 className="vacancy-popup-header">We are hiring a</h4>
+            <h2 className="vacancy-popup-title">
+              {vacancyDetails.jobTitle} - {vacancyDetails.employmentType}
+            </h2>
+
+            
+            <div className="vacancy-popup-updatedtime">
+              <FaCalendarAlt className="fs-4" /> Application Deadline:
+              <h6 className="ms-2 mt-2">{new Date(vacancyDetails.applicationDeadline).toLocaleString()}</h6>
             </div>
-          </div>
-          <div className="col-md-4">
-            <div className="vacancy-popup-leftpart">
-              <h5>$ 45O,000 - $520,000</h5>
-              <p className="vacancy-popup-salary-down mb-4">Avg salary</p>
-              <div className="vacancy-popup-left-icons mt-3">
-                <FaLaptopCode className="fs-4" />
-                <p>Software & hardware Industry</p>
-              </div>
-              <div className="vacancy-popup-left-icons mt-3">
-                <FaHtml5 className="fs-4" />
-                <p>Proficiency in HTML, CSS,& JavaScript</p>
-              </div>
-              <div className="vacancy-popup-left-icons mt-3">
-                <FaReact className="fs-4" />
-                <p>Experience with React.js</p>
-              </div>
-              {activePageName !== "Jobs" && (
-                <div className="vacancy-popup-applybtn mt-3">
-                  <button onClick={handleApply}>Apply Now</button>
+            <div className="d-flex mt-3">
+              <div className="col-md-8">
+                <div className="vacancy-popup-rightpart">
+                  <h4 className="vacancy-popup-subtitle">About the job:</h4>
+                  <p>{vacancyDetails.jobDescription}</p>
+                  <h4 className="vacancy-popup-subtitle">Responsibilities:</h4>
+                  <ul>
+                    {vacancyDetails.responsibilities}
+                  </ul>
                 </div>
-              )}
+              </div>
+              <div className="col-md-4">
+                <div className="vacancy-popup-leftpart">
+
+                <FaDollarSign className="fs-4" />Avg Salary
+
+                <div className="vacancy-popup-left-icons mt-3">
+                    <p> ${vacancyDetails.minSalary} - ${vacancyDetails.maxSalary}</p>
+                  </div>
+
+                  <FaClipboardCheck className="fs-4" /> Requirements:
+
+                  <div className="vacancy-popup-left-icons mt-3">
+                    <p>{vacancyDetails.requirements}</p>
+                  </div>
+                  {activePageName !== "Jobs" && (
+                    <div className="vacancy-popup-applybtn mt-3">
+                      <button onClick={handleApply}>Apply Now</button>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-<<<<<<< HEAD
-            <div className='vacancy-popup-left-icons mt-3'>
-              <FaHtml5 className='fs-4' />
-              <p>Proficiency in HTML, CSS,& JavaScript</p>
-            </div>
-            <div className='vacancy-popup-left-icons mt-3'>
-              <FaReact className='fs-4' />
-              <p>Experience with React.js</p>
-            </div>
-            
-            <div className='vacancy-popup-applybtn mt-3'>
-                <button onClick={handleApplyNowClick}>Apply Now</button>
-            </div>
-            
-           </div>
-         </div>
-      </div>
-    </Modal>
-     
-=======
-          </div>
-        </div>
+          </>
+        ) : (
+          <p>Loading vacancy details...</p> // Display a loading message while data is being fetched
+        )}
       </Modal>
->>>>>>> 1ad056f712db1a13cab62f203827ccb063292ab5
     </div>
   );
 };

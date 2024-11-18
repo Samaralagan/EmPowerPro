@@ -28,11 +28,8 @@ const Dashboard = () => {
     return role;
   };
   const activePageName = getActivePageName();
-<<<<<<< HEAD
-=======
 
   const markedDates = ["2024-08-07", "2024-08-12", "2024-08-27"];
->>>>>>> 1ad056f712db1a13cab62f203827ccb063292ab5
 
   return (
     <div className="dashboard-body">

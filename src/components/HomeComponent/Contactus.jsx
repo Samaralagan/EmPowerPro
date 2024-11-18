@@ -3,62 +3,59 @@ import './Contactus.css'
 import { CONTACTUS } from '../constants/contents'
 import { SOCIALMEDIA } from '../constants/contents'
 
-<<<<<<< HEAD
-const Contactus = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [contactNo, setContactNo] = useState('');
-    const [description, setDescription] = useState('');
-    const [errors, setErrors] = useState({});
-  
-    const namePattern = /^[A-Za-z]+$/;
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phonePattern = /^(\+94)?7\d{8}$/;
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newErrors = {};
-    
-        if (!firstName) {
-          newErrors.firstName = 'Please enter your First Name!';
-        } else if (!namePattern.test(firstName)) {
-          newErrors.firstName = 'First Name can only contain letters!';
-        }
-    
-        if (!lastName) {
-          newErrors.lastName = 'Please enter your Last Name!';
-        } else if (!namePattern.test(lastName)) {
-          newErrors.lastName = 'Last Name can only contain letters!';
-        }
-    
-        if (!email) {
-          newErrors.email = 'Please enter your Email!';
-        } else if (!emailPattern.test(email)) {
-          newErrors.email = 'Please enter a valid Email!';
-        }
-    
-        if (!contactNo) {
-          newErrors.contactNo = 'Please enter your Contact No!';
-        } else if (!phonePattern.test(contactNo)) {
-          newErrors.contactNo = 'Please enter a valid Contact No!';
-        }
-    
-        if (!description) {
-          newErrors.description = 'Please provide a description!';
-        }
-    
-        setErrors(newErrors);
-    
-        if (Object.keys(newErrors).length === 0) {
-          console.log('Form submitted successfully');
-         
-        }
-      };
-    
-=======
 const Contactus = ({id}) => {
->>>>>>> 1ad056f712db1a13cab62f203827ccb063292ab5
+  
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [contactNo, setContactNo] = useState('');
+  const [description, setDescription] = useState('');
+  const [errors, setErrors] = useState({});
+
+  const namePattern = /^[A-Za-z]+$/;
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phonePattern = /^(\+94)?7\d{8}$/;
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      const newErrors = {};
+  
+      if (!firstName) {
+        newErrors.firstName = 'Please enter your First Name!';
+      } else if (!namePattern.test(firstName)) {
+        newErrors.firstName = 'First Name can only contain letters!';
+      }
+  
+      if (!lastName) {
+        newErrors.lastName = 'Please enter your Last Name!';
+      } else if (!namePattern.test(lastName)) {
+        newErrors.lastName = 'Last Name can only contain letters!';
+      }
+  
+      if (!email) {
+        newErrors.email = 'Please enter your Email!';
+      } else if (!emailPattern.test(email)) {
+        newErrors.email = 'Please enter a valid Email!';
+      }
+  
+      if (!contactNo) {
+        newErrors.contactNo = 'Please enter your Contact No!';
+      } else if (!phonePattern.test(contactNo)) {
+        newErrors.contactNo = 'Please enter a valid Contact No!';
+      }
+  
+      if (!description) {
+        newErrors.description = 'Please provide a description!';
+      }
+  
+      setErrors(newErrors);
+  
+      if (Object.keys(newErrors).length === 0) {
+        console.log('Form submitted successfully');
+       
+      }
+    };
+
   return (
     <div className='contactus-body' id={id}>
         <div className='d-flex'>

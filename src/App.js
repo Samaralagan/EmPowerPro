@@ -67,6 +67,10 @@ import DashboardFinance from "./components/DashboardComponent/DashboardFinance.j
 import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
 import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
 
+import EX_ProjectPage from "./pages/EX_ProjectPage.jsx";
+import Create_Project_1 from "./components/ProjectComponent/Create_Project_1.jsx"
+import ProjectAgile from './components/ProjectComponent/Project_Agile.jsx';
+
 function App() {
   const role = "Employee";
 
@@ -91,6 +95,7 @@ function App() {
             <Route path="/Dash Board/Employee/Profile" element={<Profile />} />
             <Route path="/Attendance/Employee" element={<AttendancePage />} />
             <Route path="/Project/Employee" element={<ProjectPage />} />
+            <Route  path="/Project/Employee/AgileProject"  element={<ProjectAgile />} />
             <Route path="/Leave/Employee" element={<LeavePage />} />
             <Route path="/Pay Roll/Employee" element={<PayrollPage />} />
             <Route path="/Complaints/Employee" element={<ComplaintsPage />} />
@@ -236,7 +241,8 @@ function App() {
               element={<Performance />}
             />
             <Route path="/Attendance/Executive" element={<AttendancePage />} />
-            <Route path="/Project/Executive" element={<ProjectPage />} />
+            <Route path="/Project/Executive" element={<EX_ProjectPage />} />
+            <Route path="/Project/Executive/create-project" element={<Create_Project_1 />} />
             <Route path="/Leave/Executive" element={<LeavePage />} />
             <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
             <Route path="/Pay Roll/Executive" element={<PayrollPage />} />
