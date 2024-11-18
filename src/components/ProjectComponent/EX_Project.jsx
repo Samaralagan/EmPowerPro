@@ -86,7 +86,7 @@ function EX_Project() {
 
         <div className="light-blue-box">
             <h2 className='blue-box-title'>CREATE  A  NEW  PROJECT</h2>
-            <form>
+            <form  onSubmit={handleSubmit}>
                 <div className='form-group'>
 
                     <input
