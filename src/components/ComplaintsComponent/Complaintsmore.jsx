@@ -30,6 +30,7 @@ function Complaintsmore({ setActiveComponent }) {
 
       <ComplaintMoreCard
         status={complaintDetails.status}
+        filePath={complaintDetails.filesToUpload}
         about={complaintDetails.about}
         date={new Date(complaintDetails.date).toLocaleDateString()}
         to={complaintDetails.assignedTo}

@@ -66,6 +66,7 @@ import DashboardHR from "./components/DashboardComponent/DashboardHR.jsx";
 import DashboardFinance from "./components/DashboardComponent/DashboardFinance.jsx";
 import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
 import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
+import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
 
 function App() {
   const role = "Employee";
@@ -188,6 +189,17 @@ function App() {
               exact
               path="/Complaints/HR/:complaintId"
               element={<Complaintsmore />}
+            />
+
+            <Route
+              exact
+              path="/Complaints/HR/ReplyComplaint/:complaintId"
+              element={<ReplyComplaint />}
+            />
+            <Route
+              exact
+              path="/Complaints/HR/RepliedComplaint/:complaintId"
+              element={<RepliedComplaint />}
             />
 
             <Route

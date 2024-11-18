@@ -10,11 +10,20 @@ const ComplaintMoreCard = ({
   to,
   description,
   reply,
+  filePath,
   setActiveComponent,
 }) => {
   const navigate = useNavigate();
   const handleBackClick = () => {
     navigate(-1); // Navigates to the previous page
+  };
+
+  const handleShowAttachment = () => {
+    // Open the file using the backend endpoint
+    const downloadUrl = `http://localhost:8080/api/v1/hr/complaint-file?filePath=${encodeURIComponent(
+      filePath
+    )}`;
+    window.open(downloadUrl, "_blank");
   };
 
   return (
@@ -49,10 +58,14 @@ const ComplaintMoreCard = ({
               </>
             )}
             <br />{" "}
-            <button className="complaintmorecard-header-button">
-              {" "}
-              Show Attachments{" "}
-            </button>
+            {filePath && (
+              <button
+                className="complaintmorecard-header-button"
+                onClick={handleShowAttachment}
+              >
+                Show Attachment
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -1,27 +1,29 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ComplaintsReply = ({
-  name,
+  complaintId,
   status,
   about,
   date,
   setActiveComponent,
-  image,
 }) => {
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const getRoleName = () => {
     const pathname = decodeURIComponent(location.pathname);
     const role = pathname.split("/")[2];
     return role;
   };
-  const role = getRoleName();
+
   const handlereplycomplaint = () => {
+    console.log(complaintId);
     if (status === "PENDING") {
-      setActiveComponent("ReplyComplaint");
+      navigate(`/Complaints/HR/ReplyComplaint/${complaintId}`);
     } else if (status === "REPLIED") {
-      setActiveComponent("RepliedComplaint");
+      navigate(`/Complaints/HR/RepliedComplaint/${complaintId}`);
     }
   };
 
@@ -54,12 +56,10 @@ const ComplaintsReply = ({
               {date}
             </p>
             <br />
-            <div
-              className={status === "PENDING" ? "pending_c" : "approved_c"}
-              onClick={handlereplycomplaint}
-            >
+            <div className={status === "PENDING" ? "pending_c" : "approved_c"}>
               {status}
             </div>
+            <div onClick={handlereplycomplaint}>View Details &gt;&gt;&gt;</div>
           </div>
         </div>
       </div>
