@@ -4,10 +4,12 @@ import "./replycomplaint.css";
 import { ComplaintsReplyCard } from "../constants/temporary";
 import ReplyComplaintCard from "./ReplyComplaintCard";
 import RepliedComplaintCard from "./RepliedComplaintCard";
+import { useNavigate } from "react-router-dom";
 
 function RepliedComplaint({ setActiveComponent }) {
+  const navigate = useNavigate();
   const handlebackreplyComplaint = () => {
-    setActiveComponent("Complaints");
+    navigate(-1);
   };
   return (
     <div className="contentbodyall">
