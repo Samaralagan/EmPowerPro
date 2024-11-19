@@ -70,6 +70,7 @@ import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
 import EX_ProjectPage from "./pages/EX_ProjectPage.jsx";
 import Create_Project_1 from "./components/ProjectComponent/Create_Project_1.jsx"
 import ProjectAgile from './components/ProjectComponent/Project_Agile.jsx';
+import TaskReviews from './components/ProjectComponent/TeamLead_TaskReviews.jsx';
 
 function App() {
   const role = "Employee";
@@ -105,6 +106,7 @@ function App() {
             <Route path="/Attendance/TeamLeader" element={<AttendancePage />} />
             <Route path="/Project/TeamLeader" element={<ProjectPage />} />
             <Route  path="/Project/TeamLeader/AgileProject"  element={<ProjectAgile />} />
+            <Route  path="/Project/TeamLeader/TaskReviews"  element={<TaskReviews />} />
             <Route path="/Leave/TeamLeader" element={<LeavePage />} />
             <Route path="/Pay Roll/TeamLeader" element={<PayrollPage />} />
             <Route path="/Complaints/TeamLeader" element={<ComplaintsPage />} />

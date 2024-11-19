@@ -376,6 +376,11 @@
 
 }
 
+.task-agile-row{
+  display: flex;
+  justify-content: space-between;
+}
+
 .select-agile-button {
   background-color: #92c6fe;
   color: white;
@@ -383,16 +388,51 @@
   border: 2px solid #FFF;
   border-radius: 10px;
   cursor: pointer;
-  width: 30%;
+  width: 25%;
   font-size: 16px;
   font-weight: bold;
   margin-left: 69%;
-  /* margin-top: 6%; */
+
+}
+
+
+
+.task-review-container {
+  position: relative;
+  display: inline-block;
+  width: 20%;
+}
+
+.task-review-button {
+  color: var(--Main-color);
+  padding: 10px 20px;
+  border: 2px solid var(--Main-color);
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px; 
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 5px 8px; 
+  min-width: 30px; 
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 
 .project-addSubtask{
-  /* width: 50%; */
   border: solid  2px;
   border-color: white;
   color: white;

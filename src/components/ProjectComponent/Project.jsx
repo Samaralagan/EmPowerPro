@@ -30,6 +30,10 @@ const Project = () => {
     navigate(`/${PageName}`);
   };
 
+  const handleReviews= (PageName) => {
+    navigate(`/${PageName}`);
+  };
+
   const location = useLocation();
 
   const [showPopup, setShowPopup] = useState(false);
@@ -111,8 +115,20 @@ const Project = () => {
   return (
     <div className="">
       <div className="contentbodyall1">
+        <div className="task-agile-row">
+
+        {role === "TeamLeader" && (
+          <div className="task-review-container">
+            <button className="task-review-button" onClick={() => handleReviews(`Project/${role}/TaskReviews`)}>Task Reviews</button>
+            <span className="notification-badge">5</span> 
+          </div>      
+        )}
+
         <button className="select-agile-button" onClick={() => handlePage(`Project/${role}/AgileProject`)}>For Agile Companies</button>
 
+
+        </div>
+       
         <div className="project-boxs">
           <div className="project-box">
             <div className="project-box-top">
