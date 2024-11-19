@@ -259,7 +259,7 @@
     color: #fff;
     padding: 40px;
     border-radius: 8px;
-    width: 500px;
+    width: 40%;
     position: relative;
     align-items: center;
     text-align: center;
@@ -389,4 +389,21 @@
   margin-left: 69%;
   /* margin-top: 6%; */
 
+}
+
+.project-addSubtask{
+  /* width: 50%; */
+  border: solid  2px;
+  border-color: white;
+  color: white;
+  padding: 2vh;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  width: 200px;
+  margin-bottom: 1.8vw;
+  margin-top: 1.8vw;
 }

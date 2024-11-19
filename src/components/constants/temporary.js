@@ -397,6 +397,7 @@ export const ProjectToDo = [
     green: true,
     orange: true,
     blue: true,
+    status: "ToDo",
     total: 0,
     finish: 0,
     description:"Design and implement the user interface of the application, focusing on creating responsive, user-friendly, and visually appealing layouts.",
@@ -418,6 +419,7 @@ export const ProjectToDo = [
     image3: profile3,
     orange: true,
     blue: true,
+    status: "ToDo",
     total: 0,
     finish: 0,
     subtasks: [
@@ -438,6 +440,7 @@ export const ProjectToDo = [
     finish: 0,
     description :"An Action Plan is a strategic document outlining the specific steps, resources, and timelines necessary to achieve a particular goal or project objective. ",
     blue: true,
+    status: "ToDo",
     subtasks: [
       "Set Up Project Structure",
       "Develop UI Components",
@@ -457,6 +460,7 @@ export const ProjectInProgress = [
     green: true,
     orange: true,
     blue: true,
+    status: "InProgress",
     total: 5,
     finish: 3,
     subtasks: [
@@ -475,6 +479,7 @@ export const ProjectInProgress = [
     image2: profile2,
     image3: profile3,
     orange: true,
+    status: "InProgress",
     total: 5,
     finish: 4,
     subtasks: [
@@ -493,6 +498,7 @@ export const ProjectInProgress = [
     image2: profile4,
     image3: profile1,
     orange: true,
+    status: "InProgress",
     blue: true,
     total: 7,
     finish: 2,
@@ -513,6 +519,7 @@ export const ProjectInProgress = [
     image3: profile1,
     green: true,
     orange: true,
+    status: "InProgress",
     total: 7,
     finish: 2,
     subtasks: [
@@ -536,6 +543,7 @@ export const ProjectDone = [
     green: true,
     orange: true,
     blue: true,
+    status: "Done",
     total: 5,
     finish: 5,
     subtasks: [
@@ -555,6 +563,7 @@ export const ProjectDone = [
     image3: profile3,
     orange: true,
     green: true,
+    status: "Done",
     total: 5,
     finish: 5,
     subtasks: [
@@ -574,6 +583,7 @@ export const ProjectDone = [
     image3: profile1,
     blue: true,
     orange: true,
+    status: "Done",
     total: 5,
     finish: 5,
     subtasks: [
