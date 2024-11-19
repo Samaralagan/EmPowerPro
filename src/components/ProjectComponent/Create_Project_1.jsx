@@ -313,8 +313,10 @@ const [fileName, setFileName] = React.useState('');
                           <input type="text" placeholder="Search Members" className="members-search-bar" />
 
 
+                          <div className='member-team-leader'>Select as Team Leader</div>
                           {members.map((member, index) => (
                             <div key={index} className="member-label">
+                              <input  type="radio" name="selectedMember" value={member.member_name} className="member-radio-button" />
                               <img src={member.member_profile} className='member-profile-pic' />
                               <p className='member-name'>{member.member_name}</p>
                             </div>

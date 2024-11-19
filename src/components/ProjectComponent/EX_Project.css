@@ -431,7 +431,7 @@
 .members-search-bar {
   width: 90%;
   padding: 10px;
-  margin-left: 2.2vw;
+  /* margin-left: 1.8vw; */
   border: 2px solid white;
   border-radius: 5px;
   background-color: var(--Main-color);
@@ -1171,4 +1171,13 @@ small {
   transition: transform 0.2s ease;
   margin-left: 70%;
   padding: 5px;
+}
+
+.member-team-leader{
+  margin-top: 2vw;
+  align-items: start;
+  color: #aeadad;
+  text-align: left;
+  margin-left: 2vw;
+  font-size: 14px;
 }
