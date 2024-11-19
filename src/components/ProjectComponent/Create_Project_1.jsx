@@ -14,6 +14,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { BsUpload } from "react-icons/bs";
 import { useDropzone } from 'react-dropzone';
 import { FaCalendarWeek ,  FaRegStickyNote } from "react-icons/fa";
+import { SiReact } from 'react-icons/si';
 
 
 import profile1 from "../../assets/images/profile1.png";
@@ -193,6 +194,14 @@ const [fileName, setFileName] = React.useState('');
                       </div>
                       
                        <textarea placeholder="Add more detailed description..."></textarea>
+                  </div>
+
+                  <div className="project-form-group">
+                      <div className="project-form-main-title">
+                         <SiReact style={{ fontSize: '20px' }}/>
+                         <label>Language Stack</label>
+                      </div>
+                       <textarea placeholder="Add language stacks to use..."></textarea>
                   </div>
 
                   <div className="project-form-group">
