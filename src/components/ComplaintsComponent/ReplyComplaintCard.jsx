@@ -1,16 +1,50 @@
-import React from "react";
+import { React, useState } from "react";
 import "./replycomplaintcard.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const ReplyComplaintCard = ({ about, date, description, filePath }) => {
+const ReplyComplaintCard = ({ id, about, date, description, filePath }) => {
   const handleShowAttachment = () => {
     // Open the file using the backend endpoint
     const downloadUrl = `http://localhost:8080/api/v1/hr/complaint-file?filePath=${encodeURIComponent(
       filePath
     )}`;
     window.open(downloadUrl, "_blank");
+  };
+
+  const [reply, setReply] = useState("");
+  const navigate = useNavigate();
+
+  const handleSendReply = async () => {
+    if (!reply.trim()) {
+      alert("Reply cannot be empty");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/v1/hr/complaint-reply/${id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ reply, status: "SOLVED" }),
+        }
+      );
+
+      if (response.ok) {
+        alert("Reply Sent!");
+        navigate(-1); // Redirect to the previous page
+      } else {
+        const errorData = await response.json();
+        alert(`Failed to send reply: ${errorData.message}`);
+      }
+    } catch (error) {
+      alert(`Error: ${error.message}`);
+    }
   };
 
   return (
@@ -52,10 +86,19 @@ const ReplyComplaintCard = ({ about, date, description, filePath }) => {
               Reply :{" "}
             </p>
             <p className="complaintmorecard-header-text">
-              <textarea name="" id="" className="inputtext"></textarea>
+              <textarea
+                value={reply}
+                onChange={(e) => setReply(e.target.value)}
+                className="inputtext"
+                placeholder="Type your reply here..."
+              ></textarea>
             </p>
             <div className="contactus-form-button" style={{ width: "97%" }}>
-              <button className="gradient-blue-btn" style={{ color: "white" }}>
+              <button
+                className="gradient-blue-btn"
+                style={{ color: "white" }}
+                onClick={handleSendReply}
+              >
                 <FaPlusCircle className="me-2" />
                 Send
               </button>

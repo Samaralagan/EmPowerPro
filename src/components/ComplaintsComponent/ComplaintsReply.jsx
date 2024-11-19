@@ -22,7 +22,7 @@ const ComplaintsReply = ({
     console.log(complaintId);
     if (status === "PENDING") {
       navigate(`/Complaints/HR/ReplyComplaint/${complaintId}`);
-    } else if (status === "REPLIED") {
+    } else if (status === "SOLVED") {
       navigate(`/Complaints/HR/RepliedComplaint/${complaintId}`);
     }
   };
