@@ -72,7 +72,7 @@ const ComplaintsToMe = ({ setActiveComponent }) => {
         >
           <option value="All">All</option>
           <option value="Pending">Pending</option>
-          <option value="Replied">Replied</option>
+          <option value="Solved">Solved</option>
         </select>
 
         <div
