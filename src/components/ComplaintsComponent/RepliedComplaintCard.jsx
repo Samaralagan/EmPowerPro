@@ -1,13 +1,6 @@
 import React from "react";
 
-function RepliedComplaintCard({
-  name,
-  about,
-  date,
-  description,
-  image,
-  replied,
-}) {
+function RepliedComplaintCard({ id, about, date, description, reply }) {
   return (
     <div>
       <div className="">
@@ -20,17 +13,6 @@ function RepliedComplaintCard({
               <p className="right-flexbox-complaintmore">
                 Complaint raised on {date}
               </p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                margin: "1vw 0 1vw 2vw",
-              }}
-            >
-              <img src={image} alt="" className="img2" />
-              <p>{name}</p>
             </div>
 
             <br />
@@ -48,7 +30,7 @@ function RepliedComplaintCard({
             >
               Reply :{" "}
             </p>
-            <p className="complaintmorecard-header-text">{replied}</p>
+            <p className="complaintmorecard-header-text">{reply}</p>
           </div>
 
           <div></div>
