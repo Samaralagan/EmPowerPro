@@ -21,6 +21,7 @@ import profile1 from "../../assets/images/profile1.png";
 import profile3 from "../../assets/images/profile3.png";
 import profile5 from "../../assets/images/profile5.png";
 
+
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 
@@ -174,16 +175,16 @@ const [fileName, setFileName] = React.useState('');
 
           {
             showPopup && (
-              <div  className={`project-popup-overlay`} 
+              <div  className={`project-popup-overlay`}
                onClick={togglePopup}>
                 <div className="project-popup-content" onClick={(e) => e.stopPropagation()}>
- 
+
                   <div className="project-form-group">
                       <div className="project-form-main-title">
                          <FaBook/>
                          <label>Main Task Title</label>
                       </div>
-                     
+
                       <input type="text" placeholder="Enter a title for this task" />
                   </div>
 
@@ -192,7 +193,7 @@ const [fileName, setFileName] = React.useState('');
                          <IoIosPaper style={{ fontSize: '20px' }}/>
                          <label>Description</label>
                       </div>
-                      
+
                        <textarea placeholder="Add more detailed description..."></textarea>
                   </div>
 

@@ -1,13 +1,34 @@
-import React from "react";
+import React , { useState } from "react";
 import "./Attendance.css";
-import Header from "../layout/Header";
 import { FaHourglassStart } from "react-icons/fa6";
 import { FaHourglassHalf } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa6";
 import { FaSun } from "react-icons/fa6";
 import LineChart from "./LineChart";
+import { AiOutlineClose } from 'react-icons/ai';
+import error_image from "../../assets/images/error.png";
 
 function Attendance() {
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSearch = () => {
+    if (!startDate || !endDate) {
+      setError("Please select both start and end dates.");
+      return;
+    }
+
+    if (new Date(endDate) < new Date(startDate)) {
+      setError("End date cannot be earlier than the start date.");
+      return;
+    }
+
+    setError("");
+    alert("Searching for attendance records!"); 
+  };
+
+
   return (
     <div>
       {/* <Header /> */}
@@ -86,7 +107,7 @@ function Attendance() {
           <div className="attendance-records-text">Attendance Records</div>
 
           <div className="dropdown-row">
-            <select className="attendance-custom-dropdown" defaultValue="">
+            {/* <select className="attendance-custom-dropdown" defaultValue="">
               <option value="" disabled>
                 Start date
               </option>
@@ -101,10 +122,50 @@ function Attendance() {
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
-            </select>
+            </select> */}
 
-            <button className="attendance-search-button">Search</button>
+            <div className="attendance-custom-dropdown">
+              <label htmlFor="start-date">Start Date</label>
+              <input
+                type="date"
+                id="start-date"
+                name="start-date"
+                className="attendance-date-input"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+
+            <div className="attendance-custom-dropdown">
+              <label htmlFor="end-date">End Date</label>
+              <input
+                type="date"
+                id="end-date"
+                name="end-date"
+                className="attendance-date-input"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+
+
+            <button className="attendance-search-button" onClick={handleSearch} >Search</button>
           </div>
+
+          {error && (
+            <div className='exception-popup-overlay'>
+              <div className="exception-popup">
+                <img src={error_image} alt="error image" className="error-image"/>
+                <center className="exception-popup-topic">OOPS!</center>
+                <span className="exception-error-msg">{error}</span>
+                <AiOutlineClose
+                  className="exception-popup-close-icon"
+                  onClick={() => setError("")}
+                />
+              </div>
+            </div>
+          )}
+
 
           <div className="custom-table-container">
             <table className="custom-table">
