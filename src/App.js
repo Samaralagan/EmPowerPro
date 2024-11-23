@@ -58,6 +58,7 @@ import GenerateReport from "./components/employee/GenerateReport.jsx";
 import IncomeExpensePage from "./pages/IncomeExpensePage.jsx";
 import ApplyLeavePage from "./components/LeaveComponent/ApplyLeave.jsx";
 import LeaveHistory from "./components/LeaveComponent/LeaveHistory.jsx";
+import LeaveRequest_HR from "./components/LeaveComponent/LeaveRequest_HR.jsx";
 import LeavePageHR from "./components/LeaveComponent/LeaveHR.jsx";
 import Card1 from "./components/common/Card1.jsx";
 import DashboardEmployee from "./components/DashboardComponent/DashboardEmployee.jsx";
