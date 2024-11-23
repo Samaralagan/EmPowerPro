@@ -1,6 +1,7 @@
 import React from 'react';
 import "./PerformanceShareRemarks.css";
 import Modal from 'react-modal';
+import { useLocation } from "react-router-dom";
 
 const customStyles = {
   content: {
@@ -11,7 +12,7 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%) ',
     width: '50%',
-    height: '80%',
+    height: '90%',
     backgroundColor: 'white', // Modal content background
     padding: '20px',
     borderRadius: '10px',
@@ -28,8 +29,17 @@ const customStyles = {
 
 const PerformanceShareRemarks = ({ modalIsOpen, closeModal }) => {
 
+  const location = useLocation();
+
+  const getRoleName = () => {
+    const pathname = decodeURIComponent(location.pathname);
+    const role = pathname.split("/")[2];
+    return role;
+  };
+  const role = getRoleName();
+
   return (
-    <div className="addblog-popup-body">
+    <div className="addblog-popup-body"  style={{ height: 'auto' }}>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -77,12 +87,24 @@ const PerformanceShareRemarks = ({ modalIsOpen, closeModal }) => {
                     <p className='ps-3'> “His leadership skills have significantly boosted our overall performance."</p>
                 </div>
             </div>
-            <div className='blogcomment-textarea'>
-                <textarea name="" id="" placeholder='Add your remark'></textarea>
+          <div className='blogcomment-textarea'>
+            <textarea name="" id="" placeholder='Add your remark'></textarea>
+          </div>
+
+          {role === "HR" && (
+            <div className='final-remark'>
+              <label for="final-remark" className='final-remark-label'>Final Remark:</label>
+              <select id="final-remark" name="final-remark" className='final-remark-dropdown'>
+                <option value="exceptionally-succeed">Exceptionally Succeed</option>
+                <option value="not-succeed">Not Succeed</option>
+              </select>
             </div>
-            <div className='blogcomment-bottom mt-3'>   
-                <button className='blogcomment-cancel' onClick={closeModal}>Cancel</button>
-                <button className='blogcomment-sent' onClick={closeModal}>Send</button>
+          )}
+
+
+          <div className='blogcomment-bottom mt-3'>
+            <button className='blogcomment-cancel' onClick={closeModal}>Cancel</button>
+            <button className='blogcomment-sent' onClick={closeModal}>Send</button>
             </div>
         </div>
       </Modal>    
