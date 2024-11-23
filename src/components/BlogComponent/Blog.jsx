@@ -61,9 +61,9 @@ const Blog = () => {
     <div className="contentbodyall">
      
      <nav>
-      <div className="nav nav-tabs mt-4" id="nav-tab" role="tablist">
+      <div className="leave-hr-tabs" id="nav-tab" role="tablist">
         <button
-          className={`nav-link ${activeTab === "All-Blog" ? "active" : ""}`}
+          className={`tab-hr my-leaves ${activeTab === "All-Blog" ? "active" : ""}`}
           id="nav-All-Blog-tab"
           type="button"
           role="tab"
@@ -74,7 +74,7 @@ const Blog = () => {
           All Blog
         </button>
         <button
-          className={`nav-link ${activeTab === "My-Blog" ? "active" : ""}`}
+          className={`tab-hr others-leaves  ${activeTab === "My-Blog" ? "active" : ""}`}
           id="nav-My-Blog-tab"
           type="button"
           role="tab"
@@ -85,7 +85,7 @@ const Blog = () => {
           My Blog
         </button>
         <button
-          className={`nav-link ${activeTab === "BookMark-Blog" ? "active" : ""}`}
+          className={`tab-hr others-leaves  ${activeTab === "BookMark-Blog" ? "active" : ""}`}
           id="nav-BookMark-Blog-tab"
           type="button"
           role="tab"

@@ -7,6 +7,7 @@ import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
 import Modal from "./Modal"; // Import the Modal component
 import { listVacancies } from "../../service/ApplyJobService";
+import "./job.css"
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
@@ -54,18 +55,18 @@ const Job = ({ setActiveComponent }) => {
   };
 
   return (
-    <div className="contentbodyall1">
+    <div className="contentbodyall1" style={{width:'81vw'}}>
       <br />
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div className="jobsTitle">JOB VACANCIES</div>
+        <div className="jobsTitle" style={{fontSize: '16px'}}>JOB VACANCIES</div>
         <div
           className="contactus-form-button"
           style={{
             width: "33%",
             marginTop: "0%",
             marginBottom: "1rem",
-            marginLeft: "34rem",
-            marginRight: "0rem",
+            marginLeft: "50%",
+           
           }}
         >
           <button
@@ -121,12 +122,14 @@ const Job = ({ setActiveComponent }) => {
         <div className="jobsTitle">JOB APPLICATIONS</div>
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
+
         <div
           style={{
             display: "flex",
             // marginLeft: "33.5rem",
             alignItems: "center",
             position: "relative",
+            borderRadius: "15px",
           }}
         >
           <FaSearch className="search-icon" />
@@ -153,6 +156,7 @@ const Job = ({ setActiveComponent }) => {
             Search
           </button>
         </div>
+
         <select
           className="form-select"
           aria-label="Default select example"
@@ -169,14 +173,15 @@ const Job = ({ setActiveComponent }) => {
           <option value="3">Part Time</option>
           <option value="4">On Demand</option>
         </select>
+
         <div
           className="contactus-form-button"
           style={{
             width: "33%",
             marginTop: "0%",
             marginBottom: "1rem",
-            // marginLeft: "34rem",
-            marginRight: "0rem",
+            marginLeft: "10%",
+           
           }}
         >
           <button
@@ -189,9 +194,10 @@ const Job = ({ setActiveComponent }) => {
           </button>
         </div>
       </div>
+      
       <div
         className="tablediv"
-        style={{ height: "18rem", overflow: "auto", scrollbarWidth: "none" }}
+        style={{ height: "18rem", overflow: "auto", scrollbarWidth: "none", marginTop:"2vw" }}
       >
         <table className="table table-hover">
           <thead>

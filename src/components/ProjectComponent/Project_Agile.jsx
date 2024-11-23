@@ -378,7 +378,7 @@ const Project = () => {
             {/* Nested Popup for 'View All' */}
             {showNestedPopup && (
               <div className="nested-popup-overlay" onClick={handleCloseNestedPopup}>
-                <div className="nested-popup-content" onClick={(e) => e.stopPropagation()} style={{ backgroundColor: 'blue', color: 'white' }}>
+                <div className="nested-popup-content" onClick={(e) => e.stopPropagation()} >
                   <button className="popup-close-btn" onClick={handleCloseNestedPopup}>
                     X
                   </button>
