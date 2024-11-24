@@ -104,3 +104,26 @@
     font-weight: 500;
 
   }
+
+  .toggle-remarks{
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 100%;
+    display: flex;
+  }
+
+ .toggle-checkbox{
+  margin-right: 2%;
+  size: 24px;
+ }
+
+ .toggle-topic{
+  font-size: 2.4vh;
+
+ }
+
+ .toggle-title{
+  font-size: 2.4vh;
+  font-weight: 600;
+  color: #55B7D6;
+ }

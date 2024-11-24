@@ -13,6 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FaPlusSquare } from "react-icons/fa";
 import { getAllcalendarMarker } from "../../service/IncomeExpenseService";
 
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,6 +38,7 @@ const Dashboard = () => {
         console.log(error);
     })
 }
+
 
   const handlePage = (PageName) => {
     navigate(`/${PageName}`);

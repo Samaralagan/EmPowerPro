@@ -95,12 +95,13 @@ function NewVacancy({ setActiveComponent }) {
         style={{ marginLeft: "-0.8rem" }}
       />{" "}
       <br />
-      <div className="newvacancy-additional-rectangle-1">
-        <form style={{ width: "100%" }}>
+      <div className="newvacancy-additional-rectangle-1" style={{width:'80%', marginLeft:"10%"}}>
+        <form style={{ width: "100%" , paddingLeft:'2vw'}}>
           <label htmlFor="">Job Title:</label>
           <br />
           <input
             type="text"
+            style={{width:'80%'}}
             // className="inputnewvacancy"
             className={`inputnewvacancy ${errors.jobTitle ? "is-invalid" : ""}`}
             name="jobTitle"
@@ -114,8 +115,10 @@ function NewVacancy({ setActiveComponent }) {
           <br />
           <label htmlFor="">Employeement Type:</label>
           <br />
-          <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
+          <div style={{ display: "flex", flexDirection: "row", gap: "23rem" }}>
+
             <div className="newvacancy-additional-rectangle-3">
+
               <div className="newvacancy-additional-rectangle-2">
                 <input
                   className={`${errors.employmentType ? "is-invalid" : ""}`}
@@ -140,6 +143,7 @@ function NewVacancy({ setActiveComponent }) {
               </div>
             </div>
             <div className="newvacancy-additional-rectangle-3">
+
               <div className="newvacancy-additional-rectangle-2">
                 <input
                   className={`${errors.employmentType ? "is-invalid" : ""}`}
@@ -164,6 +168,7 @@ function NewVacancy({ setActiveComponent }) {
               </div>
             </div>
           </div>
+
           {errors.employmentType && (
                 <div className="invalid-feedback">{errors.employmentType}</div>
               )}
@@ -173,7 +178,7 @@ function NewVacancy({ setActiveComponent }) {
           <textarea
             id=""
             className={`inputtext ${errors.jobDescription ? "is-invalid" : ""}`}
-            style={{ height: "5rem", width: "50%" }}
+            style={{ height: "5rem", width: "80%" }}
             name="jobTitle"
             value={jobDescription}
             onChange={(e) => setJobDescription(e.target.value)}
@@ -188,7 +193,7 @@ function NewVacancy({ setActiveComponent }) {
           <textarea
             id=""
             className={`inputtext ${errors.requirements ? "is-invalid" : ""}`}
-            style={{ height: "5rem", width: "50%" }}
+            style={{ height: "5rem", width: "80%" }}
             name="requirments"
             value={requirements}
             onChange={(e) => setRequirements(e.target.value)}
@@ -211,7 +216,7 @@ function NewVacancy({ setActiveComponent }) {
           <textarea
             id=""
             className={`inputtext ${errors.responsibilities ? "is-invalid" : ""}`}
-            style={{ height: "5rem", width: "50%" }}
+            style={{ height: "5rem", width: "80%" }}
             name="responsibilities"
             value={responsibilities}
             onChange={(e) => setResponsibilities(e.target.value)}
@@ -231,6 +236,7 @@ function NewVacancy({ setActiveComponent }) {
           <br />
           <input
             type="date"
+            style={{width:'80%'}}
             className={`inputnewvacancy ${errors.applicationDeadline ? "is-invalid" : ""}`}
             name="applicationDeadline"
             value={applicationDeadline}
@@ -246,6 +252,7 @@ function NewVacancy({ setActiveComponent }) {
           <br />
           <input
             type="text"
+            style={{width:'80%'}}
             className={`inputnewvacancy ${errors.contactEmail ? "is-invalid" : ""}`}
             name="contactEmail"
             value={contactEmail}

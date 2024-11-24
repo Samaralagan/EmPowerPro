@@ -24,17 +24,15 @@
     4px 0px 4px rgba(0, 0, 0, 0.2); 
     cursor: pointer; 
     margin-top: 4vh;
+    align-items: center;
   }
   .newcoursecard-body:hover{
-    box-shadow: 
-    -10px 0px 10px rgba(0, 0, 0, 0.2),  
-    0px -10px 10px rgba(0, 0, 0, 0.2), 
-    0px 10px 10px rgba(0, 0, 0, 0.2),   
-    10px 0px 10px rgba(0, 0, 0, 0.2);  
+    box-shadow:  -10px 0px 10px rgba(0, 0, 0, 0.2);
     opacity: 0.8;
   }
+
   .newcoursecard-img{
-    width: 16vw;
+    width: 17vw;
   }
   .newcoursecard-title{
     font-size: 2.1vh;
