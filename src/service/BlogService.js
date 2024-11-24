@@ -34,6 +34,6 @@ export const getBlogViewCount = (blogId) =>axios.get(BASE_URL_EMPLOYEE+"/api/tea
 
 //-------------------------------------------------------Blog Rating----------------------------------------------------------------
 
-// export const createBlogRating = (userId,blogId,rate)=>axios.get(BASE_URL_EMPLOYEE+"/api/teamlead/BlogRating-create/"+userId+"/"+blogId+"/"+rate);
+export const createBlogRating = (userId,blogId,rate)=>axios.get(BASE_URL_EMPLOYEE+"/api/teamlead/BlogRating-create/"+userId+"/"+blogId+"/"+rate);
 
-// export const getBlogRating = (blogId) =>axios.get(BASE_URL_EMPLOYEE+"/api/teamlead/getBlogRating/"+blogId);
+export const getBlogRating = (blogId) =>axios.get(BASE_URL_EMPLOYEE+"/api/teamlead/getBlogRating/"+blogId);

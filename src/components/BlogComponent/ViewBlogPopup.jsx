@@ -113,7 +113,7 @@ const ViewBlogPopup = ({blogId, title ,contant, modalIsOpen1, closeModal1 ,addfa
             </button>
           </div>
 
-          <RatingPopup modalIsOpen={modalIsOpen} closeModal={closeModal} />
+          <RatingPopup modalIsOpen={modalIsOpen} closeModal={closeModal} blogId={blogId} />
           
           <button className={addFavourite ? 'viewblog-addfavourite' : 'viewblog-addfavourite-clicked'} onClick={HandleAddFavourite}>
              <FaPlus className="me-2 " /> Add Favourite

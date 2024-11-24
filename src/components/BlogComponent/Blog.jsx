@@ -17,7 +17,7 @@ const Blog = () => {
   const [modalIsOpen1, setModalIsOpen1] = useState(false);
   const [activeTab, setActiveTab] = useState("All-Blog");
   const [blogData, setBlogData] = useState([]);
-  const [filteredCards, setFilteredCards] = useState([blogData]);
+  const [filteredCards, setFilteredCards] = useState([]);
   const [loading, setLoading] = useState(false);  // Loading state
   const [openBlog,setOpenBlog]=useState(0);
   const[input,setInput] =useState("")
@@ -39,7 +39,7 @@ const Blog = () => {
     } else if (tab === 'My-Blog') {
       setInput("");
       getAllBlogData();
-      const myBlogs = blogData.filter((data) => data.userId === 1);
+      const myBlogs = blogData?.filter((data) => data?.userId === 1);
       setFilteredCards(myBlogs);
     } else if (tab === 'BookMark-Blog') {
       setInput("");
@@ -53,8 +53,8 @@ const Blog = () => {
     const userId =1;
     getAllFavouriteBlog(userId)
       .then((response) => {
-        setBlogData(response.data);
-        setFilteredCards(response.data);  // Update filtered cards after fetching
+        setBlogData(response?.data);
+        setFilteredCards(response?.data);  // Update filtered cards after fetching
         setLoading(false);  // Stop loading
       })
       .catch((error) => {
@@ -67,8 +67,8 @@ const Blog = () => {
     setLoading(true);  // Start loading
     getAllBlog()
       .then((response) => {
-        setBlogData(response.data);
-        setFilteredCards(response.data);  // Update filtered cards after fetching
+        setBlogData(response?.data);
+        setFilteredCards(response?.data);  // Update filtered cards after fetching
         setLoading(false);  // Stop loading
       })
       .catch((error) => {
@@ -88,7 +88,7 @@ const Blog = () => {
 
   const indexOfLastCard = currentPage * CardsPerPage;
   const indexOfFirstCard = indexOfLastCard - CardsPerPage;
-  const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
+  const currentCards = filteredCards?.slice(indexOfFirstCard, indexOfLastCard);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -118,14 +118,14 @@ const Blog = () => {
 
   const handleClickInput = () =>{
   
-    if(input!=""){
+    if(input!==""){
       
     setLoading(true);  // Start loading
     getSearchBlog(input)
       .then((response) => {
         // window.alert(input)
-        setBlogData(response.data);
-        setFilteredCards(response.data);  // Update filtered cards after fetching
+        setBlogData(response?.data);
+        setFilteredCards(response?.data);  // Update filtered cards after fetching
         setLoading(false);  // Stop loading
       })
       .catch((error) => {
@@ -150,7 +150,7 @@ const Blog = () => {
       console.log(error);
     });
   }
-
+console.log(currentCards,"currenr card")
   return (
     <div className="contentbodyall">
       <nav>
@@ -212,31 +212,28 @@ const Blog = () => {
               </center>
             </div>
           ) : (
-            currentCards.map((card, index) => (
-              <div>
-                
-                <div onClick={()=>{
-                    handleAddBlogView(card.blogId)
-                    openModal1();
-                    setOpenBlog(card.blogId);
-
-
-                    }} key={index}>
+            Array.isArray(currentCards) && currentCards.length > 0 ? (
+              currentCards?.map((card, index) => (
+                <div key={index} onClick={() => {
+                  handleAddBlogView(card.blogId);
+                  openModal1();
+                  setOpenBlog(card.blogId);
+                }}>
                   <NewCourseCard
                     title={card.title}
                     date={card.uploadDate}
                     type={activeTab}
                     blogId={card.blogId}
                   />
-                
                 </div>
-                  
-              </div>
-            ))
+              ))
+            ) : (
+              <p>No blogs available</p>
+            )
           )}
   
         </div>
-        {currentCards.map((card, index) => (
+        {currentCards?.map((card, index) => (
         <div>
           {console.log(card.content)}
             {openBlog === card.blogId &&(         

@@ -5,12 +5,12 @@ import img from '../../assets/images/newcourse 3.png'
 import moment from 'moment';
 import { FaUserEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import {  getBlogViewCount } from "../../service/BlogService";
+import {  getBlogRating, getBlogViewCount } from "../../service/BlogService";
 
 
 const NewCourseCard = ({  title , date ,type ,blogId }) => {
   const [count,setCount]=useState(0)
-  // const [rate,setRate]=useState(0)
+  const [rate,setRate]=useState(0)
   function timeAgo(dateString) {
     return moment(dateString).fromNow();
   }
@@ -26,16 +26,16 @@ const NewCourseCard = ({  title , date ,type ,blogId }) => {
     console.log(error);
   });
 }
-// const handleBlogRate=()=>{
-  // getBlogRating(blogId).then((response) => {
-  //   setRate(response.data)
-  // })
-  // .catch((error) => {
-  //   console.log(error);
-  // });
-// }
+const handleBlogRate=()=>{
+  getBlogRating(blogId).then((response) => {
+    setRate(response.data)
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
 handleBlogViewCount();
-// handleBlogRate();
+handleBlogRate();
 
   return (
     <div className="newcoursecard-body">
@@ -46,8 +46,11 @@ handleBlogViewCount();
       </div>)}
       <div style={{display:'flex',justifyContent:'space-between'}}>  
          <p className="newcoursecard-title">{title}</p>
-           {/* {rate} */}
-           <p className="newcoursecard-title"><FaStar  style={{ color: "#FFE143" }} /></p>
+          
+           <p className="newcoursecard-title">
+            <span className="newcoursecard-enrolled">{rate!=0 && rate}</span>
+            <FaStar  style={{ color: "#FFE143" }} />
+          </p>
       </div> 
       <p className="newcoursecard-enrolled">Mr.M.Suppuramani</p>
       <div className="newcoursecard-level mt-1 ">   
