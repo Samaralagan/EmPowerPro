@@ -1,14 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../layout/Header";
 import "./Leave.css";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaRegCalendarTimes } from "react-icons/fa";
+import axios from "axios";
 import LeaveChart from "./LeaveChart";
 // import { Link } from "react-router-dom";
 
 const Leave = ({ setActiveComponent }) => {
+  const [leaves, setLeaves] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchLeaves = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
+        const response = await axios.get(
+          `http://localhost:8080/api/v1/hr/leave/${userId}`
+        );
+        setLeaves(response.data);
+      } catch {
+        setError("failed to fetch leave details");
+      }
+    };
+    fetchLeaves();
+  }, []);
+
   const handleApplyLeave = () => {
     setActiveComponent("ApplyLeave");
   };
@@ -113,55 +132,26 @@ const Leave = ({ setActiveComponent }) => {
               </thead>
 
               <tbody>
-                <tr>
-                  <td>01</td>
-                  <td>Medical</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Emergency hospital visit</td>
-                  <td>
-                    <button className="leave-approved"> Approved</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>02</td>
-                  <td>Vacation</td>
-                  <td>10 JULY 2024</td>
-                  <td>15 JULY 2024</td>
-                  <td>Family vacation</td>
-                  <td>
-                    <button className="leave-pending"> Pending</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>03</td>
-                  <td>Personal</td>
-                  <td>05 AUGUST 2024</td>
-                  <td>07 AUGUST 2024</td>
-                  <td>Personal reasons</td>
-                  <td>
-                    <button className="leave-rejected">Rejected</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>04</td>
-                  <td>Maternity</td>
-                  <td>01 SEPTEMBER 2024</td>
-                  <td>30 NOVEMBER 2024</td>
-                  <td>Maternity leave</td>
-                  <td>
-                    <button className="leave-approved"> Approved</button>
-                  </td>
-                </tr>
-                <td>05</td>
-                <td>Study</td>
-                <td>12 DECEMBER 2024</td>
-                <td>19 DECEMBER 2024</td>
-                <td>Exam preparation</td>
-                
-                <td>
-                  <button className="leave-rejected">Rejected</button>
-                </td>
+                {leaves.map((leave, index) => {
+                  <tr>
+                    <td>{index + 1}</td>
+                    <td>{leave.leaveType}</td>
+                    <td>{leave.startDate} </td>
+                    <td>{leave.endDate}</td>
+                    <td>{leave.reason}</td>
+                    <button
+                      className={
+                        leave.status === "Approved"
+                          ? "leave-approved"
+                          : leave.status === "Rejected"
+                          ? "leave-rejected"
+                          : "leave-pending"
+                      }
+                    >
+                      {leave.status}
+                    </button>
+                  </tr>;
+                })}
               </tbody>
             </table>
           </div>
