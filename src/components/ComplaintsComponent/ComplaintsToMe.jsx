@@ -74,7 +74,7 @@ const ComplaintsToMe = ({ setActiveComponent }) => {
           <option value="Pending">Pending</option>
           <option value="Solved">Solved</option>
         </select>
-
+          
         <div
           style={{
             display: "flex",
