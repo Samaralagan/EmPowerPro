@@ -6,8 +6,39 @@ import { FaHourglassHalf } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa6";
 import { FaSun } from "react-icons/fa6";
 import LineChart from "./LineChart";
+import { createAttendance } from "../../service/Attendance";
 
 function Attendance() {
+  const handleButtonClick = () => {
+    const userId = 1;
+    const currentDate_Time = new Date();
+    const year = currentDate_Time.getFullYear();
+    const month = String(currentDate_Time.getMonth() + 1).padStart(2, "0"); // Months are zero-indexed
+    const day = String(currentDate_Time.getDate()).padStart(2, "0");
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    const hours = String(currentDate_Time.getHours()).padStart(2, "0");
+    const minutes = String(currentDate_Time.getMinutes()).padStart(2, "0");
+    const seconds = String(currentDate_Time.getSeconds()).padStart(2, "0");
+
+    const time = `${hours}:${minutes}:${seconds}`;
+
+    const data = {
+      userId: userId,
+      date: formattedDate,
+      checkIn: time,
+    };
+    createAttendance(data)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // console.log(data);
+    // console.log("Button clicked");
+  };
   return (
     <div>
       {/* <Header /> */}
@@ -72,7 +103,9 @@ function Attendance() {
             </div>
 
             <div className="button-row">
-              <button className="custom-button">Day Break</button>
+              <button className="custom-button" onClick={handleButtonClick}>
+                Check IN
+              </button>
               <button className="custom-button">Checkout</button>
             </div>
           </div>
