@@ -67,6 +67,7 @@ import DashboardHR from "./components/DashboardComponent/DashboardHR.jsx";
 import DashboardFinance from "./components/DashboardComponent/DashboardFinance.jsx";
 import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
 import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
+import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
 
 // import EX_ProjectPage from "./pages/EX_ProjectPage.jsx";
 import Create_Project_1 from "./components/ProjectComponent/Create_Project_1.jsx";
@@ -198,9 +199,26 @@ function App() {
               element={<Team_Profile />}
             />
             <Route path="/Jobs/HR" element={<JobPage />} />
-            <Route path="/Jobs/HR/card1" element={<EditVacancy />} />
+            <Route exact path={"/Jobs/HR/edit/:id"} element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
             <Route path="/Employees/HR/Profile" element={<Profile />} />
+
+            <Route
+              exact
+              path="/Complaints/HR/:complaintId"
+              element={<Complaintsmore />}
+            />
+
+            <Route
+              exact
+              path="/Complaints/HR/ReplyComplaint/:complaintId"
+              element={<ReplyComplaint />}
+            />
+            <Route
+              exact
+              path="/Complaints/HR/RepliedComplaint/:complaintId"
+              element={<RepliedComplaint />}
+            />
 
             <Route
               path="/Dash Board/FinanceAndSupport"

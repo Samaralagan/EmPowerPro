@@ -1,27 +1,29 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ComplaintsReply = ({
-  name,
-  reply_status,
+  complaintId,
+  status,
   about,
   date,
   setActiveComponent,
-  image,
 }) => {
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const getRoleName = () => {
     const pathname = decodeURIComponent(location.pathname);
     const role = pathname.split("/")[2];
     return role;
   };
-  const role = getRoleName();
+
   const handlereplycomplaint = () => {
-    if (reply_status === "Reply") {
-      setActiveComponent("ReplyComplaint");
-    } else if (reply_status === "Replied") {
-      setActiveComponent("RepliedComplaint");
+    console.log(complaintId);
+    if (status === "PENDING") {
+      navigate(`/Complaints/HR/ReplyComplaint/${complaintId}`);
+    } else if (status === "SOLVED") {
+      navigate(`/Complaints/HR/RepliedComplaint/${complaintId}`);
     }
   };
 
@@ -38,10 +40,7 @@ const ComplaintsReply = ({
                 width: "100%",
                 alignItems: "center",
               }}
-            >
-              <img src={image} alt="" className="img1" />
-              {name}
-            </div>
+            ></div>
             <p className="complaintcard-header-gray">Complaint</p>
             <p
               className="complaintcard-header-about"
@@ -57,12 +56,10 @@ const ComplaintsReply = ({
               {date}
             </p>
             <br />
-            <div
-              className={reply_status === "Reply" ? "pending_c" : "approved_c"}
-              onClick={handlereplycomplaint}
-            >
-              {reply_status}
+            <div className={status === "PENDING" ? "pending_c" : "approved_c"}>
+              {status}
             </div>
+            <div onClick={handlereplycomplaint}>View Details &gt;&gt;&gt;</div>
           </div>
         </div>
       </div>

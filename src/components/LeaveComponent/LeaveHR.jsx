@@ -5,6 +5,8 @@ import { FaPlusCircle } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaRegCalendarTimes } from "react-icons/fa";
+import { useState,useEffect } from "react";
+import axios from "axios";
 import LeaveChart from "./LeaveChart";
 
 function Leave({setActiveComponent}) {
@@ -14,6 +16,21 @@ function Leave({setActiveComponent}) {
   const handleOthersLeave = () =>
   {  setActiveComponent("OthersLeave");
   };
+
+  const [leaves, setLeaves] = useState([]);
+
+  useEffect(() => {
+    const fetchLeaves = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/hr/leave-get-all");
+        setLeaves(response.data);
+      } catch (error) {
+        console.error("Error fetching leave data:", error);
+      }
+    };
+
+    fetchLeaves();
+  }, []);
   
   return (
     <div className="leave-main-body">
@@ -104,70 +121,36 @@ function Leave({setActiveComponent}) {
           </div>
 
           <div className="leave-custom-table-container">
-            <table className="leave-custom-table">
-              <thead>
-                <tr>
-                  <th>Leave Number</th>
-                  <th>Leave Type</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Reason</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
 
-              <tbody>
-                <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
-                  <td>
-                    <button className="leave-approved"> Approved</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
-                  <td>
-                    <button className="leave-pending"> Pending</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
-                  <td>
-                    <button className="leave-rejected">Rejected</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
-                  <td>
-                    <button className="leave-approved"> Approved</button>
-                  </td>
-                </tr>
-                <td>01</td>
-                <td>Casual</td>
-                <td>20 JUNE 2024</td>
-                <td>22 JUNE 2024</td>
-                <td>Friend's Wedding Function</td>
-                <td>
-                  <button className="leave-rejected">Rejected</button>
-                </td>
-              </tbody>
-            </table>
-          </div>
+      <table className="leave-custom-table">
+        <thead>
+          <tr>
+            <th>Leave Number</th>
+            <th>Leave Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Reason</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {leaves.map((leave, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{leave.leaveType}</td>
+              <td>{new Date(leave.startDate).toLocaleDateString()}</td>
+              <td>{new Date(leave.endDate).toLocaleDateString()}</td>
+              <td>{leave.reason}</td>
+              <td>
+                <button className={`leave-${leave.status.toLowerCase()}`}>
+                  {leave.status}
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
         </div>
         
       </div>

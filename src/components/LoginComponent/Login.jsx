@@ -50,9 +50,10 @@ const Login = () => {
       checkLogin(username, password)
         .then((response) => {
           console.log(response.data);
-          if (response.data.token) {
-            localStorage.setItem("token", response.data.token);
+          if (response.data.accessToken) {
+            localStorage.setItem("token", response.data.accessToken);
             localStorage.setItem("role", response.data.role);
+            localStorage.setItem("userId", response.data.userId);
 
             const role = response.data.role;
 
