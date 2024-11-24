@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useContext } from 'react';
 import "./Dashboard.css";
 import Header from "../layout/Header";
 import { EmployeeDashboard } from "../constants/contents";
@@ -14,9 +15,11 @@ import DashboardCalendar from "./DashboardCalendar";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaPlusSquare } from "react-icons/fa";
 
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
 
   const handlePage = (PageName) => {
     navigate(`/${PageName}`);

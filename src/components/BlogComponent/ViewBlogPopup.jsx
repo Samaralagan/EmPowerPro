@@ -82,6 +82,7 @@ const ViewBlogPopup = ({ modalIsOpen1, closeModal1 }) => {
     Performance: Optimizes system speed and efficiency.
     Reliability: Enhances system stability and fault tolerance.
     </p>
+    <br/>
     <h4> Key Concepts </h4>
     <p>
         <ul>
@@ -96,6 +97,7 @@ const ViewBlogPopup = ({ modalIsOpen1, closeModal1 }) => {
             <li>Styles: Common architectural patterns (e.g., client-server, layered, microservices).</li>
     </ul>
     </p>
+    <br/>
     <h4>Introduction to Software Architecture</h4>
     <p> <b>Definition:</b><br /> Software architecture refers to the high-level structure of a software system, encompassing its components, their relationships, and the principles guiding its design and evolution.
     <br /><br />
@@ -106,6 +108,7 @@ const ViewBlogPopup = ({ modalIsOpen1, closeModal1 }) => {
     Performance: Optimizes system speed and efficiency.
     Reliability: Enhances system stability and fault tolerance.
     </p>
+    <br/>
     <h4> Key Concepts </h4>
     <p>
         <ul>

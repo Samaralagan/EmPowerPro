@@ -90,7 +90,7 @@ const ProfileCard = ({
             borderRadius: "10px",
           }}
         >
-          <div className="div1" style={{ paddingTop: "40px" }}>
+          <div className="div-img" style={{ paddingTop: "40px" }}>
             <img src={image} alt="" className="img_prof" />
           </div>
 
@@ -98,6 +98,7 @@ const ProfileCard = ({
             <div>
               <h2 className="employee-name">{name}</h2>
             </div>
+
             <div className="employee-teamname">
               {team}
               <FaStar />
@@ -105,12 +106,14 @@ const ProfileCard = ({
               <FaStar />
             </div>
             <br />
+            
             <div className="employee-details">{address}</div>
 
             <div className="employee-details">
               <MdEmail />
               {email}
             </div>
+
             <div className="employee-details">
               <FaLinkedinIn />
               {linkedin}

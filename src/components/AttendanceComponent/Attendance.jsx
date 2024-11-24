@@ -1,41 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Attendance.css";
-import Header from "../layout/Header";
 import { FaHourglassStart } from "react-icons/fa6";
 import { FaHourglassHalf } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa6";
 import { FaSun } from "react-icons/fa6";
 import LineChart from "./LineChart";
+import { AiOutlineClose } from "react-icons/ai";
+
 import { createAttendance } from "../../service/Attendance";
 
 function Attendance() {
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [error, setError] = useState("");
+  const error_image = "path/to/your/error_image.png"; // Update with actual path
+
+  const handleSearch = () => {
+    console.log(`Searching from ${startDate} to ${endDate}`);
+  };
+
   const handleButtonClick = () => {
     const userId = 1;
     const currentDate_Time = new Date();
     const year = currentDate_Time.getFullYear();
-    const month = String(currentDate_Time.getMonth() + 1).padStart(2, "0"); // Months are zero-indexed
+    const month = String(currentDate_Time.getMonth() + 1).padStart(2, "0");
     const day = String(currentDate_Time.getDate()).padStart(2, "0");
-
     const formattedDate = `${year}-${month}-${day}`;
 
     const hours = String(currentDate_Time.getHours()).padStart(2, "0");
     const minutes = String(currentDate_Time.getMinutes()).padStart(2, "0");
     const seconds = String(currentDate_Time.getSeconds()).padStart(2, "0");
-
     const time = `${hours}:${minutes}:${seconds}`;
 
-    const data = {
-      userId: userId,
-      date: formattedDate,
-      checkIn: time,
-    };
+    const data = { userId, date: formattedDate, checkIn: time };
     createAttendance(data)
       .then((response) => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
+        setError("Failed to record attendance. Please try again.");
       });
+
     // console.log(data);
     // console.log("Button clicked");
   };
@@ -119,7 +125,7 @@ function Attendance() {
           <div className="attendance-records-text">Attendance Records</div>
 
           <div className="dropdown-row">
-            <select className="attendance-custom-dropdown" defaultValue="">
+            {/* <select className="attendance-custom-dropdown" defaultValue="">
               <option value="" disabled>
                 Start date
               </option>
@@ -134,10 +140,54 @@ function Attendance() {
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
-            </select>
+            </select> */}
 
-            <button className="attendance-search-button">Search</button>
+            <div className="attendance-custom-dropdown">
+              <label htmlFor="start-date">Start Date</label>
+              <input
+                type="date"
+                id="start-date"
+                name="start-date"
+                className="attendance-date-input"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+
+            <div className="attendance-custom-dropdown">
+              <label htmlFor="end-date">End Date</label>
+              <input
+                type="date"
+                id="end-date"
+                name="end-date"
+                className="attendance-date-input"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+
+            <button className="attendance-search-button" onClick={handleSearch}>
+              Search
+            </button>
           </div>
+
+          {error && (
+            <div className="exception-popup-overlay">
+              <div className="exception-popup">
+                <img
+                  src={error_image}
+                  alt="error image"
+                  className="error-image"
+                />
+                <center className="exception-popup-topic">OOPS!</center>
+                <span className="exception-error-msg">{error}</span>
+                <AiOutlineClose
+                  className="exception-popup-close-icon"
+                  onClick={() => setError("")}
+                />
+              </div>
+            </div>
+          )}
 
           <div className="custom-table-container">
             <table className="custom-table">

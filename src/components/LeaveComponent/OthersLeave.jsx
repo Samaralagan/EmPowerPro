@@ -7,12 +7,22 @@ import { FaTimesCircle } from "react-icons/fa";
 import img1 from "../../assets/images/image 1.png"
 
 function OthersLeave({setActiveComponent}) {
+
   const handleBackLeave = () => {
     setActiveComponent("Leave");
   };
+
+  const handleLeaveRequests = () => {
+    setActiveComponent("LeaveRequest");
+ 
+  };
+
   const handleLeaveHistory = () => {
     setActiveComponent("LeaveHistory");
   };
+
+
+
   return (
     <div className="contentbodyall">
       {/* <Header />
@@ -50,9 +60,10 @@ function OthersLeave({setActiveComponent}) {
               </p>
             </div>
             <div>
-              <div className="leave-view-details-button">View Details »</div>
+              <div className="leave-view-details-button" style={{ cursor: "pointer" }} onClick={ handleLeaveRequests}>View Details »</div>
             </div>
           </div>
+
           <div className="leave-request">
             <img
               src="https://randomuser.me/api/portraits/men/5.jpg"
@@ -75,7 +86,7 @@ function OthersLeave({setActiveComponent}) {
               </p>
             </div>
 
-            <div className="leave-view-details-button">View Details »</div>
+            <div className="leave-view-details-button" style={{ cursor: "pointer" }} onClick={ handleLeaveRequests}>View Details »</div>
           </div>
         </div>
 
@@ -201,6 +212,8 @@ function OthersLeave({setActiveComponent}) {
               </div>
             </div>
           </div>
+
+
           <div className="leave-history-part">
             <div className="today-leave-title">Leave History</div>
             <div className="leave-history-part-3">

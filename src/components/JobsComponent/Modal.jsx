@@ -11,30 +11,33 @@ const Modal = ({ isVisible, onClose }) => {
           X
         </button>
         <h2>Calling For Interview</h2>
+        <br/>
+
         <form>
           <div>
-            <label htmlFor="" style={{ color: "white" }}>
+            <label htmlFor="" style={{ color: "white", fontSize:'16px', marginRight:'2vw' }}>
               Date :{" "}
             </label>
 
-            <input type="date" style={{ borderRadius: "10px" }} />
+            <input type="date" style={{ borderRadius: "5px", padding:'10px', width:'77%' }} />
           </div>
           <br />
           <div>
-            <label htmlFor="" style={{ color: "white" }}>
+            <label htmlFor="" style={{ color: "white" , fontSize:'16px', marginRight:'2vw'  }}>
               Time :{" "}
             </label>
 
-            <input type="time" style={{ borderRadius: "10px" }} />
+            <input type="time" style={{ borderRadius: "5px" , padding:'10px', width:'77%' }} />
           </div>
           <br />
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          <div style={{ display: "flex", flexDirection: "row" , gap:'10px'}}>
             <div className="box1">Generate Link</div>
             <input type="text" style={{ borderRadius: "10px" }} />
           </div>
           <br />
-          <div className="box1">
-            <button type="submit">Submit</button>
+
+          <div className="box2">
+            <button type="submit" style={{color:'white'}}>Submit</button>
           </div>
         </form>
       </div>
