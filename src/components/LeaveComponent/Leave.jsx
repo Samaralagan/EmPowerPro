@@ -11,22 +11,59 @@ import LeaveChart from "./LeaveChart";
 
 const Leave = ({ setActiveComponent }) => {
   const [leaves, setLeaves] = useState([]);
+  const [filteredLeaves, setFilteredLeaves] = useState([]);
+  const [filterPeriod, setFilterPeriod] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
+
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchLeaves = async () => {
-      try {
-        const userId = localStorage.getItem("userId");
-        const response = await axios.get(
-          `http://localhost:8080/api/v1/hr/leave/${userId}`
-        );
-        setLeaves(response.data);
-      } catch {
-        setError("failed to fetch leave details");
+  const fetchLeaves = async () => {
+    try {
+      const userId = localStorage.getItem("userId");
+      const response = await axios.get(
+        `http://localhost:8080/api/v1/hr/leave/${userId}`
+      );
+      setLeaves(response.data);
+      setFilteredLeaves(response.data);
+    } catch {
+      setError("failed to fetch leave details");
+    }
+  };
+
+  const filterLeave = () => {
+    let filtered = [...leaves];
+
+    if (filterPeriod) {
+      const now = new Date();
+      const dateThreshold = new Date();
+
+      if (filterPeriod == "Last 3 Months") {
+        dateThreshold.setMonth(now.getMonth() - 3);
+      } else if (filterPeriod === "Last 6 Months") {
+        dateThreshold.setMonth(now.getMonth() - 6);
+      } else if (filterPeriod === "Last 12 Months") {
+        dateThreshold.setMonth(now.getMonth() - 12);
       }
-    };
+
+      filtered = filtered.filter(
+        (leave) => new Date(leave.startDate) >= dateThreshold
+      );
+    }
+
+    if (filterStatus) {
+      filtered = filtered.filter((leave) => leave.status === filterStatus);
+    }
+
+    setFilteredLeaves(filtered);
+  };
+
+  useEffect(() => {
     fetchLeaves();
   }, []);
+
+  useEffect(() => {
+    filterLeave();
+  }, [filterPeriod, filterStatus, leaves]);
 
   const handleApplyLeave = () => {
     setActiveComponent("ApplyLeave");
@@ -96,25 +133,31 @@ const Leave = ({ setActiveComponent }) => {
           <div className="leave-records-text">Leaves</div>
 
           <div className="dropdown-row">
-            <select className="custom-dropdown" defaultValue="">
+            <select
+              value={filterPeriod}
+              onChange={(e) => setFilterPeriod(e.target.value)}
+              className="custom-dropdown"
+              defaultValue=""
+            >
               <option value="" disabled>
-                Last 4 Months
+                Period
               </option>
-              <option value="option1">Last 4 Months</option>
-              <option value="option2">Last 8 Months</option>
-              <option value="option3">last 12 Months</option>
+              <option value="Last 3 Months">Last 3 Months</option>
+              <option value="Last 6 Months">Last 6 Months</option>
+              <option value="Last 12 Months">last 12 Months</option>
             </select>
             <select
               className="custom-dropdown"
-              defaultValue=""
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
               style={{ marginLeft: "45vw" }}
             >
               <option value="" disabled>
                 Status
               </option>
-              <option value="option1">Approved</option>
-              <option value="option2">Rejected</option>
-              <option value="option3">Pending</option>
+              <option value="APPROVED">Approved</option>
+              <option value="REJECTED">Rejected</option>
+              <option value="PENDING">Pending</option>
             </select>
           </div>
 
@@ -132,26 +175,26 @@ const Leave = ({ setActiveComponent }) => {
               </thead>
 
               <tbody>
-                {leaves.map((leave, index) => {
-                  <tr>
+                {filteredLeaves.map((leave, index) => (
+                  <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{leave.leaveType}</td>
-                    <td>{leave.startDate} </td>
-                    <td>{leave.endDate}</td>
+                    <td>{new Date(leave.startDate).toLocaleDateString()} </td>
+                    <td>{new Date(leave.endDate).toLocaleDateString()}</td>
                     <td>{leave.reason}</td>
                     <button
                       className={
-                        leave.status === "Approved"
+                        leave.status === "APPROVED"
                           ? "leave-approved"
-                          : leave.status === "Rejected"
+                          : leave.status === "REJECTED"
                           ? "leave-rejected"
                           : "leave-pending"
                       }
                     >
                       {leave.status}
                     </button>
-                  </tr>;
-                })}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
