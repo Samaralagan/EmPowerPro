@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import Header from "../layout/Header";
 import "./leavePending.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-const LeavePending = ({setActiveComponent}) => {
+const LeavePending = ({ setActiveComponent }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { leave } = location.state || {};
+
+  console.log(leave);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,10 +23,13 @@ const LeavePending = ({setActiveComponent}) => {
   };
   return (
     <div className="pending-leave-body">
-      
       <hr />
 
-      <IoMdArrowRoundBack className="backarrow" style={{ color: "#000f44" }} onClick={handleBackLeave} />
+      <IoMdArrowRoundBack
+        className="backarrow"
+        style={{ color: "#000f44" }}
+        onClick={handleBackLeave}
+      />
       <div className="pending-leave-form-body">
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
           <div className="pending-leave-profile-section">
@@ -36,7 +43,7 @@ const LeavePending = ({setActiveComponent}) => {
             </div>
 
             <div className="leave-type">
-              <span style={{color:'#95a5a6'}}>Leave Type : </span>
+              <span style={{ color: "#95a5a6" }}>Leave Type : </span>
               <span className="leave-type-value">Medical</span>
             </div>
           </div>
@@ -59,15 +66,13 @@ const LeavePending = ({setActiveComponent}) => {
         </form>
       </div>
       <div className="leave-reply-container">
-                    <div className="leave-reply-buttons">
-                      <button className="leave-hr-approve-button">Approve</button>
-                      <button className="leave-hr-reject-button">Reject</button>
+        <div className="leave-reply-buttons">
+          <button className="leave-hr-approve-button">Approve</button>
+          <button className="leave-hr-reject-button">Reject</button>
+        </div>
 
-                    </div>
-
-                    <div className="leave-reply-comment">Enter your comment.....</div>
-                   
-    </div>
+        <div className="leave-reply-comment">Enter your comment.....</div>
+      </div>
     </div>
   );
 };
