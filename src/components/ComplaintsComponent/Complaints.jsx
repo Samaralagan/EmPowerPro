@@ -4,6 +4,7 @@ import { ComplaintsData } from "../constants/temporary";
 import ComplaintsCard from "../common/ComplaintsCard";
 import ComplaintsToMe from "./ComplaintsToMe";
 import "./Complaints.css";
+import { useLocation } from "react-router-dom";
 
 const Complaints = ({ setActiveComponent }) => {
   const [activeTab, setActiveTab] = useState("my-complaints");
@@ -16,10 +17,20 @@ const Complaints = ({ setActiveComponent }) => {
     setActiveComponent("NewComplaint");
   };
 
+  const location = useLocation();
+
+  const getRoleName = () => {
+    const pathname = decodeURIComponent(location.pathname);
+    const role = pathname.split("/")[2];
+    return role;
+  };
+  const role = getRoleName();
+
   return (
     <div className="contentbodyall">
       <nav>
         <div className="leave-hr-tabs" id="nav-tab" role="tablist">
+
           <button
             className={`tab-hr my-leaves ${
               activeTab === "my-complaints" ? "active" : ""
@@ -33,19 +44,22 @@ const Complaints = ({ setActiveComponent }) => {
           >
             My Complaints
           </button>
-          <button
-            className={`tab-hr others-leaves ${
-              activeTab === "complaints-to-me" ? "active" : ""
-            }`}
-            id="nav-profile-tab"
-            type="button"
-            role="tab"
-            aria-controls="nav-profile"
-            aria-selected={activeTab === "complaints-to-me"}
-            onClick={() => handleTabChange("complaints-to-me")}
-          >
-            Complaints to me
-          </button>
+          {role !== "Employee" && role !== "Admin" && (
+            <button
+              className={`tab-hr others-leaves ${activeTab === "complaints-to-me" ? "active" : ""
+                }`}
+              id="nav-profile-tab"
+              type="button"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected={activeTab === "complaints-to-me"}
+              onClick={() => handleTabChange("complaints-to-me")}
+            >
+              Complaints to me
+            </button>
+
+          )}
+          
         </div>
       </nav>
       <div className="tab-content" id="nav-tabContent">
