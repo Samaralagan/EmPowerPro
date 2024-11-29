@@ -37,6 +37,7 @@ function RepliedComplaint({ setActiveComponent }) {
         <div className="">
           <RepliedComplaintCard
             id={complaintDetails.id}
+            filePath={complaintDetails.filesToUpload}
             reply={complaintDetails.reply}
             about={complaintDetails.about}
             date={new Date(complaintDetails.date).toLocaleDateString()}

@@ -13,34 +13,31 @@ import RejectLeave from "../components/LeaveComponent/RejectLeave";
 import ApplyLeaveForm from "../components/LeaveComponent/ApplyLeaveForm";
 import { useLocation } from "react-router-dom";
 
-
-
-const LeavePage = () =>  {
+const LeavePage = () => {
   const [activeComponent, setActiveComponent] = useState("Leave");
 
-  const location = useLocation(); 
-  var role = ''
+  const location = useLocation();
+  var role = "";
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
-     role = pathname.split('/')[2];
+    role = pathname.split("/")[2];
     return role;
   };
-  
+
   const activePageName = getActivePageName();
 
   return (
     <div>
       <SideBar />
-      {activeComponent === "Leave" &&  role  !== "HR" && role  !== "Executive" && (
+      {activeComponent === "Leave" && role !== "HR" && role !== "Executive" && (
         <Leave setActiveComponent={setActiveComponent} />
       )}
-      {activeComponent === "Leave" &&  role  === "HR" &&  (
+      {activeComponent === "Leave" && role === "HR" && (
         <LeaveHR setActiveComponent={setActiveComponent} />
       )}
-      {activeComponent === "Leave" &&  role  === "Executive" && (
+      {activeComponent === "Leave" && role === "Executive" && (
         <LeaveExecutive setActiveComponent={setActiveComponent} />
       )}
-
 
       {activeComponent === "ApplyLeave" && (
         <ApplyLeave setActiveComponent={setActiveComponent} />
@@ -55,7 +52,7 @@ const LeavePage = () =>  {
       {activeComponent === "Rejected" && (
         <RejectLeave setActiveComponent={setActiveComponent} />
       )}
-      
+
       {activeComponent === "ApplyLeaveHR" && (
         <ApplyLeaveHR setActiveComponent={setActiveComponent} />
       )}
@@ -66,24 +63,20 @@ const LeavePage = () =>  {
         <LeaveHistory setActiveComponent={setActiveComponent} />
       )}
 
-      
       {/* <Leave/> */}
-       {/* <ApplyLeave/> */}
+      {/* <ApplyLeave/> */}
 
       {/* <LeaveExecutive /> */}
-       {/* <LeavePending/> */}
+      {/* <LeavePending/> */}
       {/* <ApproveLeave/> */}
       {/* <RejectLeave/> */}
 
-{/* <LeaveHR/> */}
-{/* <ApplyLeaveHR/> */}
+      {/* <LeaveHR/> */}
+      {/* <ApplyLeaveHR/> */}
       {/* <OthersLeave/> */}
       {/* <LeaveHistory/> */}
-     
-     
-
     </div>
   );
-}
+};
 
 export default LeavePage;

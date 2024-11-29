@@ -67,6 +67,7 @@ import DashboardFinance from "./components/DashboardComponent/DashboardFinance.j
 import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
 import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
 import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
+import LeavePending from "./components/LeaveComponent/LeavePending.jsx";
 
 function App() {
   const role = "Employee";
@@ -190,6 +191,8 @@ function App() {
               path="/Complaints/HR/:complaintId"
               element={<Complaintsmore />}
             />
+
+            <Route exact path="/leave/request/:id" element={<LeavePending />} />
 
             <Route
               exact

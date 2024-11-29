@@ -11,6 +11,7 @@ import LeaveChart from "./LeaveChart";
 
 const Leave = ({ setActiveComponent }) => {
   const [leaves, setLeaves] = useState([]);
+  const [leaveBalance, setLeaveBalance] = useState([]);
   const [filteredLeaves, setFilteredLeaves] = useState([]);
   const [filterPeriod, setFilterPeriod] = useState("");
   const [filterStatus, setFilterStatus] = useState("");
@@ -65,6 +66,21 @@ const Leave = ({ setActiveComponent }) => {
     filterLeave();
   }, [filterPeriod, filterStatus, leaves]);
 
+  useEffect(() => {
+    const fetchLeaveBalance = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
+        const response = await axios.get(
+          `http://localhost:8080/api/v1/hr/leave-balance-details/${userId}`
+        );
+        setLeaveBalance(response.data);
+      } catch {
+        setError("failed to fetch leave status");
+      }
+    };
+    fetchLeaveBalance();
+  }, []);
+
   const handleApplyLeave = () => {
     setActiveComponent("ApplyLeave");
   };
@@ -85,7 +101,10 @@ const Leave = ({ setActiveComponent }) => {
               </div>
 
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 25</div>
+                <div className="leave-main-box-content">
+                  {" "}
+                  {leaveBalance.totalAvailableLeaves}
+                </div>
                 <div className="leave-sub-box-content-1">
                   {" "}
                   Available Leaves{" "}
@@ -98,7 +117,9 @@ const Leave = ({ setActiveComponent }) => {
                 <FaRegCalendarCheck className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 10 </div>
+                <div className="leave-main-box-content">
+                  {leaveBalance.approvedLeaves}
+                </div>
                 <div className="leave-sub-box-content-2"> Approved Leaves</div>
               </div>
             </div>
@@ -108,7 +129,9 @@ const Leave = ({ setActiveComponent }) => {
                 <FaRegCalendarTimes className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 5 </div>
+                <div className="leave-main-box-content">
+                  {leaveBalance.rejectedLeaves}
+                </div>
                 <div className="leave-sub-box-content"> Rejected Leaves </div>
               </div>
             </div>

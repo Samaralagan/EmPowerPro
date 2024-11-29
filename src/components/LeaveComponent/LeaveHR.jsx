@@ -23,6 +23,8 @@ function Leave({ setActiveComponent }) {
   const [filteredLeaves, setFilteredLeaves] = useState([]); // Stores filtered leaves
   const [filterPeriod, setFilterPeriod] = useState("");
   const [filterStatus, setFilterStatus] = useState("");
+  const [leaveBalance, setLeaveBalance] = useState([]);
+  const [error, setError] = useState(null);
 
   const fetchLeaves = async () => {
     try {
@@ -30,10 +32,31 @@ function Leave({ setActiveComponent }) {
       const response = await axios.get(
         `http://localhost:8080/api/v1/hr/leave/${userId}`
       );
+
       setLeaves(response.data);
-      setFilteredLeaves(response.data); // Initially show all leaves
-    } catch {
-      console.error("Failed to fetch leave details");
+      setFilteredLeaves(response.data);
+
+      let approvedLeaves = 0;
+      let rejectedLeaves = 0;
+      let totalLeaveDays = 20;
+
+      response.data.forEach((leave) => {
+        if (leave.status === "APPROVED") {
+          approvedLeaves += leave.leaveDays;
+        } else if (leave.status === "REJECTED") {
+          rejectedLeaves += leave.leaveDays;
+        }
+      });
+
+      let availableLeaves = totalLeaveDays - approvedLeaves;
+
+      setLeaveBalance({
+        approvedLeaves,
+        rejectedLeaves,
+        availableLeaves,
+      });
+    } catch (error) {
+      console.error("Failed to fetch leave details", error);
     }
   };
 
@@ -91,7 +114,10 @@ function Leave({ setActiveComponent }) {
                 <FaBookmark className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content">25</div>
+                <div className="leave-main-box-content">
+                  {" "}
+                  {leaveBalance.availableLeaves}
+                </div>
                 <div className="leave-sub-box-content-1">Available Leaves</div>
               </div>
             </div>
@@ -101,7 +127,9 @@ function Leave({ setActiveComponent }) {
                 <FaRegCalendarCheck className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content">10</div>
+                <div className="leave-main-box-content">
+                  {leaveBalance.approvedLeaves}
+                </div>
                 <div className="leave-sub-box-content-2">Approved Leaves</div>
               </div>
             </div>
@@ -111,7 +139,9 @@ function Leave({ setActiveComponent }) {
                 <FaRegCalendarTimes className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content">5</div>
+                <div className="leave-main-box-content">
+                  {leaveBalance.rejectedLeaves}
+                </div>
                 <div className="leave-sub-box-content">Rejected Leaves</div>
               </div>
             </div>
