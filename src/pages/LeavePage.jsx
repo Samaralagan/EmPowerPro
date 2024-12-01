@@ -12,19 +12,25 @@ import ApproveLeave from "../components/LeaveComponent/ApproveLeave";
 import RejectLeave from "../components/LeaveComponent/RejectLeave";
 import ApplyLeaveForm from "../components/LeaveComponent/ApplyLeaveForm";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const LeavePage = () => {
-  const [activeComponent, setActiveComponent] = useState("Leave");
-
   const location = useLocation();
-  var role = "";
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
-    role = pathname.split("/")[2];
-    return role;
+    const role = pathname.split("/")[2];
+    const component = pathname.split("/")[3];
+    return { role, component };
   };
 
-  const activePageName = getActivePageName();
+  const { role, component } = getActivePageName();
+  const [activeComponent, setActiveComponent] = useState(component || "Leave");
+
+  useEffect(() => {
+    if (component) {
+      setActiveComponent(component);
+    }
+  }, [component]);
 
   return (
     <div>

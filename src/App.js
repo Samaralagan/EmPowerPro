@@ -206,6 +206,18 @@ function App() {
             />
 
             <Route
+              exact
+              path="/Leaves/HR/LeaveRequest/:leaveId"
+              element={<LeavePending />}
+            />
+
+            <Route
+              exact
+              path="/Leaves/HR/OthersLeave"
+              element={<LeavePage />}
+            />
+
+            <Route
               path="/Dash Board/FinanceAndSupport"
               element={<DashboardFinance />}
             />
