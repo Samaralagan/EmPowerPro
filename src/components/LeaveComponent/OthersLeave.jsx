@@ -13,6 +13,7 @@ function OthersLeave({ setActiveComponent }) {
   const [pendingLeaves, setPendingLeaves] = useState([]);
   const [todayLeaves, setTodayLeaves] = useState([]);
   const [historyLeaves, setHistoryLeaves] = useState([]);
+  const [leave, setLeave] = useState(null);
   const [error, setError] = useState();
 
   const navigate = useNavigate();
@@ -73,10 +74,10 @@ function OthersLeave({ setActiveComponent }) {
     setActiveComponent("LeaveHistory");
   };
 
-  const handleLeaveRequest = (leave) => {
-    navigate(`/leave/request/${leave.id}`, { state: { leave } });
-    // setActiveComponent("Pending");
+  const handleLeaveRequest = (leaveId) => {
+    navigate(`/Leaves/HR/LeaveRequest/${leaveId}`);
   };
+
   return (
     <div className="contentbodyall">
       {/* <Header />
@@ -116,7 +117,7 @@ function OthersLeave({ setActiveComponent }) {
               <div>
                 <div
                   className="leave-view-details-button"
-                  onClick={() => handleLeaveRequest(leave)}
+                  onClick={() => handleLeaveRequest(leave.id)}
                 >
                   View Details »
                 </div>
@@ -178,28 +179,27 @@ function OthersLeave({ setActiveComponent }) {
             {historyLeaves.map((leave, index) => (
               <div className="leave-history-part-3">
                 <div className="leave-history-part-4">
-                  <Checkmark size="35px" />
+                  {leave.status === "REJECTED" ? (
+                    <FaTimesCircle
+                      size="34px"
+                      color="red"
+                      style={{
+                        position: "absolute",
+                        animation: "rotate 2s  ",
+                      }}
+                    />
+                  ) : (
+                    <Checkmark size="35px" />
+                  )}
                   <div>
-                    {leave.status === "APPROVED" ? (
-                      <FaCalendarAlt
-                        style={{
-                          marginRight: "5px",
-                          marginTop: "20px",
-                          color: "#000f44",
-                          fontSize: "x-large",
-                        }}
-                      />
-                    ) : (
-                      <FaTimesCircle
-                        size="34px"
-                        color="red"
-                        style={{
-                          position: "absolute",
-                          animation: "rotate 2s",
-                          marginTop: "20px",
-                        }}
-                      />
-                    )}
+                    <FaCalendarAlt
+                      style={{
+                        marginRight: "5px",
+                        marginTop: "55px",
+                        color: "#000f44",
+                        fontSize: "x-large",
+                      }}
+                    />
                   </div>
                 </div>
                 <div className="leave-history-part-4">
@@ -237,54 +237,6 @@ function OthersLeave({ setActiveComponent }) {
                 </div>
               </div>
             ))}
-
-            {/* <div className="leave-history-part-3">
-              <div className="leave-history-part-4">
-                <FaTimesCircle
-                  size="34px"
-                  color="red"
-                  style={{
-                    position: "absolute",
-                    animation: "rotate 2s  ",
-                  }}
-                />
-                <div>
-                  <FaCalendarAlt
-                    style={{
-                      marginRight: "5px",
-                      marginTop: "55px",
-                      color: "#000f44",
-                      fontSize: "x-large",
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="leave-history-part-4">
-                <div className="leave-div-6">Cate Micheal</div>
-                <div className="leave-div-7">From</div>
-                <div className="leave-div-8">28/05/2024</div>
-              </div>
-              <div className="leave-history-part-4">
-                <div className="leave-div-10">Medical Leave</div>
-                <div className="leave-div-11">To</div>
-                <div className="leave-div-12">31/05/2024</div>
-              </div>
-              <div className="leave-history-part-4">
-                <div className="leave-div-14">
-                  <div
-                    className="leave-div-15"
-                    style={{ cursor: "pointer" }}
-                    onClick={handleLeaveHistory}
-                  >
-                    View Details »
-                  </div>
-                </div>
-                <div className="leave-div-16">
-                  <div className="leave-div-17">Status</div>
-                  <div className="leave-div-36">Rejected</div>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
