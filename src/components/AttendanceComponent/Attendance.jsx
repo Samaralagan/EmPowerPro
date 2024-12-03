@@ -7,44 +7,97 @@ import { FaSun } from "react-icons/fa6";
 import LineChart from "./LineChart";
 import { AiOutlineClose } from "react-icons/ai";
 
-import { createAttendance } from "../../service/Attendance";
+import { addBreakTime, addContinueTime, createAttendance, getAllAttendanceByUserId, getAttendanceById, updateCheckout } from "../../service/Attendance";
 
 function Attendance() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [error, setError] = useState("");
+  const[checkIn,setCheckIn]=useState(true);
+  const[checkInTime,setCheckInTime]=useState()
+  const[checkout,setCheckout]=useState(false);
+  const[breakTime,setBreakTime]=useState(false)
   const error_image = "path/to/your/error_image.png"; // Update with actual path
+  const [attendanceId,setAttendanceId]=useState(null)
 
   const handleSearch = () => {
     console.log(`Searching from ${startDate} to ${endDate}`);
   };
 
-  const handleButtonClick = () => {
+  const handleCheckInButtonClick = () => {
+    if(checkIn){
     const userId = 1;
-    const currentDate_Time = new Date();
-    const year = currentDate_Time.getFullYear();
-    const month = String(currentDate_Time.getMonth() + 1).padStart(2, "0");
-    const day = String(currentDate_Time.getDate()).padStart(2, "0");
-    const formattedDate = `${year}-${month}-${day}`;
-
-    const hours = String(currentDate_Time.getHours()).padStart(2, "0");
-    const minutes = String(currentDate_Time.getMinutes()).padStart(2, "0");
-    const seconds = String(currentDate_Time.getSeconds()).padStart(2, "0");
-    const time = `${hours}:${minutes}:${seconds}`;
-
-    const data = { userId, date: formattedDate, checkIn: time };
-    createAttendance(data)
+    createAttendance(userId)
       .then((response) => {
+        setCheckIn(false);
         console.log(response.data);
+        
+        setAttendanceId(response.data.attendanceId)
       })
       .catch((error) => {
         console.error(error);
         setError("Failed to record attendance. Please try again.");
       });
 
-    // console.log(data);
-    // console.log("Button clicked");
+     
+
+    }else if(!checkIn && breakTime){
+      addBreakTime(attendanceId)
+      .then((response) => {
+        setBreakTime(false)
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError("Failed to record attendance. Please try again.");
+      });
+    }else if(!checkIn && !breakTime){
+      addContinueTime(attendanceId)
+      .then((response) => {
+        setBreakTime(true)
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError("Failed to record attendance. Please try again.");
+      });
+    } 
   };
+  const handleCheckOutButtonClick = () => {
+    updateCheckout(attendanceId)
+    .then((response) => {
+      setCheckout(false)
+      setCheckIn(true)
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      setError("Failed to record attendance. Please try again.");
+    });
+  }
+  // if(!checkIn){
+  //   getAttendanceById(attendanceId)
+  //   .then((response) => {
+  //     setCheckIn(false);
+  //     console.log(response.data);
+     
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //     setError("Failed to record attendance. Please try again.");
+  //   });
+  // }
+  const userId=1
+  getAllAttendanceByUserId(userId)
+  .then((response) => {
+    setCheckout(false)
+    setCheckIn(true)
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+    setError("Failed to record attendance. Please try again.");
+  });
   return (
     <div>
       {/* <Header /> */}
@@ -109,10 +162,14 @@ function Attendance() {
             </div>
 
             <div className="button-row">
-              <button className="custom-button" onClick={handleButtonClick}>
-                Check IN
+              <button className="custom-button" onClick={handleCheckInButtonClick}>
+                {checkIn &&("Check IN")}
+                {breakTime &&  !checkIn &&("Continue") }
+                {!breakTime && !checkIn  && ("Break Time") }
               </button>
-              <button className="custom-button">Checkout</button>
+              {!checkIn && !breakTime &&(
+              <button className="custom-button" onClick={handleCheckOutButtonClick}>Checkout</button>
+              )}
             </div>
           </div>
 
@@ -170,7 +227,7 @@ function Attendance() {
               Search
             </button>
           </div>
-
+{/* 
           {error && (
             <div className="exception-popup-overlay">
               <div className="exception-popup">
@@ -187,7 +244,7 @@ function Attendance() {
                 />
               </div>
             </div>
-          )}
+          )} */}
 
           <div className="custom-table-container">
             <table className="custom-table">
