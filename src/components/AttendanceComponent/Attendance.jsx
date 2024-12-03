@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Attendance.css";
 import { FaHourglassStart } from "react-icons/fa6";
 import { FaHourglassHalf } from "react-icons/fa6";
@@ -8,8 +8,34 @@ import LineChart from "./LineChart";
 import { AiOutlineClose } from "react-icons/ai";
 
 import { createAttendance } from "../../service/Attendance";
+import moment from "moment";
 
 function Attendance() {
+  const [currentDateTime, setCurrentDateTime] = useState(
+    moment().format("MMMM Do YYYY, h:mm:ss a")
+  );
+
+  // Update date and time every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDateTime(moment().format("MMMM Do YYYY"));
+    }, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
+
+  // State for dynamic time
+  const [currentTime, setCurrentTime] = useState(moment().format("LTS"));
+
+  // Update time every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(moment().format("LTS"));
+    }, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
+
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [error, setError] = useState("");
@@ -54,15 +80,15 @@ function Attendance() {
             <div className="sun-time">
               <FaSun className="sun-icon" />
               <div className="time-content">
-                <div className="main-time-content"> 10 : 02 :09 AM</div>
-                <div className="sub-time-content"> Realtime Insight</div>
+                <div className="main-time-content"> {currentTime}</div>
+                <div className="sub-time-content"> Realtime </div>
               </div>
             </div>
 
             <div className="today-time">
               <div className="main-today-time ">Today : </div>
               <br />
-              <div className="sub-today-time "> 18th March 2024</div>
+              <div className="sub-today-time "> {currentDateTime}</div>
             </div>
           </div>
 
