@@ -27,6 +27,9 @@ function PayrollFS() {
           <div >         
                <button className="gradient-blue-btn me-3 mt-3" onClick={handleclickbutton}><FaPlusSquare className='me-2'/>Add New Payment</button>
           </div>
+          <div >         
+               <button className="gradient-blue-btn me-3 mt-3" onClick={handleclickbutton}><FaPlusSquare className='me-2'/>Add New Payment</button>
+          </div>
          </div>
         
         <div className="payroll-fs-content">

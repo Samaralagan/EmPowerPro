@@ -19,6 +19,7 @@ function Attendance() {
   const[breakTime,setBreakTime]=useState(false)
   const error_image = "path/to/your/error_image.png"; // Update with actual path
   const [attendanceId,setAttendanceId]=useState(null)
+  const [data,setData]=useState([])
 
   const handleSearch = () => {
     console.log(`Searching from ${startDate} to ${endDate}`);
@@ -90,9 +91,8 @@ function Attendance() {
   const userId=1
   getAllAttendanceByUserId(userId)
   .then((response) => {
-    setCheckout(false)
-    setCheckIn(true)
     console.log(response.data);
+    setData(response.data);
   })
   .catch((error) => {
     console.error(error);
@@ -250,25 +250,28 @@ function Attendance() {
             <table className="custom-table">
               <thead>
                 <tr>
-                  <th></th>
+                  <th>Date</th>
                   <th>Check In</th>
                   <th>Check Out</th>
                   <th>Worked Hours</th>
-                  <th>Status</th>
+                  {/* <th>Status</th> */}
                 </tr>
               </thead>
 
               <tbody>
+                {data.map((datas,index)=>(
                 <tr>
-                  <td>18th March 2024</td>
-                  <td>09:00 AM</td>
-                  <td>05:00 PM</td>
+                  <td>{datas.date}</td>
+                  <td>{datas.checkIn}</td>
+                  <td>{datas.checkOut}</td>
                   <td>08:00</td>
-                  <td>
+                  {/* <td>
                     <button className="ontime"> On Time </button>
-                  </td>
+                  </td> */}
                 </tr>
-                <tr>
+                ))}
+                
+                 {/*<tr>
                   <td>17th March 2024</td>
                   <td>09:15 AM</td>
                   <td>05:15 PM</td>
@@ -303,7 +306,7 @@ function Attendance() {
                   <td>
                     <button className="ontime"> On Time </button>
                   </td>
-                </tr>
+                </tr> */}
               </tbody>
             </table>
           </div>
