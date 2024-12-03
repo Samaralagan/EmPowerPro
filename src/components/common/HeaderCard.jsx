@@ -6,7 +6,7 @@ function HeaderCard(props) {
      {props.icon}
     </div>
 
-    <div className="leave-box-content">
+    <div className="leave-box-content" >
         <div className="leave-sub-box-content-1">
         {" "}
         {props.title}{" "}

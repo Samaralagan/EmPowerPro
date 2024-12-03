@@ -28,7 +28,7 @@ function PayrollFSForm() {
         
         try {
           console.log(data)
-          const response = await axios.post("http://localhost:8080/api/v1/finance/slip/{id}", data);
+          const response = await axios.post("http://localhost:8080/api/v1/finance/slip", data);
           console.log(response.data);
           setData(response.data)
           alert("Payroll Created Successfully");
