@@ -1,14 +1,29 @@
 import "./payroll.css";
-import React from "react";
+import React,{useState} from "react";
 import { FaPlusSquare } from "react-icons/fa";
 import { payrollDetailsData } from "../constants/temporary";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import BankAccountModal from "./BankAccountModal";
 function PayrollFS() {
     const navigation = useNavigate();
     const handleclickbutton =()=>{
         navigation('/Pay Roll/FinanceAndSupport/Form')
     }
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const navication = useNavigate()
+    const openModal = () => {
+        setModalIsOpen(true);
+      };
+    
+      const closeModal = () => {
+        setModalIsOpen(false);
+      };
+      const handleback = ()=>{
+        navication('/Pay Roll/FinanceAndSupport')
+      }
+
+    
   return (
     <div className="payroll-body "> 
 
@@ -24,6 +39,11 @@ function PayrollFS() {
             <div className="payroll-Search">Search</div>
             <input type="text" placeholder="Search......." />
           </div>
+          <div >         
+               <button className="gradient-blue-btn me-3 mt-3" onClick={openModal}><FaPlusSquare className='me-2'/>Add Bank Details</button>
+          </div>
+          <BankAccountModal modalIsOpen={modalIsOpen} closeModal={closeModal}/>
+
           <div >         
                <button className="gradient-blue-btn me-3 mt-3" onClick={handleclickbutton}><FaPlusSquare className='me-2'/>Add New Payment</button>
           </div>
