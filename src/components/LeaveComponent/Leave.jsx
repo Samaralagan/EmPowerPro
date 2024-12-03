@@ -1,14 +1,86 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../layout/Header";
 import "./Leave.css";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaRegCalendarTimes } from "react-icons/fa";
+import axios from "axios";
 import LeaveChart from "./LeaveChart";
 // import { Link } from "react-router-dom";
 
 const Leave = ({ setActiveComponent }) => {
+  const [leaves, setLeaves] = useState([]);
+  const [leaveBalance, setLeaveBalance] = useState([]);
+  const [filteredLeaves, setFilteredLeaves] = useState([]);
+  const [filterPeriod, setFilterPeriod] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
+
+  const [error, setError] = useState(null);
+
+  const fetchLeaves = async () => {
+    try {
+      const userId = localStorage.getItem("userId");
+      const response = await axios.get(
+        `http://localhost:8080/api/v1/hr/leave/${userId}`
+      );
+      setLeaves(response.data);
+      setFilteredLeaves(response.data);
+    } catch {
+      setError("failed to fetch leave details");
+    }
+  };
+
+  const filterLeave = () => {
+    let filtered = [...leaves];
+
+    if (filterPeriod) {
+      const now = new Date();
+      const dateThreshold = new Date();
+
+      if (filterPeriod == "Last 3 Months") {
+        dateThreshold.setMonth(now.getMonth() - 3);
+      } else if (filterPeriod === "Last 6 Months") {
+        dateThreshold.setMonth(now.getMonth() - 6);
+      } else if (filterPeriod === "Last 12 Months") {
+        dateThreshold.setMonth(now.getMonth() - 12);
+      }
+
+      filtered = filtered.filter(
+        (leave) => new Date(leave.startDate) >= dateThreshold
+      );
+    }
+
+    if (filterStatus) {
+      filtered = filtered.filter((leave) => leave.status === filterStatus);
+    }
+
+    setFilteredLeaves(filtered);
+  };
+
+  useEffect(() => {
+    fetchLeaves();
+  }, []);
+
+  useEffect(() => {
+    filterLeave();
+  }, [filterPeriod, filterStatus, leaves]);
+
+  useEffect(() => {
+    const fetchLeaveBalance = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
+        const response = await axios.get(
+          `http://localhost:8080/api/v1/hr/leave-balance-details/${userId}`
+        );
+        setLeaveBalance(response.data);
+      } catch {
+        setError("failed to fetch leave status");
+      }
+    };
+    fetchLeaveBalance();
+  }, []);
+
   const handleApplyLeave = () => {
     setActiveComponent("ApplyLeave");
   };
@@ -29,7 +101,10 @@ const Leave = ({ setActiveComponent }) => {
               </div>
 
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 25</div>
+                <div className="leave-main-box-content">
+                  {" "}
+                  {leaveBalance.totalAvailableLeaves}
+                </div>
                 <div className="leave-sub-box-content-1">
                   {" "}
                   Available Leaves{" "}
@@ -42,7 +117,9 @@ const Leave = ({ setActiveComponent }) => {
                 <FaRegCalendarCheck className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 10 </div>
+                <div className="leave-main-box-content">
+                  {leaveBalance.approvedLeaves}
+                </div>
                 <div className="leave-sub-box-content-2"> Approved Leaves</div>
               </div>
             </div>
@@ -52,7 +129,9 @@ const Leave = ({ setActiveComponent }) => {
                 <FaRegCalendarTimes className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 5 </div>
+                <div className="leave-main-box-content">
+                  {leaveBalance.rejectedLeaves}
+                </div>
                 <div className="leave-sub-box-content"> Rejected Leaves </div>
               </div>
             </div>
@@ -77,25 +156,31 @@ const Leave = ({ setActiveComponent }) => {
           <div className="leave-records-text">Leaves</div>
 
           <div className="dropdown-row">
-            <select className="custom-dropdown" defaultValue="">
+            <select
+              value={filterPeriod}
+              onChange={(e) => setFilterPeriod(e.target.value)}
+              className="custom-dropdown"
+              defaultValue=""
+            >
               <option value="" disabled>
-                Last 4 Months
+                Period
               </option>
-              <option value="option1">Last 4 Months</option>
-              <option value="option2">Last 8 Months</option>
-              <option value="option3">last 12 Months</option>
+              <option value="Last 3 Months">Last 3 Months</option>
+              <option value="Last 6 Months">Last 6 Months</option>
+              <option value="Last 12 Months">last 12 Months</option>
             </select>
             <select
               className="custom-dropdown"
-              defaultValue=""
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
               style={{ marginLeft: "45vw" }}
             >
               <option value="" disabled>
                 Status
               </option>
-              <option value="option1">Approved</option>
-              <option value="option2">Rejected</option>
-              <option value="option3">Pending</option>
+              <option value="APPROVED">Approved</option>
+              <option value="REJECTED">Rejected</option>
+              <option value="PENDING">Pending</option>
             </select>
           </div>
 
@@ -113,55 +198,26 @@ const Leave = ({ setActiveComponent }) => {
               </thead>
 
               <tbody>
-                <tr>
-                  <td>01</td>
-                  <td>Medical</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Emergency hospital visit</td>
-                  <td>
-                    <button className="leave-approved"> Approved</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>02</td>
-                  <td>Vacation</td>
-                  <td>10 JULY 2024</td>
-                  <td>15 JULY 2024</td>
-                  <td>Family vacation</td>
-                  <td>
-                    <button className="leave-pending"> Pending</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>03</td>
-                  <td>Personal</td>
-                  <td>05 AUGUST 2024</td>
-                  <td>07 AUGUST 2024</td>
-                  <td>Personal reasons</td>
-                  <td>
-                    <button className="leave-rejected">Rejected</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>04</td>
-                  <td>Maternity</td>
-                  <td>01 SEPTEMBER 2024</td>
-                  <td>30 NOVEMBER 2024</td>
-                  <td>Maternity leave</td>
-                  <td>
-                    <button className="leave-approved"> Approved</button>
-                  </td>
-                </tr>
-                <td>05</td>
-                <td>Study</td>
-                <td>12 DECEMBER 2024</td>
-                <td>19 DECEMBER 2024</td>
-                <td>Exam preparation</td>
-                
-                <td>
-                  <button className="leave-rejected">Rejected</button>
-                </td>
+                {filteredLeaves.map((leave, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{leave.leaveType}</td>
+                    <td>{new Date(leave.startDate).toLocaleDateString()} </td>
+                    <td>{new Date(leave.endDate).toLocaleDateString()}</td>
+                    <td>{leave.reason}</td>
+                    <button
+                      className={
+                        leave.status === "APPROVED"
+                          ? "leave-approved"
+                          : leave.status === "REJECTED"
+                          ? "leave-rejected"
+                          : "leave-pending"
+                      }
+                    >
+                      {leave.status}
+                    </button>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

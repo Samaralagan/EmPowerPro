@@ -2,9 +2,13 @@ import React from "react";
 import "./ComplaintsCard.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
+const ComplaintsCard = ({ complaintId, status, about, date }) => {
   const location = useLocation();
+
+  const navigate = useNavigate();
+
   const getRoleName = () => {
     const pathname = decodeURIComponent(location.pathname);
     const role = pathname.split("/")[2];
@@ -26,14 +30,14 @@ const ComplaintsCard = ({ status, about, date, setActiveComponent }) => {
   // };
 
   const handlemorecomplaint = () => {
-    setActiveComponent("Complaintsmore");
+    navigate(`/Complaints/HR/${complaintId}`);
   };
   return (
     <div className="complaintcard-body">
       <div className="complaintcard-content">
         <div className="complaintcard-header">
           <div className="left-flexbox-complaint">
-            <h5 className={status === "pending" ? "pending_c" : "approved_c"}>
+            <h5 className={status === "PENDING" ? "pending_c" : "approved_c"}>
               {status}
             </h5>
 

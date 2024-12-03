@@ -1,13 +1,22 @@
 import React from "react";
 
 function RepliedComplaintCard({
-  name,
+  id,
   about,
   date,
   description,
-  image,
-  replied,
+  reply,
+  filePath,
 }) {
+  console.log(filePath);
+  const handleShowAttachment = () => {
+    // Open the file using the backend endpoint
+    const downloadUrl = `http://localhost:8080/api/v1/hr/complaint-file?filePath=${encodeURIComponent(
+      filePath
+    )}`;
+    window.open(downloadUrl, "_blank");
+  };
+
   return (
     <div>
       <div className="">
@@ -21,17 +30,6 @@ function RepliedComplaintCard({
                 Complaint raised on {date}
               </p>
             </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                margin: "1vw 0 1vw 2vw",
-              }}
-            >
-              <img src={image} alt="" className="img2" />
-              <p>{name}</p>
-            </div>
 
             <br />
             <p
@@ -41,14 +39,23 @@ function RepliedComplaintCard({
               description :{" "}
             </p>
             <p className="complaintmorecard-header-text">{description}</p>
-            {/* <br /> */}
+            <br />
+
             <p
               className="complaintmorecard-header-gray"
               style={{ marginLeft: "2vw" }}
             >
               Reply :{" "}
             </p>
-            <p className="complaintmorecard-header-text">{replied}</p>
+            <p className="complaintmorecard-header-text">{reply}</p>
+            {filePath && (
+              <button
+                className="complaintmorecard-header-button"
+                onClick={handleShowAttachment}
+              >
+                Show Attachment
+              </button>
+            )}
           </div>
 
           <div></div>

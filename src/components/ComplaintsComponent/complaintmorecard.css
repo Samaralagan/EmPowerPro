@@ -15,6 +15,19 @@
     --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
   }
 
+  .complaintmorecard-header-button{
+    background-color: var(--Main-color);
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #FFF;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2.2vh;
+    font-weight: 600;
+    width: 30%;
+  
+  }
+
   .complaintmorecard-body{
     
     display: flex;

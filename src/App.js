@@ -66,6 +66,8 @@ import DashboardHR from "./components/DashboardComponent/DashboardHR.jsx";
 import DashboardFinance from "./components/DashboardComponent/DashboardFinance.jsx";
 import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
 import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
+import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
+import LeavePending from "./components/LeaveComponent/LeavePending.jsx";
 
 function App() {
   const role = "Employee";
@@ -180,9 +182,40 @@ function App() {
               element={<Team_Profile />}
             />
             <Route path="/Jobs/HR" element={<JobPage />} />
-            <Route path="/Jobs/HR/card1" element={<EditVacancy />} />
+            <Route exact path={"/Jobs/HR/edit/:id"} element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
             <Route path="/Employees/HR/Profile" element={<Profile />} />
+
+            <Route
+              exact
+              path="/Complaints/HR/:complaintId"
+              element={<Complaintsmore />}
+            />
+
+            <Route exact path="/leave/request/:id" element={<LeavePending />} />
+
+            <Route
+              exact
+              path="/Complaints/HR/ReplyComplaint/:complaintId"
+              element={<ReplyComplaint />}
+            />
+            <Route
+              exact
+              path="/Complaints/HR/RepliedComplaint/:complaintId"
+              element={<RepliedComplaint />}
+            />
+
+            <Route
+              exact
+              path="/Leaves/HR/LeaveRequest/:leaveId"
+              element={<LeavePending />}
+            />
+
+            <Route
+              exact
+              path="/Leaves/HR/OthersLeave"
+              element={<LeavePage />}
+            />
 
             <Route
               path="/Dash Board/FinanceAndSupport"

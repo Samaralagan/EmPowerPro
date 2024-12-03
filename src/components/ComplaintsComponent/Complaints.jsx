@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
-import { ComplaintsData } from "../constants/temporary";
 import ComplaintsCard from "../common/ComplaintsCard";
 import ComplaintsToMe from "./ComplaintsToMe";
 import "./Complaints.css";
+import axios from "axios";
 
 const Complaints = ({ setActiveComponent }) => {
   const [activeTab, setActiveTab] = useState("my-complaints");
+  const [complaints, setComplaints] = useState([]);
+  const [filteredComplaints, setFilteredComplaints] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("All");
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -14,6 +18,58 @@ const Complaints = ({ setActiveComponent }) => {
 
   const handleCreateNewComplaint = () => {
     setActiveComponent("NewComplaint");
+  };
+
+  useEffect(() => {
+    const fetchComplaints = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
+
+        if (userId) {
+          const response = await axios.get(
+            `http://localhost:8080/api/v1/hr/complaint/${userId}`
+          );
+          setComplaints(response.data);
+          setFilteredComplaints(response.data);
+        } else {
+          console.error("No userId found in localStorage.");
+        }
+      } catch (error) {
+        console.error("Error fetching complaints", error);
+      }
+    };
+
+    fetchComplaints();
+  }, []);
+
+  useEffect(() => {
+    const applyFilters = () => {
+      let updatedComplaints = complaints;
+
+      if (filter !== "All") {
+        updatedComplaints = updatedComplaints.filter(
+          (complaint) => complaint.status === filter.toUpperCase()
+        );
+      }
+
+      if (searchTerm.trim() !== "") {
+        updatedComplaints = updatedComplaints.filter((complaint) =>
+          complaint.about.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
+
+      setFilteredComplaints(updatedComplaints);
+    };
+
+    applyFilters();
+  }, [filter, searchTerm, complaints]);
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -72,16 +128,17 @@ const Complaints = ({ setActiveComponent }) => {
           <div style={{ display: "flex" }}>
             <select
               className="form-select"
-              aria-label="Default select example"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
               style={{
                 width: "345px",
                 border: "2px solid black",
                 marginLeft: "3vh",
               }}
             >
-              <option defaultValue>Filter By</option>
-              <option value="1">Pending</option>
-              <option value="2">Approved</option>
+              <option value="All">All</option>
+              <option value="Pending">Pending</option>
+              <option value="Solved">Solved</option>
             </select>
             <div
               style={{
@@ -95,7 +152,9 @@ const Complaints = ({ setActiveComponent }) => {
               <input
                 className="border-inbox"
                 type="text"
-                placeholder="Search..."
+                placeholder="Search by about..."
+                value={searchTerm}
+                onChange={handleSearchChange}
                 style={{
                   paddingLeft: "29px",
                   paddingRight: "8px",
@@ -111,18 +170,24 @@ const Complaints = ({ setActiveComponent }) => {
                   background: "var(--Main-color)",
                   color: "white",
                 }}
+                onClick={() => {}}
               >
                 Search
               </button>
             </div>
           </div>
           <div>
-            {ComplaintsData.map((Card, index) => (
+            {filteredComplaints.map((complaint, index) => (
               <ComplaintsCard
                 key={index}
-                status={Card.status}
-                about={Card.about}
-                date={Card.date}
+                complaintId={complaint.id}
+                status={complaint.status}
+                about={complaint.about}
+                date={`${new Date(
+                  complaint.date
+                ).toLocaleDateString()} ${new Date(
+                  complaint.date
+                ).toLocaleTimeString()}`}
                 setActiveComponent={setActiveComponent}
               />
             ))}

@@ -2,18 +2,47 @@ import React, { useState } from "react";
 import Header from "../layout/Header";
 import "./ApplyLeave.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import axios from "axios";
 
-function ApplyLeave({setActiveComponent}) {
+function ApplyLeave({ setActiveComponent }) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [leaveType, setLeaveType] = useState("");
+  const [reason, setReason] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const userId = localStorage.getItem("userId");
+
     if (validateDates()) {
-      alert(
-        `Leave Type: ${event.target.leaveType.value}, Start Date: ${startDate}, End Date: ${endDate}`
-      );
+      const data = {
+        senderId: userId,
+        leaveType,
+        startDate,
+        endDate,
+        reason,
+      };
+
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios.post(
+          "http://localhost:8080/api/v1/employee/leave-creation",
+          data,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        setActiveComponent("Leave");
+      } catch (err) {
+        console.log("Error submitting leave application", err);
+        alert("failed to submit application,please try again");
+      }
     }
   };
 
@@ -28,13 +57,13 @@ function ApplyLeave({setActiveComponent}) {
   const handleBackLeave = () => {
     setActiveComponent("Leave");
   };
-  
+
   return (
     <div className="contentbodyall">
       {/* <Header />
       <hr /> */}
 
-      <IoMdArrowRoundBack className="backarrow"  onClick={handleBackLeave }/>
+      <IoMdArrowRoundBack className="backarrow" onClick={handleBackLeave} />
 
       <div className="apply-leave-form-body">
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
@@ -49,6 +78,8 @@ function ApplyLeave({setActiveComponent}) {
               aria-label="Default select example"
               style={{ width: "20%", borderColor: "#000f44" }}
               name="leaveType"
+              value={leaveType}
+              onChange={(e) => setLeaveType(e.target.value)}
               required
             >
               <option value="" disabled selected></option>
@@ -103,11 +134,12 @@ function ApplyLeave({setActiveComponent}) {
               Reason
             </label>
             <textarea
-              name=""
-              id=""
               className="applyLeave-inputtext"
               placeholder="Enter the reason.."
               style={{ height: "8rem", width: "60rem", borderColor: "#000f44" }}
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              required
             ></textarea>
           </div>
 
