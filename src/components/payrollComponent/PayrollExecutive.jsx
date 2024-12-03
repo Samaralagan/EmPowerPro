@@ -1,10 +1,12 @@
 import "./payroll.css";
-import React from "react";
+import React, { useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
 import { payrollDetailsData } from "../constants/temporary";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { useScatterChartProps } from "@mui/x-charts/internals";
 function PayrollExecutive() {
+  const [data,setData] = useState({})
   const navigation = useNavigate();
   const handleclickbutton = () => {
     navigation("/Pay Roll/Executive/ApproveSalary");
