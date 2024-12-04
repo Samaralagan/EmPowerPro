@@ -1,8 +1,15 @@
-import {React, useState,useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import "./EventVacancyPopup.css";
 import Modal from "react-modal";
 import { GoDotFill } from "react-icons/go";
-import { FaHtml5, FaLaptopCode, FaReact,FaClipboardCheck,FaDollarSign,FaCalendarAlt } from "react-icons/fa";
+import {
+  FaHtml5,
+  FaLaptopCode,
+  FaReact,
+  FaClipboardCheck,
+  FaDollarSign,
+  FaCalendarAlt,
+} from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useScatterChartProps } from "@mui/x-charts/internals";
 import axios from "axios";
@@ -30,10 +37,7 @@ const customStyles = {
   },
 };
 
-
-
-const EventVacancyPopup = ({ modalIsOpen, closeModal,id }) => {
-  
+const EventVacancyPopup = ({ modalIsOpen, closeModal, id }) => {
   const [vacancyDetails, setVacancyDetails] = useState(null);
 
   const location = useLocation();
@@ -43,13 +47,12 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal,id }) => {
     navigation("/VacancyApplyForm");
   };
 
-
   useEffect(() => {
     if (modalIsOpen && id) {
       const getVacancyDetails = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8080/api/hr/vacancy-get-one/${id}`
+            `http://localhost:8080/api/v1/hr/vacancy-get-one/${id}`
           );
           setVacancyDetails(response.data); // Set the vacancy details in state
         } catch (error) {
@@ -60,7 +63,6 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal,id }) => {
       getVacancyDetails();
     }
   }, [modalIsOpen, id]);
-  
 
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
@@ -70,7 +72,6 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal,id }) => {
 
   const activePageName = getActivePageName();
 
-  
   return (
     <div className="vacancy-popup-body">
       <Modal
@@ -89,10 +90,11 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal,id }) => {
               {vacancyDetails.jobTitle} - {vacancyDetails.employmentType}
             </h2>
 
-            
             <div className="vacancy-popup-updatedtime">
               <FaCalendarAlt className="fs-4" /> Application Deadline:
-              <h6 className="ms-2 mt-2">{new Date(vacancyDetails.applicationDeadline).toLocaleString()}</h6>
+              <h6 className="ms-2 mt-2">
+                {new Date(vacancyDetails.applicationDeadline).toLocaleString()}
+              </h6>
             </div>
             <div className="d-flex mt-3">
               <div className="col-md-8">
@@ -100,22 +102,20 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal,id }) => {
                   <h4 className="vacancy-popup-subtitle">About the job:</h4>
                   <p>{vacancyDetails.jobDescription}</p>
                   <h4 className="vacancy-popup-subtitle">Responsibilities:</h4>
-                  <ul>
-                    {vacancyDetails.responsibilities}
-                  </ul>
+                  <ul>{vacancyDetails.responsibilities}</ul>
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="vacancy-popup-leftpart">
-
-                <FaDollarSign className="fs-4" />Avg Salary
-
-                <div className="vacancy-popup-left-icons mt-3">
-                    <p> ${vacancyDetails.minSalary} - ${vacancyDetails.maxSalary}</p>
+                  <FaDollarSign className="fs-4" />
+                  Avg Salary
+                  <div className="vacancy-popup-left-icons mt-3">
+                    <p>
+                      {" "}
+                      ${vacancyDetails.minSalary} - ${vacancyDetails.maxSalary}
+                    </p>
                   </div>
-
                   <FaClipboardCheck className="fs-4" /> Requirements:
-
                   <div className="vacancy-popup-left-icons mt-3">
                     <p>{vacancyDetails.requirements}</p>
                   </div>

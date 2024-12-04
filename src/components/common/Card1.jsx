@@ -8,7 +8,6 @@ import EventVacancyPopup from "./EventVacancyPopup";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-
 function Card1(props, { setActiveComponent }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -26,15 +25,16 @@ function Card1(props, { setActiveComponent }) {
     setOpentoggle(!openToggle);
   };
 
-  const handleDelete = async(id)=>{
-    try{
+  const handleDelete = async (id) => {
+    try {
       await axios.delete(
-        `http://localhost:8080/api/hr/vacancy-delete/${id}`);
-        props.onDelete(id);
-    }catch(error){
+        `http://localhost:8080/api/v1/hr/vacancy-delete/${id}`
+      );
+      props.onDelete(id);
+    } catch (error) {
       console.log(error);
-    }  
-  }
+    }
+  };
 
   return (
     <div className="card1body">
@@ -47,9 +47,21 @@ function Card1(props, { setActiveComponent }) {
             className={openToggle ? "card1-opentoggle" : "card1-opentoggle1"}
             onMouseLeave={handleopentoggle}
           >
-            <div><Link   style={{ textDecoration: "none", color: "inherit" }} to={`/Jobs/HR/edit/${props.id}`}>Edit</Link></div>
-            
-            <div  style={{ background: "red" }} onClick={()=> handleDelete(props.id)}>Delete</div>
+            <div>
+              <Link
+                style={{ textDecoration: "none", color: "inherit" }}
+                to={`/Jobs/HR/edit/${props.id}`}
+              >
+                Edit
+              </Link>
+            </div>
+
+            <div
+              style={{ background: "red" }}
+              onClick={() => handleDelete(props.id)}
+            >
+              Delete
+            </div>
           </div>
         </div>
       </div>
