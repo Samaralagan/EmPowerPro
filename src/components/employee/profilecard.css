@@ -17,13 +17,23 @@
     border-radius: 82px;
 }
 .div1{
-    /* width: 33%; */
+    width: 30%;
     color: var(--Sub-color);
     padding: 20px 5px 20px 20px;
     display: flex;
     flex-direction: column;
     line-height: 4vh;
   }
+  .div-img{
+    width: 20%;
+    color: var(--Sub-color);
+    padding: 20px 5px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    line-height: 4vh;
+  }
+
+  
   .div2{
     display: flex;
     flex-direction: row;
@@ -57,7 +67,8 @@
   }
 
   .employee-details{
-    font-size: 12px;
+    font-size: 14px;
+    display: flex;
   }
 
   .div-part{

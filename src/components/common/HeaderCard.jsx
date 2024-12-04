@@ -7,7 +7,7 @@ function HeaderCard(props) {
     </div>
 
     <div className="leave-box-content">
-        <div className="leave-sub-box-content-1">
+        <div className="leave-sub-box-content-1" style={{fontSize: '20'}}>
         {" "}
         {props.title}{" "}
       </div>

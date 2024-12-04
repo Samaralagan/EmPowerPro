@@ -19,15 +19,43 @@
     scrollbar-width: none;
   }
   .blogcomment-comment{
-    background-color: var(--Light);
     border-radius: 10px;
-    padding: 1vh 2vh;
+    padding: 1vh 1vh;
     margin: 0;
-    margin-bottom: 1vh;
+    display: flex;
+  }
+  .blogcomment-avatar{
+    display: flex;
+    width: 4vh;
+    height: 4vh;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--Main-color);
+    color: var(--Light);
+    margin-right: 1vh;
+    border-radius: 10px;
+    border: solid 1px var(--Main-color);
+  }
+  .blogcomment-data{
+    background-color: var(--Light);
+    border-radius: 0 10px 10px 10px;
+    padding: 1vh;
+  }
+  .blogcomment-time{
+    display: flex;
+    justify-content: end;
+    font-size: 1vh;
+    padding: 0.2vh;
+  }
+  .blogcomment-delete{
+    color: red;
+    margin-right: 0.5vh;
+    text-decoration: underline;
+    cursor: pointer;
   }
   .blogcomment-comment span{
     font-size: 1.8vh;
-    text-decoration: underline;
+    color: var(--Main-color);
   }
   .blogcomment-comment p{
     margin: 0;

@@ -78,3 +78,20 @@
     margin-right: 0vh;
     border: solid 1px;
   }
+
+  .final-remark{
+    margin: 5px 0;
+    margin-top: 8px;
+  }
+  
+  .final-remark-label{
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .final-remark-dropdown {
+    padding: 5px;
+    font-size: 14px;
+    border-color: var(--Main-color);
+    border-radius: 8px;
+  }

@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(5px); /* Apply blur effect */
-    z-index: 1000; /* Ensure the modal is on top of other content */
+    z-index: 1000; 
   }
   
   .modal-content {align-items: center;
@@ -31,21 +31,22 @@
     color: white;
     padding: 2rem;
     border-radius: 8px;
-    width: 60%;
+    width: 50%;
     position: relative;
-    z-index: 1001; /* Ensure the modal content is above the blur effect */
+    z-index: 1001; 
   }
   
   .modal-close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     color: var(--Sub-color);
   }
+
   .box1{
     display: flex;
     justify-content: center;
@@ -53,5 +54,17 @@
     border-radius: 20px;
     padding: 0.5vw 2vw 0.5vw 2vw;
     align-items: center;
+    color: white;
+  }
+  
+  .box2{
+    display: flex;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 0.5vw 2vw 0.5vw 2vw;
+    align-items: center;
+    color: white;
+    background-color: #19abef;
   }
   

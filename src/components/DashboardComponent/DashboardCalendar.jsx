@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './DashboardCalendar.css'; // Import CSS for styling
 
-const DashboardCalendar = ({ initialMonth, initialYear, markedDates = [] }) => {
+const DashboardCalendar = ({ initialMonth, initialYear, markedDates = [], markedDates1 = [] }) => {
   const [month, setMonth] = useState(initialMonth);
   const [year, setYear] = useState(initialYear);
 
@@ -30,6 +30,10 @@ const DashboardCalendar = ({ initialMonth, initialYear, markedDates = [] }) => {
     const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
     return markedDates.includes(formattedDate);
   };
+  const isMarked1 = (date) => {
+    const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+    return markedDates1.includes(formattedDate);
+  };
 
   return (
     <div className="calendar-container">
@@ -48,7 +52,7 @@ const DashboardCalendar = ({ initialMonth, initialYear, markedDates = [] }) => {
           {[...Array(firstDayOfMonth).fill(null), ...Array(daysInMonth).fill().map((_, index) => index + 1)].map((date, index) => (
             <div
               key={index}
-              className={`date-box ${date !== null ? 'active' : ''} ${isMarked(date) ? 'marked' : ''}`}
+              className={`date-box ${date !== null ? 'active' : ''} ${isMarked(date) ? 'marked' : ''} ${isMarked1(date) ? 'marked-special' : ''}`}
             >
               {date !== null ? date : ''}
             </div>

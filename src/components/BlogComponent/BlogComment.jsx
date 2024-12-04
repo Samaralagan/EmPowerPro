@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./BlogComment.css";
 import Modal from 'react-modal';
+import moment from 'moment';
+import { createBlogComment,deleteBlogComment,getAllBlogComment  } from "../../service/BlogService";
 
 const customStyles = {
   content: {
@@ -26,7 +28,59 @@ const customStyles = {
   },
 };
 
-const BlogComment = ({ modalIsOpen2, closeModal2 }) => {
+const BlogComment = ({ modalIsOpen2, closeModal2 ,blogId}) => {
+  const [text,setText]=useState("");
+  const [allComment,setAllComment]=useState([]);
+  // useEffect(() => {
+  //   getAllBlog(blogId).then((response)=>{
+  //     console.log(response.data)
+  //     setAllComment(response.data);
+  //   }).catch((error)=>{
+  //     console.error(error);
+  //   })
+  
+  // }, []);
+  const handleChange = (e)=>{
+      setText(e.target.value)
+  }
+  const handleSend = ()=>{
+    console.log(text)
+   
+    const data = {
+      "userId":1,
+      "commentText":text,
+      "blogId":blogId
+    };
+    createBlogComment(data).then((response) => {
+      console.log(response.data);
+      setText("")
+    })
+    .catch((error) => {
+      console.error(error); 
+      
+    });
+  }
+
+   getAllBlogComment(blogId).then((response)=>{
+    console.log(response.data)
+    setAllComment(response.data);
+  }).catch((error)=>{
+    console.error(error);
+  })
+
+  function timeAgo(dateString) {
+    return moment(dateString).fromNow();
+  }
+
+  const handleDeleteComment = (commentId) =>{
+     if (window.confirm("Are you sure you want to delete this comment?")) {
+        deleteBlogComment(commentId).then((response)=>{
+          console.log(response.data);
+      }).catch(error=>{
+          console.log(error);
+      })
+     }
+  }
 
   return (
     <div className="addblog-popup-body">
@@ -44,45 +98,31 @@ const BlogComment = ({ modalIsOpen2, closeModal2 }) => {
                 <hr />
             </div>
             <div className='blogcomment-content'>
-                <div className='blogcomment-comment'>
-                    <span>Kavalajan MVPS</span>
-                    <p className='ps-3'> it's nice</p>
-                </div>
-                <div className='blogcomment-comment'>
-                    <span>Kavalajan MVPS</span>
-                    <p className='ps-3'> it's nice</p>
-                </div>
-                <div className='blogcomment-comment'>
-                    <span>Kavalajan MVPS</span>
-                    <p className='ps-3'> it's nice</p>
-                </div>
-                <div className='blogcomment-comment'>
-                    <span>Kavalajan MVPS</span>
-                    <p className='ps-3'> it's nice</p>
-                </div>
-                <div className='blogcomment-comment'>
-                    <span>Kavalajan MVPS</span>
-                    <p className='ps-3'> it's nice</p>
-                </div>
-                <div className='blogcomment-comment'>
-                    <span>Kavalajan MVPS</span>
-                    <p className='ps-3'> it's nice</p>
-                </div>
-                <div className='blogcomment-comment'>
-                    <span>Kavalajan MVPS</span>
-                    <p className='ps-3'> it's nice</p>
-                </div>
-                <div className='blogcomment-comment'>
-                    <span>Kavalajan MVPS</span>
-                    <p className='ps-3'> it's nice</p>
-                </div>
+                {
+                   allComment.map((item,index)=>(
+                     <div className='blogcomment-comment'>
+                      <div className='blogcomment-avatar'>
+                          K
+                      </div>
+                      <div className='blogcomment-data' key={index}>
+                        <span>Kavalajan MVPS </span>
+                        <p className='ps-3' >{item.commentText}</p>
+                        <div className='blogcomment-time'>
+                          {item.userId===1 &&<div className='blogcomment-delete' onClick={()=>handleDeleteComment(item.commentId)}>delete</div>}
+                          {timeAgo(item.uploadDate)}
+                        </div>
+                      </div>
+                    </div>
+                   ))
+                }
+                
             </div>
             <div className='blogcomment-textarea'>
-                <textarea name="" id=""></textarea>
+                <textarea name="" id="" value={text} placeholder='typing...' onChange={handleChange}/>
             </div>
             <div className='blogcomment-bottom mt-3'>   
                 <button className='blogcomment-cancel' onClick={closeModal2}>Cancel</button>
-                <button className='blogcomment-sent' onClick={closeModal2}>Send</button>
+                <button className='blogcomment-sent' onClick={handleSend}>Send</button>
             </div>
         </div>
       </Modal>    

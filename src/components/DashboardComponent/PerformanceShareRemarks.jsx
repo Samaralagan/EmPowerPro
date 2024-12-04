@@ -82,7 +82,7 @@ const PerformanceShareRemarks = ({ modalIsOpen, closeModal, id }) => {
   }, [modalIsOpen]);
 
   return (
-    <div className="addblog-popup-body">
+    <div className="addblog-popup-body" style={{ height: "auto" }}>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

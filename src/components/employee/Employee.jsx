@@ -1,23 +1,29 @@
-import React from "react";
-import Header from "../layout/Header";
+import React, { useState } from "react";
 import "./employee.css";
-import { FaSearch } from "react-icons/fa";
-import { FaPlusCircle } from "react-icons/fa";
+import { FaSearch, FaPlusCircle } from "react-icons/fa";
 import EmployeeTable from "./EmployeeTable";
 import { EmployeeTableData } from "../constants/temporary";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const Employee = ({ setActiveComponent }) => {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState(""); // State to hold search query
+
+  // Filter employee data based on the search query
+  const filteredData = EmployeeTableData.filter((employee) =>
+    employee.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value); // Update search query on typing
+  };
 
   const handlenewreport = () => {
-    navigate('/Team members/TeamLeader/GenerateReport');
-  }
+    navigate("/Team members/TeamLeader/GenerateReport");
+  };
 
   return (
     <div>
-      {/* <Header /> */}
-
       <div className="employee-body">
         <div className="team-firstrow">
           <div className="apply-claim-team" onClick={handlenewreport}>
@@ -35,8 +41,9 @@ const Employee = ({ setActiveComponent }) => {
               type="text"
               placeholder="Search..."
               className="search-input-team"
+              value={searchQuery}
+              onChange={handleSearchChange} // Update the search query
             />
-            <button className="search-button-team">Search</button>
           </div>
         </div>
         <br />
@@ -52,19 +59,26 @@ const Employee = ({ setActiveComponent }) => {
                 <th scope="col"></th>
               </tr>
             </thead>
-
             <tbody>
-              {EmployeeTableData.map((Card, index) => (
-                <EmployeeTable
-                  key={index}
-                  image={Card.image}
-                  name={Card.name}
-                  status={Card.status}
-                  email={Card.email}
-                  team={Card.team}
-                  setActiveComponent={setActiveComponent}
-                />
-              ))}
+              {filteredData.length > 0 ? (
+                filteredData.map((Card, index) => (
+                  <EmployeeTable
+                    key={index}
+                    image={Card.image}
+                    name={Card.name}
+                    status={Card.status}
+                    email={Card.email}
+                    team={Card.team}
+                    setActiveComponent={setActiveComponent}
+                  />
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5" className="text-center">
+                    No matching employees found
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

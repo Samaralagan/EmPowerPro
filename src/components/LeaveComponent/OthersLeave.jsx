@@ -178,6 +178,7 @@ function OthersLeave({ setActiveComponent }) {
               </div>
             ))}
           </div>
+
           <div className="leave-history-part">
             <div className="today-leave-title">Leave History</div>
             {historyLeaves.map((leave, index) => (
