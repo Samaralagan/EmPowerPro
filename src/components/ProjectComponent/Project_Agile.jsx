@@ -7,11 +7,11 @@ import {
   ProjectDone,
   ProjectInProgress,
   ProjectToDo,
-  SelectProjects
+  SelectProjects,
 } from "../constants/temporary";
 import { FaPlusSquare } from "react-icons/fa";
 import { FaRegStickyNote } from "react-icons/fa";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Project = () => {
   const navigate = useNavigate();
@@ -54,12 +54,10 @@ const Project = () => {
     setShowNestedPopup(false);
   };
 
-
-
   return (
     <div className="">
       <div className="contentbodyall1">
-        <div className='performance-back'>
+        <div className="performance-back">
           <IoMdArrowRoundBack onClick={() => handlePage(`Project/${role}`)} />
         </div>
 
@@ -67,7 +65,6 @@ const Project = () => {
           <p className="project-box-title">Select tasks to do</p>
 
           <div className="project-columns">
-
             {SelectProjects.map((card, index) => (
               <div className="select-project-card" key={index}>
                 <div className="project-card-color-boxs">
@@ -100,15 +97,10 @@ const Project = () => {
                 </div>
               </div>
             ))}
-
           </div>
           <div className="project-form-button-row">
-            <button className="project-back-button" >
-              Cancel
-            </button>
-            <button className="project-next-button" >
-              Add
-            </button>
+            <button className="project-back-button">Cancel</button>
+            <button className="project-next-button">Add</button>
           </div>
         </div>
 
@@ -125,7 +117,8 @@ const Project = () => {
             )}
             <div>
               {ProjectToDo.map((card, index) => (
-                <div className="project-card"
+                <div
+                  className="project-card"
                   key={index}
                   onClick={() => handleCardClick(card)}
                 >
@@ -164,9 +157,7 @@ const Project = () => {
                       <img src={card.image2} alt="" className="project-card-member" />
                       <img src={card.image3} alt="" className="project-card-member" />
                     </div> */}
-
                   </div>
-
                 </div>
               ))}
             </div>
@@ -184,10 +175,11 @@ const Project = () => {
             )}
             <div>
               {ProjectInProgress.map((card, index) => (
-                <div className="project-card"
+                <div
+                  className="project-card"
                   key={index}
-                  onClick={() => handleCardClick(card)} >
-
+                  onClick={() => handleCardClick(card)}
+                >
                   <div className="project-card-color-boxs">
                     {card.green && (
                       <div
@@ -214,7 +206,6 @@ const Project = () => {
                         <input type="checkbox" className="mt-2 me-2" />
                         <p>{card.title} </p>
                         {/* <p>{card.description} </p> */}
-
                       </div>
                       {/* <div className="project-card-members">
                         <img src={card.image1} alt="" className="project-card-member-progress" />
@@ -287,18 +278,13 @@ const Project = () => {
                       <img src={card.image2} alt="" className="project-card-member" />
                       <img src={card.image3} alt="" className="project-card-member" />
                     </div> */}
-
                   </div>
-
                 </div>
               ))}
             </div>
           </div>
         </div>
-        
       </div>
-
-
 
       {/* Popup Component */}
       {showPopup && (
@@ -311,23 +297,22 @@ const Project = () => {
             <div className="popup-top">
               <FaRegStickyNote className="sticky" />
               <h4>{selectedCard?.title}</h4>
-
             </div>
 
             <p>
               <span className="description-label">Description:</span> <br />
-
               {selectedCard?.description}
             </p>
 
             <p>
               <span className="description-label">Subtasks:</span> <br />
-
-              <button className="subtasks-button" onClick={() => handleViewAllClick(selectedCard)}>View All</button>
-
+              <button
+                className="subtasks-button"
+                onClick={() => handleViewAllClick(selectedCard)}
+              >
+                View All
+              </button>
             </p>
-
-
 
             {/* <p>
               <span className="description-label">Members:</span> <br />
@@ -340,7 +325,6 @@ const Project = () => {
             </p> */}
 
             <p>
-
               <span className="description-label">Labels:</span> <br />
               <div className="project-card-color-boxs">
                 {selectedCard.green && (
@@ -349,7 +333,6 @@ const Project = () => {
                     style={{ backgroundColor: "#16BD59" }}
                   >
                     <p className="popup-bar-label">Planning</p>
-
                   </div>
                 )}
                 {selectedCard.orange && (
@@ -364,7 +347,6 @@ const Project = () => {
                   <div
                     className="project-card-color-box-popup"
                     style={{ backgroundColor: "#2DA3B3" }}
-
                   >
                     <p className="popup-bar-label">Implementation</p>
                   </div>
@@ -378,9 +360,18 @@ const Project = () => {
 
             {/* Nested Popup for 'View All' */}
             {showNestedPopup && (
-              <div className="nested-popup-overlay" onClick={handleCloseNestedPopup}>
-                <div className="nested-popup-content" onClick={(e) => e.stopPropagation()} >
-                  <button className="popup-close-btn" onClick={handleCloseNestedPopup}>
+              <div
+                className="nested-popup-overlay"
+                onClick={handleCloseNestedPopup}
+              >
+                <div
+                  className="nested-popup-content"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    className="popup-close-btn"
+                    onClick={handleCloseNestedPopup}
+                  >
                     X
                   </button>
                   <h4>Sub Tasks</h4>
@@ -398,25 +389,23 @@ const Project = () => {
                           type="checkbox"
                           id={`subtask-${index}`}
                           className="subtask-checkbox"
-                        // onClick={() => handleCheckboxClick(index)}
+                          // onClick={() => handleCheckboxClick(index)}
                         />
-                        <label htmlFor={`subtask-${index}`} className="subtask-label">
+                        <label
+                          htmlFor={`subtask-${index}`}
+                          className="subtask-label"
+                        >
                           {subtask}
                         </label>
                       </div>
                     ))}
                   </div>
-
                 </div>
               </div>
             )}
-
-
-
           </div>
         </div>
       )}
-
     </div>
   );
 };

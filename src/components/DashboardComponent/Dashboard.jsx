@@ -1,25 +1,43 @@
-import React from "react";
-import { useState, useContext } from 'react';
+import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
-import Header from "../layout/Header";
+import DashboardDateMark from "./DashboardDateMark";
 import { EmployeeDashboard } from "../constants/contents";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import DashboardBarChart from "./DashboardBarChart";
-import { FaTrophy } from "react-icons/fa";
-import {
-  DashboardCelebration,
-  DashboardMarkTime,
-} from "../constants/temporary";
+import { DashboardCelebration } from "../constants/temporary";
 import DashboardCalendar from "./DashboardCalendar";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaPlusSquare } from "react-icons/fa";
-
+import { getAllcalendarMarker } from "../../service/IncomeExpenseService";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [markData, setMarkData] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const markedDates = [];
+  const markedDates1 = [];
+  useEffect(() => {
+    getAllMarker();
+  });
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
 
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  function getAllMarker() {
+    getAllcalendarMarker()
+      .then((response) => {
+        setMarkData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   const handlePage = (PageName) => {
     navigate(`/${PageName}`);
@@ -32,7 +50,14 @@ const Dashboard = () => {
   };
   const activePageName = getActivePageName();
 
-  const markedDates = ["2024-08-07", "2024-08-12", "2024-08-27"];
+  // const markedDates = ["2024-08-07", "2024-08-12", "2024-08-27"];
+
+  const updatemarkedDates = (date) => {
+    markedDates.push(date);
+  };
+  const updatemarkedDates1 = (date) => {
+    markedDates1.push(date);
+  };
 
   return (
     <div className="dashboard-body">
@@ -166,22 +191,41 @@ const Dashboard = () => {
                 initialMonth={new Date().getMonth()}
                 initialYear={new Date().getFullYear()}
                 markedDates={markedDates}
+                markedDates1={markedDates1}
               />
             </div>
 
             <div className="dashboard-content-right-bottom-events">
-              <button className="dashboard-content-right-bottom-event-add">
+              <button
+                className="dashboard-content-right-bottom-event-add "
+                onClick={openModal}
+              >
                 <FaPlusSquare className="me-1" />
                 SCHEDULE AN EVENT
               </button>
-              {DashboardMarkTime.map((data, index) => (
+              <DashboardDateMark
+                modalIsOpen={modalIsOpen}
+                closeModal={closeModal}
+              />
+              {markData.map((data, index) => (
                 <div
                   className="dashboard-content-right-bottom-event"
+                  style={
+                    data.state === "complete"
+                      ? { backgroundColor: "#11f4d0" }
+                      : {}
+                  }
                   key={index}
                 >
-                  <p>{data.date}</p>
-                  <p>{data.name}</p>
-                  <p>{data.time}</p>
+                  <p className="mt-1">{data.eventDate}</p>
+                  {/* {markedDates.push(data.eventDate)} */}
+                  {data.state === "complete" ? (
+                    <>{updatemarkedDates1(data.eventDate)}</>
+                  ) : (
+                    <>{updatemarkedDates(data.eventDate)}</>
+                  )}
+                  <p className="mt-1">{data.event}</p>
+                  <p className="mt-1">{data.eventTime}</p>
                 </div>
               ))}
               <div>

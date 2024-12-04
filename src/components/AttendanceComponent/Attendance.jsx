@@ -29,10 +29,11 @@ function Attendance() {
   const [attendanceId, setAttendanceId] = useState(null);
   const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState(true);
+  const userId = localStorage.getItem("userId");
 
   if (startDate == "" && endDate == "") {
     // Ensure the data is fetched only if it hasn't been loaded already
-    const userId = 1;
+
     getAllAttendanceByUserId(userId)
       .then((response) => {
         setData(response.data);
@@ -63,7 +64,7 @@ function Attendance() {
         console.log("Date range is valid.");
 
         const datas = {
-          userId: 1,
+          userId: userId,
           startDate: startDate,
           endDate: endDate,
         };
@@ -82,7 +83,6 @@ function Attendance() {
 
   const handleCheckInButtonClick = () => {
     if (checkIn) {
-      const userId = 1;
       createAttendance(userId)
         .then((response) => {
           setCheckIn(false);
@@ -140,7 +140,19 @@ function Attendance() {
   //     setError("Failed to record attendance. Please try again.");
   //   });
   // }
+  const calculateWorkHours = (checkIn, checkOut) => {
+    const [inHours, inMinutes] = checkIn.split(":").map(Number);
+    const [outHours, outMinutes] = checkOut.split(":").map(Number);
 
+    const checkInDate = new Date(0, 0, 0, inHours, inMinutes, 0);
+    const checkOutDate = new Date(0, 0, 0, outHours, outMinutes, 0);
+
+    const diff = (checkOutDate - checkInDate) / (1000 * 60); // Difference in minutes
+    const hours = Math.floor(diff / 60);
+    const minutes = diff % 60;
+
+    return `${hours}h ${minutes}m`;
+  };
   return (
     <div>
       {/* <Header /> */}
@@ -319,53 +331,8 @@ function Attendance() {
                       <td>{datas.checkIn}</td>
                       <td>{datas.checkOut}</td>
                       <td>
-                        {function calculateWorkingTime(
-                          checkIn,
-                          checkOut,
-                          breaks,
-                          continues
-                        ) {
-                          if (breaks.length !== continues.length) {
-                            throw new Error(
-                              "Breaks and continues arrays must have the same length."
-                            );
-                          }
-
-                          const checkInTime = new Date(
-                            `1970-01-01T${checkIn}:00`
-                          );
-                          const checkOutTime = new Date(
-                            `1970-01-01T${checkOut}:00`
-                          );
-
-                          let totalTimeWorked = checkOutTime - checkInTime;
-
-                          let totalBreakTime = 0;
-                          let totalContinueTime = 0;
-
-                          for (let i = 0; i < breaks.length; i++) {
-                            const breakTime = new Date(
-                              `1970-01-01T${breaks[i]}:00`
-                            );
-                            const continueTime = new Date(
-                              `1970-01-01T${continues[i]}:00`
-                            );
-                            totalBreakTime += continueTime - breakTime;
-                          }
-
-                          // Subtract break times from total work time
-                          totalTimeWorked -= totalBreakTime;
-
-                          // Convert milliseconds to hours and minutes
-                          const totalHours = Math.floor(
-                            totalTimeWorked / (1000 * 60 * 60)
-                          );
-                          const totalMinutes = Math.floor(
-                            (totalTimeWorked % (1000 * 60 * 60)) / (1000 * 60)
-                          );
-
-                          return `${totalHours}h ${totalMinutes}m`;
-                        }}
+                        {datas.checkOut &&
+                          calculateWorkHours(datas.checkIn, datas.checkOut)}
                       </td>
                     </tr>
                   ))

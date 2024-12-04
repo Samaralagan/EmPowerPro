@@ -6,27 +6,28 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import DashboardBarChart from "./DashboardBarChart";
 import { FaTrophy } from "react-icons/fa";
-import {DashboardCelebration,DashboardMarkTime,} from "../constants/temporary";
+import {
+  DashboardCelebration,
+  DashboardMarkTime,
+} from "../constants/temporary";
 import DashboardCalendar from "./DashboardCalendar";
-import {  useLocation, useNavigate } from "react-router-dom";
-
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
 
   const handlePage = (PageName) => {
     navigate(`/${PageName}`);
   };
-  var role=''
+  var role = "";
   const getActivePageName = () => {
     const pathname = decodeURIComponent(location.pathname); // Decode the URL
-     role = pathname.split('/')[2];
+    role = pathname.split("/")[2];
     return role;
-  };const activePageName = getActivePageName();
+  };
+  const activePageName = getActivePageName();
 
-  
   return (
     <div className="dashboard-body">
       {/* <Header />
@@ -67,10 +68,7 @@ const Dashboard = () => {
                   <div className="dashboard-content-top-box-text">
                     Pending Beneficiary
                   </div>
-                  <div className="dashboard-content-top-box-data">
-                    5 
-
-                  </div>
+                  <div className="dashboard-content-top-box-data">5</div>
                 </div>
               </div>
 
@@ -85,11 +83,9 @@ const Dashboard = () => {
                 </div>
                 <div className="dashboard-content-top-box-content">
                   <div className="dashboard-content-top-box-text">
-                   Total Employees
+                    Total Employees
                   </div>
-                  <div className="dashboard-content-top-box-data">
-                    56
-                  </div>
+                  <div className="dashboard-content-top-box-data">56</div>
                 </div>
               </div>
             </div>
@@ -126,7 +122,11 @@ const Dashboard = () => {
                 <div className="dashboard-content-middle-box-content">
                   <h5>Last Performance Evaluation</h5>
                   <h2>Exceptionally Succeed</h2>
-                  <button onClick={() => handlePage(`Dash Board/${role}/Performance`)} >View Last Report</button>
+                  <button
+                    onClick={() => handlePage(`Dash Board/${role}/Performance`)}
+                  >
+                    View Last Report
+                  </button>
                 </div>
               </div>
             </div>
