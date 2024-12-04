@@ -1,14 +1,30 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import Header from "../layout/Header";
 import "./LeaveHistory.css";
 import { FaArrowLeft } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 function LeaveRequestForm({ setActiveComponent }) {
+  const navigate = useNavigate();
+  const [leave, setLeave] = useState("");
+  const { leaveId } = useParams();
 
   const handleBackClick = () => {
-    setActiveComponent("OthersLeave");
+    navigate("/Leaves/HR/OthersLeave");
   };
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/v1/hr/leave-request-getOne/${leaveId}`)
+      .then((response) => {
+        setLeave(response.data);
+        console.log(leave);
+      })
+      .catch((error) => {
+        console.error("Error fetching leave details", error);
+      });
+  }, [leaveId]);
 
   return (
     <div className="leave-request-form-container">
@@ -27,9 +43,11 @@ function LeaveRequestForm({ setActiveComponent }) {
             <img src="https://randomuser.me/api/portraits/men/3.jpg" />{" "}
           </div>
           <div className="employee-details">
-            <h5>Anne Wotson ( Software Engineer )</h5>
+            <h5>
+              {leave.employeeName}({leave.role})
+            </h5>
             <br />
-            <div className="others-leave-type">Medical Leave</div>
+            <div className="others-leave-type">{leave.leaveType}</div>
           </div>
         </div>
 
@@ -39,13 +57,13 @@ function LeaveRequestForm({ setActiveComponent }) {
               <div style={{ width: "12.5%" }}>
                 <span className="detail-label">From:</span>
               </div>
-              <span className="detail-value">30 / 05 / 2024</span>
+              <span className="detail-value">{leave.startDate}</span>
             </div>
             <div>
               <div style={{ width: "12.5%" }}>
                 <span className="detail-label">To:</span>
               </div>
-              <span className="detail-value">02 / 06 / 2024</span>
+              <span className="detail-value">{leave.endDate}</span>
             </div>
           </div>
           <br />
@@ -53,7 +71,7 @@ function LeaveRequestForm({ setActiveComponent }) {
             <div style={{ width: "12.5%" }}>
               <span className="detail-label">Total duration:</span>
             </div>
-            <span className="detail-value">4 days</span>
+            <span className="detail-value">{leave.leaveDays}</span>
           </div>
           <br />
 
@@ -64,20 +82,10 @@ function LeaveRequestForm({ setActiveComponent }) {
             </div>
 
             <div className="detail-value" style={{ width: "87.5%" }}>
-              I have been experiencing fever which has significantly affected my
-              ability to work. After a thorough examination, my doctor has
-              recommended that I take time off to undergo treatment and
-              recuperation.
+              {leave.reason}
             </div>
           </div>
           <br />
-
-          <div className="detail-row">
-            <div style={{ width: "12.5%" }}>
-              <span className="detail-label">Files:</span>
-            </div>
-            <span className="detail-value">medicalReport.pdf</span>
-          </div>
         </div>
       </div>
     </div>

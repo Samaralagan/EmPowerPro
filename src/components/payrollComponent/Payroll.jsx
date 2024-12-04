@@ -77,10 +77,10 @@ function Payroll() {
                 </div>
              </div>
              <div className="payroll-content-row">
-                <div  className="payroll-content-col">
-                   <div className="payroll-content-col1">EPF Number</div>
+             <div  className="payroll-content-col">
+                   <div className="payroll-content-col1">Joined Date</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3"> 123</div>
+                   <div className="payroll-content-col3">2020-08-20</div>
                 </div>
                 <div className="payroll-content-col">
                    <div className="payroll-content-col1">Designation</div>
@@ -89,18 +89,14 @@ function Payroll() {
                 </div>
              </div>
              <div className="payroll-content-row">
-                <div  className="payroll-content-col">
-                   <div className="payroll-content-col1">Joined Date</div>
-                   <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">2020-08-20</div>
-                </div>
+                
                 <div className="payroll-content-col">
-                   <div className="payroll-content-col1">NIC</div>
+                   <div className="payroll-content-col1">Address</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">0000-0000-0000</div>
+                   <div className="payroll-content-col3">No.54/A,Colombo 06</div>
                 </div>
              </div>
-             <div className="payroll-content-row">
+             {/* <div className="payroll-content-row">
                 <div  className="payroll-content-col">
                    <div className="payroll-content-col1">Employment Type</div>
                    <div className="payroll-content-col2">:</div>
@@ -111,7 +107,7 @@ function Payroll() {
                    <div className="payroll-content-col2">:</div>
                    <div className="payroll-content-col3">No.54/A,Colombo 06</div>
                 </div>
-             </div>
+             </div> */}
            </div>
 
            <table className="salary-table ">
@@ -125,11 +121,11 @@ function Payroll() {
                  <td>200,000.00</td>
                  <td></td>
               </tr>
-              <tr className="salary-table-td">
+              {/* <tr className="salary-table-td">
                 <td>Additional Income</td>
                 <td>50,000.00</td>
                 <td></td>
-              </tr>
+              </tr> */}
               <tr className="salary-table-td">
                 <td>Medical Allowance</td>
                 <td>50,000.00 </td>
@@ -157,7 +153,6 @@ function Payroll() {
               </tr>
               <tr>
                 <td rowspan="2" className="salary-table-details">
-                   Payment Date : March 28,2024 <br />
                    Bank Name : Commercial Bank <br />
                    Account Number : 8000-7996-4564-1111
                 </td>
@@ -166,7 +161,7 @@ function Payroll() {
               <tr>
                 <td colspan="2" className="salary-table-salary">
                    Rs.200,000.00 <br />
-                   <span>Two Hundred Thousand Only </span>
+                   
                 </td>
               </tr>
            </table>
@@ -177,4 +172,4 @@ function Payroll() {
   );
 }
 
-export default Payroll;
+export default Payroll

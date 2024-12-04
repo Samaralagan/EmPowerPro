@@ -13,8 +13,9 @@ const ComplaintsToMe = ({ setActiveComponent }) => {
   useEffect(() => {
     const fetchComplaints = async () => {
       try {
+        const role = localStorage.getItem("role");
         const response = await axios.get(
-          "http://localhost:8080/api/v1/hr/assigned-to-hr"
+          `http://localhost:8080/api/v1/hr/complaint-role/${role}`
         );
         setComplaints(response.data);
         setFilteredComplaints(response.data);

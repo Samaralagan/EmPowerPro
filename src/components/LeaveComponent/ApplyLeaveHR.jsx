@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import "./ApplyLeaveHR.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import axios from "axios";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function ApplyLeave({setActiveComponent }) {
+function ApplyLeave({ setActiveComponent }) {
+  const userId = localStorage.getItem("userId");
+
   const [leave, setLeave] = useState({
+    senderId: userId,
     leaveType: "",
     startDate: "",
     endDate: "",
@@ -29,7 +32,7 @@ function ApplyLeave({setActiveComponent }) {
     setActiveComponent("Leave");
   };
 
-  const { leaveType, startDate, endDate, reason } = leave;
+  const { senderId, leaveType, startDate, endDate, reason } = leave;
 
   const handleInputChange = (e) => {
     setLeave({
@@ -43,7 +46,10 @@ function ApplyLeave({setActiveComponent }) {
     e.preventDefault();
     if (validateDates()) {
       try {
-        await axios.post(`http://localhost:8080/api/hr/leave-creation`, leave);
+        await axios.post(
+          `http://localhost:8080/api/v1/hr/leave-creation`,
+          leave
+        );
         setActiveComponent("Leave");
       } catch (error) {
         console.error("Error entering leave data:", error);

@@ -73,6 +73,9 @@ import Create_Agile_Project from "./components/ProjectComponent/Create_Agile_Pro
 import ProjectAgile from "./components/ProjectComponent/Project_Agile.jsx";
 import TaskReviews from "./components/ProjectComponent/TeamLead_TaskReviews.jsx";
 import TaskAssign from "./components/ProjectComponent/TeamLead_TaskAssign.jsx";
+import LeavePending from "./components/LeaveComponent/LeavePending.jsx";
+import RejectLeave from "./components/LeaveComponent/RejectLeave.jsx";
+import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
 
 function App() {
   const role = "Employee";
@@ -206,6 +209,42 @@ function App() {
             <Route path="/Jobs/HR/card1" element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
             <Route path="/Employees/HR/Profile" element={<Profile />} />
+
+            <Route
+              exact
+              path="/Complaints/HR/:complaintId"
+              element={<Complaintsmore />}
+            />
+
+            <Route exact path="/leave/request/:id" element={<LeavePending />} />
+
+            <Route
+              exact
+              path="/Complaints/HR/ReplyComplaint/:complaintId"
+              element={<ReplyComplaint />}
+            />
+            <Route
+              exact
+              path="/Complaints/HR/RepliedComplaint/:complaintId"
+              element={<RepliedComplaint />}
+            />
+
+            <Route
+              exact
+              path="/Leaves/HR/LeaveRequest/:leaveId"
+              element=<LeavePending />
+            />
+
+            <Route path="/Leaves/HR/*" element={<LeavePage />} />
+
+            <Route
+              path="/Leaves/HR/LeaveAccept/:leaveId"
+              element=<LeaveHistory />
+            />
+            <Route
+              path="/Leaves/HR/LeaveReject/:leaveId"
+              element=<RejectLeave />
+            />
 
             <Route
               path="/Dash Board/FinanceAndSupport"

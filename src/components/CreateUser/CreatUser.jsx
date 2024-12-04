@@ -240,23 +240,30 @@ function CreatUser() {
               <label class="did-floating-label">User Name</label>
             </div>
             <div
-              class="did-floating-label-content"
+              className="did-floating-label-content"
               style={{ marginLeft: "10%" }}
             >
-              <input
+              <select
                 className={`did-floating-input ${
                   errors.role ? "is-invalid" : ""
                 }`}
                 name="role"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                type="text"
-                placeholder=" "
-              />
+              >
+                <option value="" disabled>
+                  Select a role
+                </option>
+                <option value="Employee">Employee</option>
+                <option value="Team Lead">Team Leader</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance and Support</option>
+                <option value="Executive">Executive</option>
+              </select>
               {errors.role && (
                 <div className="invalid-feedback">{errors.role}</div>
               )}
-              <label class="did-floating-label">Role</label>
+              <label className="did-floating-label">Role</label>
             </div>
           </div>
           <div class="d-flex">
