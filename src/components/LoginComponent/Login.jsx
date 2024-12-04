@@ -8,13 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { checkLogin } from "../../service/LoginService";
 
 const Login = () => {
-  // const [username, setUsername] = useState("");
-  // const [password,setPassword] = useState("");
-  // const [error, setError] = useState("");
-  // const navigator = useNavigate();
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({
@@ -141,7 +134,7 @@ const Login = () => {
 
             {/* (must come inside password) onChange={handleShowLock} */}
             <label>Password</label>
-            {errors.password && (
+            {errors.username && (
               <div className="invalid-feedback">{errors.password}</div>
             )}
           </div>

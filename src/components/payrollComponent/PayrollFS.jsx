@@ -62,6 +62,11 @@ function PayrollFS() {
           <BankAccountModal modalIsOpen={modalIsOpen} closeModal={closeModal}/>
 
           <div >         
+               <button className="gradient-blue-btn me-3 mt-3" onClick={openModal}><FaPlusSquare className='me-2'/>Add Bank Details</button>
+          </div>
+          <BankAccountModal modalIsOpen={modalIsOpen} closeModal={closeModal}/>
+
+          <div >         
                <button className="gradient-blue-btn me-3 mt-3" onClick={handleclickbutton}><FaPlusSquare className='me-2'/>Add New Payment</button>
           </div>
          </div>

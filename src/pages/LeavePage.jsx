@@ -7,6 +7,7 @@ import LeaveHR from "../components/LeaveComponent/LeaveHR";
 import ApplyLeaveHR from "../components/LeaveComponent/ApplyLeaveHR";
 import OthersLeave from "../components/LeaveComponent/OthersLeave";
 import LeaveHistory from "../components/LeaveComponent/LeaveHistory";
+import LeaveRequest from "../components/LeaveComponent/LeaveRequest_HR";
 import LeavePending from "../components/LeaveComponent/LeavePending";
 import ApproveLeave from "../components/LeaveComponent/ApproveLeave";
 import RejectLeave from "../components/LeaveComponent/RejectLeave";
@@ -65,8 +66,15 @@ const LeavePage = () => {
       {activeComponent === "OthersLeave" && (
         <OthersLeave setActiveComponent={setActiveComponent} />
       )}
-      {activeComponent === "LeaveHistory" && (
+      {activeComponent === "LeaveAccept" && (
         <LeaveHistory setActiveComponent={setActiveComponent} />
+      )}
+      {activeComponent === "LeaveRequest" && (
+        <LeaveRequest setActiveComponent={setActiveComponent} />
+      )}
+
+      {activeComponent === "LeaveReject" && (
+        <RejectLeave setActiveComponent={setActiveComponent} />
       )}
 
       {/* <Leave/> */}

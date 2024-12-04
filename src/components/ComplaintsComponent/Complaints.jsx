@@ -75,9 +75,9 @@ const Complaints = ({ setActiveComponent }) => {
   return (
     <div className="contentbodyall">
       <nav>
-        <div className="nav nav-tabs" id="nav-tab" role="tablist">
+        <div className="leave-hr-tabs" id="nav-tab" role="tablist">
           <button
-            className={`nav-link ${
+            className={`tab-hr my-leaves ${
               activeTab === "my-complaints" ? "active" : ""
             }`}
             id="nav-home-tab"
@@ -90,7 +90,7 @@ const Complaints = ({ setActiveComponent }) => {
             My Complaints
           </button>
           <button
-            className={`nav-link ${
+            className={`tab-hr others-leaves ${
               activeTab === "complaints-to-me" ? "active" : ""
             }`}
             id="nav-profile-tab"

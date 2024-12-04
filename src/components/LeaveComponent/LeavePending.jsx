@@ -29,6 +29,7 @@ const LeavePending = ({ setActiveComponent }) => {
         `http://localhost:8080/api/v1/hr/leave-set-approved/${leaveId}?comment=${comment}`
       );
       console.log(response.data);
+      navigate("/Leaves/HR/OthersLeave");
     } catch (error) {
       console.error("Error rejecting leave", error);
     }
@@ -40,6 +41,7 @@ const LeavePending = ({ setActiveComponent }) => {
         `http://localhost:8080/api/v1/hr/leave-set-rejected/${leaveId}?comment=${comment}`
       );
       console.log(response.data);
+      navigate("/Leaves/HR/OthersLeave");
     } catch (error) {
       console.error("Error rejecting leave", error);
     }

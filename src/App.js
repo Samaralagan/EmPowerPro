@@ -58,6 +58,7 @@ import GenerateReport from "./components/employee/GenerateReport.jsx";
 import IncomeExpensePage from "./pages/IncomeExpensePage.jsx";
 import ApplyLeavePage from "./components/LeaveComponent/ApplyLeave.jsx";
 import LeaveHistory from "./components/LeaveComponent/LeaveHistory.jsx";
+import LeaveRequest_HR from "./components/LeaveComponent/LeaveRequest_HR.jsx";
 import LeavePageHR from "./components/LeaveComponent/LeaveHR.jsx";
 import Card1 from "./components/common/Card1.jsx";
 import DashboardEmployee from "./components/DashboardComponent/DashboardEmployee.jsx";
@@ -66,8 +67,15 @@ import DashboardHR from "./components/DashboardComponent/DashboardHR.jsx";
 import DashboardFinance from "./components/DashboardComponent/DashboardFinance.jsx";
 import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
 import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
-import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
+
+import Create_Project_1 from "./components/ProjectComponent/Create_Project_1.jsx";
+import Create_Agile_Project from "./components/ProjectComponent/Create_Agile_Project.jsx";
+import ProjectAgile from "./components/ProjectComponent/Project_Agile.jsx";
+import TaskReviews from "./components/ProjectComponent/TeamLead_TaskReviews.jsx";
+import TaskAssign from "./components/ProjectComponent/TeamLead_TaskAssign.jsx";
 import LeavePending from "./components/LeaveComponent/LeavePending.jsx";
+import RejectLeave from "./components/LeaveComponent/RejectLeave.jsx";
+import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
 
 function App() {
   const role = "Employee";
@@ -80,7 +88,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/VacancyApplyForm" element={<Vacancy_Apply_Form />} />
-
           <Route path="/" element={<Layout />}>
             <Route
               path="/Dash Board/Employee"
@@ -93,6 +100,10 @@ function App() {
             <Route path="/Dash Board/Employee/Profile" element={<Profile />} />
             <Route path="/Attendance/Employee" element={<AttendancePage />} />
             <Route path="/Project/Employee" element={<ProjectPage />} />
+            <Route
+              path="/Project/Employee/AgileProject"
+              element={<ProjectAgile />}
+            />
             <Route path="/Leave/Employee" element={<LeavePage />} />
             <Route path="/Pay Roll/Employee" element={<PayrollPage />} />
             <Route path="/Complaints/Employee" element={<ComplaintsPage />} />
@@ -115,6 +126,18 @@ function App() {
             />
             <Route path="/Attendance/TeamLeader" element={<AttendancePage />} />
             <Route path="/Project/TeamLeader" element={<ProjectPage />} />
+            <Route
+              path="/Project/TeamLeader/AgileProject"
+              element={<ProjectAgile />}
+            />
+            <Route
+              path="/Project/TeamLeader/TaskReviews"
+              element={<TaskReviews />}
+            />
+            <Route
+              path="/Project/TeamLeader/TaskAssign"
+              element={<TaskAssign />}
+            />
             <Route path="/Leave/TeamLeader" element={<LeavePage />} />
             <Route path="/Pay Roll/TeamLeader" element={<PayrollPage />} />
             <Route path="/Complaints/TeamLeader" element={<ComplaintsPage />} />
@@ -163,6 +186,7 @@ function App() {
             <Route path="/Dash Board/HR/Profile" element={<Profile />} />
             <Route path="/Attendance/HR" element={<AttendancePage />} />
             <Route path="/Project/HR" element={<ProjectPage />} />
+            <Route path="/Project/HR/AgileProject" element={<ProjectAgile />} />
             <Route path="/Leave/HR" element={<LeavePage />} />
             <Route path="/Complaints/HR" element={<ComplaintsPage />} />
             <Route path="/Pay Roll/HR" element={<PayrollPage />} />
@@ -182,7 +206,7 @@ function App() {
               element={<Team_Profile />}
             />
             <Route path="/Jobs/HR" element={<JobPage />} />
-            <Route exact path={"/Jobs/HR/edit/:id"} element={<EditVacancy />} />
+            <Route path="/Jobs/HR/card1" element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
             <Route path="/Employees/HR/Profile" element={<Profile />} />
 
@@ -208,13 +232,18 @@ function App() {
             <Route
               exact
               path="/Leaves/HR/LeaveRequest/:leaveId"
-              element={<LeavePending />}
+              element=<LeavePending />
             />
 
+            <Route path="/Leaves/HR/*" element={<LeavePage />} />
+
             <Route
-              exact
-              path="/Leaves/HR/OthersLeave"
-              element={<LeavePage />}
+              path="/Leaves/HR/LeaveAccept/:leaveId"
+              element=<LeaveHistory />
+            />
+            <Route
+              path="/Leaves/HR/LeaveReject/:leaveId"
+              element=<RejectLeave />
             />
 
             <Route
@@ -270,6 +299,14 @@ function App() {
             />
             <Route path="/Attendance/Executive" element={<AttendancePage />} />
             <Route path="/Project/Executive" element={<ProjectPage />} />
+            <Route
+              path="/Project/Executive/create-project"
+              element={<Create_Project_1 />}
+            />
+            <Route
+              path="/Project/Executive/create-agile-project"
+              element={<Create_Agile_Project />}
+            />
             <Route path="/Leave/Executive" element={<LeavePage />} />
             <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
             <Route path="/Pay Roll/Executive" element={<PayrollPage />} />
@@ -282,25 +319,20 @@ function App() {
               element={<BeneficiaryPage />}
             />
             <Route path="/Employee/Executive" element={<EmployeePage />} />
-
             <Route path="/Employee/Executive/Teams" element={<Teams />} />
             <Route
               path="/Employee/Executive/GenerateReport"
               element={<GenerateReport />}
             />
-
             <Route
               path="/Employee/Executive/NewApproval"
               element={<NewApproval />}
             />
-
             <Route
               path="/Employee/Executive/CreateNewTeam"
               element={<CreateNewTeam />}
             />
-
             <Route path="/Employee/Executive/Profile" element={<Profile />} />
-
             <Route
               path="/Employee/Executive/Team_Profile"
               element={<Team_Profile />}
@@ -315,6 +347,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      {/* bwjbwjbwjcwejkqcbqkjbwk */}
     </div>
   );
 }

@@ -68,7 +68,8 @@ const Dashboard = () => {
                     Pending Beneficiary
                   </div>
                   <div className="dashboard-content-top-box-data">
-                    5
+                    5 
+
                   </div>
                 </div>
               </div>

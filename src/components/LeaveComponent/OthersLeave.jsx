@@ -70,8 +70,12 @@ function OthersLeave({ setActiveComponent }) {
   const handleBackLeave = () => {
     setActiveComponent("Leave");
   };
-  const handleLeaveHistory = () => {
-    setActiveComponent("LeaveHistory");
+  const handleLeaveHistory = (leaveId, leaveStatus) => {
+    if (leaveStatus === "APPROVED")
+      navigate(`/Leaves/HR/LeaveAccept/${leaveId}`);
+    else {
+      navigate(`/Leaves/HR/LeaveReject/${leaveId}`);
+    }
   };
 
   const handleLeaveRequest = (leaveId) => {
@@ -174,6 +178,7 @@ function OthersLeave({ setActiveComponent }) {
               </div>
             ))}
           </div>
+
           <div className="leave-history-part">
             <div className="today-leave-title">Leave History</div>
             {historyLeaves.map((leave, index) => (
@@ -217,7 +222,7 @@ function OthersLeave({ setActiveComponent }) {
                     <div
                       className="leave-div-15"
                       style={{ cursor: "pointer" }}
-                      onClick={handleLeaveHistory}
+                      onClick={() => handleLeaveHistory(leave.id, leave.status)}
                     >
                       View Details »
                     </div>
