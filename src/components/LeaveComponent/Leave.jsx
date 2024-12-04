@@ -21,13 +21,35 @@ const Leave = ({ setActiveComponent }) => {
   const fetchLeaves = async () => {
     try {
       const userId = localStorage.getItem("userId");
+      console.log(userId);
       const response = await axios.get(
         `http://localhost:8080/api/v1/hr/leave/${userId}`
       );
+
       setLeaves(response.data);
       setFilteredLeaves(response.data);
-    } catch {
-      setError("failed to fetch leave details");
+
+      let approvedLeaves = 0;
+      let rejectedLeaves = 0;
+      let totalLeaveDays = 20;
+
+      response.data.forEach((leave) => {
+        if (leave.status === "APPROVED") {
+          approvedLeaves += leave.leaveDays;
+        } else if (leave.status === "REJECTED") {
+          rejectedLeaves += leave.leaveDays;
+        }
+      });
+
+      let availableLeaves = totalLeaveDays - approvedLeaves;
+
+      setLeaveBalance({
+        approvedLeaves,
+        rejectedLeaves,
+        availableLeaves,
+      });
+    } catch (error) {
+      console.error("Failed to fetch leave details", error);
     }
   };
 
@@ -66,21 +88,6 @@ const Leave = ({ setActiveComponent }) => {
     filterLeave();
   }, [filterPeriod, filterStatus, leaves]);
 
-  useEffect(() => {
-    const fetchLeaveBalance = async () => {
-      try {
-        const userId = localStorage.getItem("userId");
-        const response = await axios.get(
-          `http://localhost:8080/api/v1/hr/leave-balance-details/${userId}`
-        );
-        setLeaveBalance(response.data);
-      } catch {
-        setError("failed to fetch leave status");
-      }
-    };
-    fetchLeaveBalance();
-  }, []);
-
   const handleApplyLeave = () => {
     setActiveComponent("ApplyLeave");
   };
@@ -103,7 +110,9 @@ const Leave = ({ setActiveComponent }) => {
               <div className="leave-box-content">
                 <div className="leave-main-box-content">
                   {" "}
-                  {leaveBalance.totalAvailableLeaves}
+                  {leaveBalance.availableLeaves > 0
+                    ? leaveBalance.availableLeaves
+                    : 0}
                 </div>
                 <div className="leave-sub-box-content-1">
                   {" "}

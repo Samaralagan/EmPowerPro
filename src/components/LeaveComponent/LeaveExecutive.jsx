@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import Header from "../layout/Header";
 import "./Leave.css";
 import { FaPlusCircle } from "react-icons/fa";
@@ -7,13 +7,19 @@ import { FaRegCalendarCheck } from "react-icons/fa";
 import { FaRegCalendarTimes } from "react-icons/fa";
 import { MdPendingActions } from "react-icons/md";
 import LeaveChart from "./LeaveChart";
+import axios from "axios";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 
 function Leave({ setActiveComponent }) {
+  const [leaves, setLeaves] = useState([]); // Stores all fetched leaves
+  const [filteredLeaves, setFilteredLeaves] = useState([]); // Stores filtered leaves
+  const [filterPeriod, setFilterPeriod] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
+  const [leaveBalance, setLeaveBalance] = useState([]);
 
   const handlePending = () => {
     setActiveComponent("Pending");
@@ -25,10 +31,78 @@ function Leave({ setActiveComponent }) {
     setActiveComponent("Rejected");
   };
 
+  const fetchLeaves = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/api/v1/hr/leave-get-all`
+      );
+
+      setLeaves(response.data);
+      setFilteredLeaves(response.data);
+
+      let approvedLeaves = 0;
+      let rejectedLeaves = 0;
+      let requestedLeaves = 0;
+
+      response.data.forEach((leave) => {
+        if (leave.status === "APPROVED") {
+          approvedLeaves += leave.leaveDays;
+        } else if (leave.status === "REJECTED") {
+          rejectedLeaves += leave.leaveDays;
+        } else if (leave.status === "PENDING") {
+          requestedLeaves += leave.leaveDays;
+        }
+      });
+
+      setLeaveBalance({
+        approvedLeaves,
+        rejectedLeaves,
+        requestedLeaves,
+      });
+    } catch (error) {
+      console.error("Failed to fetch leave details", error);
+    }
+  };
+
+  const filterLeaves = () => {
+    let filtered = [...leaves];
+
+    // Filter by time period
+    if (filterPeriod) {
+      const now = new Date();
+      const dateThreshold = new Date();
+
+      if (filterPeriod === "Last 3 Months") {
+        dateThreshold.setMonth(now.getMonth() - 3);
+      } else if (filterPeriod === "Last 6 Months") {
+        dateThreshold.setMonth(now.getMonth() - 6);
+      } else if (filterPeriod === "Last 12 Months") {
+        dateThreshold.setMonth(now.getMonth() - 12);
+      }
+
+      filtered = filtered.filter(
+        (leave) => new Date(leave.startDate) >= dateThreshold
+      );
+    }
+
+    // Filter by status
+    if (filterStatus) {
+      filtered = filtered.filter((leave) => leave.status === filterStatus);
+    }
+
+    setFilteredLeaves(filtered);
+  };
+
+  useEffect(() => {
+    fetchLeaves();
+  }, []);
+
+  useEffect(() => {
+    filterLeaves();
+  }, [filterPeriod, filterStatus, leaves]);
+
   return (
     <div className="leavemain-body">
-      
-  
       <br />
       <br />
 
@@ -41,7 +115,10 @@ function Leave({ setActiveComponent }) {
               </div>
 
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 25</div>
+                <div className="leave-main-box-content">
+                  {" "}
+                  {leaveBalance.requestedLeaves}
+                </div>
                 <div className="leave-sub-box-content-1">
                   {" "}
                   Requested Leaves{" "}
@@ -54,7 +131,10 @@ function Leave({ setActiveComponent }) {
                 <FaRegCalendarCheck className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 10 </div>
+                <div className="leave-main-box-content">
+                  {" "}
+                  {leaveBalance.approvedLeaves}{" "}
+                </div>
                 <div className="leave-sub-box-content-2"> Approved Leaves</div>
               </div>
             </div>
@@ -64,37 +144,42 @@ function Leave({ setActiveComponent }) {
                 <MdPendingActions className="leave-icon" />
               </div>
               <div className="leave-box-content">
-                <div className="leave-main-box-content"> 5 </div>
-                <div className="leave-sub-box-content"> Pending Leaves </div>
+                <div className="leave-main-box-content">
+                  {leaveBalance.rejectedLeaves}
+                </div>
+                <div className="leave-sub-box-content">Rejected Leaves</div>
               </div>
             </div>
           </div>
-        
         </div>
 
         <div className="leave-additional-rectangle-3">
           <div className="leave-records-text">Leaves</div>
 
           <div className="dropdown-row">
-            <select className="custom-dropdown" defaultValue="">
+            <select
+              className="custom-dropdown"
+              value={filterPeriod}
+              onChange={(e) => setFilterPeriod(e.target.value)}
+              defaultValue=""
+            >
               <option value="" disabled>
                 Last 6 Months
               </option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+              <option value="Last 3 Months">Last 3 Months</option>
+              <option value="Last 6 Months">Last 6 Months</option>
+              <option value="Last 12 Months">Last 12 Months</option>
             </select>
             <select
               className="custom-dropdown"
-              defaultValue=""
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
               style={{ marginLeft: "45vw" }}
             >
-              <option value="" disabled>
-                Status
-              </option>
-              <option value="option1">Approved</option>
-              <option value="option2">Rejected</option>
-              <option value="option3">Pending</option>
+              <option value="">Select Status</option>
+              <option value="APPROVED">Approved</option>
+              <option value="REJECTED">Rejected</option>
+              <option value="PENDING">Pending</option>
             </select>
           </div>
 
@@ -112,77 +197,40 @@ function Leave({ setActiveComponent }) {
               </thead>
 
               <tbody>
-                <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
-                  <td>
-                    <button className="leave-approved" onClick={handleApproved} > Approved</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
-                  <td>
-                    <button className="leave-pending" onClick={handlePending} > Pending</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
-                  <td>
-                    <button className="leave-rejected" onClick={handleRejected}>Rejected</button>
-                  </td>
-                </tr>
-                {/* <tr>
-                  <td>01</td>
-                  <td>Casual</td>
-                  <td>20 JUNE 2024</td>
-                  <td>22 JUNE 2024</td>
-                  <td>Friend's Wedding Function</td>
-                  <td>
-                    <button className="leave-approved"> Approved</button>
-                  </td>
-                </tr> */}
-                {/* <td>01</td>
-                <td>Casual</td>
-                <td>20 JUNE 2024</td>
-                <td>22 JUNE 2024</td>
-                <td>Friend's Wedding Function</td>
-                <td>
-                  <button className="leave-rejected">Rejected</button>
-                </td> */}
+                {filteredLeaves.map((leave, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{leave.leaveType}</td>
+                    <td>{new Date(leave.startDate).toLocaleDateString()}</td>
+                    <td>{new Date(leave.endDate).toLocaleDateString()}</td>
+                    <td>{leave.reason}</td>
+                    <td>
+                      <button className={`leave-${leave.status.toLowerCase()}`}>
+                        {leave.status}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-
         </div>
-        <div 
-  className="leave-chart-box" 
-  style={{
-    width: '100%',
-    marginTop:'4vh',
-    boxShadow: `
+        <div
+          className="leave-chart-box"
+          style={{
+            width: "100%",
+            marginTop: "4vh",
+            boxShadow: `
     0px 0px 0px 6px rgba(107, 107, 107, 0.1)  `,
-    margin: 'auto',
-    borderRadius: '2px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }}>
- 
- <LeaveChart />
- 
-</div>
-
+            margin: "auto",
+            borderRadius: "2px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <LeaveChart />
+        </div>
       </div>
     </div>
   );

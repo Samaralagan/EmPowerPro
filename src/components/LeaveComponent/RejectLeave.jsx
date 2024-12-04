@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import { React, useState, useEffect } from "react";
 import Header from "../layout/Header";
 import "./RejectLeave.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-const LeavePending = ({setActiveComponent}) => {
+const RejectLeave = ({ setActiveComponent }) => {
   const navigate = useNavigate();
+  const [leave, setLeave] = useState("");
+  const { leaveId } = useParams();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,14 +17,30 @@ const LeavePending = ({setActiveComponent}) => {
     navigate("/somewhere"); // Navigate to another route after form submission
   };
   const handleBackLeave = () => {
-    setActiveComponent("Leave");
+    navigate("/Leaves/HR/OthersLeave");
   };
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/v1/hr/leave-request-getOne/${leaveId}`)
+      .then((response) => {
+        setLeave(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching leave details", error);
+      });
+  }, [leaveId]);
+
+  console.log("this is leave", leave);
   return (
     <div className="pending-leave-body">
-     
       <hr />
 
-      <IoMdArrowRoundBack className="backarrow mt-3" style={{ color: "#000f44" }} onClick={handleBackLeave}/>
+      <IoMdArrowRoundBack
+        className="backarrow mt-3"
+        style={{ color: "#000f44" }}
+        onClick={handleBackLeave}
+      />
       <div className="pending-leave-form-body">
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
           <div className="pending-leave-profile-section">
@@ -30,13 +49,14 @@ const LeavePending = ({setActiveComponent}) => {
               className="profile-pic"
             />
             <div className="pending-profile-info">
-              <h2>Can Samuel</h2>
-              <p>SUP-1005</p>
+              <h2>
+                {leave.employeeName}({leave.role})
+              </h2>
             </div>
 
             <div className="leave-type">
               <span style={{ color: "#95a5a6" }}>Leave Type : </span>
-              <span className="leave-type-value">Vacation</span>
+              <span className="leave-type-value">{leave.leaveType}</span>
             </div>
           </div>
 
@@ -47,7 +67,7 @@ const LeavePending = ({setActiveComponent}) => {
                   <label style={{ color: "#95a5a6" }}>From :</label>
                 </div>
                 <div>
-                  <label> 01 / 12 / 2024</label>
+                  <label>{leave.startDate}</label>
                 </div>
               </div>
               <div>
@@ -55,17 +75,14 @@ const LeavePending = ({setActiveComponent}) => {
                   <label style={{ color: "#95a5a6" }}>To :</label>
                 </div>
                 <div>
-                  <label> 10 / 12 / 2024</label>
+                  <label> {leave.endDate}</label>
                 </div>
               </div>
             </div>
 
             <div className="reason-section">
               <label>Reason : </label>
-              <textarea>
-                I am requesting leave for a planned family vacation from
-                December 1 to December 10.
-              </textarea>
+              <textarea value={leave.reason} readOnly />
             </div>
           </div>
         </form>
@@ -76,13 +93,11 @@ const LeavePending = ({setActiveComponent}) => {
         </div>
 
         <div className="leave-reply-comment" style={{ color: "#2c3e50" }}>
-          Your leave request for a vacation from December 1 to December 10 has
-          been rejected as it coincides with our peak business period. Please
-          consider rescheduling your vacation.
+          {leave.comment}
         </div>
       </div>
     </div>
   );
 };
 
-export default LeavePending;
+export default RejectLeave;
