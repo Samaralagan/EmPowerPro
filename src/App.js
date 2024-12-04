@@ -67,12 +67,12 @@ import DashboardHR from "./components/DashboardComponent/DashboardHR.jsx";
 import DashboardFinance from "./components/DashboardComponent/DashboardFinance.jsx";
 import DashboardExecutive from "./components/DashboardComponent/DashboardExecutive.jsx";
 import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
-import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
 
-// import EX_ProjectPage from "./pages/EX_ProjectPage.jsx";
 import Create_Project_1 from "./components/ProjectComponent/Create_Project_1.jsx";
+import Create_Agile_Project from "./components/ProjectComponent/Create_Agile_Project.jsx";
 import ProjectAgile from "./components/ProjectComponent/Project_Agile.jsx";
 import TaskReviews from "./components/ProjectComponent/TeamLead_TaskReviews.jsx";
+import TaskAssign from "./components/ProjectComponent/TeamLead_TaskAssign.jsx";
 
 function App() {
   const role = "Employee";
@@ -130,6 +130,10 @@ function App() {
             <Route
               path="/Project/TeamLeader/TaskReviews"
               element={<TaskReviews />}
+            />
+            <Route
+              path="/Project/TeamLeader/TaskAssign"
+              element={<TaskAssign />}
             />
             <Route path="/Leave/TeamLeader" element={<LeavePage />} />
             <Route path="/Pay Roll/TeamLeader" element={<PayrollPage />} />
@@ -199,26 +203,9 @@ function App() {
               element={<Team_Profile />}
             />
             <Route path="/Jobs/HR" element={<JobPage />} />
-            <Route exact path={"/Jobs/HR/edit/:id"} element={<EditVacancy />} />
+            <Route path="/Jobs/HR/card1" element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
             <Route path="/Employees/HR/Profile" element={<Profile />} />
-
-            <Route
-              exact
-              path="/Complaints/HR/:complaintId"
-              element={<Complaintsmore />}
-            />
-
-            <Route
-              exact
-              path="/Complaints/HR/ReplyComplaint/:complaintId"
-              element={<ReplyComplaint />}
-            />
-            <Route
-              exact
-              path="/Complaints/HR/RepliedComplaint/:complaintId"
-              element={<RepliedComplaint />}
-            />
 
             <Route
               path="/Dash Board/FinanceAndSupport"
@@ -272,10 +259,14 @@ function App() {
               element={<Performance />}
             />
             <Route path="/Attendance/Executive" element={<AttendancePage />} />
-            {/* <Route path="/Project/Executive" element={<EX_ProjectPage />} /> */}
+            <Route path="/Project/Executive" element={<ProjectPage />} />
             <Route
               path="/Project/Executive/create-project"
               element={<Create_Project_1 />}
+            />
+            <Route
+              path="/Project/Executive/create-agile-project"
+              element={<Create_Agile_Project />}
             />
             <Route path="/Leave/Executive" element={<LeavePage />} />
             <Route path="/Complaints/Executive" element={<ComplaintsPage />} />
@@ -294,17 +285,14 @@ function App() {
               path="/Employee/Executive/GenerateReport"
               element={<GenerateReport />}
             />
-
             <Route
               path="/Employee/Executive/NewApproval"
               element={<NewApproval />}
             />
-
             <Route
               path="/Employee/Executive/CreateNewTeam"
               element={<CreateNewTeam />}
             />
-
             <Route path="/Employee/Executive/Profile" element={<Profile />} />
             <Route
               path="/Employee/Executive/Team_Profile"

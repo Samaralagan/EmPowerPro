@@ -1,5 +1,4 @@
-
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Card1 from "../common/Card1";
 
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
@@ -8,7 +7,7 @@ import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
 import Modal from "./Modal"; // Import the Modal component
 import { listVacancies } from "../../service/ApplyJobService";
-import "./job.css"
+import "./job.css";
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
@@ -16,18 +15,22 @@ const Job = ({ setActiveComponent }) => {
   const [isModalVisible, setIsModalVisible] = useState(false); // Manage modal visibility
 
   const [vacancies, setVacancies] = useState([]);
-    useEffect(()=>{
-        listVacancies().then((response)=>{
-            setVacancies(response.data);
-        }).catch(error=>{
-            console.log(error);
-        })
-    },[])
+  useEffect(() => {
+    listVacancies()
+      .then((response) => {
+        setVacancies(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-    const handleVacancyDelete = (id) => {
-      setVacancies((prevVacancies) => prevVacancies.filter(vacancy => vacancy.id !== id));
+  const handleVacancyDelete = (id) => {
+    setVacancies((prevVacancies) =>
+      prevVacancies.filter((vacancy) => vacancy.id !== id)
+    );
   };
-  
+
   const handleAllCheckboxChange = (e) => {
     const isChecked = e.target.checked;
     setIsAllChecked(isChecked);
@@ -56,12 +59,13 @@ const Job = ({ setActiveComponent }) => {
     setActiveComponent("NewVacancy");
   };
 
-
   return (
-    <div className="contentbodyall1" style={{width:'81vw'}}>
+    <div className="contentbodyall1" style={{ width: "81vw" }}>
       <br />
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div className="jobsTitle" style={{fontSize: '16px'}}>JOB VACANCIES</div>
+        <div className="jobsTitle" style={{ fontSize: "16px" }}>
+          JOB VACANCIES
+        </div>
         <div
           className="contactus-form-button"
           style={{
@@ -69,7 +73,6 @@ const Job = ({ setActiveComponent }) => {
             marginTop: "0%",
             marginBottom: "1rem",
             marginLeft: "50%",
-           
           }}
         >
           <button
@@ -83,27 +86,6 @@ const Job = ({ setActiveComponent }) => {
         </div>
       </div>
 
-      {/* <Card1
-          title="User Experience Designer - Fully Remote"
-          variety="Creative & Art"
-          type="Full Time"
-          salary="$45 - $55"
-          countappilication="500+ applications"
-        />
-        <Card1
-          title="Android App Developer - Hybrid"
-          variety="Programming"
-          type="Full Time"
-          salary="$45 - $55"
-          countappilication="500+ applications"
-        />
-        <Card1
-          title="Intern Front-End Developer - Fully Remote"
-          variety="Creative & Art"
-          type="Full Time"
-          salary="$45 - $55"
-          countappilication="500+ applications"
-        /> */}
       {/* Add more Card1 components as needed */}
       <div className="cardsContainer">
         {vacancies.map((vacancy, index) => (
@@ -126,7 +108,6 @@ const Job = ({ setActiveComponent }) => {
         <div className="jobsTitle">JOB APPLICATIONS</div>
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
-
         <div
           style={{
             display: "flex",
@@ -185,7 +166,6 @@ const Job = ({ setActiveComponent }) => {
             marginTop: "0%",
             marginBottom: "1rem",
             marginLeft: "10%",
-           
           }}
         >
           <button
@@ -198,10 +178,15 @@ const Job = ({ setActiveComponent }) => {
           </button>
         </div>
       </div>
-      
+
       <div
         className="tablediv"
-        style={{ height: "18rem", overflow: "auto", scrollbarWidth: "none", marginTop:"2vw" }}
+        style={{
+          height: "18rem",
+          overflow: "auto",
+          scrollbarWidth: "none",
+          marginTop: "2vw",
+        }}
       >
         <table className="table table-hover">
           <thead>

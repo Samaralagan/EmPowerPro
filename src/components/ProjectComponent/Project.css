@@ -1,123 +1,4 @@
-:root{
-    --Main-color:#000F44;
-    --Sub-color:#FFFFFF;
-    --available:#F37C98;
-    --approved:#9BF37C;
-    --rejected:#F39F7C;
-    --pending:#FFAC0A;
-    --approved-btn:#02C416;
-    --Light:#D9D9D9;
-    --Flex-heading:#FFBB00;
-    --1ST-COLOR: linear-gradient(to right, #000F44 0%, #00186B 72%, #0025AA 100%);
-  }
 
-  .project-body{
-    padding: 20px;
-    width: 84vw;
-    display: flex;
-    flex-direction: column;
-    margin-left: 16vw;
-    padding: 1rem;
-  }
-  .project-boxs{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 3vh;
-  }
-  .project-box{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    height: 80vh;
-    background-color: var(--Sub-color);
-    box-shadow: 1px 2px 4px 2px rgba(107, 107, 107, 0.1);
-    border-radius: 20px;
-    padding: 3vh;
-  }
-  .project-box-top{
-    display: flex;
-    justify-content: space-between;
-    color: var(--Main-color);
-  }
-  .project-box-title{
-    font-size: 3vh;
-    font-weight: 600;
-  }
-  .project-box-top-icon{
-    font-size: 4vh;
-    color: #D9D9D9;
-  }
-
-  .project-card{
-    background-color: var(--Main-color);
-    padding: 2vh 3vh;
-    border-radius: 15px;
-    margin-top: 2vh;
-    cursor: pointer;
-  }
-  .project-card-color-boxs{
-    display: flex;
-  }
-  .project-card-color-box{
-    width: 6vh;
-    height: 1.2vh;
-    margin-right: 1.5vh;
-    border-radius: 20px;
-  }
-  .project-card-content{
-    display: flex;
-    justify-content: space-between;
-  }
-  .project-card-content p{
-    font-size: 1.6vh;
-    color: var(--Sub-color); 
-    margin: 0;
-    margin-top: 2vh;
-    margin-bottom: 0.5vh;
-  }
-  .project-card-content input{
-    display: flex;
-    align-items: center;
-    margin: 0;
-  }
-  .project-card-date{
-    color: var(--Light);
-    font-size: 1.3vh;
-    margin: 0;
-  }
-  .project-card-circle{
-    border: solid white 2px;
-    height: 7vh;
-    width: 7vh;
-    border-radius: 40px;
-    margin-right: 3vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .project-card-circle p{
-    margin: 0;
-    font-weight: 600;
-    font-size: 1.8vh;
-  }
-  .project-card-circle div{
-    margin: 0;
-    font-size: 0.6vh;
-    color: var(--Light);
-   
-  }
-  .project-addtask{
-    width: 100%;
-    border: solid  2px;
-    border-color: var(--Main-color);
-    color: var(--Main-color);
-    padding: 1vh;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 :root{
     --Main-color:#000F44;
     --Sub-color:#FFFFFF;
@@ -138,6 +19,7 @@
     flex-direction: column;
     margin-left: 16vw;
     padding: 1rem;
+    margin-top: 0;
   }
   .project-boxs{
     display: flex;
@@ -430,12 +312,11 @@
   align-items: center; 
 }
 
-/* Checkbox styles */
 .subtask-checkbox {
   margin-right: 10px;
 }
 
-/* Label styles */
+
 .subtask-label {
   font-size: 14px; 
   color: var(--Sub-color); 
@@ -519,16 +400,16 @@
 .task-review-container {
   position: relative;
   display: inline-block;
-  width: 20%;
+
 }
 
 .task-review-button {
   color: var(--Main-color);
-  padding: 10px 20px;
+  padding: 10px 60px;
   border: 2px solid var(--Main-color);
   border-radius: 10px;
   cursor: pointer;
-  width: 100%;
+  /* width: 100%; */
   font-size: 16px;
   font-weight: bold;
 }
@@ -565,4 +446,23 @@
   width: 200px;
   margin-bottom: 1.8vw;
   margin-top: 1.8vw;
+}
+
+.task-review-add-line{
+  display: flex;
+  justify-content: space-between;
+  gap: 180%;
+}
+
+.share-textarea{
+width: 96%;
+border: none;
+padding-left: 15px;
+padding-top: 10px;
+border-radius: 8px;
+height: 100px;
+font-weight: 400;
+font-size: 14px;
+background-color: #f7f7f7;
+
 }

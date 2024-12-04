@@ -1,14 +1,10 @@
 import React, { useState , useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import "./EX_Project.css";
 import { IoIosMore } from "react-icons/io";
 import { FaPlusSquare } from "react-icons/fa";
 import todo from "../../assets/images/todo.png";
-import process from "../../assets/images/process.png";
-import done from "../../assets/images/done.png";
 import { FaBook} from 'react-icons/fa';
 import { IoIosPaper } from 'react-icons/io';
-import { HiOutlineDocumentText } from 'react-icons/hi';
 import { FaUsers ,  FaList , FaClock  , FaPaperclip} from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BsUpload } from "react-icons/bs";
@@ -22,8 +18,6 @@ import profile3 from "../../assets/images/profile3.png";
 import profile5 from "../../assets/images/profile5.png";
 
 
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
 
 import {
   ProjectDone,
@@ -34,7 +28,7 @@ import {
 
 
 
-function Create_Project_1() {
+function Create_Agile_Project() {
   const [showPopup, setShowPopup] = useState(false);
   const [showMembersPopup, setShowMembersPopup] = useState(false);
   const [showLabelsPopup, setShowLabelsPopup] = useState(false);
@@ -120,8 +114,7 @@ const { getRootProps, getInputProps } = useDropzone({
 const [fileName, setFileName] = React.useState('');
 
 
-
-  const members=[
+const members=[
     {
       member_name :"Olivia Rajan",
       member_profile: profile1
@@ -136,6 +129,7 @@ const [fileName, setFileName] = React.useState('');
     },
 
   ];
+
 
   const labels=[
     {
@@ -182,7 +176,7 @@ const [fileName, setFileName] = React.useState('');
                   <div className="project-form-group">
                       <div className="project-form-main-title">
                          <FaBook/>
-                         <label>Project Title</label>
+                         <label>Main Task Title</label>
                       </div>
 
                       <input type="text" placeholder="Enter a title for this task" />
@@ -206,40 +200,6 @@ const [fileName, setFileName] = React.useState('');
                   </div>
 
                   <div className='project-labels-row'>
-
-                    <div className="one-project-label" onClick={toggleMembersPopup}>
-                      <FaUsers className='me-4' />
-                      Members
-                    </div>
-
-                    {showMembersPopup && (
-                      <div className='members-popup-overlay'>
-                        <div className="members-popup">
-                          <AiOutlineClose
-                            className="member-popup-close-icon"
-                            onClick={toggleMembersPopup}
-                          />
-                          <center className="members-popup-topic">Members</center>
-                          <input type="text" placeholder="Search Members" className="members-search-bar" />
-
-
-                          <div className='member-team-leader'>Select as Team Leader</div>
-                          {members.map((member, index) => (
-                            <div key={index} className="member-label">
-                              <input  type="radio" name="selectedMember" value={member.member_name} className="member-radio-button" />
-                              <img src={member.member_profile} className='member-profile-pic' />
-                              <p className='member-name'>{member.member_name}</p>
-                            </div>
-                          ))}
-
-                          <button className="add-member-button">ADD</button>
-
-                        </div>
-                      </div>
-
-                    )}
-
-
 
                     <div className="one-project-label" onClick={toggleLabelsPopup}>
                       <FaList className='me-4' />
@@ -369,7 +329,7 @@ const [fileName, setFileName] = React.useState('');
                   </div>
 
 
-                  <button className="add-task-button">CREATE PROJECT</button>
+                  <button className="add-task-button">ADD TASK</button>
 
                 </div>
               </div>
@@ -543,34 +503,11 @@ const [fileName, setFileName] = React.useState('');
                   />
                 ))}
 
-                <button className="member-add-button"  onClick={toggleMembersPopup}>+</button>
+            
 
               </div>
 
-              {showMembersPopup && (
-                <div className='members-popup-overlay'>
-                   <div className="members-popup">
-                        <AiOutlineClose
-                          className="member-popup-close-icon"
-                          onClick={toggleMembersPopup}
-                        />
-                        <center className="members-popup-topic">Members</center>
-                        <input type="text" placeholder="Search Members" className="members-search-bar" />
-
-
-                        {members.map((member, index) => (
-                          <div key={index} className="member-label">
-                            <img src={member.member_profile} className='member-profile-pic' />
-                            <p className='member-name'>{member.member_name}</p>
-                          </div>
-                        ))}
-
-                        <button className="add-member-button">ADD</button>
-
-                      </div>
-                   </div>
-                     
-              )}
+             
 
               {showLabelsPopup && (
                 <div className='labels-popup-overlay'>
@@ -772,4 +709,4 @@ const [fileName, setFileName] = React.useState('');
   )
 }
 
-export default Create_Project_1
+export default Create_Agile_Project

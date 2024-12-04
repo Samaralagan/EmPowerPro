@@ -292,7 +292,7 @@ export const ComplaintsData = [
     image: profile1,
     name: "Anna Lovlace",
     reply_status: "Reply",
-    status: "pending",
+    status: "Pending",
     about: "Regarding the heavy work load",
     date: "23/03/2024",
   },
@@ -300,7 +300,7 @@ export const ComplaintsData = [
     image: profile2,
     name: "Can Williams",
     reply_status: "Replied",
-    status: "approved",
+    status: "Approved",
     about: "Regarding Evaluvation marks",
     date: "23/03/2024",
   },
@@ -324,7 +324,7 @@ export const ComplaintsToMEData = [
 
 export const ComplaintsDataMore = [
   {
-    status: "pending",
+    status: "Pending",
     about: "Regarding the heavy work load",
     date: "23/03/2024",
     to: "Human Resource Manager",
@@ -400,14 +400,15 @@ export const ProjectToDo = [
     status: "ToDo",
     total: 0,
     finish: 0,
-    description:"Design and implement the user interface of the application, focusing on creating responsive, user-friendly, and visually appealing layouts.",
-  
+    description:
+      "Design and implement the user interface of the application, focusing on creating responsive, user-friendly, and visually appealing layouts.",
+
     subtasks: [
       "Set Up Project Structure",
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
   },
 
@@ -427,18 +428,21 @@ export const ProjectToDo = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"CRUD operations are the four fundamental operations used in software development to interact with databases and manage data."
+    description:
+      "CRUD operations are the four fundamental operations used in software development to interact with databases and manage data.",
   },
-  { title: "Action Plan  ",
-    date: "Due Date  : 21st March 2024", 
+  {
+    title: "Action Plan  ",
+    date: "Due Date  : 21st March 2024",
     image1: profile2,
     image2: profile4,
     image3: profile1,
     total: 0,
     finish: 0,
-    description :"An Action Plan is a strategic document outlining the specific steps, resources, and timelines necessary to achieve a particular goal or project objective. ",
+    description:
+      "An Action Plan is a strategic document outlining the specific steps, resources, and timelines necessary to achieve a particular goal or project objective. ",
     blue: true,
     status: "ToDo",
     subtasks: [
@@ -446,8 +450,9 @@ export const ProjectToDo = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
-    ], },
+      "State Management",
+    ],
+  },
 ];
 
 export const ProjectInProgress = [
@@ -468,9 +473,10 @@ export const ProjectInProgress = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"UI Designing is the art and science of creating intuitive and visually appealing interfaces for digital applications and devices. "
+    description:
+      "UI Designing is the art and science of creating intuitive and visually appealing interfaces for digital applications and devices. ",
   },
   {
     title: "Design the ER Diagram",
@@ -487,9 +493,10 @@ export const ProjectInProgress = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description : " The diagram should include all relevant entities, attributes, and relationships, as well as specify primary and foreign keys"
+    description:
+      " The diagram should include all relevant entities, attributes, and relationships, as well as specify primary and foreign keys",
   },
   {
     title: "State transition diagrams ",
@@ -507,9 +514,10 @@ export const ProjectInProgress = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"A State Transition Diagram is a graphical representation used in software engineering and system design to model the states and transitions of a system or component"
+    description:
+      "A State Transition Diagram is a graphical representation used in software engineering and system design to model the states and transitions of a system or component",
   },
   {
     title: "User Interface Flow diagrams ",
@@ -527,9 +535,10 @@ export const ProjectInProgress = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :" Represent the different pages or states of the application, such as home pages, dashboards, forms, and detailed views."
+    description:
+      " Represent the different pages or states of the application, such as home pages, dashboards, forms, and detailed views.",
   },
 ];
 
@@ -551,10 +560,14 @@ export const ProjectDone = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"Requirements Analysis is the process of gathering, analyzing, and defining the requirements of a software system to ensure that it meets the intended needs of stakeholders and end-users. "
+    description:
+      "Requirements Analysis is the process of gathering, analyzing, and defining the requirements of a software system to ensure that it meets the intended needs of stakeholders and end-users. ",
+
+    review: "Good job managing state with hooks; it's clean and efficient.",
   },
+
   {
     title: "Project Presentation ",
     date: "Completed : 15th February 2024",
@@ -571,9 +584,11 @@ export const ProjectDone = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"Provide a brief overview of the project, including the context or problem it addresses. Mention why the project is important and its goals."
+    description:
+      "Provide a brief overview of the project, including the context or problem it addresses. Mention why the project is important and its goals.",
+    review: "Consider optimizing the map() function for better performance.",
   },
   {
     title: "Proposal Submission ",
@@ -591,17 +606,18 @@ export const ProjectDone = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes."
+    description:
+      "Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes.",
+    review: "The layout is intuitive and user-friendly!",
   },
 ];
-
 
 export const SelectProjects = [
   {
     title: "Proposal Submission ",
-    date: "Completed : 15th February 2024",
+    date: "Due Date  : 21st March 2024",
     image1: profile5,
     image2: profile2,
     image3: profile1,
@@ -614,13 +630,14 @@ export const SelectProjects = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes."
+    description:
+      "Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes.",
   },
   {
     title: "Requirements Analysis ",
-    date: "Completed : 15th February 2024",
+    date: "Due Date  : 21st March 2024",
     image1: profile5,
     image2: profile1,
     image3: profile4,
@@ -634,13 +651,14 @@ export const SelectProjects = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"Requirements Analysis is the process of gathering, analyzing, and defining the requirements of a software system to ensure that it meets the intended needs of stakeholders and end-users. "
+    description:
+      "Requirements Analysis is the process of gathering, analyzing, and defining the requirements of a software system to ensure that it meets the intended needs of stakeholders and end-users. ",
   },
   {
     title: "Project Presentation ",
-    date: "Completed : 15th February 2024",
+    date: "Due Date  : 21st March 2024",
     image1: profile4,
     image2: profile2,
     image3: profile3,
@@ -653,13 +671,14 @@ export const SelectProjects = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"Provide a brief overview of the project, including the context or problem it addresses. Mention why the project is important and its goals."
+    description:
+      "Provide a brief overview of the project, including the context or problem it addresses. Mention why the project is important and its goals.",
   },
   {
     title: "Proposal Submission ",
-    date: "Completed : 15th February 2024",
+    date: "Due Date  : 21st March 2024",
     image1: profile5,
     image2: profile2,
     image3: profile1,
@@ -672,9 +691,10 @@ export const SelectProjects = [
       "Develop UI Components",
       "Integrate with APIs",
       "Implement Routing",
-      "State Management"
+      "State Management",
     ],
-    description :"Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes."
+    description:
+      "Begin by preparing a comprehensive proposal that outlines the purpose, objectives, methodologies, and expected outcomes.",
   },
 ];
 
