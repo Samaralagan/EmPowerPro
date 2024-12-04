@@ -68,6 +68,7 @@ import DashboardExecutive from "./components/DashboardComponent/DashboardExecuti
 import EditVacancy from "./components/JobsComponent/EditVacancy.jsx";
 import RepliedComplaint from "./components/ComplaintsComponent/RepliedComplaint.jsx";
 import LeavePending from "./components/LeaveComponent/LeavePending.jsx";
+import RejectLeave from "./components/LeaveComponent/RejectLeave.jsx";
 
 function App() {
   const role = "Employee";
@@ -208,13 +209,18 @@ function App() {
             <Route
               exact
               path="/Leaves/HR/LeaveRequest/:leaveId"
-              element={<LeavePending />}
+              element=<LeavePending />
             />
 
+            <Route path="/Leaves/HR/*" element={<LeavePage />} />
+
             <Route
-              exact
-              path="/Leaves/HR/OthersLeave"
-              element={<LeavePage />}
+              path="/Leaves/HR/LeaveAccept/:leaveId"
+              element=<LeaveHistory />
+            />
+            <Route
+              path="/Leaves/HR/LeaveReject/:leaveId"
+              element=<RejectLeave />
             />
 
             <Route

@@ -65,8 +65,12 @@ const LeavePage = () => {
       {activeComponent === "OthersLeave" && (
         <OthersLeave setActiveComponent={setActiveComponent} />
       )}
-      {activeComponent === "LeaveHistory" && (
+      {activeComponent === "LeaveAccept" && (
         <LeaveHistory setActiveComponent={setActiveComponent} />
+      )}
+
+      {activeComponent === "LeaveReject" && (
+        <RejectLeave setActiveComponent={setActiveComponent} />
       )}
 
       {/* <Leave/> */}
