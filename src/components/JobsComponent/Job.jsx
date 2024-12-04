@@ -1,5 +1,4 @@
-
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Card1 from "../common/Card1";
 
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
@@ -8,25 +7,43 @@ import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
 import Modal from "./Modal"; // Import the Modal component
 import { listVacancies } from "../../service/ApplyJobService";
+import axios from "axios";
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [checkedItems, setCheckedItems] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false); // Manage modal visibility
+  const [jobData, setJobData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [vacancies, setVacancies] = useState([]);
-    useEffect(()=>{
-        listVacancies().then((response)=>{
-            setVacancies(response.data);
-        }).catch(error=>{
-            console.log(error);
-        })
-    },[])
+  useEffect(() => {
+    listVacancies()
+      .then((response) => {
+        setVacancies(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-    const handleVacancyDelete = (id) => {
-      setVacancies((prevVacancies) => prevVacancies.filter(vacancy => vacancy.id !== id));
+  const handleVacancyDelete = (id) => {
+    setVacancies((prevVacancies) =>
+      prevVacancies.filter((vacancy) => vacancy.id !== id)
+    );
   };
-  
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredJobData = searchTerm
+    ? jobData.filter((candidate) =>
+        candidate.jobPosition.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : jobData;
+
   const handleAllCheckboxChange = (e) => {
     const isChecked = e.target.checked;
     setIsAllChecked(isChecked);
@@ -55,6 +72,19 @@ const Job = ({ setActiveComponent }) => {
     setActiveComponent("NewVacancy");
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/api/v1/hr/jobApplication-getAll"
+        ); // Replace with your backend URL
+        setJobData(response.data); // Assuming response.data contains an array of jobs
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="contentbodyall1">
@@ -137,7 +167,7 @@ const Job = ({ setActiveComponent }) => {
           <input
             className="border-inbox"
             type="text"
-            placeholder="Search..."
+            placeholder="Search Job Position"
             style={{
               paddingLeft: "29px",
               paddingRight: "8px",
@@ -145,6 +175,8 @@ const Job = ({ setActiveComponent }) => {
               paddingTop: "8px",
               fontSize: "16px",
             }}
+            value={searchTerm}
+            onChange={handleSearchChange}
           />
           <button
             style={{
@@ -210,20 +242,21 @@ const Job = ({ setActiveComponent }) => {
               </th>
               <th scope="col">Team Member</th>
               <th scope="col">Email</th>
-              <th scope="col">Job role</th>
-              <th scope="col">Status</th>
+              <th scope="col">Job Position</th>
+              <th scope="col">Job Type</th>
               <th scope="col"></th>
             </tr>
           </thead>
 
           <tbody>
-            {JobData.map((Card, index) => (
+            {filteredJobData.map((candidate, index) => (
               <JobsTable
                 key={index}
-                name={Card.name}
-                job={Card.job}
-                email={Card.email}
-                type={Card.type}
+                name={candidate.firstName}
+                email={candidate.email}
+                jobType={candidate.jobType}
+                jobPosition={candidate.jobPosition}
+                candidateId={candidate.id}
                 setActiveComponent={setActiveComponent}
                 isChecked={checkedItems[index] || false}
                 onCheckboxChange={(e) => handleCheckboxChange(index, e)}

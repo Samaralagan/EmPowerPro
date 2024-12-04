@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/images/logo.png";
 import { MdEmail } from "react-icons/md";
-import { FaLock } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
 import { Password } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { checkLogin } from "../../service/LoginService";
@@ -88,14 +88,10 @@ const Login = () => {
     }
   }
 
-  const [showLock, setShowLock] = useState(true);
-  const handleShowLock = (e) => {
-    if (e.target.value === "") {
-      setShowLock(true);
-    } else {
-      setShowLock(false);
-    }
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
   };
+
   return (
     <div className="login-body">
       <div className="login-body-leftpart">
@@ -129,11 +125,15 @@ const Login = () => {
           </div>
 
           <div class="login-body-right-input">
-            <span class="login-body-right-input-icons">
-              {showLock && <FaLock />}
+            <span
+              onClick={togglePasswordVisibility}
+              class="login-body-right-input-icons"
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
             </span>
             <input
-              type="password"
+              className={`${errors.username ? "is-invalid" : ""}`}
+              type={showPassword ? "text" : "password"}
               required
               value={password}
               onChange={handlePasswordChange}
