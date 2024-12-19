@@ -5,44 +5,42 @@ import PayrollFixedRates from "./PayrollFixedRates";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 function PayrollFSForm() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [username, setUsername] = useState("");
-  const navication = useNavigate();
-  const [data, setData] = useState({});
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-  const handleback = () => {
-    navication("/Pay Roll/FinanceAndSupport");
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      username: username,
-    };
-
-    try {
-      console.log(data);
-      const response = await axios.post(
-        "http://localhost:8080/api/v1/finance/slip/{id}",
-        data
-      );
-      console.log(response.data);
-      setData(response.data);
-      alert("Payroll Created Successfully");
-    } catch (error) {
-      console.error(
-        "Error submitting payroll:",
-        error.response?.data || error.message
-      );
-      alert("There was an error submitting payroll.");
-    }
-  };
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [username, setUsername] = useState('');
+    const navication = useNavigate()
+    const [data, setData] = useState({})
+    const openModal = () => {
+        setModalIsOpen(true);
+      };
+    
+      const closeModal = () => {
+        setModalIsOpen(false);
+      };
+      const handleback = ()=>{
+        navication('/Pay Roll/FinanceAndSupport')
+      }
+      
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = {
+          username: username,
+        };
+        
+        try {
+          console.log(data)
+          const response = await axios.post("http://localhost:8080/api/v1/finance/slip", data);
+          console.log(response.data);
+          setData(response.data)
+          alert("Payroll Created Successfully");
+        } catch (error) {
+          console.error("Error submitting payroll:", error.response?.data || error.message);
+          alert("There was an error submitting payroll.");
+        }
+        
+      };
+      
+  
+    
 
   return (
     <div className="payroll-body mt-4">

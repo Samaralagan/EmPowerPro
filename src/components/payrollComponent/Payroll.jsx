@@ -1,12 +1,40 @@
 import Header from "../layout/Header";
 import "./payroll.css";
-import React from "react";
+import React, { useState,useEffect } from "react";
 import HeaderCard from "../common/HeaderCard";
 import { SlCalender } from "react-icons/sl";
 import { GiCash } from "react-icons/gi";
 import { GiExpense } from "react-icons/gi";
 import { Margin } from "@mui/icons-material";
+import moment from "moment/moment";
+import axios from "axios";
 function Payroll() {
+  const [data, setData] = useState([])
+  const fetchEmployeeSlip = async()=> {
+    
+    try{
+      const userId = localStorage.getItem("userId");
+      const token = localStorage.getItem("token");
+      
+      const response = await axios.get(`http://localhost:8080/api/v1/employees/get-slip/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        }
+      });
+      
+      console.log(response.data)
+      setData(response.data);
+      
+    }catch(error){
+      console.error("Error in fetching data", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEmployeeSlip()
+  },[]);
+
   return (
     <div className="payroll-body"> 
       {/* <Header/>
@@ -16,24 +44,25 @@ function Payroll() {
 
       <div className="" >
         <div className="d-flex mt-5  mb-2">
-          <div className="rectangle-u me-4 ms-3 rectangle-2">
+          <div className="rectangle-u me-4 ms-3 rectangle-2" style={{width: "max-content",padding:"0px 17px 0px 47px"}}>
             <HeaderCard
+              style={{width: "maxContent"}}
               icon={<SlCalender className="payroll-icon" />}
-              value="MARCH"
+              value={moment().format('MMMM ')}
               title="Month"
             />
           </div>
           <div className="rectangle-u me-4 rectangle-3">
             <HeaderCard
               icon={<GiCash className="payroll-icon" />}
-              value="80,000"
+              value={data.salary + data.medicalAllowance + data.otherAllowance}
               title="Total Salary"
             />
           </div>
           <div className="rectangle-u me-4 rectangle-4">
             <HeaderCard
               icon={<GiExpense className="payroll-icon" />}
-              value="15,000"
+              value={data.incomeAfterTax + data.incomeAfterEpf}
               title="Deduction"
             />
           </div>
@@ -44,7 +73,7 @@ function Payroll() {
             <HeaderCard
               style={{ marginLeft: "10rem" }}
               icon={<GiExpense className="leave-icon" />}
-              value="45,000"
+              value={data.totalAmount}
               title="MonthlySalary"
             />
           </div>
@@ -68,33 +97,34 @@ function Payroll() {
                 <div  className="payroll-content-col">
                    <div className="payroll-content-col1">Employee Code</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">1004</div>
+                   <div className="payroll-content-col3">{data.employeeId}</div>
                 </div>
                 <div className="payroll-content-col">
                    <div className="payroll-content-col1">Employee Name</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">K. Raguram</div>
+                   <div className="payroll-content-col3">{data.firstName}</div>
                 </div>
              </div>
              <div className="payroll-content-row">
-             <div  className="payroll-content-col">
+             {/* <div  className="payroll-content-col">
                    <div className="payroll-content-col1">Joined Date</div>
                    <div className="payroll-content-col2">:</div>
                    <div className="payroll-content-col3">2020-08-20</div>
-                </div>
+                </div> */}
                 <div className="payroll-content-col">
                    <div className="payroll-content-col1">Designation</div>
                    <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">Graphic Designer</div>
+                   <div className="payroll-content-col3">{data.jobTitle}</div>
+                </div>
+                <div className="payroll-content-col">
+                   <div className="payroll-content-col1">Address</div>
+                   <div className="payroll-content-col2">:</div>
+                   <div className="payroll-content-col3">{data.address}</div>
                 </div>
              </div>
              <div className="payroll-content-row">
                 
-                <div className="payroll-content-col">
-                   <div className="payroll-content-col1">Address</div>
-                   <div className="payroll-content-col2">:</div>
-                   <div className="payroll-content-col3">No.54/A,Colombo 06</div>
-                </div>
+                
              </div>
              {/* <div className="payroll-content-row">
                 <div  className="payroll-content-col">
@@ -118,7 +148,7 @@ function Payroll() {
               </tr>
               <tr className="salary-table-td">
                  <td>Basic Salary </td>
-                 <td>200,000.00</td>
+                 <td>{data.salary}</td>
                  <td></td>
               </tr>
               {/* <tr className="salary-table-td">
@@ -128,39 +158,39 @@ function Payroll() {
               </tr> */}
               <tr className="salary-table-td">
                 <td>Medical Allowance</td>
-                <td>50,000.00 </td>
+                <td>{data.medicalAllowance}</td>
                 <td></td>
               </tr>
               <tr className="salary-table-td">
                 <td>Other Allowances</td>
-                <td>50,000.00</td>
+                <td>{data.otherAllowance}</td>
                 <td></td>
               </tr>
               <tr className="salary-table-td">
                 <td>Advanced Personal Income Tax</td>
                 <td></td>
-                <td>50,000.00</td>
+                <td>{data.incomeAfterTax}</td>
               </tr>
               <tr className="salary-table-td">
                 <td>EPF Employee Contribution</td>
                 <td></td>
-                <td>50,000.00</td>
+                <td>{data.incomeAfterEpf}</td>
               </tr>
               <tr className="salary-table-td">
                 <td className="salary-table-total">Total</td>
-                <td className="salary-table-total">Rs.350,000.00</td>
-                <td className="salary-table-total">Rs.100,000.00</td>
+                <td className="salary-table-total">Rs. {data.salary + data.medicalAllowance + data.otherAllowance}</td>
+                <td className="salary-table-total">Rs. {data.incomeAfterTax + data.incomeAfterEpf}</td>
               </tr>
               <tr>
                 <td rowspan="2" className="salary-table-details">
-                   Bank Name : Commercial Bank <br />
-                   Account Number : 8000-7996-4564-1111
+                   Bank Name : {data.bankName} <br />
+                   Account Number : {data.acc_no}
                 </td>
                 <td colspan="2" className="salary-table-ns"> NET SALARY</td>
               </tr>
               <tr>
                 <td colspan="2" className="salary-table-salary">
-                   Rs.200,000.00 <br />
+                   {data.totalAmount} <br />
                    
                 </td>
               </tr>

@@ -1,12 +1,13 @@
 import axios from "axios";
+import Employee from "../components/employee/Employee";
 
 const BASE_URL_EMPLOYEE = "http://localhost:8080";
 
 export const createVacancy = (jobVacancy) =>
-  axios.post(BASE_URL_EMPLOYEE + "/api/hr/vacancy-creation/", jobVacancy);
+  axios.post(BASE_URL_EMPLOYEE + "/api/v1/hr/vacancy-creation/", jobVacancy);
 
 export const listVacancies = () =>
-  axios.get(BASE_URL_EMPLOYEE + "/api/hr/vacancy-get-all");
+  axios.get(BASE_URL_EMPLOYEE + "/api/v1/hr/vacancy-get-all");
 
 export const updateVacancy = (vacancyId, jobVacancy) =>
   axios.put(
@@ -20,12 +21,8 @@ export const deleteVacancy = (vacancyId) =>
 export const getVacancy = (vacancyId) =>
   axios.get(BASE_URL_EMPLOYEE + "/api/hr/vacancy-get-one/" + vacancyId);
 
-export const createEmployee = (employee) => {
-  const token = localStorage.getItem("token"); // Retrieve the token from local storage
+// export const createEmployee = (employee) =>
+//   axios.post(BASE_URL_EMPLOYEE + "/api/v1/employees/creation", employee);
 
-  return axios.post(`${BASE_URL_EMPLOYEE}/api/v1/admin/register`, employee, {
-    headers: {
-      Authorization: `Bearer ${token}`, // Include the bearer token in the header
-    },
-  });
-};
+export const createEmployee = (employee) =>
+  axios.post(BASE_URL_EMPLOYEE + "/api/v1/admin/register", employee);

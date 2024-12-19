@@ -28,9 +28,9 @@ const Dashboard = () => {
   const closeModal = () => {
     setModalIsOpen(false);
   };
-
+  const id = 1;
   function getAllMarker() {
-    getAllcalendarMarker()
+    getAllcalendarMarker(id)
       .then((response) => {
         setMarkData(response.data);
       })

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import "./PayrollFixedRates.css";
 
@@ -27,6 +27,13 @@ const customStyles = {
 };
 
 const PayrollFixedRates = ({ modalIsOpen, closeModal }) => {
+  const [taxRate, setTaxRate] = useState();
+  const [medicalAllowance, setMedicalAllowance] = useState();
+  const [otherAllowance, setOtherAllowance] = useState();
+  const [additionalLeave, setAdditionalLeave] = useState();
+  const [currency, setCurrency] = useState();
+  const [data, setData] = useState({});
+
   return (
     <div className="addblog-popup-body">
       <Modal
@@ -51,14 +58,17 @@ const PayrollFixedRates = ({ modalIsOpen, closeModal }) => {
                   <input type="text" />
                 </div>
                 <div className="PayrollFixedRates-content-col">
-                  <label htmlFor="">Medical Allowance:</label>
+                  <label htmlFor="">Medical Allowance :</label>
                   <input type="text" />
                 </div>
               </div>
               <div className="PayrollFixedRates-content-row">
                 <div className="PayrollFixedRates-content-col">
                   <label htmlFor="">Currency :</label>
-                  <input type="text" />
+                  <select>
+                    <option>USD</option>
+                    <option>LKR</option>
+                  </select>
                 </div>
                 <div className="PayrollFixedRates-content-col">
                   <label htmlFor="">Other Allowance:</label>
@@ -75,12 +85,12 @@ const PayrollFixedRates = ({ modalIsOpen, closeModal }) => {
                   <input type="text" />
                 </div>
               </div>
+              <center>
+                <button className="gradient-blue-btn mt-4" onClick={closeModal}>
+                  SAVE
+                </button>
+              </center>
             </div>
-            <center>
-              <button className="gradient-blue-btn mt-4" onClick={closeModal}>
-                SAVE
-              </button>
-            </center>
           </form>
         </div>
       </Modal>
