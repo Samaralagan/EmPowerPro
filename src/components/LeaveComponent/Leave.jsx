@@ -31,7 +31,7 @@ const Leave = ({ setActiveComponent }) => {
 
       let approvedLeaves = 0;
       let rejectedLeaves = 0;
-      let totalLeaveDays = 20;
+      let totalLeaveDays = 40;
 
       response.data.forEach((leave) => {
         if (leave.status === "APPROVED") {

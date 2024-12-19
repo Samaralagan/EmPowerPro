@@ -28,7 +28,7 @@ function ApplyLeave({ setActiveComponent }) {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.post(
-          "http://localhost:8080/api/v1/employee/leave-creation",
+          "http://localhost:8080/api/v1/employees/leave-creation",
           data,
           {
             headers: {

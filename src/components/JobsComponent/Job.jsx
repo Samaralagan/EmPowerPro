@@ -87,18 +87,19 @@ const Job = ({ setActiveComponent }) => {
   }, []);
 
   return (
-    <div className="contentbodyall1">
+    <div className="contentbodyall1" style={{ width: "81vw" }}>
       <br />
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div className="jobsTitle">JOB VACANCIES</div>
+        <div className="jobsTitle" style={{ fontSize: "16px" }}>
+          JOB VACANCIES
+        </div>
         <div
           className="contactus-form-button"
           style={{
             width: "33%",
             marginTop: "0%",
             marginBottom: "1rem",
-            marginLeft: "34rem",
-            marginRight: "0rem",
+            marginLeft: "50%",
           }}
         >
           <button
@@ -112,27 +113,6 @@ const Job = ({ setActiveComponent }) => {
         </div>
       </div>
 
-      {/* <Card1
-          title="User Experience Designer - Fully Remote"
-          variety="Creative & Art"
-          type="Full Time"
-          salary="$45 - $55"
-          countappilication="500+ applications"
-        />
-        <Card1
-          title="Android App Developer - Hybrid"
-          variety="Programming"
-          type="Full Time"
-          salary="$45 - $55"
-          countappilication="500+ applications"
-        />
-        <Card1
-          title="Intern Front-End Developer - Fully Remote"
-          variety="Creative & Art"
-          type="Full Time"
-          salary="$45 - $55"
-          countappilication="500+ applications"
-        /> */}
       {/* Add more Card1 components as needed */}
       <div className="cardsContainer">
         {vacancies.map((vacancy, index) => (
@@ -161,6 +141,7 @@ const Job = ({ setActiveComponent }) => {
             // marginLeft: "33.5rem",
             alignItems: "center",
             position: "relative",
+            borderRadius: "15px",
           }}
         >
           <FaSearch className="search-icon" />
@@ -189,6 +170,7 @@ const Job = ({ setActiveComponent }) => {
             Search
           </button>
         </div>
+
         <select
           className="form-select"
           aria-label="Default select example"
@@ -205,14 +187,14 @@ const Job = ({ setActiveComponent }) => {
           <option value="3">Part Time</option>
           <option value="4">On Demand</option>
         </select>
+
         <div
           className="contactus-form-button"
           style={{
             width: "33%",
             marginTop: "0%",
             marginBottom: "1rem",
-            // marginLeft: "34rem",
-            marginRight: "0rem",
+            marginLeft: "10%",
           }}
         >
           <button
@@ -225,9 +207,15 @@ const Job = ({ setActiveComponent }) => {
           </button>
         </div>
       </div>
+
       <div
         className="tablediv"
-        style={{ height: "18rem", overflow: "auto", scrollbarWidth: "none" }}
+        style={{
+          height: "18rem",
+          overflow: "auto",
+          scrollbarWidth: "none",
+          marginTop: "2vw",
+        }}
       >
         <table className="table table-hover">
           <thead>
