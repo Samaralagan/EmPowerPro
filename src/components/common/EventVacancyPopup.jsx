@@ -52,7 +52,7 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal, id }) => {
       const getVacancyDetails = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8080/api/hr/vacancy-get-one/${id}`
+            `http://localhost:8080/api/v1/hr/vacancy-get-one/${id}`
           );
           setVacancyDetails(response.data); // Set the vacancy details in state
         } catch (error) {
