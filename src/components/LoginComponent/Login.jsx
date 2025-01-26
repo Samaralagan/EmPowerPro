@@ -124,17 +124,22 @@ const Login = () => {
             <span class="login-body-right-input-icons">
               {showLock && <FaLock />}
             </span>
+
             <input
               type="password"
               required
               value={password}
-              onChange={handlePasswordChange}
+              onChange={(e) => {
+                handlePasswordChange(e);
+                handleShowLock(e);
+              }}
             />
+
 
             {/* (must come inside password) onChange={handleShowLock} */}
             <label>Password</label>
-            {errors.username && (
-              <div className="invalid-feedback">{errors.password}</div>
+            {errors.password && (
+                   <div className="invalid-feedback">{errors.password}</div>
             )}
           </div>
 
