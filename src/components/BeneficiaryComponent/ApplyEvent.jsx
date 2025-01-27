@@ -3,19 +3,20 @@ import SideBar from "../common/SideBar";
 import Header from "../layout/Header";
 import "./Beneficiary.css";
 import { FaArrowLeft } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
-import { TiTick } from "react-icons/ti";
-import { Switch, makeStyles } from "@material-ui/core";
+import { FaUpload } from "react-icons/fa6";
 
-function ApplyClaim_1({ setActiveComponent }) {
+function ApplyEvent({ setActiveComponent }) {
+  const [fileName, setFileName] = useState("");
+
   const handleClaimClick = () => {
     setActiveComponent("Beneficiary");
   };
-  // const navigate = useNavigate();
 
-  // const handleClaimClick = () => {
-  //     navigate('/Beneficiary');
-  // };
+  const handleFileChange = (event) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setFileName(event.target.files[0].name);
+    }
+  };
 
   return (
     <div>
@@ -32,7 +33,7 @@ function ApplyClaim_1({ setActiveComponent }) {
             <div className="event-form-heading">Request New Event</div>
 
             <div className="form-detail">
-              <label htmlFor="amount" className="form-detail-topic">
+              <label htmlFor="event-name" className="form-detail-topic">
                 Event Name
               </label>
               <br />
@@ -48,7 +49,7 @@ function ApplyClaim_1({ setActiveComponent }) {
             </div>
 
             <div className="form-detail">
-              <label htmlFor="amount" className="form-detail-topic">
+              <label htmlFor="event-location" className="form-detail-topic">
                 Location
               </label>
               <br />
@@ -83,7 +84,7 @@ function ApplyClaim_1({ setActiveComponent }) {
 
             <div className="one-row-detail">
               <div className="form-detail">
-                <label htmlFor="amount" className="form-detail-topic">
+                <label htmlFor="event-cost" className="form-detail-topic">
                   Estimated Cost
                 </label>
                 <br />
@@ -91,11 +92,42 @@ function ApplyClaim_1({ setActiveComponent }) {
               </div>
 
               <div className="form-detail">
-                <label htmlFor="amount" className="form-detail-topic">
-                  Upload Files
-                </label>
-                <br />
-                <input id="event-cost" className="form-input" />
+                <div className="upload-topic" style={{ fontSize: "13px" }}>
+                  Upload Documents
+                </div>
+
+                <div
+                  className="upload-box"
+                  onClick={() => document.getElementById("fileInput").click()}
+                  style={{
+                    height: "44px",
+                    width: "330px",
+                    border: "2px solid #D9D9D9",
+                    borderRadius: "10px",
+                    padding: "10px",
+                    textAlign: "center",
+                    cursor: "pointer",
+                    color: "#007bff",
+                    fontFamily: "Arial, sans-serif",
+                    fontSize: "14px",
+                    position: "relative",
+                    margin: "8px 0px 0px 0px",
+                  }}
+                >
+                  <FaUpload size={20} className="upload-icon" />
+
+                  <input
+                    id="fileInput"
+                    type="file"
+                    onChange={handleFileChange}
+                    style={{ display: "none" }}
+                  />
+                </div>
+                {fileName && (
+                  <p style={{ marginTop: "10px", color: "#28a745" }}>
+                    {fileName}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -107,4 +139,4 @@ function ApplyClaim_1({ setActiveComponent }) {
   );
 }
 
-export default ApplyClaim_1;
+export default ApplyEvent;
