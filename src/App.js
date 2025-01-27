@@ -180,7 +180,7 @@ function App() {
               element={<Team_Profile />}
             />
             <Route path="/Jobs/HR" element={<JobPage />} />
-            <Route exact path={"/Jobs/HR/edit/:id"} element={<EditVacancy />} />
+            <Route path="/Jobs/HR/edit/:id" element={<EditVacancy />} />
             <Route path="/Beneficiary/HR" element={<BeneficiaryPage />} />
             <Route path="/Employees/HR/Profile" element={<Profile />} />
 

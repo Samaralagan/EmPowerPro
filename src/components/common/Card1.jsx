@@ -26,15 +26,22 @@ function Card1(props, { setActiveComponent }) {
     setOpentoggle(!openToggle);
   };
 
-  const handleDelete = async(id)=>{
-    try{
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem("token"); // Retrieve the token from storage
       await axios.delete(
-        `http://localhost:8080/api/hr/vacancy-delete/${id}`);
-        props.onDelete(id);
-    }catch(error){
-      console.log(error);
-    }  
-  }
+        `http://localhost:8080/api/v1/hr/vacancy-delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      props.onDelete(id);
+    } catch (error) {
+      console.error("Error deleting vacancy:", error);
+    }
+  };
 
   return (
     <div className="card1body">

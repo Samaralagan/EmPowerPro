@@ -57,8 +57,8 @@ const Login = () => {
       checkLogin(username, password)
         .then((response) => {
           console.log(response.data);
-          if (response.data.token) {
-            localStorage.setItem("token", response.data.token);
+          if (response.data.accessToken) {
+            localStorage.setItem("token", response.data.accessToken);
             localStorage.setItem("role", response.data.role);
 
             const role = response.data.role;
@@ -115,9 +115,7 @@ const Login = () => {
               <MdEmail />
             </span>
             <input
-             className={`${
-                  errors.username ? "is-invalid" : ""
-                }`}
+              className={`${errors.username ? "is-invalid" : ""}`}
               type="text"
               value={username}
               onChange={handleUserNameChange}
@@ -125,28 +123,32 @@ const Login = () => {
             />
             <label>User name</label>
             {errors.username && (
-                <div className="invalid-feedback">{errors.username}</div>
-              )}
+              <div className="invalid-feedback">{errors.username}</div>
+            )}
           </div>
-          
+
           <div class="login-body-right-input">
-            <span class="login-body-right-input-icons">
-              {showLock && <FaLock />}
+            <span
+              // onClick={togglePasswordVisibility}
+              class="login-body-right-input-icons"
+            >
+              {/* {showPassword ? <FaEye /> : <FaEyeSlash />} */}
             </span>
             <input
-              type="password"
+              className={`${errors.username ? "is-invalid" : ""}`}
+              // type={showPassword ? "text" : "password"}
               required
               value={password}
               onChange={handlePasswordChange}
             />
-            
+
             {/* (must come inside password) onChange={handleShowLock} */}
             <label>Password</label>
             {errors.password && (
               <div className="invalid-feedback">{errors.password}</div>
             )}
           </div>
-          
+
           <div className="login-body-right-forget-password">
             {" "}
             <p>Forget Password ?</p>
