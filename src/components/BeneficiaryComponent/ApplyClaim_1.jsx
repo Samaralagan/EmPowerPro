@@ -6,6 +6,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { TiTick } from "react-icons/ti";
 import { Switch, makeStyles } from "@material-ui/core";
+import { FaUpload } from "react-icons/fa6";
 
 const useStyles = makeStyles({
   switchBase: {
@@ -39,7 +40,7 @@ function ApplyClaim_1({ setActiveComponent }) {
   };
 
   const handleNext = () => {
-    setActiveComponent("ApplyClaim_2");
+    setActiveComponent("Beneficiary");
   };
 
   const handleBack = () => {
@@ -48,6 +49,19 @@ function ApplyClaim_1({ setActiveComponent }) {
   const handlemorecomplaint = () => {
     if (setActiveComponent) {
       setActiveComponent("Beneficiary");
+    }
+  };
+  // Default values for each input field
+  const [holderName, setHolderName] = useState("K.P.Raguram");
+  const [accountNumber, setAccountNumber] = useState("8001-9081-6579");
+  const [bankName, setBankName] = useState("option1");
+  const [branchName, setBranchName] = useState("option1");
+  const [fileName, setFileName] = useState("");
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file.name);
     }
   };
 
@@ -63,31 +77,11 @@ function ApplyClaim_1({ setActiveComponent }) {
             <FaArrowLeft className="arrow_icon" />
           </div>
 
-          <div className="flex justify-between">
-            {steps.map((step, i) => (
-              <div
-                key={i}
-                className={`step-item ${currentStep === i + 1 && "active"} ${
-                  (i + 1 < currentStep || complete) && "complete"
-                } `}
-              >
-                <div className="step">
-                  {i + 1 < currentStep || complete ? (
-                    <TiTick size={24} />
-                  ) : (
-                    i + 1
-                  )}
-                </div>
-                <p className="text-gray-500">{step}</p>
-              </div>
-            ))}
-          </div>
-
           <div className="form-box">
             <div className="one-row-detail">
               <div className="form-detail">
                 <label htmlFor="start-date" className="form-detail-topic">
-                  Start Date
+                  Date
                 </label>
                 <br />
                 <input type="date" id="start-date" className="form-input" />
@@ -127,19 +121,108 @@ function ApplyClaim_1({ setActiveComponent }) {
               <input id="amount" className="form-input" />
             </div>
 
-            <div className="choose-toggle-row">
-              <div className="choose-text">
-                Is your claim related to a previous health issue?
+            <div className="form-detail">
+              <div className="upload-topic">Upload Documents</div>
+              <div className="upload-subtopic">
+                Upload necessary documents like medical invoice and receipt for
+                reimbursement.English translations are not necessary.You can
+                save the form and return to it anytime
               </div>
-              <Switch
-                checked={checked}
-                onChange={handleChange}
-                classes={{
-                  switchBase: classes.switchBase,
-                  checked: classes.checked,
-                  track: classes.track,
+
+              <div
+                className="upload-box"
+                onClick={() => document.getElementById("fileInput").click()}
+                style={{
+                  border: "2px dashed #007bff",
+                  borderRadius: "10px",
+                  padding: "20px",
+                  textAlign: "center",
+                  cursor: "pointer",
+                  color: "#007bff",
+                  fontFamily: "Arial, sans-serif",
+                  fontSize: "14px",
+                  position: "relative",
                 }}
-              />
+              >
+                <FaUpload size={50} className="upload-icon" />
+                <p>
+                  Click to browse or drag and drop documents <br />
+                  Acceptable file types are PDF, JPG etc.File size less than
+                  10MB each
+                </p>
+                <input
+                  id="fileInput"
+                  type="file"
+                  onChange={handleFileChange}
+                  style={{ display: "none" }}
+                />
+              </div>
+              {fileName && (
+                <p style={{ marginTop: "10px", color: "#28a745" }}>
+                  {fileName}
+                </p>
+              )}
+            </div>
+
+            <div className="form-detail">
+              <div className="form-detail">
+                <label htmlFor="holder-name" className="form-detail-topic">
+                  Account Holder’s Name
+                </label>
+                <br />
+                <input
+                  id="holder-name"
+                  className="form-3-input"
+                  value={holderName}
+                  onChange={(e) => setHolderName(e.target.value)}
+                />
+              </div>
+
+              <div className="form-detail">
+                <label htmlFor="account-number" className="form-detail-topic">
+                  Account Number
+                </label>
+                <br />
+                <input
+                  id="account-number"
+                  className="form-3-input"
+                  value={accountNumber}
+                  onChange={(e) => setAccountNumber(e.target.value)}
+                />
+              </div>
+
+              <div className="one-row-detail">
+                <div className="form-detail">
+                  <label htmlFor="bank-name" className="form-detail-topic">
+                    Bank Name
+                  </label>
+                  <br />
+                  <select
+                    id="bank-name"
+                    className="claim-form-dropdown"
+                    value={bankName}
+                    onChange={(e) => setBankName(e.target.value)}
+                  >
+                    <option value="" disabled></option>
+                    <option value="option1">Commercial Bank</option>
+                    <option value="option2">Sampath Bank</option>
+                    <option value="option3">Selan Bank</option>
+                  </select>
+                </div>
+
+                <div className="form-detail">
+                  <label htmlFor="branch-name" className="form-detail-topic">
+                    Branch Name or Number
+                  </label>
+                  <br />
+                  <input
+                    id="branch-name"
+                    className="form-3-input"
+                    value={branchName}
+                    onChange={(e) => setBranchName(e.target.value)}
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="form-button-row">

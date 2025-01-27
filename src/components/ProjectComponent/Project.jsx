@@ -34,7 +34,11 @@ import profile4 from "../../assets/images/profile4.png";
 import profile5 from "../../assets/images/profile5.png";
 
 import { Switch, makeStyles } from "@material-ui/core";
-import { createProject, getAllProject } from "../../service/projectService";
+import {
+  createProject,
+  getAllProject,
+  getRoleByEmployee,
+} from "../../service/projectService";
 
 const useStyles = makeStyles({
   switchBase: {
@@ -89,7 +93,8 @@ const Project = () => {
     console.log("Save clicked");
   };
 
-  const toggleMembersPopup = () => {
+  const toggleMembersPopup = async () => {
+    await fetchProjectEmployee();
     setShowMembersPopup(!showMembersPopup);
   };
 
@@ -124,6 +129,18 @@ const Project = () => {
   };
 
   const members = [
+    {
+      member_name: "Olivia Rajan",
+      member_profile: profile1,
+    },
+    {
+      member_name: "Can Samuel",
+      member_profile: profile3,
+    },
+    {
+      member_name: "Sara Lovelace",
+      member_profile: profile5,
+    },
     {
       member_name: "Olivia Rajan",
       member_profile: profile1,
@@ -178,6 +195,25 @@ const Project = () => {
       return;
     }
 
+    if (!selectedLeader) {
+      window.alert("Please select a project leader.");
+      return;
+    }
+    if (selectedMembers.length === 0) {
+      window.alert("Please select at least one team member.");
+      return;
+    }
+
+    const arr = []; // Initialize the array
+
+    arr.push(selectedLeader);
+
+    arr.push(...selectedMembers);
+    if (arr.length === 0) {
+      window.alert("Please select team member.");
+      return;
+    }
+
     const newProject = {
       userId: 101,
       projectName: projectName,
@@ -188,7 +224,7 @@ const Project = () => {
       type: isToggled ? "Agile Project" : "Normal Project",
       stack: languageStack,
       teamlead: 201,
-      projectTeamMembers: [202, 203, 204, 205],
+      projectTeamMembers: arr,
     };
 
     console.log(newProject);
@@ -231,6 +267,22 @@ const Project = () => {
   // if (error) {
   //   return <div>{error}</div>;
   // }
+
+  const [selectedLeader, setSelectedLeader] = useState("");
+  const [selectedMembers, setSelectedMembers] = useState([]);
+
+  const handleLeaderChange = (e) => {
+    setSelectedLeader(e.target.value);
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setSelectedMembers((prev) => [...prev, value]);
+    } else {
+      setSelectedMembers((prev) => prev.filter((member) => member !== value));
+    }
+  };
 
   const recentProjects = [
     {
@@ -302,8 +354,88 @@ const Project = () => {
     navigate("/Project/Executive/create-agile-project");
   };
 
-  console.log("isToggled:", isToggled);
-  console.log("role:", role);
+  // console.log("isToggled:", isToggled);
+  // console.log("role:", role);
+
+  const [projectEmployee, setProjectEmployee] = useState({});
+  const [projectTeamLead, setProjectTeamLead] = useState({});
+  let arr = [];
+  const fetchProjectEmployee = async () => {
+    const url = "http://localhost:8080/api/v1/employees/role/TeamLead";
+    const url1 = "http://localhost:8080/api/v1/employees/role/Employee";
+
+    try {
+      const response = await fetch(url);
+
+      console.log("Response Status:", response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched Data:", data);
+        setProjectTeamLead(data);
+
+        // Ensure 'data' exists and has expected structure
+        if (!data || typeof data !== "object") {
+          console.error("Unexpected response format:", data);
+          return;
+        }
+
+        // Process the fetched data (for example, display it)
+        console.log("Processed Data:", data);
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      // Specific guidance for common fetch issues
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+
+    try {
+      const response = await fetch(url1);
+
+      console.log("Response Status:", response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched Data:", data);
+        setProjectEmployee(data);
+
+        // Ensure 'data' exists and has expected structure
+        if (!data || typeof data !== "object") {
+          console.error("Unexpected response format:", data);
+          return;
+        }
+
+        // Process the fetched data (for example, display it)
+        console.log("Processed Data:", data);
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      // Specific guidance for common fetch issues
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+  };
+
+  // if (showMembersPopup) {
+  //   // fetchProjectEmployee();
+  // }
 
   return (
     <div>
@@ -399,26 +531,172 @@ const Project = () => {
                         className="members-search-bar"
                       />
 
-                      <div className="member-team-leader">
-                        Select as Team Leader
-                      </div>
-                      {members.map((member, index) => (
-                        <div key={index} className="member-label">
-                          <input
-                            type="radio"
-                            name="selectedMember"
-                            value={member.member_name}
-                            className="member-radio-button"
-                          />
-                          <img
-                            src={member.member_profile}
-                            className="member-profile-pic"
-                          />
-                          <p className="member-name">{member.member_name}</p>
-                        </div>
-                      ))}
+                      <div style={{ display: "flex" }}>
+                        <div style={{ width: "50%" }}>
+                          <div className="member-team-leader">
+                            Select as Team Leader
+                          </div>
+                          <div
+                            className="members-container"
+                            style={{
+                              maxHeight: "200px", // Set a fixed height for the container
+                              overflowY: "auto", // Enable vertical scrolling
+                              scrollbarWidth: "none",
+                            }}
+                          >
+                            {!projectTeamLead.length ? (
+                              <p>Loading</p>
+                            ) : (
+                              projectTeamLead.map((member, index) => (
+                                <div
+                                  key={index}
+                                  className="member-label"
+                                  style={{
+                                    display: "flex", // Flex layout for alignment
+                                    alignItems: "center",
+                                    marginBottom: "0.5rem", // Gap between members
+                                    padding: "0.5rem", // Optional: Add padding for each row
+                                    borderRadius: "4px", // Optional: Rounded corners for rows
+                                    backgroundColor: "#fff", // Optional: Background for rows
+                                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Optional: Light shadow
+                                  }}
+                                >
+                                  <input
+                                    type="radio"
+                                    name="selectedLeader"
+                                    value={member.id}
+                                    className="member-radio-button"
+                                    style={{
+                                      marginRight: "0.5rem", // Space between the radio button and other content
+                                    }}
+                                    onChange={handleLeaderChange}
+                                  />
 
-                      <button className="add-member-button">ADD</button>
+                                  <p
+                                    className="member-name"
+                                    style={{
+                                      margin: 0, // Remove default margin
+                                      fontSize: "14px", // Adjust font size
+                                      color: "#333", // Optional: Font color
+                                    }}
+                                  >
+                                    {`${member.firstName}  ${member.lastName}`}
+                                  </p>
+                                </div>
+                              ))
+                            )}
+                          </div>
+                        </div>
+                        <div style={{ width: "50%" }}>
+                          <div className="member-team-leader">
+                            Select Team Members
+                          </div>
+                          <div
+                            className="members-container"
+                            style={{
+                              maxHeight: "200px", // Set a fixed height for the container
+                              overflowY: "auto", // Enable vertical scrolling
+                              scrollbarWidth: "none",
+                            }}
+                          >
+                            {!projectEmployee.length ? (
+                              <p>Loading</p>
+                            ) : (
+                              projectEmployee.map((member, index) => (
+                                <div
+                                  key={index}
+                                  className="member-label"
+                                  style={{
+                                    display: "flex", // Flex layout for alignment
+                                    alignItems: "center",
+                                    marginBottom: "0.5rem", // Gap between members
+                                    padding: "0.5rem", // Optional: Add padding for each row
+                                    borderRadius: "4px", // Optional: Rounded corners for rows
+                                    backgroundColor: "#fff", // Optional: Background for rows
+                                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Optional: Light shadow
+                                  }}
+                                >
+                                  <input
+                                    type="checkbox"
+                                    name="selectedMember"
+                                    value={member.id}
+                                    className="member-checkbox"
+                                    style={{
+                                      marginRight: "0.5rem", // Space between the radio button and other content
+                                    }}
+                                    onChange={handleCheckboxChange}
+                                  />
+                                  {/* <img
+                                    src={member.member_profile}
+                                    alt={`${member.member_name}'s profile`}
+                                    className="member-profile-pic"
+                                    style={{
+                                      width: "40px", // Fixed width for profile picture
+                                      height: "40px", // Fixed height for profile picture
+                                      borderRadius: "50%", // Make it circular
+                                      marginRight: "0.5rem", // Space between the image and name
+                                    }}
+                                  /> */}
+                                  <p
+                                    className="member-name"
+                                    style={{
+                                      margin: 0, // Remove default margin
+                                      fontSize: "14px", // Adjust font size
+                                      color: "#333", // Optional: Font color
+                                    }}
+                                  >
+                                    {`${member.firstName}  ${member.lastName}`}
+                                  </p>
+                                </div>
+                              ))
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        className="gradient-blue-btn"
+                        style={{
+                          marginLeft: "278px",
+                          marginTop: "13px",
+                          width: "fit-content",
+                        }}
+                        onClick={() => {
+                          const selectedLeader = document.querySelector(
+                            'input[name="selectedLeader"]:checked'
+                          );
+                          const selectedMembers = document.querySelectorAll(
+                            'input[name="selectedMember"]:checked'
+                          );
+
+                          if (!selectedLeader) {
+                            window.alert("Please select a team leader.");
+                            return;
+                          }
+                          if (selectedMembers.length === 0) {
+                            window.alert(
+                              "Please select at least one team member."
+                            );
+                            return;
+                          }
+
+                          window.alert(`SuccessFully Add Members`);
+                          console.log(
+                            `${selectedLeader} member :${selectedMembers} `
+                          );
+                          setShowMembersPopup(!showMembersPopup);
+
+                          // Proceed with selected values
+                          const leader = selectedLeader.value;
+                          const members = Array.from(selectedMembers).map(
+                            (member) => member.value
+                          );
+                          console.log("Selected Leader:", leader);
+                          console.log("Selected Members:", members);
+                        }}
+                      >
+                        Add
+                      </div>
                     </div>
                   </div>
                 )}
@@ -468,12 +746,34 @@ const Project = () => {
           <div className="remain-box">
             <h2 className="full-box-title">Recent Projects</h2>
 
-            <div className="project-row">
+            <div
+              className="project-row"
+              style={{
+                display: "flex",
+                overflowX: "auto",
+                gap: "1rem",
+                padding: "1rem",
+                scrollBehavior: "smooth",
+                scrollbarWidth: "none",
+              }}
+            >
               {!projectData.length ? (
                 <p>Loading</p>
               ) : (
                 projectData.map((project, index) => (
-                  <div key={index} className="project-box">
+                  <div
+                    key={index}
+                    className="project-box"
+                    style={{
+                      minWidth: "300px",
+                      flexShrink: 0,
+                      padding: "1rem",
+                      border: "1px solid #ccc",
+                      borderRadius: "8px",
+                      backgroundColor: "#f9f9f9",
+                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
                     <div className="project-name-row">
                       <div
                         className="heart-icon-container"
@@ -523,13 +823,7 @@ const Project = () => {
                     </div>
 
                     <div className="project-detail-team-members">
-                      {/* {project.teamMembers.map((member, memberIndex) => (
-                      <img
-                        key={memberIndex}
-                        src={member.avatarUrl}
-                        alt={member.name}
-                      />
-                    ))} */}
+                      {/* Future Implementation: Map team members here */}
                     </div>
                   </div>
                 ))

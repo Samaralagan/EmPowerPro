@@ -7,3 +7,7 @@ export const createProject = (data) =>
 
 export const getAllProject = async () =>
   await axios.get(BASE_URL_EMPLOYEE + "/api/v1/executive/getAllProject");
+
+export const getRoleByEmployee = async (role) => {
+  await axios.get(BASE_URL_EMPLOYEE + "/api/v1/employees/role/" + role);
+};
