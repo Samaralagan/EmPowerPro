@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { TiTick } from "react-icons/ti";
 import { Switch, makeStyles } from "@material-ui/core";
 import { FaUpload } from "react-icons/fa6";
+import axios from "axios";
 
 const useStyles = makeStyles({
   switchBase: {
@@ -29,6 +30,17 @@ function ApplyClaim_1({ setActiveComponent }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
 
+  const [date, setDate] = useState(""); // For date input
+  const [forWhom, setForWhom] = useState(""); // For 'forWhom' input
+  const [reason, setReason] = useState(""); // For reason input
+  const [amount, setAmount] = useState(""); // For amount input
+  const [holderName, setHolderName] = useState(""); // For name input
+  const [accountNumber, setAccountNumber] = useState(""); // For account number input
+  const [bankName, setBankName] = useState(""); // For bank name input
+  const [fileName, setFileName] = useState(null); // For file input
+  const [branchName, setBranchName] = useState("");
+  const token = localStorage.getItem("token");
+
   const handleClaimClick = () => {
     navigate("/Beneficiary/Employee");
   };
@@ -39,8 +51,39 @@ function ApplyClaim_1({ setActiveComponent }) {
     setChecked(event.target.checked);
   };
 
-  const handleNext = () => {
-    setActiveComponent("Beneficiary");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("date", date);
+    formData.append("forWhom", forWhom);
+    formData.append("reason", reason);
+    formData.append("amount", amount);
+    formData.append("name", holderName);
+    formData.append("acc_no", accountNumber);
+    formData.append("bank", bankName);
+    if (fileName) {
+      formData.append("file", fileName);
+    }
+
+    console.log(formData);
+
+    try {
+      await axios.post(
+        "http://localhost:8080/api/v1/hr/claim-creation",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Claim submitted successfully!");
+      setActiveComponent("Beneficiary");
+    } catch (error) {
+      console.error("Error submitting claim:", error);
+      alert("There was an error submitting your claim.");
+    }
   };
 
   const handleBack = () => {
@@ -52,16 +95,11 @@ function ApplyClaim_1({ setActiveComponent }) {
     }
   };
   // Default values for each input field
-  const [holderName, setHolderName] = useState("K.P.Raguram");
-  const [accountNumber, setAccountNumber] = useState("8001-9081-6579");
-  const [bankName, setBankName] = useState("option1");
-  const [branchName, setBranchName] = useState("option1");
-  const [fileName, setFileName] = useState("");
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setFileName(file.name);
+      setFileName(file);
     }
   };
 
@@ -84,7 +122,12 @@ function ApplyClaim_1({ setActiveComponent }) {
                   Date
                 </label>
                 <br />
-                <input type="date" id="start-date" className="form-input" />
+                <input
+                  type="date"
+                  id="date"
+                  className="form-input"
+                  onChange={(e) => setDate(e.target.value)}
+                />
               </div>
 
               <div className="form-detail">
@@ -92,16 +135,11 @@ function ApplyClaim_1({ setActiveComponent }) {
                   Whose this form for
                 </label>
                 <br />
-                <select
-                  id="form-for"
-                  className="claim-form-dropdown"
-                  defaultValue=""
-                >
-                  <option value="" disabled></option>
-                  <option value="option1">To Myself</option>
-                  <option value="option2">To My husband</option>
-                  <option value="option3">To My Parent</option>
-                </select>
+                <input
+                  id="for-whom"
+                  className="form-input"
+                  onChange={(e) => setForWhom(e.target.value)}
+                />
               </div>
             </div>
 
@@ -110,7 +148,11 @@ function ApplyClaim_1({ setActiveComponent }) {
                 Reason
               </label>
               <br />
-              <textarea id="reason" className="claim-input-textarea" />
+              <textarea
+                id="reason"
+                className="claim-input-textarea"
+                onChange={(e) => setReason(e.target.value)}
+              />
             </div>
 
             <div className="form-detail">
@@ -118,7 +160,11 @@ function ApplyClaim_1({ setActiveComponent }) {
                 Amount
               </label>
               <br />
-              <input id="amount" className="form-input" />
+              <input
+                id="amount"
+                className="form-input"
+                onChange={(e) => setAmount(e.target.value)}
+              />
             </div>
 
             <div className="form-detail">
@@ -159,7 +205,7 @@ function ApplyClaim_1({ setActiveComponent }) {
               </div>
               {fileName && (
                 <p style={{ marginTop: "10px", color: "#28a745" }}>
-                  {fileName}
+                  {fileName.name}
                 </p>
               )}
             </div>
@@ -171,7 +217,7 @@ function ApplyClaim_1({ setActiveComponent }) {
                 </label>
                 <br />
                 <input
-                  id="holder-name"
+                  id="holderName"
                   className="form-3-input"
                   value={holderName}
                   onChange={(e) => setHolderName(e.target.value)}
@@ -184,7 +230,7 @@ function ApplyClaim_1({ setActiveComponent }) {
                 </label>
                 <br />
                 <input
-                  id="account-number"
+                  id="accountNumber"
                   className="form-3-input"
                   value={accountNumber}
                   onChange={(e) => setAccountNumber(e.target.value)}
@@ -198,7 +244,7 @@ function ApplyClaim_1({ setActiveComponent }) {
                   </label>
                   <br />
                   <select
-                    id="bank-name"
+                    id="bankName"
                     className="claim-form-dropdown"
                     value={bankName}
                     onChange={(e) => setBankName(e.target.value)}
@@ -229,8 +275,8 @@ function ApplyClaim_1({ setActiveComponent }) {
               <button className="back-button" onClick={handleBack}>
                 Back
               </button>
-              <button className="next-button" onClick={handleNext}>
-                {currentStep === steps.length ? "Finish" : "Next"}
+              <button className="next-button" onClick={handleSubmit}>
+                {currentStep === steps.length ? "Finish" : "Submit"}
               </button>
             </div>
           </div>

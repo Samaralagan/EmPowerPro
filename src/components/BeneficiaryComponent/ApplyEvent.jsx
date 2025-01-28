@@ -4,9 +4,17 @@ import Header from "../layout/Header";
 import "./Beneficiary.css";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaUpload } from "react-icons/fa6";
+import axios from "axios";
 
 function ApplyEvent({ setActiveComponent }) {
-  const [fileName, setFileName] = useState("");
+  const [fileName, setFileName] = useState(null);
+  const [eventName, setEventName] = useState("");
+  const [reason, setReason] = useState("");
+  const [location, setLocation] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [cost, setCost] = useState("");
+  const token = localStorage.getItem("token");
 
   const handleClaimClick = () => {
     setActiveComponent("Beneficiary");
@@ -14,28 +22,42 @@ function ApplyEvent({ setActiveComponent }) {
 
   const handleFileChange = (event) => {
     if (event.target.files && event.target.files.length > 0) {
-      setFileName(event.target.files[0].name);
+      setFileName(event.target.files[0]);
     }
   };
 
-  const [eventName, setEventName] = useState("");
-  const [reason, setReason] = useState("");
-  const [location, setLocation] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [cost, setCost] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", eventName);
+    formData.append("reason", reason);
+    formData.append("location", location);
+    formData.append("date", date);
+    formData.append("time", time);
+    formData.append("estimatedCost", cost);
+    if (fileName) {
+      formData.append("image", fileName);
+    }
 
-  const handleSubmit = () => {
-    const data = {
-      name: eventName,
-      reason: reason,
-      location: location,
-      date: date,
-      time: time,
-      estimatedCost: cost,
-    };
-
-    console.log("Clicked", data);
+    console.log(formData);
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/v1/hr/event-creation",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Event submitted successfully!");
+      console.log("Response:", response.data);
+      setActiveComponent("Beneficiary");
+    } catch (error) {
+      console.error("Error submitting event:", error);
+      alert("There was an error submitting your event request.");
+    }
   };
 
   return (
@@ -169,7 +191,7 @@ function ApplyEvent({ setActiveComponent }) {
                 </div>
                 {fileName && (
                   <p style={{ marginTop: "10px", color: "#28a745" }}>
-                    {fileName}
+                    {fileName.name}
                   </p>
                 )}
               </div>
