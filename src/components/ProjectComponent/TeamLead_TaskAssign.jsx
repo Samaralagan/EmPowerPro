@@ -79,6 +79,7 @@ function TeamLead_TaskAssign() {
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
+    setProject(project.projectId);
   };
 
   const closePopup = () => {
@@ -103,26 +104,110 @@ function TeamLead_TaskAssign() {
 
   const toggleMembersPopup = () => {
     setShowMembersPopup(!showMembersPopup);
+    fetchProjectEmployee();
   };
 
   const toggleDatesPopup = () => {
     setShowDatesPopup(!showDatesPopup);
   };
 
-  const members = [
-    {
-      member_name: "Olivia Rajan",
-      member_profile: profile1,
-    },
-    {
-      member_name: "Can Samuel",
-      member_profile: profile3,
-    },
-    {
-      member_name: "Sara Lovelace",
-      member_profile: profile5,
-    },
-  ];
+  // const members = [
+  //   {
+  //     member_name: "Olivia Rajan",
+  //     member_profile: profile1,
+  //   },
+  //   {
+  //     member_name: "Can Samuel",
+  //     member_profile: profile3,
+  //   },
+  //   {
+  //     member_name: "Sara Lovelace",
+  //     member_profile: profile5,
+  //   },
+  // ];
+
+  const [allProject, setAllProject] = useState([]);
+  let arr = [];
+  const fetchProject = async () => {
+    const url =
+      "http://localhost:8080/api/v1/executive/getProjectByTeamLeadId/5";
+    try {
+      const response = await fetch(url);
+
+      console.log("Response Status:", response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched Data:", data);
+
+        console.log("data is", data);
+        // arr = data;
+        // setTimeout(() => {
+        setAllProject(data);
+        // }, 10000);
+        // console.log("arr is", arr);
+        if (!data || typeof data !== "object") {
+          console.error("Unexpected response format:", data);
+          return;
+        }
+
+        console.log("Processed Data:", data);
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+  };
+
+  const [members, setMembers] = useState([]);
+  const [project, setProject] = useState(null);
+  const fetchProjectEmployee = async () => {
+    const url = `http://localhost:8080/api/v1/teamlead/getEmployeeByProjectId/${project}`;
+
+    try {
+      const response = await fetch(url);
+
+      console.log("Response Status:", response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched Data:", data);
+
+        // Ensure 'data' is an array
+        if (Array.isArray(data)) {
+          setMembers(data);
+        } else {
+          console.error("Expected an array but received:", typeof data);
+          setMembers([]); // Fallback to an empty array
+        }
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchProject(); // Assume this fetches and sets the project data.
+  }, []);
 
   return (
     <div className="contentbodyall1">
@@ -130,65 +215,80 @@ function TeamLead_TaskAssign() {
         <h2 className="full-box-title">Recent Projects</h2>
 
         <div className="project-row">
-          {recentProjects.map((project, index) => (
-            <div
-              key={index}
-              className="project-box"
-              onClick={() => handleProjectClick(project)}
-            >
-              <div className="project-name-row">
-                <div
-                  className="heart-icon-container"
-                  style={{ backgroundColor: project.color }}
-                >
-                  <span
-                    className="heart-icon"
+          {!allProject ? (
+            <p>Loading</p>
+          ) : (
+            allProject.map((project, index) => (
+              <div
+                key={index}
+                className="project-box"
+                onClick={() => handleProjectClick(project)}
+              >
+                <div className="project-name-row">
+                  <div
+                    className="heart-icon-container"
+                    style={{ backgroundColor: project.color }}
+                  >
+                    <span
+                      className="heart-icon"
+                      style={{ color: project.iconColor }}
+                    >
+                      {" "}
+                      {project.icon}
+                    </span>
+                  </div>
+                  <h4
+                    className="project-name"
                     style={{ color: project.iconColor }}
                   >
+                    {project.projectName}
+                  </h4>
+                </div>
+
+                <br />
+
+                <div className="project-detail-row">
+                  <p className="project-subdetail">Client : </p>
+                  <span className="project-maindetail">
                     {" "}
-                    {project.icon}
+                    {project.clientName}
                   </span>
                 </div>
-                <h4
-                  className="project-name"
-                  style={{ color: project.iconColor }}
-                >
-                  {project.projectName}
-                </h4>
-              </div>
 
-              <br />
+                <div className="project-detail-row">
+                  <p className="project-subdetail">Start Date : </p>
+                  <span className="project-maindetail">
+                    {" "}
+                    {project.startDate}
+                  </span>
+                </div>
 
-              <div className="project-detail-row">
-                <p className="project-subdetail">Client : </p>
-                <span className="project-maindetail"> {project.client}</span>
-              </div>
+                <div className="project-detail-row">
+                  <p className="project-subdetail">End Date : </p>
+                  <span className="project-maindetail"> {project.endDate}</span>
+                </div>
 
-              <div className="project-detail-row">
-                <p className="project-subdetail">Start Date : </p>
-                <span className="project-maindetail"> {project.startDate}</span>
-              </div>
+                <div className="project-detail-row">
+                  <p className="project-subdetail">Project Type : </p>
+                  <span className="project-maindetail"> {project.type}</span>
+                </div>
 
-              <div className="project-detail-row">
-                <p className="project-subdetail">End Date : </p>
-                <span className="project-maindetail"> {project.endDate}</span>
-              </div>
+                {/* <div className="project-detail-row">
+                  <p className="project-subdetail">Team Members : </p>
+                </div> */}
 
-              <div className="project-detail-row">
-                <p className="project-subdetail">Team Members : </p>
+                {/* <div className="project-detail-team-members">
+                  {project.teamMembers.map((member, memberIndex) => (
+                    <img
+                      key={memberIndex}
+                      src={member.avatarUrl}
+                      alt={member.name}
+                    />
+                  ))}
+                </div> */}
               </div>
-
-              <div className="project-detail-team-members">
-                {project.teamMembers.map((member, memberIndex) => (
-                  <img
-                    key={memberIndex}
-                    src={member.avatarUrl}
-                    alt={member.name}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
         {/* Popup for the selected project */}
         {selectedProject && (
@@ -255,17 +355,15 @@ function TeamLead_TaskAssign() {
                               className="members-search-bar"
                             />
 
-                            {members.map((member, index) => (
-                              <div key={index} className="member-label">
-                                <img
-                                  src={member.member_profile}
-                                  className="member-profile-pic"
-                                />
-                                <p className="member-name">
-                                  {member.member_name}
-                                </p>
-                              </div>
-                            ))}
+                            {Array.isArray(members) &&
+                              members.map((member, index) => (
+                                <div key={index} className="member-label">
+                                  <input type="Checkbox" />
+                                  <p className="member-name">
+                                    {`${member.firstName} ${member.lastName}`}
+                                  </p>
+                                </div>
+                              ))}
 
                             <button className="add-member-button">ADD</button>
                           </div>

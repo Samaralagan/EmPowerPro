@@ -223,8 +223,8 @@ const Project = () => {
       clientName: clientName,
       type: isToggled ? "Agile Project" : "Normal Project",
       stack: languageStack,
-      teamlead: 201,
-      projectTeamMembers: arr,
+      teamlead: selectedLeader,
+      projectTeamMembers: selectedMembers,
     };
 
     console.log(newProject);
@@ -819,7 +819,12 @@ const Project = () => {
                     </div>
 
                     <div className="project-detail-row">
-                      <p className="project-subdetail">Team Leader : Name</p>
+                      <p className="project-subdetail">
+                        Team Leader :{" "}
+                        <span className="project-maindetail">
+                          {project.teamlead}{" "}
+                        </span>
+                      </p>
                     </div>
 
                     <div className="project-detail-team-members">
