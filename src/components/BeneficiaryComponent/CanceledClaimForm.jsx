@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../common/SideBar";
 import Header from "../layout/Header";
 import "./Beneficiary.css";
 
 import { FaArrowLeft } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 function CanceledClaimForm({ setActiveComponent }) {
   const navigate = useNavigate();
@@ -15,6 +16,21 @@ function CanceledClaimForm({ setActiveComponent }) {
   const handleClaimClick = () => {
     setActiveComponent("Beneficiary");
   };
+
+  const { id } = useParams();
+  const [beneficiary, setBeneficiary] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/v1/hr/medicalclaim/${id}`)
+      .then((response) => {
+        setBeneficiary(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching complaint details:", error);
+      });
+  }, [id]);
   return (
     <div>
       <SideBar />
@@ -28,10 +44,10 @@ function CanceledClaimForm({ setActiveComponent }) {
           </div>
 
           <div className="claimed-box">
-            <div className="status pending">Pending</div>
+            <div className="status pending">{beneficiary.status}</div>
 
             <div className="reason-row">
-              <div className="applied-reason">Hospitalization</div>
+              <div className="applied-reason">{beneficiary.date}</div>
               <div className="claimed-applied-date">
                 Claim raised on 23 May 2024{" "}
               </div>

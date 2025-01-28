@@ -12,6 +12,7 @@ import {
   addContinueTime,
   createAttendance,
   getAllAttendanceByUserId,
+  getAttendanceByDate,
   getAttendanceById,
   getAttendanceDateRange,
   updateCheckout,
@@ -26,49 +27,56 @@ function Attendance() {
   const [checkout, setCheckout] = useState(false);
   const [breakTime, setBreakTime] = useState(false);
   const error_image = "path/to/your/error_image.png"; // Update with actual path
-  const [attendanceId, setAttendanceId] = useState(null);
+  const [attendanceId, setAttendanceId] = useState(0);
   const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState(true);
   const userId = localStorage.getItem("userId");
 
   if (startDate == "" && endDate == "") {
     // Ensure the data is fetched only if it hasn't been loaded already
-
     getAllAttendanceByUserId(userId)
       .then((response) => {
         setData(response.data);
         setSearchData(false);
       })
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
         setError("Failed to record attendance. Please try again.");
       });
   }
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString); // Convert string to Date object
+    const day = String(date.getDate()).padStart(2, "0"); // Extract and pad day
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // Extract and pad month
+    const year = date.getFullYear(); // Extract year
+    return `${day}-${month}-${year}`; // Format to DD-MM-YYYY
+  };
 
   const handleSearch = () => {
     // console.log(Searching from ${startDate} to ${endDate});
     const today = new Date(); // Get today's date without time for comparison
     today.setHours(0, 0, 0, 0); // Normalize today's date to midnight for accurate comparisons
 
-    if (startDate === "" || endDate === "") {
+    if (startDate === "") {
       window.alert("Select Date Range");
     } else {
       const selectedStartDate = new Date(startDate);
-      const selectedEndDate = new Date(endDate);
+      const date = formatDate(startDate);
 
-      if (selectedStartDate > today || selectedEndDate > today) {
+      if (selectedStartDate > today + 1) {
         window.alert("Dates must be in the past.");
-      } else if (selectedStartDate > selectedEndDate) {
-        window.alert("Start Date must be before End Date.");
       } else {
-        console.log("Date range is valid.");
+        console.log("Date  is valid.");
+
+        window.alert(date);
 
         const datas = {
           userId: userId,
           startDate: startDate,
           endDate: endDate,
         };
-        getAttendanceDateRange(datas)
+        getAttendanceByDate(userId, date)
           .then((response) => {
             console.log(response.data);
             setData(response.data);
@@ -88,10 +96,11 @@ function Attendance() {
           setCheckIn(false);
           console.log(response.data);
 
-          setAttendanceId(response.data.attendanceId);
+          setAttendanceId(response.data.id);
+          console.log(attendanceId, response.data.id);
         })
         .catch((error) => {
-          console.error(error);
+          // console.error(error);
           setError("Failed to record attendance. Please try again.");
         });
     } else if (!checkIn && breakTime) {
@@ -264,8 +273,8 @@ function Attendance() {
               <option value="option3">Option 3</option>
             </select> */}
 
-            <div className="attendance-custom-dropdown">
-              <label htmlFor="start-date">Start Date</label>
+            <div className="attendance-custom-dropdown me-5">
+              <label htmlFor="start-date">Select Date</label>
               <input
                 type="date"
                 id="start-date"
@@ -276,7 +285,7 @@ function Attendance() {
               />
             </div>
 
-            <div className="attendance-custom-dropdown">
+            {/* <div className="attendance-custom-dropdown">
               <label htmlFor="end-date">End Date</label>
               <input
                 type="date"
@@ -286,7 +295,7 @@ function Attendance() {
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
               />
-            </div>
+            </div> */}
 
             <button className="attendance-search-button" onClick={handleSearch}>
               Search

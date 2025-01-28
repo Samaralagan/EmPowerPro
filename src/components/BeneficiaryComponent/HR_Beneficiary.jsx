@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Beneficiary.css";
 import Header from "../layout/Header";
 import SideBar from "../common/SideBar";
@@ -34,8 +34,9 @@ function HR_Beneficiary({ setActiveComponent }) {
   const handleAppliedClaim = () => {
     setActiveComponent("AppliedClaimForm");
   };
-  const handleCanceledClaim = () => {
-    setActiveComponent("CanceledClaimForm");
+  const handleCanceledClaim = (id) => {
+    // setActiveComponent("CanceledClaimForm");
+    navigate(`/Beneficiary/HR/${id}`);
   };
   const handleApplyClaim = () => {
     setActiveComponent("ApplyClaim_1");
@@ -43,6 +44,48 @@ function HR_Beneficiary({ setActiveComponent }) {
   const handleApplyEvent = () => {
     setActiveComponent("ApplyEvent");
   };
+
+  const [eventClaim, setEventClaim] = useState([]);
+  const fetchEventClaim = async () => {
+    const url = `http://localhost:8080/api/v1/hr/allmedicalClaims`;
+
+    try {
+      const response = await fetch(url);
+
+      console.log("Response Status:", response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched Data:", data);
+
+        // Ensure 'data' is an array
+        if (Array.isArray(data)) {
+          // setMembers(data);
+          setEventClaim(data);
+        } else {
+          console.error("Expected an array but received:", typeof data);
+          // setMembers([]); // Fallback to an empty array
+          setEventClaim([]);
+        }
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchEventClaim();
+  }, []);
   return (
     <div>
       <SideBar />
@@ -185,22 +228,33 @@ function HR_Beneficiary({ setActiveComponent }) {
           </div>
 
           <div className="medical-claims">
-            <div className="medical-claim">
-              <div className="claim-status-heading">
-                <div className="status pending">Pending</div>
-                <div className="claimed-date">23-03-2024</div>
-              </div>
-              <div className="reason-topic">Reason</div>
+            {eventClaim.length === 0 ? (
+              <center>
+                <div>Empty</div>
+              </center>
+            ) : (
+              eventClaim.map((data, index) => (
+                <div className="medical-claim">
+                  <div className="claim-status-heading">
+                    <div className="status pending">{data.status}</div>
+                    <div className="claimed-date">{data.date}</div>
+                  </div>
+                  <div className="reason-topic">Reason</div>
 
-              <div className="reason-row">
-                <div className="reason">Hospitalization</div>
-                <div className="view-details" onClick={handleCanceledClaim}>
-                  View Details ...
+                  <div className="reason-row">
+                    <div className="reason">{data.reason}</div>
+                    <div
+                      className="view-details"
+                      onClick={() => handleCanceledClaim(data.id)}
+                    >
+                      View Details ...
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              ))
+            )}
 
-            <div className="medical-claim">
+            {/* <div className="medical-claim">
               <div className="claim-status-heading">
                 <div className="status approved">Approved</div>
                 <div className="claimed-date">12-04-2024</div>
@@ -213,7 +267,7 @@ function HR_Beneficiary({ setActiveComponent }) {
                   View Details ...
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

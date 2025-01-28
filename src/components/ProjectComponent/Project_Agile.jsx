@@ -218,12 +218,12 @@ const Project = () => {
                         {card.date}
                       </div>
                     </div>
-                    <div className="project-card-circle">
+                    {/* <div className="project-card-circle">
                       <p>
                         {card.finish}/{card.total}
                       </p>
                       <div>In Progress.........</div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               ))}
@@ -304,7 +304,7 @@ const Project = () => {
               {selectedCard?.description}
             </p>
 
-            <p>
+            {/* <p>
               <span className="description-label">Subtasks:</span> <br />
               <button
                 className="subtasks-button"
@@ -312,7 +312,7 @@ const Project = () => {
               >
                 View All
               </button>
-            </p>
+            </p> */}
 
             {/* <p>
               <span className="description-label">Members:</span> <br />
@@ -324,7 +324,7 @@ const Project = () => {
 
             </p> */}
 
-            <p>
+            {/* <p>
               <span className="description-label">Labels:</span> <br />
               <div className="project-card-color-boxs">
                 {selectedCard.green && (
@@ -352,7 +352,7 @@ const Project = () => {
                   </div>
                 )}
               </div>
-            </p>
+            </p> */}
             <p>
               <span className="description-label">Date:</span> <br />
               {selectedCard?.date}
@@ -374,15 +374,15 @@ const Project = () => {
                   >
                     X
                   </button>
-                  <h4>Sub Tasks</h4>
-                  <div className="project-card-circle-popup">
+                  {/* <h4>Sub Tasks</h4> */}
+                  {/* <div className="project-card-circle-popup">
                     <p>
                       {selectedCard?.finish}/{selectedCard?.total}
                     </p>
                     <div>In Progress.........</div>
-                  </div>
+                  </div> */}
                   {/* Display Subtasks with Checkboxes */}
-                  <div className="subtasks-container">
+                  {/* <div className="subtasks-container">
                     {selectedCard?.subtasks?.map((subtask, index) => (
                       <div className="subtask-item" key={index}>
                         <input
@@ -399,7 +399,7 @@ const Project = () => {
                         </label>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             )}

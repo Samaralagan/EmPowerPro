@@ -36,9 +36,20 @@ function NewVacancy({ setActiveComponent }) {
       errorsCopy.employmentType = "Employment Type is required";
       formValid = false;
     }
+
     if (!applicationDeadline.trim()) {
       errorsCopy.applicationDeadline = "Application Deadline is required";
       formValid = false;
+    } else {
+      // Validate future date
+      const selectedDate = new Date(applicationDeadline);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Set time to 00:00:00 to compare only dates
+      if (selectedDate <= today) {
+        errorsCopy.applicationDeadline =
+          "Application Deadline must be a future date";
+        formValid = false;
+      }
     }
 
     if (!responsibilities.trim()) {
@@ -51,13 +62,14 @@ function NewVacancy({ setActiveComponent }) {
       formValid = false;
     }
 
-    if (!minSalary.trim()) {
-      errorsCopy.salaryRange = "Min and Max salary is required";
+    if (!minSalary.trim() || !maxSalary.trim()) {
+      errorsCopy.salaryRange = "Salary Range is required";
       formValid = false;
-    }
-
-    if (!maxSalary.trim()) {
-      errorsCopy.salaryRange = "Min and Max salary is required";
+    } else if (isNaN(minSalary) || isNaN(maxSalary)) {
+      errorsCopy.salaryRange = "Salary values must be valid numbers";
+      formValid = false;
+    } else if (parseFloat(minSalary) > parseFloat(maxSalary)) {
+      errorsCopy.salaryRange = "Min Salary cannot be greater than Max Salary";
       formValid = false;
     }
 
@@ -246,13 +258,17 @@ function NewVacancy({ setActiveComponent }) {
             <input
               type="text"
               id="minSalary"
-              className={`inputtext ${errors.minSalary ? "is-invalid" : ""}`}
+              className={`inputtext ${errors.salaryRange ? "is-invalid" : ""}`}
               placeholder="Min Salary in Rs"
               name="minSalary"
               value={minSalary}
               onChange={(e) => setMinSalary(e.target.value)}
               style={{ width: "50%", height: "3rem", borderRadius: "1rem" }}
             />
+            {errors.salaryRange && minSalary.trim() && (
+              <div className="invalid-feedback">{errors.salaryRange}</div>
+            )}
+
             <input
               type="text"
               id="maxSalary"
@@ -263,10 +279,10 @@ function NewVacancy({ setActiveComponent }) {
               onChange={(e) => setMaxSalary(e.target.value)}
               style={{ width: "50%", height: "3rem", borderRadius: "1rem" }}
             />
+            {errors.salaryRange && maxSalary.trim() && (
+              <div className="invalid-feedback">{errors.salaryRange}</div>
+            )}
           </div>
-          {errors.salaryRange && (
-            <div className="invalid-feedback">{errors.salaryRange}</div>
-          )}
 
           {/* <div
             style={{ alignItems: "center", display: "flex", cursor: "pointer" }}

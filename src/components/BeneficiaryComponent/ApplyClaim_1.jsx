@@ -6,6 +6,8 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { TiTick } from "react-icons/ti";
 import { Switch, makeStyles } from "@material-ui/core";
+import { FaUpload } from "react-icons/fa6";
+import axios from "axios";
 
 const useStyles = makeStyles({
   switchBase: {
@@ -28,6 +30,17 @@ function ApplyClaim_1({ setActiveComponent }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
 
+  const [date, setDate] = useState(""); // For date input
+  const [forWhom, setForWhom] = useState(""); // For 'forWhom' input
+  const [reason, setReason] = useState(""); // For reason input
+  const [amount, setAmount] = useState(""); // For amount input
+  const [holderName, setHolderName] = useState(""); // For name input
+  const [accountNumber, setAccountNumber] = useState(""); // For account number input
+  const [bankName, setBankName] = useState(""); // For bank name input
+  const [fileName, setFileName] = useState(null); // For file input
+  const [branchName, setBranchName] = useState("");
+  const token = localStorage.getItem("token");
+
   const handleClaimClick = () => {
     navigate("/Beneficiary/Employee");
   };
@@ -38,8 +51,39 @@ function ApplyClaim_1({ setActiveComponent }) {
     setChecked(event.target.checked);
   };
 
-  const handleNext = () => {
-    setActiveComponent("ApplyClaim_2");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("date", date);
+    formData.append("forWhom", forWhom);
+    formData.append("reason", reason);
+    formData.append("amount", amount);
+    formData.append("name", holderName);
+    formData.append("acc_no", accountNumber);
+    formData.append("bank", bankName);
+    if (fileName) {
+      formData.append("file", fileName);
+    }
+
+    console.log(formData);
+
+    try {
+      await axios.post(
+        "http://localhost:8080/api/v1/hr/claim-creation",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Claim submitted successfully!");
+      setActiveComponent("Beneficiary");
+    } catch (error) {
+      console.error("Error submitting claim:", error);
+      alert("There was an error submitting your claim.");
+    }
   };
 
   const handleBack = () => {
@@ -48,6 +92,14 @@ function ApplyClaim_1({ setActiveComponent }) {
   const handlemorecomplaint = () => {
     if (setActiveComponent) {
       setActiveComponent("Beneficiary");
+    }
+  };
+  // Default values for each input field
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file);
     }
   };
 
@@ -63,34 +115,19 @@ function ApplyClaim_1({ setActiveComponent }) {
             <FaArrowLeft className="arrow_icon" />
           </div>
 
-          <div className="flex justify-between">
-            {steps.map((step, i) => (
-              <div
-                key={i}
-                className={`step-item ${currentStep === i + 1 && "active"} ${
-                  (i + 1 < currentStep || complete) && "complete"
-                } `}
-              >
-                <div className="step">
-                  {i + 1 < currentStep || complete ? (
-                    <TiTick size={24} />
-                  ) : (
-                    i + 1
-                  )}
-                </div>
-                <p className="text-gray-500">{step}</p>
-              </div>
-            ))}
-          </div>
-
           <div className="form-box">
             <div className="one-row-detail">
               <div className="form-detail">
                 <label htmlFor="start-date" className="form-detail-topic">
-                  Start Date
+                  Date
                 </label>
                 <br />
-                <input type="date" id="start-date" className="form-input" />
+                <input
+                  type="date"
+                  id="date"
+                  className="form-input"
+                  onChange={(e) => setDate(e.target.value)}
+                />
               </div>
 
               <div className="form-detail">
@@ -98,16 +135,11 @@ function ApplyClaim_1({ setActiveComponent }) {
                   Whose this form for
                 </label>
                 <br />
-                <select
-                  id="form-for"
-                  className="claim-form-dropdown"
-                  defaultValue=""
-                >
-                  <option value="" disabled></option>
-                  <option value="option1">To Myself</option>
-                  <option value="option2">To My husband</option>
-                  <option value="option3">To My Parent</option>
-                </select>
+                <input
+                  id="for-whom"
+                  className="form-input"
+                  onChange={(e) => setForWhom(e.target.value)}
+                />
               </div>
             </div>
 
@@ -116,7 +148,11 @@ function ApplyClaim_1({ setActiveComponent }) {
                 Reason
               </label>
               <br />
-              <textarea id="reason" className="claim-input-textarea" />
+              <textarea
+                id="reason"
+                className="claim-input-textarea"
+                onChange={(e) => setReason(e.target.value)}
+              />
             </div>
 
             <div className="form-detail">
@@ -124,30 +160,123 @@ function ApplyClaim_1({ setActiveComponent }) {
                 Amount
               </label>
               <br />
-              <input id="amount" className="form-input" />
+              <input
+                id="amount"
+                className="form-input"
+                onChange={(e) => setAmount(e.target.value)}
+              />
             </div>
 
-            <div className="choose-toggle-row">
-              <div className="choose-text">
-                Is your claim related to a previous health issue?
+            <div className="form-detail">
+              <div className="upload-topic">Upload Documents</div>
+              <div className="upload-subtopic">
+                Upload necessary documents like medical invoice and receipt for
+                reimbursement.English translations are not necessary.You can
+                save the form and return to it anytime
               </div>
-              <Switch
-                checked={checked}
-                onChange={handleChange}
-                classes={{
-                  switchBase: classes.switchBase,
-                  checked: classes.checked,
-                  track: classes.track,
+
+              <div
+                className="upload-box"
+                onClick={() => document.getElementById("fileInput").click()}
+                style={{
+                  border: "2px dashed #007bff",
+                  borderRadius: "10px",
+                  padding: "20px",
+                  textAlign: "center",
+                  cursor: "pointer",
+                  color: "#007bff",
+                  fontFamily: "Arial, sans-serif",
+                  fontSize: "14px",
+                  position: "relative",
                 }}
-              />
+              >
+                <FaUpload size={50} className="upload-icon" />
+                <p>
+                  Click to browse or drag and drop documents <br />
+                  Acceptable file types are PDF, JPG etc.File size less than
+                  10MB each
+                </p>
+                <input
+                  id="fileInput"
+                  type="file"
+                  onChange={handleFileChange}
+                  style={{ display: "none" }}
+                />
+              </div>
+              {fileName && (
+                <p style={{ marginTop: "10px", color: "#28a745" }}>
+                  {fileName.name}
+                </p>
+              )}
+            </div>
+
+            <div className="form-detail">
+              <div className="form-detail">
+                <label htmlFor="holder-name" className="form-detail-topic">
+                  Account Holder’s Name
+                </label>
+                <br />
+                <input
+                  id="holderName"
+                  className="form-3-input"
+                  value={holderName}
+                  onChange={(e) => setHolderName(e.target.value)}
+                />
+              </div>
+
+              <div className="form-detail">
+                <label htmlFor="account-number" className="form-detail-topic">
+                  Account Number
+                </label>
+                <br />
+                <input
+                  id="accountNumber"
+                  className="form-3-input"
+                  value={accountNumber}
+                  onChange={(e) => setAccountNumber(e.target.value)}
+                />
+              </div>
+
+              <div className="one-row-detail">
+                <div className="form-detail">
+                  <label htmlFor="bank-name" className="form-detail-topic">
+                    Bank Name
+                  </label>
+                  <br />
+                  <select
+                    id="bankName"
+                    className="claim-form-dropdown"
+                    value={bankName}
+                    onChange={(e) => setBankName(e.target.value)}
+                  >
+                    <option value="" disabled></option>
+                    <option value="option1">Commercial Bank</option>
+                    <option value="option2">Sampath Bank</option>
+                    <option value="option3">Selan Bank</option>
+                  </select>
+                </div>
+
+                <div className="form-detail">
+                  <label htmlFor="branch-name" className="form-detail-topic">
+                    Branch Name or Number
+                  </label>
+                  <br />
+                  <input
+                    id="branch-name"
+                    className="form-3-input"
+                    value={branchName}
+                    onChange={(e) => setBranchName(e.target.value)}
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="form-button-row">
               <button className="back-button" onClick={handleBack}>
                 Back
               </button>
-              <button className="next-button" onClick={handleNext}>
-                {currentStep === steps.length ? "Finish" : "Next"}
+              <button className="next-button" onClick={handleSubmit}>
+                {currentStep === steps.length ? "Finish" : "Submit"}
               </button>
             </div>
           </div>

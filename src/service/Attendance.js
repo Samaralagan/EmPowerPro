@@ -33,3 +33,12 @@ export const getAttendanceDateRange = (data) =>
     BASE_URL_EMPLOYEE + "/api/v1/teamlead/getAttendanceDateRange",
     data
   );
+
+export const getAttendanceByDate = (userId, date) =>
+  axios.get(
+    BASE_URL_EMPLOYEE +
+      "/api/v1/teamlead/getAttendanceByDate/" +
+      userId +
+      "/" +
+      date
+  );
