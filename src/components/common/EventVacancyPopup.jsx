@@ -120,7 +120,6 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal, id }) => {
                   Avg Salary
                   <div className="vacancy-popup-left-icons mt-3">
                     <p>
-                      {" "}
                       ${vacancyDetails.minSalary} - ${vacancyDetails.maxSalary}
                     </p>
                   </div>
