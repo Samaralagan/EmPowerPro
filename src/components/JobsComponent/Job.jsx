@@ -236,7 +236,8 @@ const Job = ({ setActiveComponent }) => {
                 job={applicant.vacancy.jobTitle} // Access jobTitle from vacancy
                 email={applicant.email} // Use email directly
                 type={applicant.vacancy.employmentType} // Access employmentType from vacancy
-                setActiveComponent={setActiveComponent} // Existing prop
+                setActiveComponent={setActiveComponent}
+                filePath={applicant.resume}
                 isChecked={checkedItems[index] || false} // Handle checkbox state
                 onCheckboxChange={(e) => handleCheckboxChange(index, e)} // Handle checkbox change
               />
