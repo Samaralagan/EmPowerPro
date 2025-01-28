@@ -77,7 +77,10 @@ function App() {
           {/* <Vacancy_Apply_Form/> */}
           <Route path="/" element={<HomePage />} />
           <Route path="/Login" element={<LoginPage />} />
-          <Route path="/VacancyApplyForm" element={<Vacancy_Apply_Form />} />
+          <Route
+            path="/VacancyApplyForm/:id"
+            element={<Vacancy_Apply_Form />}
+          />
 
           <Route path="/" element={<Layout />}>
             <Route

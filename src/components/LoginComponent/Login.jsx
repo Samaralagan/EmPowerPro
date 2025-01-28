@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/images/logo.png";
 import { MdEmail } from "react-icons/md";
-import { FaLock } from "react-icons/fa";
-import { Password } from "@mui/icons-material";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { checkLogin } from "../../service/LoginService";
 
@@ -13,10 +12,10 @@ const Login = () => {
   // const [error, setError] = useState("");
   // const navigator = useNavigate();
 
-  const [showPassword, setShowPassword] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -28,7 +27,7 @@ const Login = () => {
     let formValid = true;
     const errorsCopy = {};
     if (!username.trim()) {
-      errorsCopy.username = "Username Name is required";
+      errorsCopy.username = "Username is required";
       formValid = false;
     }
 
@@ -50,19 +49,14 @@ const Login = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(errors);
-
     if (validateForm()) {
-      console.log("test1");
       checkLogin(username, password)
         .then((response) => {
-          console.log(response.data);
           if (response.data.accessToken) {
             localStorage.setItem("token", response.data.accessToken);
             localStorage.setItem("role", response.data.role);
 
             const role = response.data.role;
-
             if (role === "Admin") {
               navigator("/Dash Board/Admin");
             } else if (role === "Employee") {
@@ -76,7 +70,6 @@ const Login = () => {
             } else if (role === "Executive") {
               navigator("/Dash Board/Executive");
             } else {
-              // Default page if role doesn't match
               navigator("/");
             }
           }
@@ -101,8 +94,8 @@ const Login = () => {
         <img src={logo} alt="" className="login-left-logo" />
         <h1>Welcome Back</h1>
         <p>
-          Your Comprehensive Solution for Efficient Workforce Management Sign in
-          to access a complete suite of tools designed to streamline every
+          Your Comprehensive Solution for Efficient Workforce Management. Sign
+          in to access a complete suite of tools designed to streamline every
           aspect of your employee management processes.
         </p>
         <div>Let’s Get Started</div>
@@ -110,8 +103,8 @@ const Login = () => {
       <div className="login-body-rightpart">
         <form action="">
           <h2>Login Account</h2>
-          <div class="login-body-right-input">
-            <span class="login-body-right-input-icons">
+          <div className="login-body-right-input">
+            <span className="login-body-right-input-icons">
               <MdEmail />
             </span>
             <input
@@ -121,28 +114,26 @@ const Login = () => {
               onChange={handleUserNameChange}
               required
             />
-            <label>User name</label>
+            <label>User Name</label>
             {errors.username && (
               <div className="invalid-feedback">{errors.username}</div>
             )}
           </div>
 
-          <div class="login-body-right-input">
+          <div className="login-body-right-input">
             <span
               // onClick={togglePasswordVisibility}
-              class="login-body-right-input-icons"
+              className="login-body-right-input-icons"
             >
               {/* {showPassword ? <FaEye /> : <FaEyeSlash />} */}
             </span>
             <input
-              className={`${errors.username ? "is-invalid" : ""}`}
-              // type={showPassword ? "text" : "password"}
+              className={`${errors.password ? "is-invalid" : ""}`}
+              type={showPassword ? "text" : "password"}
               required
               value={password}
               onChange={handlePasswordChange}
             />
-
-            {/* (must come inside password) onChange={handleShowLock} */}
             <label>Password</label>
             {errors.password && (
               <div className="invalid-feedback">{errors.password}</div>
@@ -150,8 +141,7 @@ const Login = () => {
           </div>
 
           <div className="login-body-right-forget-password">
-            {" "}
-            <p>Forget Password ?</p>
+            <p>Forget Password?</p>
           </div>
           <div className="login-signin">
             <button onClick={handleSubmit}>Sign In</button>

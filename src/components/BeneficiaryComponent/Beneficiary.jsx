@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 import "./Beneficiary.css";
 import Header from "../layout/Header";
 
@@ -16,14 +18,33 @@ import { BeneficiaryData } from "../constants/temporary";
 import BeneficiaryCard from "../common/BeneficiaryCard";
 
 function Beneficiary({ setActiveComponent }) {
-  // const navigate = useNavigate();
-  // const handleMoreBeneficiary = () => {
-  //   setActiveComponent("BeneficiaryMore");
-  // };
+  const [events, setEvents] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState("");
 
-  // const handleApplyClaim = () => {
-  //   navigate("/ApplyClaim-1");
-  // };
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios.get(
+          "http://localhost:8080/api/v1/hr/all-events",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setEvents(response.data); // Set fetched events to state
+      } catch (error) {
+        setError("Failed to fetch events.");
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
   const handleApplyClaim = () => {
     setActiveComponent("ApplyClaim_1");
   };
@@ -75,102 +96,45 @@ function Beneficiary({ setActiveComponent }) {
           )}
 
           <div className="event-cards">
-            <div className="event-card">
-              <div className="img-part">
-                <img alt="event-img" src={event_1} />
-              </div>
-              <div className="text-part">
-                <div className="text-row">
-                  <div className="event-name">Company Anniversary Party</div>
-                  <div className="event-date">Today</div>
-                </div>
-
-                <div className="event-time">7.30pm - 11.30pm</div>
-
-                <div className="event-location">
-                  <FaLocationPin className="event-icon" />
-                  At Shagri-La, Colombo
-                </div>
-
-                {role !== "Executive" && (
-                  <div className="voting">
-                    <div className="interested">
-                      <FaThumbsUp className="like-icon" /> Interested
-                    </div>
-                    <div className="not-interested">
-                      <FaThumbsDown className="dislike-icon" /> Not Interested
-                    </div>
+            <div className="event-cards">
+              {events.map((event, index) => (
+                <div className="event-card" key={index}>
+                  <div className="img-part">
+                    <img
+                      alt="event-img"
+                      src={event.imageUrl || "default-image.jpg"}
+                    />
                   </div>
-                )}
-                {role === "Executive" && (
-                  <div className="eventstatus approved">Approved</div>
-                )}
-              </div>
-            </div>
-
-            <div className="event-card">
-              <div className="img-part">
-                <img alt="event-img" src={event_2} />
-              </div>
-              <div className="text-part">
-                <div className="text-row">
-                  <div className="event-name">Employee Appreciation</div>
-                  <div className="event-date">18-06-2024</div>
-                </div>
-
-                <div className="event-time">10.30 am - 11.30 am</div>
-
-                <div className="event-location">
-                  <FaLocationPin className="event-icon" />
-                  At Conference Room
-                </div>
-
-                {role !== "Executive" && (
-                  <div className="voting">
-                    <div className="interested">
-                      <FaThumbsUp className="like-icon" /> Interested
+                  <div className="text-part">
+                    <div className="text-row">
+                      <div className="event-name">{event.eventName}</div>
+                      <div className="event-date">{event.eventDate}</div>
                     </div>
-                    <div className="not-interested">
-                      <FaThumbsDown className="dislike-icon" /> Not Interested
+
+                    <div className="event-time">{event.eventTime}</div>
+
+                    <div className="event-location">
+                      <FaLocationPin className="event-icon" />
+                      {event.eventLocation}
                     </div>
+
+                    {role !== "Executive" && (
+                      <div className="voting">
+                        <div className="interested">
+                          <FaThumbsUp className="like-icon" /> Interested
+                        </div>
+                        <div className="not-interested">
+                          <FaThumbsDown className="dislike-icon" /> Not
+                          Interested
+                        </div>
+                      </div>
+                    )}
+                    {role === "Executive" && (
+                      <div className="eventstatus approved">Approved</div>
+                    )}
                   </div>
-                )}
-                {role === "Executive" && (
-                  <div className="eventstatus approved">Approved</div>
-                )}
-              </div>
-            </div>
-
-            <div className="event-card">
-              <div className="img-part">
-                <img alt="event-img" src={event_3} />
-              </div>
-              <div className="text-part">
-                <div className="text-row">
-                  <div className="event-name">Milestone Celebration</div>
-                  <div className="event-date">18-06-2024</div>
                 </div>
-
-                <div className="event-time">7.30pm - 11.30pm</div>
-                <div className="event-location">
-                  <FaLocationPin className="event-icon" />
-                  At One-Gall Face Hotel ,Colombo
-                </div>
-
-                {role !== "Executive" && (
-                  <div className="voting">
-                    <div className="interested">
-                      <FaThumbsUp className="like-icon" /> Interested
-                    </div>
-                    <div className="not-interested">
-                      <FaThumbsDown className="dislike-icon" /> Not Interested
-                    </div>
-                  </div>
-                )}
-                {role === "Executive" && (
-                  <div className="eventstatus pending">Requesting</div>
-                )}
-              </div>
+              ))}
             </div>
           </div>
         </div>

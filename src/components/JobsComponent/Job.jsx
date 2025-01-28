@@ -1,5 +1,4 @@
-
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Card1 from "../common/Card1";
 
 import { FaPlusCircle, FaSearch } from "react-icons/fa";
@@ -7,7 +6,7 @@ import { IoCallSharp } from "react-icons/io5";
 import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
 import Modal from "./Modal"; // Import the Modal component
-import { listVacancies } from "../../service/ApplyJobService";
+import { listApplicants, listVacancies } from "../../service/ApplyJobService";
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
@@ -15,18 +14,32 @@ const Job = ({ setActiveComponent }) => {
   const [isModalVisible, setIsModalVisible] = useState(false); // Manage modal visibility
 
   const [vacancies, setVacancies] = useState([]);
-    useEffect(()=>{
-        listVacancies().then((response)=>{
-            setVacancies(response.data);
-        }).catch(error=>{
-            console.log(error);
-        })
-    },[])
+  const [jobApplications, setJobApplications] = useState([]);
 
-    const handleVacancyDelete = (id) => {
-      setVacancies((prevVacancies) => prevVacancies.filter(vacancy => vacancy.id !== id));
+  useEffect(() => {
+    listVacancies()
+      .then((response) => {
+        setVacancies(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching vacancies:", error);
+      });
+
+    listApplicants() // Fetch job applications
+      .then((response) => {
+        setJobApplications(response.data); // Set fetched data
+      })
+      .catch((error) => {
+        console.error("Error fetching job applications:", error);
+      });
+  }, []);
+
+  const handleVacancyDelete = (id) => {
+    setVacancies((prevVacancies) =>
+      prevVacancies.filter((vacancy) => vacancy.id !== id)
+    );
   };
-  
+
   const handleAllCheckboxChange = (e) => {
     const isChecked = e.target.checked;
     setIsAllChecked(isChecked);
@@ -54,7 +67,6 @@ const Job = ({ setActiveComponent }) => {
   const handleNewVacancy = () => {
     setActiveComponent("NewVacancy");
   };
-
 
   return (
     <div className="contentbodyall1">
@@ -217,16 +229,16 @@ const Job = ({ setActiveComponent }) => {
           </thead>
 
           <tbody>
-            {JobData.map((Card, index) => (
+            {jobApplications.map((applicant, index) => (
               <JobsTable
                 key={index}
-                name={Card.name}
-                job={Card.job}
-                email={Card.email}
-                type={Card.type}
-                setActiveComponent={setActiveComponent}
-                isChecked={checkedItems[index] || false}
-                onCheckboxChange={(e) => handleCheckboxChange(index, e)}
+                name={`${applicant.firstName} ${applicant.lastName}`} // Combine firstName and lastName
+                job={applicant.vacancy.jobTitle} // Access jobTitle from vacancy
+                email={applicant.email} // Use email directly
+                type={applicant.vacancy.employmentType} // Access employmentType from vacancy
+                setActiveComponent={setActiveComponent} // Existing prop
+                isChecked={checkedItems[index] || false} // Handle checkbox state
+                onCheckboxChange={(e) => handleCheckboxChange(index, e)} // Handle checkbox change
               />
             ))}
           </tbody>
