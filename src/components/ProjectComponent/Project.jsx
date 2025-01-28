@@ -224,7 +224,7 @@ const Project = () => {
       type: isToggled ? "Agile Project" : "Normal Project",
       stack: languageStack,
       teamlead: selectedLeader,
-      projectTeamMembers: selectedMembers,
+      projectTeamMembers: arr,
     };
 
     console.log(newProject);
@@ -927,7 +927,7 @@ const Project = () => {
                       key={index}
                       onClick={() => handleCardClick(card)}
                     >
-                      <div className="project-card-color-boxs">
+                      {/* <div className="project-card-color-boxs">
                         {card.green && (
                           <div
                             className="project-card-color-box"
@@ -946,7 +946,7 @@ const Project = () => {
                             style={{ backgroundColor: "#2DA3B3" }}
                           ></div>
                         )}
-                      </div>
+                      </div> */}
                       <div className="project-card-content">
                         <p>{card.title} </p>
                         <input type="checkbox" />
@@ -1023,12 +1023,12 @@ const Project = () => {
                             {card.date}
                           </div>
                         </div>
-                        <div className="project-card-circle">
+                        {/* <div className="project-card-circle">
                           <p>
                             {card.finish}/{card.total}
                           </p>
                           <div>In Progress.........</div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   ))}
@@ -1135,7 +1135,7 @@ const Project = () => {
 
             </p> */}
 
-                  <p>
+                  {/* <p>
                     <span className="description-label">Labels:</span> <br />
                     <div className="project-card-color-boxs">
                       {selectedCard.green && (
@@ -1163,7 +1163,7 @@ const Project = () => {
                         </div>
                       )}
                     </div>
-                  </p>
+                  </p> */}
                   <p>
                     <span className="description-label">Date:</span> <br />
                     {selectedCard?.date}
@@ -1193,12 +1193,12 @@ const Project = () => {
                           X
                         </button>
                         <h4>Sub Tasks</h4>
-                        <div className="project-card-circle-popup">
+                        {/* <div className="project-card-circle-popup">
                           <p>
                             {selectedCard?.finish}/{selectedCard?.total}
                           </p>
                           <div>In Progress.........</div>
-                        </div>
+                        </div> */}
                         {/* Display Subtasks with Checkboxes */}
                         <div className="subtasks-container">
                           {selectedCard?.subtasks?.map((subtask, index) => (
@@ -1239,8 +1239,12 @@ const Project = () => {
                     key={index}
                     onClick={() => handleCardClick(card)}
                   >
-                    <div className="project-card-color-boxs">
-                      {card.green && (
+                    <div
+                      className="project-card-color-boxs"
+                      style={{ color: "white" }}
+                    >
+                      Project Name
+                      {/* {card.green && (
                         <div
                           className="project-card-color-box"
                           style={{ backgroundColor: "#16BD59" }}
@@ -1257,7 +1261,7 @@ const Project = () => {
                           className="project-card-color-box"
                           style={{ backgroundColor: "#2DA3B3" }}
                         ></div>
-                      )}
+                      )} */}
                     </div>
 
                     <div className="project-card-content">
@@ -1270,7 +1274,7 @@ const Project = () => {
                         {card.date}
                       </div>
 
-                      <div className="project-card-members">
+                      {/* <div className="project-card-members">
                         <img
                           src={card.image1}
                           alt=""
@@ -1286,7 +1290,7 @@ const Project = () => {
                           alt=""
                           className="project-card-member"
                         />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 ))}
@@ -1334,7 +1338,7 @@ const Project = () => {
                           <p>{card.title} </p>
                           {/* <p>{card.description} </p> */}
                         </div>
-                        <div className="project-card-members">
+                        {/* <div className="project-card-members">
                           <img
                             src={card.image1}
                             alt=""
@@ -1350,19 +1354,19 @@ const Project = () => {
                             alt=""
                             className="project-card-member-progress"
                           />
-                        </div>
+                        </div> */}
 
                         <div className="project-card-date">
                           <FaCalendarWeek className="me-2" />
                           {card.date}
                         </div>
                       </div>
-                      <div className="project-card-circle">
+                      {/* <div className="project-card-circle">
                         <p>
                           {card.finish}/{card.total}
                         </p>
                         <div>In Progress.........</div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 ))}
@@ -1413,7 +1417,7 @@ const Project = () => {
                         {card.date}
                       </div>
 
-                      <div className="project-card-members">
+                      {/* <div className="project-card-members">
                         <img
                           src={card.image1}
                           alt=""
@@ -1429,7 +1433,7 @@ const Project = () => {
                           alt=""
                           className="project-card-member"
                         />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 ))}
@@ -1465,7 +1469,7 @@ const Project = () => {
 
                 )} */}
 
-              {selectedCard?.status !== "ToDo" && (
+              {/* {selectedCard?.status !== "ToDo" && (
                 <p>
                   <span className="description-label">Subtasks:</span> <br />
                   <button
@@ -1475,7 +1479,7 @@ const Project = () => {
                     View All
                   </button>
                 </p>
-              )}
+              )} */}
             </>
 
             {/* {showSubTaskFields && (
@@ -1569,7 +1573,7 @@ const Project = () => {
               </div>
             )} */}
 
-            <p>
+            {/* <p>
               <span className="description-label">Members:</span> <br />
               <div className="project-card-members">
                 <img
@@ -1588,9 +1592,9 @@ const Project = () => {
                   className="project-card-member-popup"
                 />
               </div>
-            </p>
+            </p> */}
 
-            <p>
+            {/* <p>
               <span className="description-label">Labels:</span> <br />
               <div className="project-card-color-boxs">
                 {selectedCard.green && (
@@ -1618,7 +1622,7 @@ const Project = () => {
                   </div>
                 )}
               </div>
-            </p>
+            </p> */}
             <p>
               <span className="description-label">Date:</span> <br />
               {selectedCard?.date}
@@ -1647,12 +1651,12 @@ const Project = () => {
                     X
                   </button>
                   <h4>Sub Tasks</h4>
-                  <div className="project-card-circle-popup">
+                  {/* <div className="project-card-circle-popup">
                     <p>
                       {selectedCard?.finish}/{selectedCard?.total}
                     </p>
                     <div>In Progress.........</div>
-                  </div>
+                  </div> */}
 
                   <div className="subtasks-container">
                     {selectedCard?.subtasks?.map((subtask, index) => (
@@ -1728,7 +1732,7 @@ const Project = () => {
                                     />
                                   </div>
 
-                                  <div className="reminder-selection">
+                                  {/* <div className="reminder-selection">
                                     <label>Set due date reminder</label>
                                     <select>
                                       <option>1 Day before</option>
@@ -1738,7 +1742,7 @@ const Project = () => {
                                     <small>
                                       Reminders will send to all task members
                                     </small>
-                                  </div>
+                                  </div> */}
 
                                   <button className="add-dates-button">
                                     Save

@@ -11,3 +11,6 @@ export const getAllProject = async () =>
 export const getRoleByEmployee = async (role) => {
   await axios.get(BASE_URL_EMPLOYEE + "/api/v1/employees/role/" + role);
 };
+
+export const createProjectTask = (data) =>
+  axios.post(BASE_URL_EMPLOYEE + "/api/v1/teamlead/createProjectTask", data);

@@ -215,6 +215,11 @@ function App() {
               path="/Complaints/HR/:complaintId"
               element={<Complaintsmore />}
             />
+            <Route
+              exact
+              path="/Beneficiary/HR/:id"
+              element={<Complaintsmore />}
+            />
 
             <Route exact path="/leave/request/:id" element={<LeavePending />} />
 

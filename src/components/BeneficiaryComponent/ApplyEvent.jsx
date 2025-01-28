@@ -18,6 +18,26 @@ function ApplyEvent({ setActiveComponent }) {
     }
   };
 
+  const [eventName, setEventName] = useState("");
+  const [reason, setReason] = useState("");
+  const [location, setLocation] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [cost, setCost] = useState("");
+
+  const handleSubmit = () => {
+    const data = {
+      name: eventName,
+      reason: reason,
+      location: location,
+      date: date,
+      time: time,
+      estimatedCost: cost,
+    };
+
+    console.log("Clicked", data);
+  };
+
   return (
     <div>
       <SideBar />
@@ -37,7 +57,12 @@ function ApplyEvent({ setActiveComponent }) {
                 Event Name
               </label>
               <br />
-              <input id="event-name" className="form-input" />
+              <input
+                id="event-name"
+                className="form-input"
+                value={eventName}
+                onChange={(e) => setEventName(e.target.value)}
+              />
             </div>
 
             <div className="form-detail">
@@ -45,7 +70,12 @@ function ApplyEvent({ setActiveComponent }) {
                 Reason
               </label>
               <br />
-              <textarea id="reason" className="claim-input-textarea" />
+              <textarea
+                id="reason"
+                className="claim-input-textarea"
+                value={reason}
+                onChange={(e) => setReason(e.target.value)}
+              />
             </div>
 
             <div className="form-detail">
@@ -53,7 +83,12 @@ function ApplyEvent({ setActiveComponent }) {
                 Location
               </label>
               <br />
-              <input id="event-location" className="form-input" />
+              <input
+                id="event-location"
+                className="form-input"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
             </div>
 
             <div className="one-row-detail">
@@ -66,6 +101,8 @@ function ApplyEvent({ setActiveComponent }) {
                   type="date"
                   id="start-date"
                   className="form-input-date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
                 />
               </div>
 
@@ -78,6 +115,8 @@ function ApplyEvent({ setActiveComponent }) {
                   id="event-time"
                   type="time"
                   className="form-input-time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
                 />
               </div>
             </div>
@@ -88,7 +127,12 @@ function ApplyEvent({ setActiveComponent }) {
                   Estimated Cost
                 </label>
                 <br />
-                <input id="event-cost" className="form-input" />
+                <input
+                  id="event-cost"
+                  className="form-input"
+                  value={cost}
+                  onChange={(e) => setCost(e.target.value)}
+                />
               </div>
 
               <div className="form-detail">
@@ -131,7 +175,9 @@ function ApplyEvent({ setActiveComponent }) {
               </div>
             </div>
 
-            <button className="newevent-button">Request</button>
+            <button className="newevent-button" onClick={handleSubmit}>
+              Request
+            </button>
           </div>
         </div>
       </div>

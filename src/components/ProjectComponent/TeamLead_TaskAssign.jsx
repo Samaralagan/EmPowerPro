@@ -27,6 +27,7 @@ import profile2 from "../../assets/images/profile2.png";
 import profile3 from "../../assets/images/profile3.png";
 import profile4 from "../../assets/images/profile4.png";
 import profile5 from "../../assets/images/profile5.png";
+import { createProjectTask } from "../../service/projectService";
 
 function TeamLead_TaskAssign() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -98,8 +99,59 @@ function TeamLead_TaskAssign() {
     setShowSubTaskFields(false);
   };
 
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [selectedMember, setSelectedMember] = useState([]);
+  const [dueDate, setDueDate] = useState("");
+  const [dueTime, setDueTime] = useState("");
+  let dateReminder = "2025-02-09";
+  let taskStatus = "In Progress";
   const handleSave = () => {
-    console.log("Save clicked");
+    if (title === "") {
+      window.alert("Please enter a task title");
+      return;
+    }
+    if (description === "") {
+      window.alert("Please enter a task description");
+      return;
+    }
+    if (selectedMember.length === 0) {
+      window.alert("Please select a team member");
+      return;
+    }
+    if (dueDate === "") {
+      window.alert("Please select a due date");
+      return;
+    }
+    if (dueTime === "") {
+      window.alert("Please select a due time");
+      return;
+    }
+
+    const data = {
+      projectId: project,
+      taskTitle: title,
+      taskDescription: description,
+      taskStatus: "ToDo",
+      members: [selectedMember],
+      dueDate: dueDate,
+      dueTime: dueTime,
+      dateReminder: "2025-02-09",
+    };
+
+    console.log("Save clicked", data);
+    createProjectTask(data)
+      .then((response) => {
+        window.alert("Task Successfully created");
+        setTitle("");
+        setDescription("");
+        setDueDate("");
+        setDueTime("");
+        setSelectedMember([]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const toggleMembersPopup = () => {
@@ -301,7 +353,7 @@ function TeamLead_TaskAssign() {
 
               <div>
                 <br />
-                <div className="project-form-group">
+                {/* <div className="project-form-group">
                   <div className="project-form-main-title">
                     <FaBook />
                     <label>Main Task Title</label>
@@ -311,51 +363,52 @@ function TeamLead_TaskAssign() {
                     type="text"
                     placeholder="Enter a title for this task"
                   />
-                </div>
+                </div> */}
 
-                <div
+                {/* <div
                   className="project-addSubtask"
                   onClick={handleSubTaskClick}
                 >
                   <FaPlusSquare className="me-2" /> Add Sub Tasks
-                </div>
+                </div> */}
 
-                {showSubTaskFields && (
-                  <div>
-                    <div className="subtask-form-input-row">
-                      <Form.Group>
-                        <FormControl
-                          type="text"
-                          placeholder="Add a task"
-                          className="subtask-form-input"
-                        />
-                      </Form.Group>
+                <div>
+                  <div className="subtask-form-input-row">
+                    <Form.Group>
+                      <FormControl
+                        type="text"
+                        placeholder="Add a task"
+                        className="subtask-form-input"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                      />
+                    </Form.Group>
 
-                      <div
-                        className="subtask-form-input-label"
-                        onClick={toggleMembersPopup}
-                      >
-                        <FaUsers className="me-4" />
-                        Assign
-                      </div>
+                    <div
+                      className="subtask-form-input-label"
+                      onClick={toggleMembersPopup}
+                    >
+                      <FaUsers className="me-4" />
+                      Assign
+                    </div>
 
-                      {showMembersPopup && (
-                        <div className="members-popup-overlay">
-                          <div className="members-popup">
-                            <AiOutlineClose
-                              className="member-popup-close-icon"
-                              onClick={toggleMembersPopup}
-                            />
-                            <center className="members-popup-topic">
-                              Members
-                            </center>
-                            {/* <input
+                    {showMembersPopup && (
+                      <div className="members-popup-overlay">
+                        <div className="members-popup">
+                          <AiOutlineClose
+                            className="member-popup-close-icon"
+                            onClick={toggleMembersPopup}
+                          />
+                          <center className="members-popup-topic">
+                            Members
+                          </center>
+                          {/* <input
                               type="text"
                               placeholder="Search Members"
                               className="members-search-bar"
                             /> */}
 
-                            {/* {Array.isArray(members) &&
+                          {/* {Array.isArray(members) &&
                               members.map((member, index) => (
                                 <div key={index} className="member-label">
                                   <input type="Checkbox" />
@@ -364,90 +417,119 @@ function TeamLead_TaskAssign() {
                                   </p>
                                 </div>
                               ))} */}
-                            <div
-                              style={{
-                                maxHeight: "350px",
-                                scrollbarWidth: "none",
-                                overflowY: "auto", // Add scroll when content exceeds the height
-                              }}
-                            >
-                              {Array.isArray(members) &&
-                                members.map((member, index) => (
-                                  <div key={index} className="member-label">
-                                    <input type="checkbox" />
-                                    <p className="member-name">
-                                      {`${member.firstName} ${member.lastName}`}
-                                    </p>
-                                  </div>
-                                ))}
-                            </div>
-
-                            <button className="add-member-button">ADD</button>
+                          <div
+                            style={{
+                              maxHeight: "350px",
+                              scrollbarWidth: "none",
+                              overflowY: "auto", // Add scroll when content exceeds the height
+                            }}
+                          >
+                            {Array.isArray(members) &&
+                              members.map((member, index) => (
+                                <div key={index} className="member-label">
+                                  <input
+                                    type="radio"
+                                    onClick={() => setSelectedMember(member.id)}
+                                  />
+                                  <p className="member-name">
+                                    {`${member.firstName} ${member.lastName}`}
+                                  </p>
+                                </div>
+                              ))}
                           </div>
-                        </div>
-                      )}
 
-                      <div
-                        className="subtask-form-input-label"
-                        onClick={toggleDatesPopup}
-                      >
-                        <FaClock className="me-4" />
-                        Due Dates
+                          <button className="add-member-button">ADD</button>
+                        </div>
                       </div>
+                    )}
 
-                      {showDatesPopup && (
-                        <div className="dates-popup-overlay">
-                          <div className="dates-popup">
-                            <AiOutlineClose
-                              className="dates-popup-close-icon"
-                              onClick={toggleDatesPopup}
+                    <div
+                      className="subtask-form-input-label"
+                      onClick={toggleDatesPopup}
+                    >
+                      <FaClock className="me-4" />
+                      Due Dates
+                    </div>
+
+                    {showDatesPopup && (
+                      <div className="dates-popup-overlay">
+                        <div className="dates-popup">
+                          <AiOutlineClose
+                            className="dates-popup-close-icon"
+                            onClick={toggleDatesPopup}
+                          />
+                          <center className="labels-popup-topic">Dates</center>
+
+                          <div className="date-selection">
+                            <label>Due Date</label>
+                            <input
+                              type="date"
+                              value={dueDate}
+                              onChange={(e) => setDueDate(e.target.value)}
                             />
-                            <center className="labels-popup-topic">
-                              Dates
-                            </center>
-
-                            <div className="date-selection">
-                              <label>Due Date</label>
-                              <input type="date" />
-                            </div>
-
-                            <div className="time-selection">
-                              <label>Time</label>
-                              <input type="time" />
-                            </div>
-
-                            <div className="reminder-selection">
-                              <label>Set due date reminder</label>
-                              <select>
-                                <option>1 Day before</option>
-                                <option>2 Days before</option>
-                                <option>1 Week before</option>
-                              </select>
-                              <small>
-                                Reminders will send to all task members
-                              </small>
-                            </div>
                           </div>
+
+                          <div className="time-selection">
+                            <label>Time</label>
+                            <input
+                              type="time"
+                              value={dueTime}
+                              onChange={(e) => {
+                                const timeValue = e.target.value;
+                                const formattedTime =
+                                  timeValue.length === 5
+                                    ? `${timeValue}:00`
+                                    : timeValue;
+                                setDueTime(formattedTime);
+                              }}
+                              step="1"
+                            />
+                          </div>
+
+                          {/* <div className="reminder-selection">
+                            <label>Set due date reminder</label>
+                            <select>
+                              <option>1 Day before</option>
+                              <option>2 Days before</option>
+                              <option>1 Week before</option>
+                            </select>
+                            <small>
+                              Reminders will send to all task members
+                            </small>
+                          </div> */}
                         </div>
-                      )}
+                      </div>
+                    )}
+                  </div>
+                  <br />
+                  <div className="project-form-group">
+                    <div className="project-form-main-title">
+                      <FaBook />
+                      <label> Task Description</label>
                     </div>
 
-                    <div className="subtask-btn-row">
-                      <button
-                        className="subtask-btn-primary"
-                        onClick={handleSave}
-                      >
-                        Add
-                      </button>
-                      <button
-                        className="subtask-btn-secondary"
-                        onClick={handleCancel}
-                      >
-                        Cancel
-                      </button>
-                    </div>
+                    <input
+                      type="text"
+                      placeholder="Enter a Description for this task"
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                    />
                   </div>
-                )}
+                  <div className="subtask-btn-row">
+                    <button
+                      className="subtask-btn-primary"
+                      onClick={handleSave}
+                    >
+                      Add
+                    </button>
+                    <button
+                      className="subtask-btn-secondary"
+                      onClick={handleCancel}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

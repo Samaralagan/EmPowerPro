@@ -255,7 +255,7 @@ function CreatUser() {
                   Select a role
                 </option>
                 <option value="Employee">Employee</option>
-                <option value="Team Lead">Team Leader</option>
+                <option value="TeamLead">Team Leader</option>
                 <option value="HR">HR</option>
                 <option value="Finance">Finance and Support</option>
                 <option value="Executive">Executive</option>
