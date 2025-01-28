@@ -349,13 +349,13 @@ function TeamLead_TaskAssign() {
                             <center className="members-popup-topic">
                               Members
                             </center>
-                            <input
+                            {/* <input
                               type="text"
                               placeholder="Search Members"
                               className="members-search-bar"
-                            />
+                            /> */}
 
-                            {Array.isArray(members) &&
+                            {/* {Array.isArray(members) &&
                               members.map((member, index) => (
                                 <div key={index} className="member-label">
                                   <input type="Checkbox" />
@@ -363,7 +363,24 @@ function TeamLead_TaskAssign() {
                                     {`${member.firstName} ${member.lastName}`}
                                   </p>
                                 </div>
-                              ))}
+                              ))} */}
+                            <div
+                              style={{
+                                maxHeight: "350px",
+                                scrollbarWidth: "none",
+                                overflowY: "auto", // Add scroll when content exceeds the height
+                              }}
+                            >
+                              {Array.isArray(members) &&
+                                members.map((member, index) => (
+                                  <div key={index} className="member-label">
+                                    <input type="checkbox" />
+                                    <p className="member-name">
+                                      {`${member.firstName} ${member.lastName}`}
+                                    </p>
+                                  </div>
+                                ))}
+                            </div>
 
                             <button className="add-member-button">ADD</button>
                           </div>

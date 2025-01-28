@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaPlusCircle, FaEdit } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,12 +11,14 @@ function EditVacancy({ setActiveComponent }) {
     employmentType: "",
     jobDescription: "",
     requirements: "",
-    responsibilities:"",
-    applicationDeadline:"",
-    contactEmail:""
+    responsibilities: "",
+    applicationDeadline: "",
+    maxSalary: "",
+    minSalary: "",
+    contactEmail: "",
   });
 
-  const {id} = useParams();
+  const { id } = useParams();
   console.log(id);
 
   const navigate = useNavigate();
@@ -24,41 +26,65 @@ function EditVacancy({ setActiveComponent }) {
   useEffect(() => {
     const loadJob = async () => {
       try {
-        const result = await axios.get(`http://localhost:8080/api/hr/vacancy-get-one/${id}`);
+        const token = localStorage.getItem("token"); // Retrieve the token from storage
+        const result = await axios.get(
+          `http://localhost:8080/api/v1/hr/vacancy-get-one/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setJob(result.data);
       } catch (error) {
         console.error("Error loading job data:", error);
       }
     };
-  
+
     loadJob();
   }, [id]);
 
+  const {
+    jobTitle,
+    employmentType,
+    jobDescription,
+    requirements,
+    responsibilities,
+    applicationDeadline,
+    contactEmail,
+  } = job;
 
+  const handleInputChange = (e) => {
+    setJob({
+      ...job,
+      [e.target.name]:
+        e.target.name === "applicationDeadline"
+          ? new Date(e.target.value).toISOString().split("T")[0] // Extract date only
+          : e.target.value,
+    });
+  };
 
-const {jobTitle, employmentType,jobDescription,requirements,responsibilities, applicationDeadline, contactEmail} = job;
-
-const handleInputChange = (e) => {
-  setJob({
-    ...job,
-    [e.target.name]: e.target.name === "applicationDeadline"
-      ? new Date(e.target.value).toISOString().split('T')[0]  // Extract date only
-      : e.target.value,
-  });
-};
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    await axios.put(`http://localhost:8080/api/hr/vacancy-update/${id}`, job);
-    navigate("/Jobs/HR");
-  } catch (error) {
-    console.error("Error updating job data:", error);
-  }
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const token = localStorage.getItem("token"); // Retrieve the token from storage
+      await axios.put(
+        `http://localhost:8080/api/v1/hr/vacancy-update/${id}`,
+        job,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      navigate("/Jobs/HR");
+    } catch (error) {
+      console.error("Error updating job data:", error);
+    }
+  };
 
   const handleBackArrow = () => {
-    navigate("/Jobs/HR")
+    navigate("/Jobs/HR");
   };
 
   const handleEditClick = (field) => {
@@ -175,13 +201,14 @@ const handleSubmit = async (e) => {
             <input
               name="applicationDeadline"
               type="date"
-              value={applicationDeadline.split('T')[0]}
+              value={applicationDeadline.split("T")[0]}
               onChange={(e) => handleInputChange(e)}
               onBlur={() => setEditingField(null)}
             />
           ) : (
             <p>
-            {applicationDeadline.split('T')[0]} {" "}<FaEdit onClick={() => handleEditClick("deadline")} />
+              {applicationDeadline.split("T")[0]}{" "}
+              <FaEdit onClick={() => handleEditClick("deadline")} />
             </p>
           )}
           <br />
@@ -213,7 +240,11 @@ const handleSubmit = async (e) => {
               marginRight: "0rem",
             }}
           >
-            <button type="submit" className="gradient-blue-btn" style={{ color: "white" }}>
+            <button
+              type="submit"
+              className="gradient-blue-btn"
+              style={{ color: "white" }}
+            >
               <FaPlusCircle className="me-2" />
               Publish
             </button>

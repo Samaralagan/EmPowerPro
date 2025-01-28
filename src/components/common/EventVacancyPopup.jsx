@@ -39,7 +39,6 @@ const customStyles = {
 
 const EventVacancyPopup = ({ modalIsOpen, closeModal, id }) => {
   const [vacancyDetails, setVacancyDetails] = useState(null);
-
   const location = useLocation();
   var mainPath = "";
   const navigation = useNavigate();
@@ -50,9 +49,15 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal, id }) => {
   useEffect(() => {
     if (modalIsOpen && id) {
       const getVacancyDetails = async () => {
+        const token = localStorage.getItem("token");
         try {
           const response = await axios.get(
-            `http://localhost:8080/api/v1/hr/vacancy-get-one/${id}`
+            `http://localhost:8080/api/v1/hr/vacancy-get-one/${id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           );
           setVacancyDetails(response.data); // Set the vacancy details in state
         } catch (error) {

@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/images/logo.png";
 import { MdEmail } from "react-icons/md";
-import { FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
-import { Password } from "@mui/icons-material";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { checkLogin } from "../../service/LoginService";
 
@@ -12,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({
-    email: "",
+    username: "", // Changed from email to username to match the form fields
     password: "",
   });
 
@@ -36,22 +35,28 @@ const Login = () => {
 
   const handleUserNameChange = (e) => {
     setUsername(e.target.value);
+    // Clear error when user starts typing
+    if (errors.username) {
+      setErrors((prev) => ({ ...prev, username: "" }));
+    }
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+    // Clear error when user starts typing
+    if (errors.password) {
+      setErrors((prev) => ({ ...prev, password: "" }));
+    }
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(errors);
 
     if (validateForm()) {
-      console.log("test1");
       checkLogin(username, password)
         .then((response) => {
-          console.log(response.data);
           if (response.data.accessToken) {
+            // Store user data in localStorage
             localStorage.setItem("token", response.data.accessToken);
             localStorage.setItem("role", response.data.role);
             localStorage.setItem("userId", response.data.userId);
@@ -60,26 +65,38 @@ const Login = () => {
 
             const role = response.data.role;
 
-            if (role === "Admin") {
-              navigator("/Dash Board/Admin");
-            } else if (role === "Employee") {
-              navigator("/Dash Board/Employee");
-            } else if (role === "TeamLead") {
-              navigator("/Dash Board/TeamLeader");
-            } else if (role === "HR") {
-              navigator("/Dash Board/HR");
-            } else if (role === "Finance") {
-              navigator("/Dash Board/FinanceAndSupport");
-            } else if (role === "Executive") {
-              navigator("/Dash Board/Executive");
-            } else {
-              // Default page if role doesn't match
-              navigator("/");
+            // Navigate based on user role
+            switch (role) {
+              case "Admin":
+                navigator("/Dash Board/Admin");
+                break;
+              case "Employee":
+                navigator("/Dash Board/Employee");
+                break;
+              case "TeamLead":
+                navigator("/Dash Board/TeamLeader");
+                break;
+              case "HR":
+                navigator("/Dash Board/HR");
+                break;
+              case "Finance":
+                navigator("/Dash Board/FinanceAndSupport");
+                break;
+              case "Executive":
+                navigator("/Dash Board/Executive");
+                break;
+              default:
+                navigator("/");
             }
           }
         })
         .catch((error) => {
           console.error(error);
+          // Add error handling for failed login attempts
+          setErrors((prev) => ({
+            ...prev,
+            password: "Invalid username or password",
+          }));
         });
     }
   }
@@ -91,24 +108,24 @@ const Login = () => {
   return (
     <div className="login-body">
       <div className="login-body-leftpart">
-        <img src={logo} alt="" className="login-left-logo" />
+        <img src={logo} alt="Company Logo" className="login-left-logo" />
         <h1>Welcome Back</h1>
         <p>
           Your Comprehensive Solution for Efficient Workforce Management Sign in
           to access a complete suite of tools designed to streamline every
           aspect of your employee management processes.
         </p>
-        <div>Let’s Get Started</div>
+        <div>Let's Get Started</div>
       </div>
       <div className="login-body-rightpart">
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <h2>Login Account</h2>
-          <div class="login-body-right-input">
-            <span class="login-body-right-input-icons">
+          <div className="login-body-right-input">
+            <span className="login-body-right-input-icons">
               <MdEmail />
             </span>
             <input
-              className={`${errors.username ? "is-invalid" : ""}`}
+              className={errors.username ? "is-invalid" : ""}
               type="text"
               value={username}
               onChange={handleUserNameChange}
@@ -120,34 +137,31 @@ const Login = () => {
             )}
           </div>
 
-          <div class="login-body-right-input">
+          <div className="login-body-right-input">
             <span
               onClick={togglePasswordVisibility}
-              class="login-body-right-input-icons"
+              className="login-body-right-input-icons"
             >
               {showPassword ? <FaEye /> : <FaEyeSlash />}
             </span>
             <input
-              className={`${errors.username ? "is-invalid" : ""}`}
+              className={errors.password ? "is-invalid" : ""}
               type={showPassword ? "text" : "password"}
               required
               value={password}
               onChange={handlePasswordChange}
             />
-
-            {/* (must come inside password) onChange={handleShowLock} */}
             <label>Password</label>
-            {errors.username && (
+            {errors.password && (
               <div className="invalid-feedback">{errors.password}</div>
             )}
           </div>
 
           <div className="login-body-right-forget-password">
-            {" "}
             <p>Forget Password ?</p>
           </div>
           <div className="login-signin">
-            <button onClick={handleSubmit}>Sign In</button>
+            <button type="submit">Sign In</button>
           </div>
         </form>
       </div>
