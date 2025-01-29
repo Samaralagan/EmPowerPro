@@ -16,6 +16,9 @@ export const getAllFavouriteBlog = (userId) =>
 export const getSearchBlog = (data) =>
   axios.get(BASE_URL_EMPLOYEE + "/api/v1/teamlead/searchBlog?keyword=" + data);
 
+export const deleteBlog = (id) =>
+  axios.delete(BASE_URL_EMPLOYEE + "/api/v1/teamlead/deleteBlog/" + id);
+
 // ---------------------------------------------AddFavourite Blog-----------------------------------------------------
 
 export const createAddFavourite = (userId, blogId) =>

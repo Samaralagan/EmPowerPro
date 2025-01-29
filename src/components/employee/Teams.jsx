@@ -75,7 +75,7 @@ const Teams = ({ setActiveComponent }) => {
               </tr>
             </thead>
 
-            <tbody>
+            {/* <tbody>
               {TeamTableData.map((Card, index) => (
                 <TeamTable
                   key={index}
@@ -86,7 +86,7 @@ const Teams = ({ setActiveComponent }) => {
                   setActiveComponent={setActiveComponent}
                 />
               ))}
-            </tbody>
+            </tbody> */}
           </table>
         </div>
 

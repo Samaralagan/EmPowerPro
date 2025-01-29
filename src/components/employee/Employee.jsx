@@ -30,12 +30,12 @@ const Employee = ({ setActiveComponent }) => {
             <div className="add-icon-circle-team">
               <FaPlusCircle className="add-icon-team" />
             </div>
-            <div className="new-button-content-team">
+            {/* <div className="new-button-content-team">
               <div className="new-content-team">Generate Team Report</div>
-            </div>
+            </div> */}
           </div>
 
-          <div className="search-bar-team">
+          {/* <div className="search-bar-team">
             <FaSearch className="search-icon-team" />
             <input
               type="text"
@@ -44,7 +44,7 @@ const Employee = ({ setActiveComponent }) => {
               value={searchQuery}
               onChange={handleSearchChange} // Update the search query
             />
-          </div>
+          </div> */}
         </div>
         <br />
 
