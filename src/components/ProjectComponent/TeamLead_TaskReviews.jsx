@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { IoIosMore } from "react-icons/io";
 import { ProjectDone } from "../constants/temporary";
-import { FaCalendarWeek, FaRegStickyNote } from "react-icons/fa";
+import {
+  FaCalendarWeek,
+  FaProjectDiagram,
+  FaRegStickyNote,
+} from "react-icons/fa";
 
 function TeamLead_TaskReviews() {
   const [showPopup, setShowPopup] = useState(false);
@@ -27,6 +31,131 @@ function TeamLead_TaskReviews() {
     setShowNestedPopup(false);
   };
 
+  useEffect(() => {
+    fetchProjectTask();
+  }, []);
+
+  const [reviews, setReviews] = useState("");
+
+  const userId = localStorage.getItem("userId");
+  const [tasks, setTasks] = useState([]);
+
+  const fetchProjectTask = async () => {
+    const url =
+      "http://localhost:8080/api/v1/teamlead/findCheckedTasksByTeamLead/" +
+      userId;
+    try {
+      const response = await fetch(url);
+
+      console.log("Response Status:", response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched Data:", data);
+
+        console.log("data is", data);
+
+        setTasks(data);
+
+        if (!data || typeof data !== "object") {
+          console.error("Unexpected response format:", data);
+          return;
+        }
+
+        console.log("Processed Data:", data);
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+  };
+
+  const fetchEmployee = async (id) => {
+    const url = `http://localhost:8080/api/v1/employees/${id}`;
+
+    try {
+      const response = await fetch(url);
+
+      console.log("Response Status:", response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+
+        if (!data || typeof data !== "object") {
+          console.error("Unexpected response format:", data);
+          return null;
+        }
+
+        console.log("Processed Data:", data);
+
+        // Return a <p> tag with firstName and lastName
+        return `<p>${data.firstName} ${data.lastName}</p>`;
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+        return null;
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+      return null;
+    }
+  };
+
+  const handleClickComplete = (id, title) => {
+    if (reviews === "") {
+      window.alert("Please add a review before completing the task");
+      return;
+    }
+    const url = `http://localhost:8080/api/v1/teamlead/updateProjectTask/${id}/${reviews}`;
+    try {
+      const response = fetch(url);
+
+      console.log("Response Status:", response.status);
+      handleClosePopup();
+      if (response.ok) {
+        const data = response.json();
+        window.alert(`Completed Task : ${title}`);
+
+        if (!data || typeof data !== "object") {
+          console.error("Unexpected response format:", data);
+          return;
+        }
+
+        console.log("Processed Data:", data);
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+
+    window.location.reload();
+  };
+
   return (
     <div className="contentbodyall1">
       <div>
@@ -36,48 +165,60 @@ function TeamLead_TaskReviews() {
           </p>
         </div>
         <div>
-          {ProjectDone.map((card, index) => (
-            <div
-              className="project-card"
-              style={{ opacity: 0.8, fontSize: "2vh" }}
-              key={index}
-              onClick={() => handleCardClick(card)}
-            >
-              <div className="project-card-color-boxs">
-                {card.green && (
+          {tasks.filter((card) => card.taskStatus === "check").length === 0 ? (
+            <center>
+              <p
+                style={{
+                  fontSize: "20px",
+                  color: "darkblue",
+                  border: "solid",
+                  padding: "6px 10px",
+                  borderRadius: "5px",
+                }}
+              >
+                No Tasks for Review
+              </p>
+            </center>
+          ) : (
+            tasks.map((card, index) => (
+              <>
+                {card.taskStatus === "check" && (
                   <div
-                    className="project-card-color-box"
-                    style={{ backgroundColor: "#16BD59" }}
-                  ></div>
-                )}
-                {card.orange && (
-                  <div
-                    className="project-card-color-box"
-                    style={{ backgroundColor: "#EE6401" }}
-                  ></div>
-                )}
-                {card.blue && (
-                  <div
-                    className="project-card-color-box"
-                    style={{ backgroundColor: "#2DA3B3" }}
-                  ></div>
-                )}
-              </div>
-              <div className="project-card-content">
-                <p style={{ fontSize: "2vh" }}>{card.title} </p>
-              </div>
+                    className="project-card"
+                    style={{ opacity: 0.8, fontSize: "2vh" }}
+                    key={index}
+                    onClick={() => handleCardClick(card)}
+                  >
+                    <div
+                      className="project-card-color-boxs"
+                      style={{ color: "White", fontSize: "20px" }}
+                    >
+                      <FaProjectDiagram style={{ marginRight: "10px" }} />
+                      {"  "} {card.projectName}
+                    </div>
+                    {/* <div className="project-card-content">
+                      <p style={{ fontSize: "2vh" }}>
+                        {fetchEmployee(card.members)}{" "}
+                      </p>
+                    </div> */}
+                    <div className="project-card-content">
+                      <p style={{ fontSize: "2vh" }}>{card.taskTitle} </p>
+                    </div>
 
-              <div className="date-members">
-                <div
-                  className="project-card-date"
-                  style={{ fontSize: "1.8vh" }}
-                >
-                  <FaCalendarWeek className="me-2" />
-                  {card.date}
-                </div>
-              </div>
-            </div>
-          ))}
+                    <div className="date-members">
+                      <div
+                        className="project-card-date"
+                        style={{ fontSize: "1.8vh" }}
+                      >
+                        <FaCalendarWeek className="me-2" />
+                        {card.dueDate}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
+            ))
+          )}
         </div>
       </div>
 
@@ -90,12 +231,12 @@ function TeamLead_TaskReviews() {
 
             <div className="popup-top">
               <FaRegStickyNote className="sticky" />
-              <h4>{selectedCard?.title}</h4>
+              <h4>{selectedCard?.taskTitle}</h4>
             </div>
 
             <p>
               <span className="description-label">Description:</span> <br />
-              {selectedCard?.description}
+              {selectedCard?.taskDescription}
             </p>
             {/* 
             <p>
@@ -140,7 +281,7 @@ function TeamLead_TaskReviews() {
 
             <p>
               <span className="description-label">Date:</span> <br />
-              {selectedCard?.date}
+              {selectedCard?.dueDate}
             </p>
 
             <p>
@@ -148,10 +289,19 @@ function TeamLead_TaskReviews() {
               <textarea
                 className="share-textarea"
                 placeholder="Enter your review..."
+                value={reviews}
+                onChange={(e) => setReviews(e.target.value)}
               ></textarea>
             </p>
 
-            <button className="add-member-button">SHARE REVIEW</button>
+            <button
+              className="add-member-button"
+              onClick={() =>
+                handleClickComplete(selectedCard?.id, selectedCard?.taskTitle)
+              }
+            >
+              SHARE REVIEW
+            </button>
 
             {/* Nested Popup for 'View All' */}
             {showNestedPopup && (

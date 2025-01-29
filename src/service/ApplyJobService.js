@@ -45,3 +45,12 @@ export const createEmployee = (employee) => {
     },
   });
 };
+
+export const listApplicants = () => {
+  const token = localStorage.getItem("token"); // Assuming the token is stored in localStorage
+  return axios.get(BASE_URL_EMPLOYEE + "/api/v1/hr/applicants-get-all", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

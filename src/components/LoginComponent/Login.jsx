@@ -7,9 +7,15 @@ import { useNavigate } from "react-router-dom";
 import { checkLogin } from "../../service/LoginService";
 
 const Login = () => {
+  // const [username, setUsername] = useState("");
+  // const [password,setPassword] = useState("");
+  // const [error, setError] = useState("");
+  // const navigator = useNavigate();
+
+  const [showPopup, setShowPopup] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
   const [errors, setErrors] = useState({
     username: "", // Changed from email to username to match the form fields
     password: "",
@@ -21,7 +27,7 @@ const Login = () => {
     let formValid = true;
     const errorsCopy = {};
     if (!username.trim()) {
-      errorsCopy.username = "Username Name is required";
+      errorsCopy.username = "Username is required";
       formValid = false;
     }
 
@@ -51,7 +57,6 @@ const Login = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     if (validateForm()) {
       checkLogin(username, password)
         .then((response) => {
@@ -64,29 +69,20 @@ const Login = () => {
             localStorage.setItem("lastname", response.data.lastName);
 
             const role = response.data.role;
-
-            // Navigate based on user role
-            switch (role) {
-              case "Admin":
-                navigator("/Dash Board/Admin");
-                break;
-              case "Employee":
-                navigator("/Dash Board/Employee");
-                break;
-              case "TeamLead":
-                navigator("/Dash Board/TeamLeader");
-                break;
-              case "HR":
-                navigator("/Dash Board/HR");
-                break;
-              case "Finance":
-                navigator("/Dash Board/FinanceAndSupport");
-                break;
-              case "Executive":
-                navigator("/Dash Board/Executive");
-                break;
-              default:
-                navigator("/");
+            if (role === "Admin") {
+              navigator("/Dash Board/Admin");
+            } else if (role === "Employee") {
+              navigator("/Dash Board/Employee");
+            } else if (role === "TeamLead") {
+              navigator("/Dash Board/TeamLeader");
+            } else if (role === "HR") {
+              navigator("/Dash Board/HR");
+            } else if (role === "Finance") {
+              navigator("/Dash Board/FinanceAndSupport");
+            } else if (role === "Executive") {
+              navigator("/Dash Board/Executive");
+            } else {
+              navigator("/");
             }
           }
         })
@@ -111,8 +107,8 @@ const Login = () => {
         <img src={logo} alt="Company Logo" className="login-left-logo" />
         <h1>Welcome Back</h1>
         <p>
-          Your Comprehensive Solution for Efficient Workforce Management Sign in
-          to access a complete suite of tools designed to streamline every
+          Your Comprehensive Solution for Efficient Workforce Management. Sign
+          in to access a complete suite of tools designed to streamline every
           aspect of your employee management processes.
         </p>
         <div>Let's Get Started</div>
@@ -131,7 +127,7 @@ const Login = () => {
               onChange={handleUserNameChange}
               required
             />
-            <label>User name</label>
+            <label>User Name</label>
             {errors.username && (
               <div className="invalid-feedback">{errors.username}</div>
             )}
@@ -139,13 +135,13 @@ const Login = () => {
 
           <div className="login-body-right-input">
             <span
-              onClick={togglePasswordVisibility}
+              // onClick={togglePasswordVisibility}
               className="login-body-right-input-icons"
             >
               {showPassword ? <FaEye /> : <FaEyeSlash />}
             </span>
             <input
-              className={errors.password ? "is-invalid" : ""}
+              className={`${errors.password ? "is-invalid" : ""}`}
               type={showPassword ? "text" : "password"}
               required
               value={password}
@@ -158,7 +154,7 @@ const Login = () => {
           </div>
 
           <div className="login-body-right-forget-password">
-            <p>Forget Password ?</p>
+            <p>Forget Password?</p>
           </div>
           <div className="login-signin">
             <button type="submit">Sign In</button>

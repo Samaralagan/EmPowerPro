@@ -6,25 +6,31 @@ import { IoCallSharp } from "react-icons/io5";
 import { JobData } from "../constants/temporary";
 import JobsTable from "./JobsTable";
 import Modal from "./Modal"; // Import the Modal component
-import { listVacancies } from "../../service/ApplyJobService";
-import axios from "axios";
+import { listApplicants, listVacancies } from "../../service/ApplyJobService";
 
 const Job = ({ setActiveComponent }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [checkedItems, setCheckedItems] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false); // Manage modal visibility
-  const [jobData, setJobData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const [vacancies, setVacancies] = useState([]);
+  const [jobApplications, setJobApplications] = useState([]);
+
   useEffect(() => {
     listVacancies()
       .then((response) => {
         setVacancies(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error("Error fetching vacancies:", error);
+      });
+
+    listApplicants() // Fetch job applications
+      .then((response) => {
+        setJobApplications(response.data); // Set fetched data
+      })
+      .catch((error) => {
+        console.error("Error fetching job applications:", error);
       });
   }, []);
 
@@ -33,16 +39,6 @@ const Job = ({ setActiveComponent }) => {
       prevVacancies.filter((vacancy) => vacancy.id !== id)
     );
   };
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const filteredJobData = searchTerm
-    ? jobData.filter((candidate) =>
-        candidate.jobPosition.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    : jobData;
 
   const handleAllCheckboxChange = (e) => {
     const isChecked = e.target.checked;
@@ -72,34 +68,19 @@ const Job = ({ setActiveComponent }) => {
     setActiveComponent("NewVacancy");
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:8080/api/v1/hr/jobApplication-getAll"
-        ); // Replace with your backend URL
-        setJobData(response.data); // Assuming response.data contains an array of jobs
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
-    <div className="contentbodyall1" style={{ width: "81vw" }}>
+    <div className="contentbodyall1">
       <br />
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div className="jobsTitle" style={{ fontSize: "16px" }}>
-          JOB VACANCIES
-        </div>
+        <div className="jobsTitle">JOB VACANCIES</div>
         <div
           className="contactus-form-button"
           style={{
             width: "33%",
             marginTop: "0%",
             marginBottom: "1rem",
-            marginLeft: "50%",
+            marginLeft: "34rem",
+            marginRight: "0rem",
           }}
         >
           <button
@@ -113,6 +94,27 @@ const Job = ({ setActiveComponent }) => {
         </div>
       </div>
 
+      {/* <Card1
+          title="User Experience Designer - Fully Remote"
+          variety="Creative & Art"
+          type="Full Time"
+          salary="$45 - $55"
+          countappilication="500+ applications"
+        />
+        <Card1
+          title="Android App Developer - Hybrid"
+          variety="Programming"
+          type="Full Time"
+          salary="$45 - $55"
+          countappilication="500+ applications"
+        />
+        <Card1
+          title="Intern Front-End Developer - Fully Remote"
+          variety="Creative & Art"
+          type="Full Time"
+          salary="$45 - $55"
+          countappilication="500+ applications"
+        /> */}
       {/* Add more Card1 components as needed */}
       <div className="cardsContainer">
         {vacancies.map((vacancy, index) => (
@@ -125,7 +127,7 @@ const Job = ({ setActiveComponent }) => {
             deadLine={new Date(
               vacancy.applicationDeadline
             ).toLocaleDateString()} // Assuming salary is a field in your vacancy object
-            countappilication="5000+ Applications" // Assuming countApplication is a field in your vacancy object
+            // Assuming countApplication is a field in your vacancy object
             onDelete={handleVacancyDelete}
           />
         ))}
@@ -141,14 +143,13 @@ const Job = ({ setActiveComponent }) => {
             // marginLeft: "33.5rem",
             alignItems: "center",
             position: "relative",
-            borderRadius: "15px",
           }}
         >
           <FaSearch className="search-icon" />
           <input
             className="border-inbox"
             type="text"
-            placeholder="Search Job Position"
+            placeholder="Search..."
             style={{
               paddingLeft: "29px",
               paddingRight: "8px",
@@ -156,8 +157,6 @@ const Job = ({ setActiveComponent }) => {
               paddingTop: "8px",
               fontSize: "16px",
             }}
-            value={searchTerm}
-            onChange={handleSearchChange}
           />
           <button
             style={{
@@ -170,7 +169,6 @@ const Job = ({ setActiveComponent }) => {
             Search
           </button>
         </div>
-
         <select
           className="form-select"
           aria-label="Default select example"
@@ -187,35 +185,29 @@ const Job = ({ setActiveComponent }) => {
           <option value="3">Part Time</option>
           <option value="4">On Demand</option>
         </select>
-
         <div
           className="contactus-form-button"
           style={{
             width: "33%",
             marginTop: "0%",
             marginBottom: "1rem",
-            marginLeft: "10%",
+            // marginLeft: "34rem",
+            marginRight: "0rem",
           }}
         >
-          <button
+          {/* <button
             className="gradient-blue-btn"
             style={{ color: "white" }}
             onClick={openModal}
           >
             <IoCallSharp className="me-2" />
             Call For Interview
-          </button>
+          </button> */}
         </div>
       </div>
-
       <div
         className="tablediv"
-        style={{
-          height: "18rem",
-          overflow: "auto",
-          scrollbarWidth: "none",
-          marginTop: "2vw",
-        }}
+        style={{ height: "18rem", overflow: "auto", scrollbarWidth: "none" }}
       >
         <table className="table table-hover">
           <thead>
@@ -230,24 +222,24 @@ const Job = ({ setActiveComponent }) => {
               </th>
               <th scope="col">Team Member</th>
               <th scope="col">Email</th>
-              <th scope="col">Job Position</th>
-              <th scope="col">Job Type</th>
+              <th scope="col">Job role</th>
+              <th scope="col">Status</th>
               <th scope="col"></th>
             </tr>
           </thead>
 
           <tbody>
-            {filteredJobData.map((candidate, index) => (
+            {jobApplications.map((applicant, index) => (
               <JobsTable
                 key={index}
-                name={candidate.firstName}
-                email={candidate.email}
-                jobType={candidate.jobType}
-                jobPosition={candidate.jobPosition}
-                candidateId={candidate.id}
+                name={`${applicant.firstName} ${applicant.lastName}`} // Combine firstName and lastName
+                job={applicant.vacancy.jobTitle} // Access jobTitle from vacancy
+                email={applicant.email} // Use email directly
+                type={applicant.vacancy.employmentType} // Access employmentType from vacancy
                 setActiveComponent={setActiveComponent}
-                isChecked={checkedItems[index] || false}
-                onCheckboxChange={(e) => handleCheckboxChange(index, e)}
+                filePath={applicant.resume}
+                isChecked={checkedItems[index] || false} // Handle checkbox state
+                onCheckboxChange={(e) => handleCheckboxChange(index, e)} // Handle checkbox change
               />
             ))}
           </tbody>

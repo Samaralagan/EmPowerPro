@@ -43,7 +43,7 @@ function Card1(props, { setActiveComponent }) {
   };
 
   return (
-    <div className="card1body">
+    <div className="card1body" style={{ width: "min-content" }}>
       {/* {props.test1} */}
       <div style={{ display: "flex" }}>
         <div className="darkbox">{props.title}</div>

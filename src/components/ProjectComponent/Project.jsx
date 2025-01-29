@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./Project.css";
 import Header from "../layout/Header";
 import { IoIosMore } from "react-icons/io";
+import { FaProjectDiagram } from "react-icons/fa";
 import { FaCalendarWeek } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import {
@@ -340,9 +341,9 @@ const Project = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem('agileProjectToggle', JSON.stringify(isToggled));
-  // }, [isToggled]);
+  useEffect(() => {
+    fetchProjectTask();
+  }, []);
 
   const handleSwitchChange = (event) => {
     const isChecked = event.target.checked;
@@ -433,9 +434,82 @@ const Project = () => {
     }
   };
 
-  // if (showMembersPopup) {
-  //   // fetchProjectEmployee();
-  // }
+  const userId = localStorage.getItem("userId");
+  const [tasks, setTasks] = useState([]);
+
+  const fetchProjectTask = async () => {
+    const url =
+      "http://localhost:8080/api/v1/teamlead/getProjectTaskByEmployeeId/" +
+      userId;
+    try {
+      const response = await fetch(url);
+
+      console.log("Response Status:", response.status);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched Data:", data);
+
+        console.log("data is", data);
+
+        setTasks(data);
+
+        if (!data || typeof data !== "object") {
+          console.error("Unexpected response format:", data);
+          return;
+        }
+
+        console.log("Processed Data:", data);
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+  };
+
+  const handleClickComplete = (id, title) => {
+    const url = `http://localhost:8080/api/v1/teamlead/updateProjectTask/${id}/check`;
+    try {
+      const response = fetch(url);
+
+      console.log("Response Status:", response.status);
+      handleClosePopup();
+      if (response.ok) {
+        const data = response.json();
+        window.alert(`Completed Task : ${title}`);
+
+        if (!data || typeof data !== "object") {
+          console.error("Unexpected response format:", data);
+          return;
+        }
+
+        console.log("Processed Data:", data);
+      } else {
+        console.error(
+          `Failed to fetch: HTTP ${response.status}, ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Fetch failed:", error.message);
+
+      if (error.name === "TypeError") {
+        console.error(
+          "Possible reasons: Network issue, incorrect URL, or CORS restriction."
+        );
+      }
+    }
+
+    window.location.reload();
+  };
 
   return (
     <div>
@@ -765,7 +839,7 @@ const Project = () => {
                     key={index}
                     className="project-box"
                     style={{
-                      minWidth: "300px",
+                      minWidth: "max-content",
                       flexShrink: 0,
                       padding: "1rem",
                       border: "1px solid #ccc",
@@ -849,7 +923,9 @@ const Project = () => {
                 >
                   Task Reviews
                 </button>
-                <span className="notification-badge">5</span>
+                <span className="notification-badge">
+                  {tasks.filter((card) => card.taskStatus === "check").length}
+                </span>
               </div>
 
               <div className="task-review-container">
@@ -894,7 +970,7 @@ const Project = () => {
                     </div>
                     <div className="project-card-content">
                       <p>{card.title} </p>
-                      <input type="checkbox" />
+                      {/* <input type="checkbox" /> */}
                     </div>
                     <div className="project-card-date">
                       <FaCalendarWeek className="me-2" />
@@ -921,7 +997,7 @@ const Project = () => {
                   </div>
                 )}
                 <div>
-                  {ProjectToDo.map((card, index) => (
+                  {tasks.map((card, index) => (
                     <div
                       className="project-card"
                       key={index}
@@ -948,13 +1024,13 @@ const Project = () => {
                         )}
                       </div> */}
                       <div className="project-card-content">
-                        <p>{card.title} </p>
-                        <input type="checkbox" />
+                        <p>{card.taskTitle} </p>
+                        {/* <input type="checkbox" /> */}
                       </div>
                       <div className="date-members">
                         <div className="project-card-date">
                           <FaCalendarWeek className="me-2" />
-                          {card.date}
+                          {card.dueDate}
                         </div>
 
                         {/* <div className="project-card-members">
@@ -1008,7 +1084,7 @@ const Project = () => {
                       <div className="project-card-content">
                         <div>
                           <div className="d-flex ">
-                            <input type="checkbox" className="mt-2 me-2" />
+                            {/* <input type="checkbox" className="mt-2 me-2" /> */}
                             <p>{card.title} </p>
                             {/* <p>{card.description} </p> */}
                           </div>
@@ -1106,7 +1182,7 @@ const Project = () => {
 
                   <div className="popup-top">
                     <FaRegStickyNote className="sticky" />
-                    <h4>{selectedCard?.title}</h4>
+                    <h4>{selectedCard?.taskTitle}</h4>
                   </div>
 
                   <p>
@@ -1203,12 +1279,12 @@ const Project = () => {
                         <div className="subtasks-container">
                           {selectedCard?.subtasks?.map((subtask, index) => (
                             <div className="subtask-item" key={index}>
-                              <input
+                              {/* <input
                                 type="checkbox"
                                 id={`subtask-${index}`}
                                 className="subtask-checkbox"
                                 // onClick={() => handleCheckboxClick(index)}
-                              />
+                              /> */}
                               <label
                                 htmlFor={`subtask-${index}`}
                                 className="subtask-label"
@@ -1233,48 +1309,49 @@ const Project = () => {
                 <IoIosMore className="project-box-top-icon" />
               </div>
               <div>
-                {ProjectToDo.map((card, index) => (
-                  <div
-                    className="project-card"
-                    key={index}
-                    onClick={() => handleCardClick(card)}
-                  >
-                    <div
-                      className="project-card-color-boxs"
-                      style={{ color: "white" }}
+                {tasks.filter((card) => card.taskStatus === "ToDo").length ===
+                0 ? (
+                  <center>
+                    <p
+                      style={{
+                        fontSize: "20px",
+                        color: "darkblue",
+                        border: "solid",
+                        padding: "6px 10px",
+                        borderRadius: "5px",
+                      }}
                     >
-                      Project Name
-                      {/* {card.green && (
+                      No Tasks to do
+                    </p>
+                  </center>
+                ) : (
+                  tasks.map((card, index) => (
+                    <>
+                      {card.taskStatus === "ToDo" && (
                         <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#16BD59" }}
-                        ></div>
-                      )}
-                      {card.orange && (
-                        <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#EE6401" }}
-                        ></div>
-                      )}
-                      {card.blue && (
-                        <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#2DA3B3" }}
-                        ></div>
-                      )} */}
-                    </div>
+                          className="project-card"
+                          key={index}
+                          onClick={() => handleCardClick(card)}
+                        >
+                          <div
+                            className="project-card-color-boxs"
+                            style={{ color: "white" }}
+                          >
+                            <FaProjectDiagram style={{ marginRight: "10px" }} />
+                            {"  "} {card.projectName}
+                          </div>
 
-                    <div className="project-card-content">
-                      <p>{card.title} </p>
-                      <input type="checkbox" />
-                    </div>
-                    <div className="date-members">
-                      <div className="project-card-date">
-                        <FaCalendarWeek className="me-2" />
-                        {card.date}
-                      </div>
+                          <div className="project-card-content">
+                            <p>Task : {card.taskTitle} </p>
+                            {/* <input type="checkbox" /> */}
+                          </div>
+                          <div className="date-members">
+                            <div className="project-card-date">
+                              <FaCalendarWeek className="me-2" />
+                              Due Date : {card.dueDate}
+                            </div>
 
-                      {/* <div className="project-card-members">
+                            {/* <div className="project-card-members">
                         <img
                           src={card.image1}
                           alt=""
@@ -1291,85 +1368,12 @@ const Project = () => {
                           className="project-card-member"
                         />
                       </div> */}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div div className="project-box">
-              <div className="project-box-top">
-                <p className="project-box-title"> In Progress</p>
-                <IoIosMore className="project-box-top-icon" />
-              </div>
-
-              <div>
-                {ProjectInProgress.map((card, index) => (
-                  <div
-                    className="project-card"
-                    key={index}
-                    onClick={() => handleCardClick(card)}
-                  >
-                    <div className="project-card-color-boxs">
-                      {card.green && (
-                        <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#16BD59" }}
-                        ></div>
-                      )}
-                      {card.orange && (
-                        <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#EE6401" }}
-                        ></div>
-                      )}
-                      {card.blue && (
-                        <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#2DA3B3" }}
-                        ></div>
-                      )}
-                    </div>
-
-                    <div className="project-card-content">
-                      <div>
-                        <div className="d-flex ">
-                          <input type="checkbox" className="mt-2 me-2" />
-                          <p>{card.title} </p>
-                          {/* <p>{card.description} </p> */}
+                          </div>
                         </div>
-                        {/* <div className="project-card-members">
-                          <img
-                            src={card.image1}
-                            alt=""
-                            className="project-card-member-progress"
-                          />
-                          <img
-                            src={card.image2}
-                            alt=""
-                            className="project-card-member-progress"
-                          />
-                          <img
-                            src={card.image3}
-                            alt=""
-                            className="project-card-member-progress"
-                          />
-                        </div> */}
-
-                        <div className="project-card-date">
-                          <FaCalendarWeek className="me-2" />
-                          {card.date}
-                        </div>
-                      </div>
-                      {/* <div className="project-card-circle">
-                        <p>
-                          {card.finish}/{card.total}
-                        </p>
-                        <div>In Progress.........</div>
-                      </div> */}
-                    </div>
-                  </div>
-                ))}
+                      )}
+                    </>
+                  ))
+                )}
               </div>
             </div>
 
@@ -1380,62 +1384,36 @@ const Project = () => {
               </div>
 
               <div>
-                {ProjectDone.map((card, index) => (
-                  <div
-                    className="project-card"
-                    style={{ opacity: 0.8 }}
-                    key={index}
-                    onClick={() => handleCardClick(card)}
-                  >
-                    <div className="project-card-color-boxs">
-                      {card.green && (
+                {tasks.map((card, index) => (
+                  <>
+                    {card.taskStatus !== "check" &&
+                      card.taskStatus !== "ToDo" && (
                         <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#16BD59" }}
-                        ></div>
-                      )}
-                      {card.orange && (
-                        <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#EE6401" }}
-                        ></div>
-                      )}
-                      {card.blue && (
-                        <div
-                          className="project-card-color-box"
-                          style={{ backgroundColor: "#2DA3B3" }}
-                        ></div>
-                      )}
-                    </div>
-                    <div className="project-card-content">
-                      <p>{card.title} </p>
-                    </div>
+                          className="project-card"
+                          style={{ opacity: 0.8 }}
+                          key={index}
+                          onClick={() => handleCardClick(card)}
+                        >
+                          <div
+                            className="project-card-color-boxs"
+                            style={{ color: "White", fontSize: "20px" }}
+                          >
+                            <FaProjectDiagram style={{ marginRight: "10px" }} />
+                            {"  "} {card.projectName}
+                          </div>
+                          <div className="project-card-content">
+                            <p>{card.taskTitle} </p>
+                          </div>
 
-                    <div className="date-members">
-                      <div className="project-card-date">
-                        <FaCalendarWeek className="me-2" />
-                        {card.date}
-                      </div>
-
-                      {/* <div className="project-card-members">
-                        <img
-                          src={card.image1}
-                          alt=""
-                          className="project-card-member"
-                        />
-                        <img
-                          src={card.image2}
-                          alt=""
-                          className="project-card-member"
-                        />
-                        <img
-                          src={card.image3}
-                          alt=""
-                          className="project-card-member"
-                        />
-                      </div> */}
-                    </div>
-                  </div>
+                          <div className="date-members">
+                            <div className="project-card-date">
+                              <FaCalendarWeek className="me-2" />
+                              {card.dueDate}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                  </>
                 ))}
               </div>
             </div>
@@ -1453,12 +1431,12 @@ const Project = () => {
 
             <div className="popup-top">
               <FaRegStickyNote className="sticky" />
-              <h4>{selectedCard?.title}</h4>
+              <h4>{selectedCard?.taskTitle}</h4>
             </div>
 
             <p>
               <span className="description-label">Description:</span> <br />
-              {selectedCard?.description}
+              {selectedCard?.taskDescription}
             </p>
 
             <>
@@ -1625,14 +1603,29 @@ const Project = () => {
             </p> */}
             <p>
               <span className="description-label">Date:</span> <br />
-              {selectedCard?.date}
+              {selectedCard?.dueDate}
             </p>
 
-            {selectedCard?.status !== "ToDo" && (
+            {selectedCard?.taskStatus !== "ToDo" && (
               <p>
                 <span className="description-label">Review:</span> <br />
-                {selectedCard?.review}
+                {selectedCard?.taskStatus}
               </p>
+            )}
+            {selectedCard?.taskStatus === "ToDo" && (
+              <center>
+                <button
+                  className="add-member-button"
+                  onClick={() =>
+                    handleClickComplete(
+                      selectedCard?.id,
+                      selectedCard?.taskTitle
+                    )
+                  }
+                >
+                  Complete
+                </button>
+              </center>
             )}
 
             {showNestedPopup && (
@@ -1661,12 +1654,12 @@ const Project = () => {
                   <div className="subtasks-container">
                     {selectedCard?.subtasks?.map((subtask, index) => (
                       <div className="subtask-item" key={index}>
-                        <input
+                        {/* <input
                           type="checkbox"
                           id={`subtask-${index}`}
                           className="subtask-checkbox"
                           // onClick={() => handleCheckboxClick(index)}
-                        />
+                        /> */}
 
                         {role === "TeamLeader" && (
                           <div className="view-all-details-icons">

@@ -5,8 +5,11 @@ import { FaPlus } from "react-icons/fa";
 import { BsUpload } from "react-icons/bs";
 import { useDropzone } from "react-dropzone";
 import { useEffect, useCallback } from "react";
+import axios from "axios";
+import { useParams, useNavigation, useNavigate } from "react-router-dom";
 
 const VacancyApplyForm = () => {
+  const { id } = useParams();
   const [countries, setCountries] = useState([]);
   const namePattern = /^[A-Za-z]+$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -14,14 +17,16 @@ const VacancyApplyForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
+    vacancyId: id,
     firstName: "",
     lastName: "",
     address: "",
-    postalcode: "",
     city: "",
     country: "",
-    phone: "",
+    phoneNumber: "",
     email: "",
     resume: "",
     countryCode: "", // Added countryCode field
@@ -35,7 +40,7 @@ const VacancyApplyForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     console.log("button triggered");
     e.preventDefault();
     const newErrors = {};
@@ -52,10 +57,10 @@ const VacancyApplyForm = () => {
       newErrors.lastName = "Last Name can only contain letters!";
     }
 
-    if (!formData.phone) {
-      newErrors.phone = "Please enter your phone number!";
-    } else if (!phonePattern.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid Phone number!";
+    if (!formData.phoneNumber) {
+      newErrors.phoneNumber = "Please enter your phone number!";
+    } else if (!phonePattern.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Please enter a valid Phone number!";
     }
 
     if (!formData.email) {
@@ -67,9 +72,6 @@ const VacancyApplyForm = () => {
     if (!formData.address)
       newErrors.address = "Please enter your Street Address!";
 
-    if (!formData.postalcode)
-      newErrors.postalcode = " Please enter your Postal code";
-
     if (!formData.city) newErrors.city = " Please enter your City";
 
     if (!formData.country) newErrors.country = " Please select your Country!";
@@ -80,17 +82,30 @@ const VacancyApplyForm = () => {
     console.log(errors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log(formData);
-      // Send data to backend
-      // axios
-      //   .post("/api/submit-application", formData)
-      //   .then((response) => {
-      //     alert("Application submitted successfully!");
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error submitting application:", error);
-      //     alert("There was an error. Please try again.");
-      //   });
+      try {
+        console.log(formData);
+        const authToken = localStorage.getItem("token");
+
+        const response = await axios.post(
+          "http://localhost:8080/api/user/applyJob-creation", // Update to the correct endpoint
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${authToken}`, // Include the token
+            },
+          }
+        );
+
+        alert("Application submitted successfully!");
+        navigate(-1);
+        // Optionally reset the form
+      } catch (error) {
+        console.error("Error submitting application:", error);
+        alert(
+          "There was an error submitting your application. Please try again."
+        );
+      }
     }
   };
 
@@ -184,21 +199,6 @@ const VacancyApplyForm = () => {
         </div>
 
         <div className="row">
-          <div className="col-3">
-            <Form.Group>
-              <FormControl
-                required
-                name="postalcode"
-                onChange={handleChange}
-                type="number"
-                placeholder="Postal code"
-                className="vacancy-apply-form-input"
-              />
-              <Form.Control.Feedback type="invalid">
-                Please enter your Postal code
-              </Form.Control.Feedback>
-            </Form.Group>
-          </div>
           <div className="col-4">
             <Form.Group>
               <FormControl
@@ -261,7 +261,7 @@ const VacancyApplyForm = () => {
             <Form.Group>
               <FormControl
                 required
-                name="phone"
+                name="phoneNumber"
                 onChange={handleChange}
                 type="text"
                 placeholder="Phone number"
@@ -303,6 +303,12 @@ const VacancyApplyForm = () => {
             )}
             <div>Upload</div>
           </div>
+        </div>
+
+        <div className="form-group mt-5 mb-2 d-flex">
+          <button type="submit" className="vacancy-apply-form-submit">
+            SUBMIT APPLICATION{" "}
+          </button>
         </div>
       </Form>
     </div>

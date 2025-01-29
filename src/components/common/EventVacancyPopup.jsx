@@ -43,7 +43,11 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal, id }) => {
   var mainPath = "";
   const navigation = useNavigate();
   const handleApply = () => {
-    navigation("/VacancyApplyForm");
+    if (id) {
+      navigation(`/VacancyApplyForm/${id}`); // Pass id as a route parameter
+    } else {
+      console.error("Vacancy ID is missing!");
+    }
   };
 
   useEffect(() => {
@@ -116,8 +120,8 @@ const EventVacancyPopup = ({ modalIsOpen, closeModal, id }) => {
                   Avg Salary
                   <div className="vacancy-popup-left-icons mt-3">
                     <p>
-                      {" "}
-                      ${vacancyDetails.minSalary} - ${vacancyDetails.maxSalary}
+                      RS.{vacancyDetails.minSalary} - RS.
+                      {vacancyDetails.maxSalary}
                     </p>
                   </div>
                   <FaClipboardCheck className="fs-4" /> Requirements:

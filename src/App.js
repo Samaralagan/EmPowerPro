@@ -87,7 +87,11 @@ function App() {
           {/* <Vacancy_Apply_Form/> */}
           <Route path="/" element={<HomePage />} />
           <Route path="/Login" element={<LoginPage />} />
-          <Route path="/VacancyApplyForm" element={<Vacancy_Apply_Form />} />
+          <Route
+            path="/VacancyApplyForm/:id"
+            element={<Vacancy_Apply_Form />}
+          />
+
           <Route path="/" element={<Layout />}>
             <Route
               path="/Dash Board/Employee"
@@ -218,7 +222,7 @@ function App() {
             <Route
               exact
               path="/Beneficiary/HR/:id"
-              element={<Complaintsmore />}
+              element={<CanceledClaimForm />}
             />
 
             <Route exact path="/leave/request/:id" element={<LeavePending />} />

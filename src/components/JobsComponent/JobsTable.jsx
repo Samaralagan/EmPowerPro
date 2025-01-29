@@ -8,6 +8,7 @@ const JobsTable = ({
   name,
   email,
   job,
+  filePath,
   type,
   setActiveComponent,
   isChecked,
@@ -17,6 +18,14 @@ const JobsTable = ({
 
   const handleviewprofile = () => {
     setActiveComponent("Profile");
+  };
+
+  const handleViewResume = () => {
+    // Open the file using the backend endpoint
+    const downloadUrl = `http://localhost:8080/api/v1/hr/complaint-file?filePath=${encodeURIComponent(
+      filePath
+    )}`;
+    window.open(downloadUrl, "_blank");
   };
 
   return (
@@ -39,7 +48,7 @@ const JobsTable = ({
           className="button1"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          // onClick={handleviewprofile}
+          onClick={handleViewResume}
         >
           {hover ? <FaArrowAltCircleRight /> : "View Resume"}
         </div>

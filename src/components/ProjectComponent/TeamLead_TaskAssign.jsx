@@ -133,7 +133,7 @@ function TeamLead_TaskAssign() {
       taskTitle: title,
       taskDescription: description,
       taskStatus: "ToDo",
-      members: [selectedMember],
+      members: selectedMember,
       dueDate: dueDate,
       dueTime: dueTime,
       dateReminder: "2025-02-09",
@@ -180,9 +180,11 @@ function TeamLead_TaskAssign() {
 
   const [allProject, setAllProject] = useState([]);
   let arr = [];
+  const userId = localStorage.getItem("userId");
+  // const [tasks, setTasks] = useState([]);
   const fetchProject = async () => {
     const url =
-      "http://localhost:8080/api/v1/executive/getProjectByTeamLeadId/5";
+      "http://localhost:8080/api/v1/executive/getProjectByTeamLeadId/" + userId;
     try {
       const response = await fetch(url);
 
@@ -259,6 +261,7 @@ function TeamLead_TaskAssign() {
 
   useEffect(() => {
     fetchProject(); // Assume this fetches and sets the project data.
+    fetchProjectEmployee();
   }, []);
 
   return (
@@ -266,7 +269,16 @@ function TeamLead_TaskAssign() {
       <div className="remain-box">
         <h2 className="full-box-title">Recent Projects</h2>
 
-        <div className="project-row">
+        <div
+          className="project-row"
+          style={{
+            display: "flex",
+            gap: "35px",
+            overflowX: "auto",
+            paddingBottom: "10px",
+            scrollbarWidth: "none",
+          }}
+        >
           {!allProject ? (
             <p>Loading</p>
           ) : (
@@ -275,6 +287,7 @@ function TeamLead_TaskAssign() {
                 key={index}
                 className="project-box"
                 onClick={() => handleProjectClick(project)}
+                style={{ flex: "0 0 auto", width: "max-content" }}
               >
                 <div className="project-name-row">
                   <div
@@ -326,22 +339,23 @@ function TeamLead_TaskAssign() {
                 </div>
 
                 {/* <div className="project-detail-row">
-                  <p className="project-subdetail">Team Members : </p>
-                </div> */}
+          <p className="project-subdetail">Team Members : </p>
+        </div> */}
 
                 {/* <div className="project-detail-team-members">
-                  {project.teamMembers.map((member, memberIndex) => (
-                    <img
-                      key={memberIndex}
-                      src={member.avatarUrl}
-                      alt={member.name}
-                    />
-                  ))}
-                </div> */}
+          {project.teamMembers.map((member, memberIndex) => (
+            <img
+              key={memberIndex}
+              src={member.avatarUrl}
+              alt={member.name}
+            />
+          ))}
+        </div> */}
               </div>
             ))
           )}
         </div>
+
         {/* Popup for the selected project */}
         {selectedProject && (
           <div className="popup-overlay">
@@ -438,7 +452,12 @@ function TeamLead_TaskAssign() {
                               ))}
                           </div>
 
-                          <button className="add-member-button">ADD</button>
+                          <button
+                            className="add-member-button"
+                            onClick={toggleMembersPopup}
+                          >
+                            ADD
+                          </button>
                         </div>
                       </div>
                     )}
@@ -485,6 +504,12 @@ function TeamLead_TaskAssign() {
                               step="1"
                             />
                           </div>
+                          <button
+                            className="add-member-button"
+                            onClick={toggleDatesPopup}
+                          >
+                            ADD
+                          </button>
 
                           {/* <div className="reminder-selection">
                             <label>Set due date reminder</label>
